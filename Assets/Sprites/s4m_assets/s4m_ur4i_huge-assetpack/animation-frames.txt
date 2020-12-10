@@ -1,0 +1,28 @@
+Animations of the main character in Frames 20x24:
+First frame is index 0.
+
+
+DashRight: 8
+DashLeft: 9
+Item: 10
+Sleep: 32,33,34,35
+attack: 40
+fishing: 28,29
+fishingPull: 30
+hurt: 41
+controllingDrone / playing game: 20,21,20,22,23,22
+Digging: 16,17,17,17,18,19
+run: 4,4,7,6,5,5,6,7
+idle: 0,1,2,1
+swim: 12,13,14,13
+jump: 4
+fall: 11
+--- newly added: ---
+LookingAtMap: 31
+die: 36,37,38,39
+rest: 43,
+push: 40,
+blowback: 41,
+boomerang (weapon): 19
+ladder: 44,45,46,45
+ReservedForFX (Dash, shake): 42
