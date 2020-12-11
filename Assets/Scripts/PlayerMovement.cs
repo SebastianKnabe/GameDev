@@ -9,26 +9,28 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask platformMask;
 
     private BoxCollider2D boxCollider2D;
+    private Rigidbody2D rb;
     private float rayCastOffset = 0.05f;
 
     // Start is called before the first frame update
     void Start() {
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update() {
-        Jump();
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y, 0f);
+        rb.velocity = movement;
 
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        transform.position += movement * Time.deltaTime * moveSpeed;
+        Jump();
     }
 
     void Jump() {
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
             Debug.Log("JUMP");
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
 
