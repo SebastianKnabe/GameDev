@@ -6628,7 +6628,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  sprintSpeed: 20
   jumpForce: 20
+  backToGroundSpeed: -0.3
   platformMask:
     serializedVersion: 2
     m_Bits: 256

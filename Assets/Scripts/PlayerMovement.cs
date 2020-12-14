@@ -2,25 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float sprintSpeed = 20f;
     public float jumpForce = 10f;
+    public float backToGroundSpeed = -0.3f;
+   
     [SerializeField] LayerMask platformMask;
-
+    
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D rb;
     private float rayCastOffset = 0.05f;
+
 
     // Start is called before the first frame update
     void Start() {
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update() {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y, 0f);
+        float speed =  Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : moveSpeed;
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
         rb.velocity = movement;
 
         Jump();
@@ -32,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("JUMP");
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
+        if(Input.GetKey(KeyCode.S) && !isGrounded()){
+            rb.AddForce(new Vector2(0f, backToGroundSpeed), ForceMode2D.Impulse);
+        }
+
     }
 
     private bool isGrounded()
