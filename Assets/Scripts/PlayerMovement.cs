@@ -9,24 +9,35 @@ public class PlayerMovement : MonoBehaviour
     public float sprintSpeed = 20f;
     public float jumpForce = 10f;
     public float backToGroundSpeed = -0.3f;
-   
+       
+
     [SerializeField] LayerMask platformMask;
-    
+
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D rb;
     private float rayCastOffset = 0.05f;
-
+    private static staminaRefillScript staminaRefillScript;
 
     // Start is called before the first frame update
     void Start() {
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+        staminaRefillScript = GameObject.FindObjectOfType<staminaRefillScript>();
+      
 
     }
 
     // Update is called once per frame
     void Update() {
-        float speed =  Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : moveSpeed;
+
+        float speed =  moveSpeed;
+        if(Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
+        {
+            speed = sprintSpeed;
+        }else{
+            staminaRefillScript.requestSprint(false);
+        }
+
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
         rb.velocity = movement;
 
