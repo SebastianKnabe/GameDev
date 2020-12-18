@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 10f;
     public float backToGroundSpeed = -0.3f;
        
-
     [SerializeField] LayerMask platformMask;
 
     private BoxCollider2D boxCollider2D;
@@ -23,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         staminaRefillScript = GameObject.FindObjectOfType<staminaRefillScript>();
-      
-
     }
 
     // Update is called once per frame

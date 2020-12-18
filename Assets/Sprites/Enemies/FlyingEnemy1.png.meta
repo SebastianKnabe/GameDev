@@ -1,34 +1,43 @@
 fileFormatVersion: 2
-guid: 1d40bca1872ea15429351683d67c5f10
+guid: 389ce474648ea4f4aa71bd2af9c96abe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1794698228030297586
-    second: HealthbarSprite_0
+      213: -3497876632078951730
+    second: FlyingEnemy1_0
   - first:
-      213: -5507222347809633420
-    second: HealthbarSprite_1
+      213: -2058820734031820201
+    second: FlyingEnemy1_1
   - first:
-      213: -7209332236702413617
-    second: HealthbarHealth
+      213: 2332791304429833872
+    second: FlyingEnemy1_2
   - first:
-      213: -1107635655226740967
-    second: HealthbarBackground
+      213: -6305139726529678058
+    second: FlyingEnemy1_3
   - first:
-      213: 6488744021820108585
-    second: HealthbarStamina
+      213: -8075404704812221270
+    second: FlyingEnemy1_4
   - first:
-      213: 4561009902394336212
-    second: HealthbarSprite_5
+      213: -1921694080018314139
+    second: FlyingEnemy1_5
   - first:
-      213: 6323680631353556665
-    second: HealthbarFrame
+      213: 8333274548672836111
+    second: FlyingEnemy1_6
   - first:
-      213: 430968121004576355
-    second: HealthbarBackground_Stamina
+      213: 5423725002775136863
+    second: FlyingEnemy1_7
   - first:
-      213: -8772449426130315939
-    second: HealthbarSprite_8
+      213: -4791974299445478299
+    second: FlyingEnemy1_8
+  - first:
+      213: -9169128639308916662
+    second: FlyingEnemy1_9
+  - first:
+      213: 7197748188564494483
+    second: FlyingEnemy1_10
+  - first:
+      213: 8406827921168770047
+    second: FlyingEnemy1_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,10 +78,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,181 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthbarSprite_0
+      name: FlyingEnemy1_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 182
-        width: 73
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0a2b376873f717e0800000000000000
-      internalID: -1794698228030297586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthbarSprite_1
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 173
-        width: 73
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47bc6b3047a6293b0800000000000000
-      internalID: -5507222347809633420
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthbarHealth
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 164
-        width: 73
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcc8493078e43fb90800000000000000
-      internalID: -7209332236702413617
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthbarBackground
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 155
-        width: 73
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91f27a57d33e0a0f0800000000000000
-      internalID: -1107635655226740967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthbarStamina
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 151
-        width: 72
-        height: 2
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92fe60b1f46ac0a50800000000000000
-      internalID: 6488744021820108585
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthbarSprite_5
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 115
-        width: 89
+        x: 0
+        y: 60
+        width: 16
         height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d3e0494756fb4f30800000000000000
-      internalID: 4561009902394336212
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthbarFrame
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 134
-        width: 89
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9beb8d8a70a32c750800000000000000
-      internalID: 6323680631353556665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthbarBackground_Stamina
-      rect:
-        serializedVersion: 2
-        x: 94
-        y: 150
-        width: 73
-        height: 3
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36ecef1093b1bf500800000000000000
-      internalID: 430968121004576355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthbarSprite_8
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 164
-        width: 73
-        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +149,239 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d555c61b9bff14680800000000000000
-      internalID: -8772449426130315939
+      spriteID: eca5bc45cbb057fc0800000000000000
+      internalID: -3497876632078951730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 60
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75a03d353799d63e0800000000000000
+      internalID: -2058820734031820201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_2
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 60
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e09abe45dbf5020800000000000000
+      internalID: 2332791304429833872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 60
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615bef423d4af78a0800000000000000
+      internalID: -6305139726529678058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 30
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac3620d4366eef80800000000000000
+      internalID: -8075404704812221270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_5
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 30
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c89817a65c455e0800000000000000
+      internalID: -1921694080018314139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_6
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 30
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02b279ec0db5a370800000000000000
+      internalID: 8333274548672836111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_7
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 30
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a01d56721f44b40800000000000000
+      internalID: 5423725002775136863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c30cc73cc7f7db0800000000000000
+      internalID: -4791974299445478299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_9
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48912a2516b0c080800000000000000
+      internalID: -9169128639308916662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_10
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398191a97d983e360800000000000000
+      internalID: 7197748188564494483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingEnemy1_11
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3a919f37d0ba470800000000000000
+      internalID: 8406827921168770047
       vertices: []
       indices: 
       edges: []
