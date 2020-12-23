@@ -8,6 +8,9 @@ public class Entity : MonoBehaviour
     public GameObject healthbar;
 
     private float currentHitPoints;
+    public bool dropEnabled;
+    public Transform spawnDrop; 
+    public GameObject dropObject;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,10 @@ public class Entity : MonoBehaviour
     public void death()
     {
         //TODO
+        if(dropEnabled){
+            Instantiate(dropObject, spawnDrop.position, spawnDrop.rotation);
+        }
+        Destroy(this.gameObject);
     }
 
     private void updateHealthbar()
