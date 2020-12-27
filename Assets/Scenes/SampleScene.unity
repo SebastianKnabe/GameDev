@@ -374,6 +374,11 @@ PrefabInstance:
       propertyPath: dropEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8499016235386653757, guid: 6707b7155dd0e174baf002a00f41ca7e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8499016235386653758, guid: 6707b7155dd0e174baf002a00f41ca7e,
         type: 3}
       propertyPath: m_RootOrder
@@ -429,7 +434,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8499016235386653756, guid: 6707b7155dd0e174baf002a00f41ca7e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6707b7155dd0e174baf002a00f41ca7e, type: 3}
 --- !u!1 &1330078905
 GameObject:
@@ -6578,6 +6584,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1365906717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8499016235386653753, guid: 6707b7155dd0e174baf002a00f41ca7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1281299322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1365906718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365906717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db006656232795c4b869c7d2c1126fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 10
+  healthbar: {fileID: 1050641788}
+  dropEnabled: 1
+  spawnDrop: {fileID: 172079355}
+  dropObject: {fileID: 5330158557571839294, guid: 331e402b8dc00164a80e21b1ed121aeb,
+    type: 3}
+--- !u!114 &1365906722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365906717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ab5f7c5676c7c4480e56a3c52499fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &1408689633 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1213725048936371536, guid: 0bdeeb7f7fbdea445a358dcd57599a0d,
@@ -6663,8 +6706,8 @@ GameObject:
   - component: {fileID: 1674275266}
   - component: {fileID: 1674275269}
   - component: {fileID: 1674275270}
-  - component: {fileID: 1674275271}
   - component: {fileID: 1674275272}
+  - component: {fileID: 1674275273}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6768,7 +6811,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1674275265}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8c5cdbd149aa27248aa5b02c1c0a51d6, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6804,23 +6847,6 @@ MonoBehaviour:
   platformMask:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &1674275271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674275265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b4d3082d6b83f04a814162a83c0e9c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHitPoints: 10
-  healthbar: {fileID: 1408689633}
-  dropEnabled: 0
-  spawnDrop: {fileID: 0}
-  dropObject: {fileID: 0}
 --- !u!114 &1674275272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6838,6 +6864,21 @@ MonoBehaviour:
     type: 3}
   bulletStart: {fileID: 93787801}
   bulletSpeed: 60
+--- !u!114 &1674275273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674275265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ba6867a6492a64b923c672d5c2c9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 10
+  healthbar: {fileID: 1408689633}
+  spriteRenderer: {fileID: 1674275267}
 --- !u!1 &1717800872
 GameObject:
   m_ObjectHideFlags: 0

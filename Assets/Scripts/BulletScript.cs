@@ -33,7 +33,7 @@ public class BulletScript : MonoBehaviour
     
         if(other.tag == "Enemy"){
           
-           other.gameObject.GetComponent<Entity>().takeDamage(damage);
+           other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
            Destroy(this.gameObject);
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class EnemyEntity : MonoBehaviour
 {
     public float maxHitPoints;
     public GameObject healthbar;
