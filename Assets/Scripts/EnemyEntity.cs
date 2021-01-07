@@ -9,8 +9,6 @@ public class EnemyEntity : MonoBehaviour
 
     private float currentHitPoints;
     public bool dropEnabled;
-    public Transform spawnDrop; 
-    public GameObject dropObject;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +38,7 @@ public class EnemyEntity : MonoBehaviour
     {
         //TODO
         if(dropEnabled){
-            Instantiate(dropObject, spawnDrop.position, spawnDrop.rotation);
+            gameObject.GetComponent<DropLootScript>().dropLoot();
         }
         Destroy(this.gameObject);
     }
