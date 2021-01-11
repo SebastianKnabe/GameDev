@@ -76,7 +76,7 @@ public class FollowAI : MonoBehaviour
              */
             else
             {
-                randomDirectionTimer = roamTimer;
+                randomDirectionTimer += roamTimer;
             }
             
         }
@@ -99,16 +99,25 @@ public class FollowAI : MonoBehaviour
     //TODO richtiger Kreis/Breich zeichnen
     private void OnDrawGizmos()
     {
+        drawRoamRange();
+        drawSightRange();
+    }
+
+    private void drawRoamRange()
+    {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(startingPoint + new Vector2(0, 1) * roamRange, startingPoint + new Vector2(1, 0) * roamRange);
         Gizmos.DrawLine(startingPoint + new Vector2(0, -1) * roamRange, startingPoint + new Vector2(-1, 0) * roamRange);
         Gizmos.DrawLine(startingPoint + new Vector2(-1, 0) * roamRange, startingPoint + new Vector2(0, 1) * roamRange);
         Gizmos.DrawLine(startingPoint + new Vector2(1, 0) * roamRange, startingPoint + new Vector2(0, -1) * roamRange);
+    }
 
+    private void drawSightRange()
+    {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position + new Vector3(0, 1) * roamRange, transform.position + new Vector3(1, 0) * roamRange);
-        Gizmos.DrawLine(transform.position + new Vector3(0, -1) * roamRange, transform.position + new Vector3(-1, 0) * roamRange);
-        Gizmos.DrawLine(transform.position + new Vector3(-1, 0) * roamRange, transform.position + new Vector3(0, 1) * roamRange);
-        Gizmos.DrawLine(transform.position + new Vector3(1, 0) * roamRange, transform.position + new Vector3(0, -1) * roamRange);
+        Gizmos.DrawLine(transform.position + new Vector3(0, 1) * sightRange, transform.position + new Vector3(1, 0) * sightRange);
+        Gizmos.DrawLine(transform.position + new Vector3(0, -1) * sightRange, transform.position + new Vector3(-1, 0) * sightRange);
+        Gizmos.DrawLine(transform.position + new Vector3(-1, 0) * sightRange, transform.position + new Vector3(0, 1) * sightRange);
+        Gizmos.DrawLine(transform.position + new Vector3(1, 0) * sightRange, transform.position + new Vector3(0, -1) * sightRange);
     }
 }
