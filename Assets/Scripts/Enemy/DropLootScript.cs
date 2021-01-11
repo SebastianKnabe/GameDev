@@ -22,6 +22,7 @@ public class DropLootScript : MonoBehaviour
     void Start()
     {
         spawnPosition = gameObject.transform;
+
         //Falls Items keine Lootchance haben, wird default value hinzugefuegt.
         while(lootItem.Count > dropWeights.Count)
         {
@@ -42,7 +43,6 @@ public class DropLootScript : MonoBehaviour
         float randomNumber = Random.Range(0, maxLootWeight);
 
         float lootChance = 0f;
-        Debug.Log(TAG + "randomNumber = " + randomNumber);
         for(int i = 0; i < lootItem.Count;i++)
         {
             lootChance += dropWeights[i];

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyHealtbarRescaleScript : MonoBehaviour
 {
-    private float positionFloat = 0f;
-
     void Start()
     {
         rescaleHealthbar();

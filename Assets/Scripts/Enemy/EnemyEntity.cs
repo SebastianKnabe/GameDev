@@ -46,6 +46,15 @@ public class EnemyEntity : MonoBehaviour
     private void updateHealthbar()
     {
         float healthbarRatio = currentHitPoints / maxHitPoints;
-        healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
+        if(healthbarRatio == 1f)
+        {
+            healthbar.SetActive(false);
+        }
+        else
+        {
+            healthbar.SetActive(true);
+            healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
+        }
+        
     }
 }
