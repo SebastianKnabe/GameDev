@@ -6575,6 +6575,24 @@ MonoBehaviour:
   maxHitPoints: 10
   healthbar: {fileID: 1050641788}
   dropEnabled: 1
+--- !u!114 &1365906719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365906717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9adbccd6f39495744b1b4c2649617838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1674275268}
+  followSpeed: 10
+  roamSpeed: 5
+  sightRange: 15
+  roamRange: 20
+  roamTimer: 2
 --- !u!114 &1365906722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6606,26 +6624,6 @@ MonoBehaviour:
   dropWeights:
   - 1
   - 1
---- !u!114 &1365906724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365906717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01eb11f722400d45bb4e7d92ab7866a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1674275268}
-  moveSpeed: 1
-  roamRange: 2
-  followRange: 0
-  options:
-  - Nothing
-  - Roaming
-  - Following
 --- !u!1 &1408689633 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1213725048936371536, guid: 0bdeeb7f7fbdea445a358dcd57599a0d,

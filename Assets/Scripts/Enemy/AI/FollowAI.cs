@@ -2,20 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Die FollowAi erlaubt es einen Gegner den Spieler zu verfolgen
+ * sobald er im Sichtradius(SightRange) ist.
+ * Ist der Gegner zuweit von seinem Startpunkt(startingPoint) entfernt,
+ * kehrt er langsam in sein Startbereich zurück.
+ */
 public class FollowAI : MonoBehaviour
 {
     public Transform player;
-    public float moveSpeed = 5f;
+    public float followSpeed = 10f;
+    public float roamSpeed = 5f;
     public float sightRange = 5f;
+    public float roamRange = 5f;
+    public float roamTimer = 5f;
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    private Vector2 roamDirection;
+    private Vector2 startingPoint;
     private float sightCheck;
+    private float randomDirectionTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        startingPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -23,8 +36,7 @@ public class FollowAI : MonoBehaviour
     {
         Vector3 direction = player.position - transform.position;
         sightCheck = direction.magnitude;
-        direction.Normalize();
-        movement = direction;
+        movement = direction.normalized;
     }
 
     private void FixedUpdate()
@@ -34,15 +46,69 @@ public class FollowAI : MonoBehaviour
 
     void moveCharacter(Vector2 direction)
     {
+        //Spieler ist im Sichtbereich
         if(sightCheck < sightRange)
         {
-            rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+            Debug.Log("follow Player");
+            rb.MovePosition((Vector2)transform.position + (direction * followSpeed * Time.deltaTime));
+        }
+        else 
+        {
+            Debug.Log("roam");
+            Vector2 roamPosition = (Vector2)transform.position + (randomDirection() * roamSpeed * Time.deltaTime);
+
+            //Der Gegner schaut ob er noch in der Nähe seines Startpunktes ist
+            if((roamPosition - startingPoint).magnitude < roamRange)
+            {
+                rb.MovePosition(roamPosition);
+            }
+            /*
+             * Der Gegner ist in diesem Fall außerhalb seines Bereiches. Jetzt schaut er ob die neue roamPosition 
+             * näher am Startbereich ist.
+             */
+            else if ((roamPosition - startingPoint).magnitude < ((Vector2) transform.position - startingPoint).magnitude)
+            {
+                rb.MovePosition(roamPosition);
+            }
+            /*
+             * In diesem Fall hat der Gegner kein gültiges Ziel. Der Timer für die RandomDirection wird auf den maximal
+             * Wert gesetzt, um eine neue Position zu erhalten.
+             */
+            else
+            {
+                randomDirectionTimer = roamTimer;
+            }
+            
         }
     }
 
-    //Zeichnet den Sichtradius des Gegners
+    private Vector2 randomDirection()
+    {
+        if(randomDirectionTimer > roamTimer)
+        {
+            roamDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            randomDirectionTimer = 0f;
+        } else
+        {
+            randomDirectionTimer += Time.fixedDeltaTime;
+        }
+        return roamDirection;
+    }
+  
+    //Zeichnet grob den Sichtradius des Gegners
+    //TODO richtiger Kreis/Breich zeichnen
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(startingPoint + new Vector2(0, 1) * roamRange, startingPoint + new Vector2(1, 0) * roamRange);
+        Gizmos.DrawLine(startingPoint + new Vector2(0, -1) * roamRange, startingPoint + new Vector2(-1, 0) * roamRange);
+        Gizmos.DrawLine(startingPoint + new Vector2(-1, 0) * roamRange, startingPoint + new Vector2(0, 1) * roamRange);
+        Gizmos.DrawLine(startingPoint + new Vector2(1, 0) * roamRange, startingPoint + new Vector2(0, -1) * roamRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position + new Vector3(0, 1) * roamRange, transform.position + new Vector3(1, 0) * roamRange);
+        Gizmos.DrawLine(transform.position + new Vector3(0, -1) * roamRange, transform.position + new Vector3(-1, 0) * roamRange);
+        Gizmos.DrawLine(transform.position + new Vector3(-1, 0) * roamRange, transform.position + new Vector3(0, 1) * roamRange);
+        Gizmos.DrawLine(transform.position + new Vector3(1, 0) * roamRange, transform.position + new Vector3(0, -1) * roamRange);
     }
 }
