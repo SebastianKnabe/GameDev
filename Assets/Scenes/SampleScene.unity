@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93787801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1674275268}
@@ -402,6 +402,11 @@ PrefabInstance:
     - target: {fileID: 8499016235386653758, guid: 6707b7155dd0e174baf002a00f41ca7e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499016235386653759, guid: 6707b7155dd0e174baf002a00f41ca7e,
+        type: 3}
+      propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -6593,6 +6598,26 @@ MonoBehaviour:
   sightRange: 15
   roamRange: 20
   roamTimer: 2
+  showRangeGizmo: 1
+--- !u!95 &1365906720
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365906717}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25e07cc1775a48a4b9ead4420e66c9b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1365906722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6711,6 +6736,7 @@ GameObject:
   - component: {fileID: 1674275270}
   - component: {fileID: 1674275272}
   - component: {fileID: 1674275273}
+  - component: {fileID: 1674275271}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6778,13 +6804,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7559803418071048647, guid: a2ad1d1ba430eb848b1e21c63387123d,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a5c2f3ca4ae14e7e91149316db1e054, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.5, y: 5.375}
+  m_Size: {x: 0.8, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -6818,18 +6843,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.27723265, y: 0}
+  m_Offset: {x: 0.45605755, y: -0.66094255}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.5, y: 5.375}
-    newSize: {x: 5.5, y: 5.375}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 0.8, y: 0.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0049071, y: 5.375}
+  m_Size: {x: 2.3372488, y: 4.6864576}
   m_EdgeRadius: 0
 --- !u!114 &1674275270
 MonoBehaviour:
@@ -6843,13 +6868,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddf3659970dfd64f9465e8e4743b626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 15
   sprintSpeed: 20
-  jumpForce: 20
+  jumpForce: 25
   backToGroundSpeed: -0.3
   platformMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!95 &1674275271
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674275265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5364db02e4c67634795b12a48c59d946, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1674275272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7045,7 +7089,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -7054,7 +7098,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &2108576005
 RectTransform:

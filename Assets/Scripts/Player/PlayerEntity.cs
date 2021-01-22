@@ -14,8 +14,8 @@ public class PlayerEntity : MonoBehaviour
     private bool damageCooldown;
     
     private float timeSinceLastColorChange;
-    private float changeColorHitRate; 
-
+    private float changeColorHitRate;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public class PlayerEntity : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         changeColorHitRate = 0.3f;
         updateHealthbar();
+        animator = GetComponent<Animator>();
     }
 
     void Update(){
@@ -52,6 +53,7 @@ public class PlayerEntity : MonoBehaviour
         if(damageCooldown){
             return;
         }
+        animator.SetTrigger("takingDamage");
         currentHitPoints -= incomingDamage;
         
         if(currentHitPoints <= 0)

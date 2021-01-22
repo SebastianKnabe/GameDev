@@ -14,14 +14,17 @@ public class PlayerMovement : MonoBehaviour
 
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D rb;
+    private Animator animator;
     private float rayCastOffset = 0.05f;
     private static staminaRefillScript staminaRefillScript;
+    private bool facingRight = true;
 
     // Start is called before the first frame update
     void Start() {
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         staminaRefillScript = GameObject.FindObjectOfType<staminaRefillScript>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
         rb.velocity = movement;
+        animator.SetFloat("movementSpeed", movement.magnitude);
+        flipSprite();
 
         Jump();
     }
@@ -45,12 +50,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
             Debug.Log("JUMP");
+            //animator.SetBool("isJumping", true);
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
         if(Input.GetKey(KeyCode.S) && !isGrounded()){
             rb.AddForce(new Vector2(0f, backToGroundSpeed), ForceMode2D.Impulse);
         }
-
+        animator.SetBool("isJumping", !isGrounded());
     }
 
     private bool isGrounded()
@@ -59,5 +65,19 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
+    }
+
+    private void flipSprite()
+    {
+        if (rb.velocity.x < 0 && facingRight)
+        {
+            gameObject.transform.Rotate(new Vector3(0f, 180f, 0f));
+            facingRight = false;
+        }
+        else if(rb.velocity.x > 0 && !facingRight)
+        {
+            gameObject.transform.Rotate(new Vector3(0f, 180f, 0f));
+            facingRight = true;
+        }
     }
 }

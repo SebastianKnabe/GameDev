@@ -10,6 +10,14 @@ public class ShootingScript : MonoBehaviour
     public GameObject bulletStart;
     public float bulletSpeed = 60.0f;
 
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+    }
+    
+
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +31,7 @@ public class ShootingScript : MonoBehaviour
             Vector2 direction = crosshairPlayerDifference / distance;
             direction.Normalize();
             fireBullet(direction, rotationZ);
-
+            animator.SetTrigger("shooting");
         }
     }
 
