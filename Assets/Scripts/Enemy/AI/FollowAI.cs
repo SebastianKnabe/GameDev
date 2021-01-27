@@ -45,7 +45,11 @@ public class FollowAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        moveCharacter(movement);
+        if(DialogueManager.dialogueMode){
+            return;
+        }    
+            moveCharacter(movement);
+        
     }
 
     void moveCharacter(Vector2 direction)

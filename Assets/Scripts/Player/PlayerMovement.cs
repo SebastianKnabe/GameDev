@@ -30,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update() {
 
+        if(DialogueManager.dialogueMode){
+        animator.SetFloat("movementSpeed", 0);
+        staminaRefillScript.requestSprint(false);
+            return;
+        }
+
         float speed =  moveSpeed;
         if(Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
         {

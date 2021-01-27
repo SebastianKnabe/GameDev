@@ -25,7 +25,7 @@ public class ShootingScript : MonoBehaviour
        Vector3 crosshairPlayerDifference = crosshair.GetComponent<CrosshairMouseScript>().getCrosshairPlayerPosition();
        float rotationZ = Mathf.Atan2(crosshairPlayerDifference.y, crosshairPlayerDifference.x) * Mathf.Rad2Deg;
 
-       if(Input.GetMouseButtonDown(0)){
+       if(Input.GetMouseButtonDown(0) && !DialogueManager.dialogueMode){
 
             float distance = crosshairPlayerDifference.magnitude;
             Vector2 direction = crosshairPlayerDifference / distance;
