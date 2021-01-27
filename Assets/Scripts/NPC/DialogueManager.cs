@@ -32,7 +32,6 @@ public class DialogueManager : MonoBehaviour
 
            
             if(Input.GetKeyDown(KeyCode.E) && dialogueMode){
-                Debug.Log("PRESSED E");
                 DisplayNextSentence();
             }
 
@@ -70,7 +69,6 @@ public class DialogueManager : MonoBehaviour
     }
     
     IEnumerator TypeSentence(string sentence){
-        Debug.Log(sentence);
         dialogueText.text = "";
         foreach(char c in sentence.ToCharArray()){
             dialogueText.text += c;

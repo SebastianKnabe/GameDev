@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class NpcEntity : MonoBehaviour
 {
+    public GameObject TextObject;
+    public GameObject TextPosition;
+    
 
     public DialogueTrigger DialogueTrigger;
     private bool playerInRange;
+    private GameObject instanceOfTextObject; 
 
 
     void Start(){
@@ -26,6 +30,8 @@ public class NpcEntity : MonoBehaviour
     
 
             if(other.tag == "Player"){
+
+                instanceOfTextObject = Instantiate(TextObject, TextPosition.transform.position, Quaternion.identity, TextPosition.transform);
                 playerInRange = true;   
         
             }
@@ -35,7 +41,7 @@ public class NpcEntity : MonoBehaviour
     
 
             if(other.tag == "Player"  ){
-            
+                Destroy(instanceOfTextObject);
                 playerInRange = false;        
             }
     }
