@@ -57,13 +57,13 @@ public class FollowAI : MonoBehaviour
         //Spieler ist im Sichtbereich
         if(sightCheck < sightRange)
         {
-            Debug.Log("follow Player");
+            //Debug.Log("follow Player");
             rb.MovePosition((Vector2)transform.position + (direction * followSpeed * Time.deltaTime));
-            flipSprite(direction);
+            flipSprite(direction + (Vector2) transform.position);
         }
         else 
         {
-            Debug.Log("roam");
+            //Debug.Log("roam");
             direction = (Vector2)transform.position + (randomDirection() * roamSpeed * Time.deltaTime);
 
             //Der Gegner schaut ob er noch in der Nähe seines Startpunktes ist
