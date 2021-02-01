@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] protected ItemSlotUI itemSlotUI = null;
+    [SerializeField] protected HotbarItemEvent onMouseStartHoverItem = null;
+    [SerializeField] protected VoidEvent onMouseEndHoverItem = null;
 
     private CanvasGroup canvasGroup = null;
     private Transform originalParent = null;
@@ -20,7 +22,7 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         if(isHovering)
         {
-            //raise event
+            onMouseEndHoverItem.Raise();
             isHovering = false;
         }
     }
@@ -29,7 +31,7 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
     {
         if(eventData.button == PointerEventData.InputButton.Left)
         {
-            //raise event
+            onMouseEndHoverItem.Raise();
 
             originalParent = transform.parent;
             transform.SetParent(transform.parent.parent);
@@ -57,13 +59,13 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //raise event
+        onMouseStartHoverItem.Raise(ItemSlotUI.SlotItem);
         isHovering = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //raise event
+        onMouseEndHoverItem.Raise();
         isHovering = false;
     }
 }

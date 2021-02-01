@@ -375,3 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSlotUI: {fileID: 2126867496739805611}
+  onMouseStartHoverItem: {fileID: 11400000, guid: ff0fc84560f409b4abc5acb1b543166b,
+    type: 2}
+  onMouseEndHoverItem: {fileID: 11400000, guid: 1187e5dff59057f45a59c39e3f3a2c90,
+    type: 2}
