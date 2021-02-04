@@ -38,6 +38,7 @@ public class InventorySlot : ItemSlotUI, IDropHandler
 
     public override void UpdateSlotUI()
     {
+        Debug.Log("updateSlotUI");
         if(ItemSlot.item == null)
         {
             EnableSlotUI(false);

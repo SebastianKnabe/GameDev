@@ -18,4 +18,9 @@ public class Inventory : ScriptableObject
     {
         ItemContainer.AddItem(testItemSlot);
     }
+
+    public void addCurrency(int addCurrency)
+    {
+        ItemContainer.Currency += addCurrency;
+    }
 }

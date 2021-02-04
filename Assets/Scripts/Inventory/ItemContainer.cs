@@ -5,13 +5,12 @@ using UnityEngine;
 public class ItemContainer : IItemContainer
 {
     private ItemSlot[] itemSlots = new ItemSlot[0];
-
     public Action OnItemsUpdate = delegate { };
 
     public ItemContainer(int size) => itemSlots = new ItemSlot[size];
     
-
     public ItemSlot GetSlotByIndex(int index) => itemSlots[index];
+    public int Currency { get; set; } = 0;
 
     public ItemSlot AddItem(ItemSlot itemSlot)
     {
