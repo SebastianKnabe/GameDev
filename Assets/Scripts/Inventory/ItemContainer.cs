@@ -10,11 +10,15 @@ public class ItemContainer : IItemContainer
     public ItemContainer(int size) => itemSlots = new ItemSlot[size];
     
     public ItemSlot GetSlotByIndex(int index) => itemSlots[index];
+    public int ContainerSize() => itemSlots.Length;
     public int Currency { get; set; } = 0;
 
+    /*
+     * Item wird hinzugefügt, wenn genug Platz ist.
+     */ 
     public ItemSlot AddItem(ItemSlot itemSlot)
     {
-        Debug.Log("ItemSlots Length: " + itemSlots.Length);
+        Debug.Log("add item " + itemSlot.item.name);
         for(int i = 0; i < itemSlots.Length; i++)
         {
             if(itemSlots[i].item != null)

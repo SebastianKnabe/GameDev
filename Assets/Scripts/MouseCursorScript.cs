@@ -8,6 +8,6 @@ public class MouseCursorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = Input.mousePosition;
     }
 }
