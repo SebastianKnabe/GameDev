@@ -38,7 +38,7 @@ public class EnemyEntity : MonoBehaviour
     {
         //TODO
         if(dropEnabled){
-            gameObject.GetComponent<DropLootScript>().dropLoot();
+            this.gameObject.GetComponent<DropLootScript>().dropLoot();
         }
         Destroy(this.gameObject);
     }
