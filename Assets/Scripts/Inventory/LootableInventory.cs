@@ -39,12 +39,13 @@ public class LootableInventory : MonoBehaviour
                 
             }
             isLootable = false;
+            Destroy(instanceOfTextObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && isLootable)
         {
             instanceOfTextObject = Instantiate(TextObject, TextPosition.transform.position, Quaternion.identity, TextPosition.transform);
             playerInRange = true;
@@ -54,8 +55,6 @@ public class LootableInventory : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-
-
         if (other.tag == "Player")
         {
             Destroy(instanceOfTextObject);
