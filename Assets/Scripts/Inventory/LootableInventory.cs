@@ -8,10 +8,12 @@ public class LootableInventory : MonoBehaviour
     [SerializeField] private GameObject TextObject;
     [SerializeField] private GameObject TextPosition;
     [SerializeField] private int currency = 0;
+    [SerializeField] private Animator animator;
     [SerializeField] private ItemSlot[] items = new ItemSlot[2];
 
     private bool playerInRange = false;
     private GameObject instanceOfTextObject;
+    private bool isLootable = true;
 
     void Start()
     {
@@ -21,14 +23,22 @@ public class LootableInventory : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E) && playerInRange)
+        if (Input.GetKeyUp(KeyCode.E) && playerInRange && isLootable)
         {
             Debug.Log("LootItems");
+
+            if(animator != null)
+            {
+                animator.SetTrigger("isLooted");
+            }
+
             playerInventory.addCurrency(currency);
             for(int i = 0; i < items.Length; i++)
             {
                 playerInventory.ItemContainer.AddItem(items[i]);
+                
             }
+            isLootable = false;
         }
     }
 
