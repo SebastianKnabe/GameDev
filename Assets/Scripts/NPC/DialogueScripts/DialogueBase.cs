@@ -16,6 +16,14 @@ public class DialogueBase : ScriptableObject
 
 
     }
+    [System.Serializable]
+    public class Options
+    {
+
+        public string answer;
+        public DialogueBase nextDialogue; 
+    }
 
     public Info[] dialogueInfo;
+    public Options[] dialogueOptions;
 }
