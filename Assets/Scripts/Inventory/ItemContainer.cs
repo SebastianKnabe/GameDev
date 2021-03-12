@@ -70,6 +70,46 @@ public class ItemContainer : IItemContainer
         return itemSlot;
     }
 
+    public ItemSlot AddItemAtSlotIndex(ItemSlot itemSlot, int slotIndex)
+    {
+        Debug.Log(Log.logString(this.GetType(), "AddItemAtSlotIndex", "add Item at SlotIndex = " + slotIndex));
+        if (itemSlots[slotIndex].item == itemSlot.item)
+        {
+            int slotRemainingSpace = itemSlots[slotIndex].item.MaxStack - itemSlots[slotIndex].quantity;
+
+            if (itemSlot.quantity <= slotRemainingSpace)
+            {
+                itemSlots[slotIndex].quantity += itemSlot.quantity;
+                itemSlot.quantity = 0;
+
+                OnItemsUpdate.Invoke();
+            }
+            else if (slotRemainingSpace > 0)
+            {
+                itemSlots[slotIndex].quantity += slotRemainingSpace;
+                itemSlot.quantity -= slotRemainingSpace;
+            }
+        }
+        else if (itemSlots[slotIndex].item == null)
+        {
+            if (itemSlot.quantity <= itemSlot.item.MaxStack)
+            {
+                itemSlots[slotIndex] = itemSlot;
+                itemSlot.quantity = 0;
+
+                OnItemsUpdate.Invoke();
+
+                return itemSlot;
+            }
+            else
+            {
+                itemSlots[slotIndex] = new ItemSlot(itemSlot.item, itemSlot.item.MaxStack);
+                itemSlot.quantity -= itemSlot.item.MaxStack;
+            }
+        }
+        return AddItem(itemSlot);
+    }
+
     public int GetTotalQuantity(InventoryItem item)
     {
         int totalCount = 0;
@@ -131,14 +171,31 @@ public class ItemContainer : IItemContainer
         }
     }
 
-    public void RemoveItemAtIndex(int slotIndex)
+    //Removes Item at specfic Index. If Item is not removed it returns an empty ItemSlot
+    public ItemSlot RemoveItemAtIndex(int slotIndex)
     {
         if(slotIndex < 0 || slotIndex > itemSlots.Length - 1)
         {
-            return;
+            return new ItemSlot();
         }
+        ItemSlot removedItem = itemSlots[slotIndex];
+        Debug.Log(removedItem.item.name + " " + removedItem.quantity);
         itemSlots[slotIndex] = new ItemSlot();
         OnItemsUpdate.Invoke();
+        
+        return removedItem;
+    }
+
+    public bool hasItems()
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if(itemSlots[i].quantity > 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /*

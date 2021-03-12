@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class LootableInventory : MonoBehaviour
 {
-    [SerializeField] private Inventory playerInventory;
     [SerializeField] private GameObject TextObject;
     [SerializeField] private GameObject TextPosition;
+    [SerializeField] private InventoryEvent inventoryEvent;
     [SerializeField] private int currency = 0;
     [SerializeField] private Animator animator;
+    [SerializeField] private VoidEvent onInventoryItemsUpdated = null;
+    [SerializeField] private Inventory inventory;
     [SerializeField] private ItemSlot[] items = new ItemSlot[2];
 
     private bool playerInRange = false;
     private GameObject instanceOfTextObject;
     private bool isLootable = true;
+    private ItemContainer itemContainer = new ItemContainer(20);
 
     void Start()
     {
         playerInRange = false;
         TextObject.GetComponent<TextMesh>().text = "Press [E] to loot";
+        initItemContainer();
     }
 
     void Update()
@@ -26,20 +30,22 @@ public class LootableInventory : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E) && playerInRange && isLootable)
         {
             Debug.Log("LootItems");
-
+            
             if(animator != null)
             {
                 animator.SetTrigger("isLooted");
             }
-
-            playerInventory.addCurrency(currency);
-            for(int i = 0; i < items.Length; i++)
+            //Raise Event
+            inventory.ItemContainer = itemContainer;
+            inventory.inventoryType = InventoryType.Container;
+            inventoryEvent.Raise(inventory);
+            
+            //if container is empty dont allow player to open chest again
+            if(!itemContainer.hasItems())
             {
-                playerInventory.ItemContainer.AddItem(items[i]);
-                
+                isLootable = false;
+                Destroy(instanceOfTextObject);
             }
-            isLootable = false;
-            Destroy(instanceOfTextObject);
         }
     }
 
@@ -59,6 +65,14 @@ public class LootableInventory : MonoBehaviour
         {
             Destroy(instanceOfTextObject);
             playerInRange = false;
+        }
+    }
+
+    private void initItemContainer()
+    {
+        for(int i = 0; i < items.Length; i++)
+        {
+            itemContainer.AddItem(items[i]);
         }
     }
 }

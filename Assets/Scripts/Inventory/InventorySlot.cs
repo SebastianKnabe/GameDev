@@ -31,14 +31,26 @@ public class InventorySlot : ItemSlotUI, IDropHandler
 
         if((itemDragHandler.ItemSlotUI as InventorySlot) != null)
         {
-            Debug.Log("OnDrop: Swap");
-            inventory.ItemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
+            Debug.Log(Log.logString(this.GetType(), "OnDrop", "Swap"));
+            InventorySlot targetSlot = itemDragHandler.ItemSlotUI as InventorySlot;
+
+            if(targetSlot.inventory != inventory)
+            {
+                Debug.Log("onDrop: on different inventory");
+                ItemSlot swapItem = targetSlot.inventory.ItemContainer.RemoveItemAtIndex(itemDragHandler.ItemSlotUI.SlotIndex);
+                inventory.ItemContainer.AddItemAtSlotIndex(swapItem, SlotIndex);
+
+                UpdateSlotUI();
+            }
+            else
+            {
+                inventory.ItemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
+            }
         }
     }
 
     public override void UpdateSlotUI()
     {
-        Debug.Log("updateSlotUI");
         if(ItemSlot.item == null)
         {
             EnableSlotUI(false);

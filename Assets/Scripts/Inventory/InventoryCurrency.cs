@@ -20,7 +20,6 @@ public class InventoryCurrency : MonoBehaviour
 
     public void updateCurrencyUI()
     {
-        Debug.Log("updateCurrencyUI");
         itemQuantityText.text =  inventory.ItemContainer.Currency.ToString();
     }
 }

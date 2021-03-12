@@ -11,10 +11,6 @@ public class IventoryItemDragHandler : ItemDragHandler
         {
             base.OnPointerUp(eventData);
 
-            if(eventData.hovered.Count == 0)
-            {
-                //destory item or drop item
-            }
         }
     }
 }

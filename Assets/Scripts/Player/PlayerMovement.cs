@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
     void Jump() {
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
-            Debug.Log("JUMP");
             //animator.SetBool("isJumping", true);
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
