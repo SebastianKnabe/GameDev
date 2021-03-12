@@ -10,7 +10,7 @@ public class coinCollectScript : MonoBehaviour
         if (other.tag == "Player"){
             if(playerInventory != null)
             {
-                playerInventory.addCurrency(1);
+                playerInventory.ItemContainer.addCurrency(1);
             }
             Destroy(this.gameObject);
         }

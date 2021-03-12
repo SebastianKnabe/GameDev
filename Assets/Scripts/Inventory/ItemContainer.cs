@@ -72,7 +72,6 @@ public class ItemContainer : IItemContainer
 
     public ItemSlot AddItemAtSlotIndex(ItemSlot itemSlot, int slotIndex)
     {
-        Debug.Log(Log.logString(this.GetType(), "AddItemAtSlotIndex", "add Item at SlotIndex = " + slotIndex));
         if (itemSlots[slotIndex].item == itemSlot.item)
         {
             int slotRemainingSpace = itemSlots[slotIndex].item.MaxStack - itemSlots[slotIndex].quantity;
@@ -235,6 +234,21 @@ public class ItemContainer : IItemContainer
         itemSlots[indexOne] = secondSlot;
         itemSlots[indexTwo] = firstSlot;
 
+        OnItemsUpdate.Invoke();
+    }
+
+    public ItemSlot getItemAtIndex(int slotIndex)
+    {
+        if(slotIndex > itemSlots.Length)
+        {
+            return new ItemSlot();
+        }
+        return itemSlots[slotIndex];
+    }
+
+    public void addCurrency(int money)
+    {
+        Currency += money;
         OnItemsUpdate.Invoke();
     }
 }

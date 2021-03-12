@@ -30,15 +30,13 @@ public class InventorySlot : ItemSlotUI, IDropHandler
         }
 
         if((itemDragHandler.ItemSlotUI as InventorySlot) != null)
-        {
-            Debug.Log(Log.logString(this.GetType(), "OnDrop", "Swap"));
+        {            
             InventorySlot targetSlot = itemDragHandler.ItemSlotUI as InventorySlot;
 
             if(targetSlot.inventory != inventory)
             {
                 Debug.Log("onDrop: on different inventory");
-                ItemSlot swapItem = targetSlot.inventory.ItemContainer.RemoveItemAtIndex(itemDragHandler.ItemSlotUI.SlotIndex);
-                inventory.ItemContainer.AddItemAtSlotIndex(swapItem, SlotIndex);
+                tradeItems(targetSlot, itemDragHandler);
 
                 UpdateSlotUI();
             }
@@ -67,5 +65,35 @@ public class InventorySlot : ItemSlotUI, IDropHandler
     {
         base.EnableSlotUI(enable);
         itemQuantityText.enabled = enable;
+    }
+
+    private void tradeItems(InventorySlot targetSlot, ItemDragHandler itemDragHandler)
+    {
+        ItemSlot swapItem = targetSlot.inventory.ItemContainer.getItemAtIndex(itemDragHandler.ItemSlotUI.SlotIndex);
+
+        if (inventory.inventoryType == InventoryType.Vendor || targetSlot.inventory.inventoryType == InventoryType.Vendor)
+        {            
+            int buyCount = inventory.ItemContainer.Currency / swapItem.item.SellPrice;
+            int price = swapItem.item.SellPrice * swapItem.quantity;
+
+            if(buyCount < swapItem.quantity)
+            {
+                price = swapItem.item.SellPrice * buyCount;
+                swapItem.quantity -= buyCount;
+
+                targetSlot.inventory.ItemContainer.RemoveItem(swapItem);
+                inventory.ItemContainer.AddItemAtSlotIndex(swapItem, SlotIndex);
+            }
+            else
+            {
+                targetSlot.inventory.ItemContainer.RemoveItem(swapItem);
+            }
+            targetSlot.inventory.ItemContainer.addCurrency(price);
+            inventory.ItemContainer.addCurrency(-1 * price);
+        } else
+        {
+            targetSlot.inventory.ItemContainer.RemoveItem(swapItem);
+            inventory.ItemContainer.AddItemAtSlotIndex(swapItem, SlotIndex);
+        }
     }
 }

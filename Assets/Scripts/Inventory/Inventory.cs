@@ -13,11 +13,6 @@ public class Inventory : ScriptableObject
 
     public void OnDisable() => ItemContainer.OnItemsUpdate -= onInventoryItemsUpdated.Raise;
 
-    public void addCurrency(int addCurrency)
-    {
-        ItemContainer.Currency += addCurrency;
-    }
-
     public void setOnInventoryItemsUpdatedEvent(VoidEvent onInventoryItemsUpdatedEvent) {
         onInventoryItemsUpdated = onInventoryItemsUpdatedEvent;
     }

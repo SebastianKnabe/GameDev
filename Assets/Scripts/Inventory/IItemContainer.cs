@@ -10,4 +10,5 @@ public interface IItemContainer
     void Swap(int indexOne, int indexTwo);
     bool HasItem(InventoryItem item);
     int GetTotalQuantity(InventoryItem item);
+    ItemSlot getItemAtIndex(int slotIndex);
 }
