@@ -74,27 +74,49 @@ public class DialogueManager : MonoBehaviour
 
     public void DequeueDialogue()
     {
-        dialogueOptionsMode = currentDialogue.dialogueOptions.Length > 0 && dialogueInfo.Count == 0 ? true : false;
+
 
         if (dialogueInfo.Count == 0)
         {
+            endDialogue();
+        } 
+
+        DialogueBase.Info info = dialogueInfo.Dequeue();
+        nameText.text = info.name;
+        //dialogueText.text = info.text;
+
+      
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(info.text));
+        
+
+
+
+    }
+
+    void endDialogue()
+    {
+       
+
+      
+            dialogueOptionsMode = currentDialogue.dialogueOptions.Length > 0 && dialogueInfo.Count == 0 ? true : false;
             if (dialogueOptionsMode)
             {
                 dialogueOptionUI.SetActive(true);
-               
+
                 //EnqueueDialogue(currentDialogue.dialogueOptions[0].nextDialogue);
                 for (int i = 0; i < currentDialogue.dialogueOptions.Length; i++)
                 {
                     button = Instantiate(choiceButton, dialogueOptionUI.transform);
                     button.GetComponentInChildren<Text>().text = currentDialogue.dialogueOptions[i].answer;
-                    int j = i;
-                    button.GetComponent<Button>().onClick.AddListener(() => { answerEvent(j); });
+                    int indexParam = i;
+                    button.GetComponent<Button>().onClick.AddListener(() => { answerEvent(indexParam); });
                     buttonsCreated.Add(button);
                     button.SetActive(true);
 
-                  
+
                 }
-                
+
 
 
                 return;
@@ -107,39 +129,24 @@ public class DialogueManager : MonoBehaviour
 
             return;
         }
+    
 
-
-        DialogueBase.Info info = dialogueInfo.Dequeue();
-        nameText.text = info.name;
-        //dialogueText.text = info.text;
-
-        Debug.Log("DequeueDialogue");
-        Debug.Log("" + info.name);
-        Debug.Log("" + info.text);
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(info.text));
-        
-
-
-
-    }
-
-    void answerEvent(int j)
+    void answerEvent( int j)
     {
         dialogueOptionUI.SetActive(false);
-        Debug.Log("HITTED " + j + " " + currentDialogue.dialogueOptions.Length);
-
-        EnqueueDialogue(currentDialogue.dialogueOptions[j].nextDialogue);
         dialogueOptionsMode = false;
+        currentDialogue.dialogueOptions[j].OnEvent.Invoke();
+
+
         foreach (GameObject go in buttonsCreated)
         {
-            buttonsCreated.Remove(go);
             Destroy(go);
         }
-
-
-
+        buttonsCreated.Clear();
         
+
+
+
 
     }
 
@@ -161,7 +168,7 @@ public class DialogueManager : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.E) && dialogueMode)
+        if (Input.GetKeyDown(KeyCode.E) && dialogueMode && !dialogueOptionsMode)
         {
             
             DequeueDialogue();
