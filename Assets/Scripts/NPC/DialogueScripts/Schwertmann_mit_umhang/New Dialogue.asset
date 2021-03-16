@@ -9,14 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8fc33c1c6a6be840ba2789514ba57f9, type: 3}
-  m_Name: DialogueOption_01
+  m_Script: {fileID: 11500000, guid: e5a6215260e53974c8f219d9be25a4df, type: 3}
+  m_Name: New Dialogue
   m_EditorClassIdentifier: 
+  DialogueEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
   dialogueInfo:
   - name: Schwertmann
-    text: 'wer rastet, .. '
+    text: Wer rastet, ..
   - name: Schwertmann
-    text: 'der rostet. '
+    text: der rostet.
   dialogueOptions:
   - answer: Yes
     OnEvent:
@@ -24,11 +27,10 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 11400000, guid: f5268e5a8c332f745a05f514a0f40b7a, type: 2}
           m_MethodName: loadNextDialogue
-          m_Mode: 2
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: f5268e5a8c332f745a05f514a0f40b7a,
-              type: 2}
-            m_ObjectArgumentAssemblyTypeName: DialogueBase, Assembly-CSharp
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -40,12 +42,16 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 11400000}
           m_MethodName: loadNextDialogue
-          m_Mode: 2
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000}
-            m_ObjectArgumentAssemblyTypeName: DialogueBase, Assembly-CSharp
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - answer: Kaufen
+    OnEvent:
+      m_PersistentCalls:
+        m_Calls: []

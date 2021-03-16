@@ -282,7 +282,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 0ffad3b5cfe1aa549ab63b74530dbf41,
+      objectReference: {fileID: 11400000, guid: dacb607bbcd433a4ca64dcc11a0f7d8c,
         type: 2}
     - target: {fileID: 6257094418393274329, guid: 9037ed9a6438f534d8f77185c2584e58,
         type: 3}
@@ -749,14 +749,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed411ded01cba146ba9ad783b5c5d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 0.06
   dialogueOptionUI: {fileID: 2066167530}
   DialogueBox: {fileID: 882037320}
+  choiceButton: {fileID: 8702940909458566356, guid: 6b5e1a95339825a4598744f752c9589a,
+    type: 3}
   nameText: {fileID: 1838757695}
   dialogueText: {fileID: 324030139}
   animator: {fileID: 0}
-  delay: 0.06
-  choiceButton: {fileID: 8702940909458566356, guid: 6b5e1a95339825a4598744f752c9589a,
-    type: 3}
 --- !u!1 &928888246
 GameObject:
   m_ObjectHideFlags: 0

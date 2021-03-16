@@ -19,24 +19,35 @@ public class DialogueManager : MonoBehaviour
     }
 
 
+  
+
     public static float dialogueCooldown;
     public static float timeSinceLastDialogue;
+    public static bool dialogueMode;
 
+    public float delay;
     public GameObject dialogueOptionUI;
     public GameObject DialogueBox;
+    public GameObject choiceButton;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
-    public float delay;
-    public static bool dialogueMode;
-    private bool dialogueOptionsMode; 
     public Queue<DialogueBase.Info> dialogueInfo;
+
+
+    private bool dialogueOptionsMode;
+    private bool isTyping;
+    private string completedText;
     private GameObject button;
     private DialogueBase currentDialogue;
-    public GameObject choiceButton;
-    private List<GameObject> buttonsCreated; 
+    private List<GameObject> buttonsCreated;
 
 
+
+
+
+
+  
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +59,8 @@ public class DialogueManager : MonoBehaviour
         dialogueCooldown = 2.05f;
         timeSinceLastDialogue = 0;
         buttonsCreated = new List<GameObject>();
+        isTyping = false;
+        completedText = "";
 
 
     }
@@ -74,23 +87,30 @@ public class DialogueManager : MonoBehaviour
 
     public void DequeueDialogue()
     {
-
+        if (isTyping)
+        {
+            StopAllCoroutines();
+            dialogueText.text = completedText;
+            isTyping = false;
+            return;
+        }
 
         if (dialogueInfo.Count == 0)
         {
             endDialogue();
-        } 
+            return;
+        }
+
+
 
         DialogueBase.Info info = dialogueInfo.Dequeue();
         nameText.text = info.name;
-        //dialogueText.text = info.text;
-
-      
+        completedText = info.text;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(info.text));
-        
 
 
+      
 
     }
 
@@ -121,6 +141,12 @@ public class DialogueManager : MonoBehaviour
 
                 return;
             }
+
+           
+           
+
+
+            currentDialogue.DialogueEndEvent.Invoke();
             DialogueBox.SetActive(false);
             dialogueMode = false;
             timeSinceLastDialogue = Time.time + dialogueCooldown;
@@ -135,6 +161,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueOptionUI.SetActive(false);
         dialogueOptionsMode = false;
+        
         currentDialogue.dialogueOptions[j].OnEvent.Invoke();
 
 
@@ -154,6 +181,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence)
     {
+        isTyping = true;
         dialogueText.text = "";
         foreach (char c in sentence.ToCharArray())
         {
@@ -161,12 +189,22 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += c;
             yield return null;
         }
+        isTyping = false;
     }
 
 
     void Update()
     {
 
+
+        // render option ui after text typing is finished
+        if(!isTyping && dialogueMode && !dialogueOptionsMode && dialogueInfo.Count == 0 && currentDialogue.dialogueOptions.Length > 0)
+        {
+            
+                endDialogue();
+                
+            
+        }
 
         if (Input.GetKeyDown(KeyCode.E) && dialogueMode && !dialogueOptionsMode)
         {
