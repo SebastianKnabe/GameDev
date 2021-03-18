@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using UnityEngine;
 
 [Serializable]
@@ -72,6 +73,7 @@ public class ItemContainer : IItemContainer
 
     public ItemSlot AddItemAtSlotIndex(ItemSlot itemSlot, int slotIndex)
     {
+        Debug.Log("AddItem " + itemSlot.item.name + " at SlotIndex: " + slotIndex);
         if (itemSlots[slotIndex].item == itemSlot.item)
         {
             int slotRemainingSpace = itemSlots[slotIndex].item.MaxStack - itemSlots[slotIndex].quantity;
@@ -171,15 +173,22 @@ public class ItemContainer : IItemContainer
     }
 
     //Removes Item at specfic Index. If Item is not removed it returns an empty ItemSlot
-    public ItemSlot RemoveItemAtIndex(int slotIndex)
+    public ItemSlot RemoveItemAtIndex(ItemSlot itemSlot, int slotIndex)
     {
         if(slotIndex < 0 || slotIndex > itemSlots.Length - 1)
         {
             return new ItemSlot();
         }
+        Debug.Log("Remove Item " + itemSlot.item.name + " at Index " + slotIndex);
         ItemSlot removedItem = itemSlots[slotIndex];
-        Debug.Log(removedItem.item.name + " " + removedItem.quantity);
-        itemSlots[slotIndex] = new ItemSlot();
+        
+        if(removedItem.quantity > itemSlot.quantity)
+        {
+            itemSlots[slotIndex].quantity -= itemSlot.quantity;
+        } else
+        {
+            itemSlots[slotIndex] = new ItemSlot();
+        }
         OnItemsUpdate.Invoke();
         
         return removedItem;
@@ -250,5 +259,25 @@ public class ItemContainer : IItemContainer
     {
         Currency += money;
         OnItemsUpdate.Invoke();
+    }
+
+    public string containerToString()
+    {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            builder.Append("ItemSlot ").Append(i).Append(" with Item ");
+            if(itemSlots[i].item == null)
+            {
+                builder.Append("null");
+            } else
+            {
+                builder.Append(itemSlots[i].item.name);
+            }
+            builder.AppendLine();
+        }
+ 
+        return builder.ToString();
     }
 }

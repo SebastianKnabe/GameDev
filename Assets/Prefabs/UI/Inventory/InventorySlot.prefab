@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6072210107671588999}
   - component: {fileID: 2126867496739805611}
   - component: {fileID: -4237070939338992895}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InventorySlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 2254150071445126703}
   - component: {fileID: 3259696899235943124}
   - component: {fileID: 8592632989800934371}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 7315329532551455756}
   - component: {fileID: 894799619858684941}
   - component: {fileID: 2429026214620640583}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ItemIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,3 +379,4 @@ MonoBehaviour:
     type: 2}
   onMouseEndHoverItem: {fileID: 11400000, guid: 1187e5dff59057f45a59c39e3f3a2c90,
     type: 2}
+  mouseCursor: {fileID: 0}

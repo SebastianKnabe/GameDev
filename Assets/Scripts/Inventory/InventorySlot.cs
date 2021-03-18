@@ -69,31 +69,29 @@ public class InventorySlot : ItemSlotUI, IDropHandler
 
     private void tradeItems(InventorySlot targetSlot, ItemDragHandler itemDragHandler)
     {
-        ItemSlot swapItem = targetSlot.inventory.ItemContainer.getItemAtIndex(itemDragHandler.ItemSlotUI.SlotIndex);
+        int SlotIndex = itemDragHandler.ItemSlotUI.SlotIndex;
+        ItemSlot swapItem = targetSlot.inventory.ItemContainer.getItemAtIndex(SlotIndex);
 
         if (inventory.inventoryType == InventoryType.Vendor || targetSlot.inventory.inventoryType == InventoryType.Vendor)
         {            
             int buyCount = inventory.ItemContainer.Currency / swapItem.item.SellPrice;
             int price = swapItem.item.SellPrice * swapItem.quantity;
 
-            if(buyCount < swapItem.quantity)
+            //Nicht genügend Geld um etwas zu kaufen
+            if(buyCount == 0)
+            {
+                return;
+            }
+
+            if (buyCount < swapItem.quantity)
             {
                 price = swapItem.item.SellPrice * buyCount;
                 swapItem.quantity -= buyCount;
-
-                targetSlot.inventory.ItemContainer.RemoveItem(swapItem);
-                inventory.ItemContainer.AddItemAtSlotIndex(swapItem, SlotIndex);
-            }
-            else
-            {
-                targetSlot.inventory.ItemContainer.RemoveItem(swapItem);
-            }
+            } 
             targetSlot.inventory.ItemContainer.addCurrency(price);
             inventory.ItemContainer.addCurrency(-1 * price);
-        } else
-        {
-            targetSlot.inventory.ItemContainer.RemoveItem(swapItem);
-            inventory.ItemContainer.AddItemAtSlotIndex(swapItem, SlotIndex);
-        }
+        }    
+        targetSlot.inventory.ItemContainer.RemoveItemAtIndex(swapItem, SlotIndex);
+        inventory.ItemContainer.AddItemAtSlotIndex(swapItem, this.SlotIndex);
     }
 }
