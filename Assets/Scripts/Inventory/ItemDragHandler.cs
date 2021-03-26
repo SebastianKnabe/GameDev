@@ -9,6 +9,7 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
     [SerializeField] protected ItemSlotUI itemSlotUI = null;
     [SerializeField] protected HotbarItemEvent onMouseStartHoverItem = null;
     [SerializeField] protected VoidEvent onMouseEndHoverItem = null;
+    [SerializeField] protected GameObject mouseCursor = null;
 
     private CanvasGroup canvasGroup = null;
     private Transform originalParent = null;
@@ -34,7 +35,7 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
             onMouseEndHoverItem.Raise();
 
             originalParent = transform.parent;
-            transform.SetParent(transform.parent.parent);
+            transform.SetParent(mouseCursor.transform);
             canvasGroup.blocksRaycasts = false;
         }
     }

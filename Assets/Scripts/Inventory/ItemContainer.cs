@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using UnityEngine;
 
 [Serializable]
@@ -70,6 +71,46 @@ public class ItemContainer : IItemContainer
         return itemSlot;
     }
 
+    public ItemSlot AddItemAtSlotIndex(ItemSlot itemSlot, int slotIndex)
+    {
+        Debug.Log("AddItem " + itemSlot.item.name + " at SlotIndex: " + slotIndex);
+        if (itemSlots[slotIndex].item == itemSlot.item)
+        {
+            int slotRemainingSpace = itemSlots[slotIndex].item.MaxStack - itemSlots[slotIndex].quantity;
+
+            if (itemSlot.quantity <= slotRemainingSpace)
+            {
+                itemSlots[slotIndex].quantity += itemSlot.quantity;
+                itemSlot.quantity = 0;
+
+                OnItemsUpdate.Invoke();
+            }
+            else if (slotRemainingSpace > 0)
+            {
+                itemSlots[slotIndex].quantity += slotRemainingSpace;
+                itemSlot.quantity -= slotRemainingSpace;
+            }
+        }
+        else if (itemSlots[slotIndex].item == null)
+        {
+            if (itemSlot.quantity <= itemSlot.item.MaxStack)
+            {
+                itemSlots[slotIndex] = itemSlot;
+                itemSlot.quantity = 0;
+
+                OnItemsUpdate.Invoke();
+
+                return itemSlot;
+            }
+            else
+            {
+                itemSlots[slotIndex] = new ItemSlot(itemSlot.item, itemSlot.item.MaxStack);
+                itemSlot.quantity -= itemSlot.item.MaxStack;
+            }
+        }
+        return AddItem(itemSlot);
+    }
+
     public int GetTotalQuantity(InventoryItem item)
     {
         int totalCount = 0;
@@ -131,14 +172,38 @@ public class ItemContainer : IItemContainer
         }
     }
 
-    public void RemoveItemAtIndex(int slotIndex)
+    //Removes Item at specfic Index. If Item is not removed it returns an empty ItemSlot
+    public ItemSlot RemoveItemAtIndex(ItemSlot itemSlot, int slotIndex)
     {
         if(slotIndex < 0 || slotIndex > itemSlots.Length - 1)
         {
-            return;
+            return new ItemSlot();
         }
-        itemSlots[slotIndex] = new ItemSlot();
+        Debug.Log("Remove Item " + itemSlot.item.name + " at Index " + slotIndex);
+        ItemSlot removedItem = itemSlots[slotIndex];
+        
+        if(removedItem.quantity > itemSlot.quantity)
+        {
+            itemSlots[slotIndex].quantity -= itemSlot.quantity;
+        } else
+        {
+            itemSlots[slotIndex] = new ItemSlot();
+        }
         OnItemsUpdate.Invoke();
+        
+        return removedItem;
+    }
+
+    public bool hasItems()
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if(itemSlots[i].quantity > 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /*
@@ -179,5 +244,40 @@ public class ItemContainer : IItemContainer
         itemSlots[indexTwo] = firstSlot;
 
         OnItemsUpdate.Invoke();
+    }
+
+    public ItemSlot getItemAtIndex(int slotIndex)
+    {
+        if(slotIndex > itemSlots.Length)
+        {
+            return new ItemSlot();
+        }
+        return itemSlots[slotIndex];
+    }
+
+    public void addCurrency(int money)
+    {
+        Currency += money;
+        OnItemsUpdate.Invoke();
+    }
+
+    public string containerToString()
+    {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            builder.Append("ItemSlot ").Append(i).Append(" with Item ");
+            if(itemSlots[i].item == null)
+            {
+                builder.Append("null");
+            } else
+            {
+                builder.Append(itemSlots[i].item.name);
+            }
+            builder.AppendLine();
+        }
+ 
+        return builder.ToString();
     }
 }

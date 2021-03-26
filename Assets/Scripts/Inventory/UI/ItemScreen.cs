@@ -7,6 +7,7 @@ public class ItemScreen : MonoBehaviour
     private bool isGamePaused = false;
     public GameObject mainGameUI;
     public GameObject player;
+    public GameObject targetInventoryPanel;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +25,7 @@ public class ItemScreen : MonoBehaviour
         }    
     }
 
+    //Unpause and close Inventory
     void Resume ()
     {
         Time.timeScale = 1f;
@@ -36,6 +38,7 @@ public class ItemScreen : MonoBehaviour
         }
     }
 
+    //Pause Game and open Inventory
     private void Pause()
     {
         Time.timeScale = 0f;
@@ -46,5 +49,12 @@ public class ItemScreen : MonoBehaviour
         {
             gameObject.transform.GetChild(i).gameObject.SetActive(true);
         }
+        targetInventoryPanel.SetActive(false);
+    }
+
+    public void showTargetInventoryPanel()
+    {
+        Pause();
+        targetInventoryPanel.SetActive(true);
     }
 }

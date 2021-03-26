@@ -6,8 +6,9 @@ public interface IItemContainer
 {
     ItemSlot AddItem(ItemSlot itemSlot);
     void RemoveItem(ItemSlot itemSlot);
-    void RemoveItemAtIndex(int slotIndex);
+    ItemSlot RemoveItemAtIndex(ItemSlot itemslot, int slotIndex);
     void Swap(int indexOne, int indexTwo);
     bool HasItem(InventoryItem item);
     int GetTotalQuantity(InventoryItem item);
+    ItemSlot getItemAtIndex(int slotIndex);
 }

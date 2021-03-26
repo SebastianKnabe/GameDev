@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 20f;
     public float sprintSpeed = 20f;
-    public float jumpForce = 10f;
+    public float jumpForce = 30f;
     public float backToGroundSpeed = -0.3f;
+    public float gravity = -0.4f;
        
     [SerializeField] LayerMask platformMask;
 
@@ -25,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         staminaRefillScript = GameObject.FindObjectOfType<staminaRefillScript>();
         animator = gameObject.GetComponent<Animator>();
+    }
+
+    private void FixedUpdate()
+    {
+        rb.AddForce(new Vector2(0f, gravity), ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
@@ -55,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
     void Jump() {
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
-            Debug.Log("JUMP");
             //animator.SetBool("isJumping", true);
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }

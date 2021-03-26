@@ -19,8 +19,14 @@ public class InventoryCurrency : MonoBehaviour
     }
 
     public void updateCurrencyUI()
-    {
-        Debug.Log("updateCurrencyUI");
-        itemQuantityText.text =  inventory.ItemContainer.Currency.ToString();
+    {   
+        if(inventory.inventoryType == InventoryType.Player || inventory.inventoryType == InventoryType.Vendor)
+        {
+            gameObject.SetActive(true);
+            itemQuantityText.text = inventory.ItemContainer.Currency.ToString();
+        } else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

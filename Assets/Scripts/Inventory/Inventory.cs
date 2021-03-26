@@ -6,14 +6,20 @@ public class Inventory : ScriptableObject
 {
     [SerializeField] private VoidEvent onInventoryItemsUpdated = null;
 
-    public ItemContainer ItemContainer { get; } = new ItemContainer(20);
+    public InventoryType inventoryType = InventoryType.Container;
+    public ItemContainer ItemContainer { get; set; } = new ItemContainer(20);
 
     public void OnEnable() => ItemContainer.OnItemsUpdate += onInventoryItemsUpdated.Raise;
 
     public void OnDisable() => ItemContainer.OnItemsUpdate -= onInventoryItemsUpdated.Raise;
 
-    public void addCurrency(int addCurrency)
+    public void setOnInventoryItemsUpdatedEvent(VoidEvent onInventoryItemsUpdatedEvent) {
+        onInventoryItemsUpdated = onInventoryItemsUpdatedEvent;
+    }
+
+    [ContextMenu("Reset Inventory")]
+    public void ResetInventory()
     {
-        ItemContainer.Currency += addCurrency;
+        ItemContainer = new ItemContainer(20);
     }
 }
