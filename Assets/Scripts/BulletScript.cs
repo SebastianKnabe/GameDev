@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
 
-     //public float bulletSpeed = 60.0f;
-     public float damage = 3.0f;
-     private Rigidbody2D rb;
-     private Vector2 screenBounds;
+    //public float bulletSpeed = 60.0f;
+    public float damage = 3.0f;
+    private Rigidbody2D rb;
+    private Vector2 screenBounds;
 
     // Start is called before the first frame update
     void Start()
@@ -22,22 +19,29 @@ public class BulletScript : MonoBehaviour
     void Update()
     {
 
-        if(!this.GetComponent<Renderer>().isVisible){
-                Destroy(this.gameObject);
+        if (!this.GetComponent<Renderer>().isVisible)
+        {
+            Destroy(this.gameObject);
         }
 
-        
+
     }
 
 
-      private void OnTriggerEnter2D(Collider2D other){
-    
-        if(other.tag == "Enemy"){
-          
-           other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
-           Destroy(this.gameObject);
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.tag == "Enemy")
+        {
+
+            other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
+            Destroy(this.gameObject);
+        }
+        else if (other.tag == "Ground")
+        {
+            Destroy(this.gameObject);
         }
     }
 
- 
+
 }

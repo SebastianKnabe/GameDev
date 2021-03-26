@@ -10,22 +10,25 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 30f;
     public float backToGroundSpeed = -0.3f;
     public float gravity = -0.4f;
-       
+
     [SerializeField] LayerMask platformMask;
 
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D rb;
     private Animator animator;
+    private SpriteManager spriteManager;
     private float rayCastOffset = 0.05f;
     private static staminaRefillScript staminaRefillScript;
     private bool facingRight = true;
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         staminaRefillScript = GameObject.FindObjectOfType<staminaRefillScript>();
         animator = gameObject.GetComponent<Animator>();
+        spriteManager = gameObject.GetComponent<SpriteManager>();
     }
 
     private void FixedUpdate()
@@ -34,19 +37,23 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
-        if(DialogueManager.dialogueMode){
-        animator.SetFloat("movementSpeed", 0);
-        staminaRefillScript.requestSprint(false);
+        if (DialogueManager.dialogueMode)
+        {
+            animator.SetFloat("movementSpeed", 0);
+            staminaRefillScript.requestSprint(false);
             return;
         }
 
-        float speed =  moveSpeed;
-        if(Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
+        float speed = moveSpeed;
+        if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
         {
             speed = sprintSpeed;
-        }else{
+        }
+        else
+        {
             staminaRefillScript.requestSprint(false);
         }
 
@@ -58,13 +65,15 @@ public class PlayerMovement : MonoBehaviour
         Jump();
     }
 
-    void Jump() {
+    void Jump()
+    {
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
             //animator.SetBool("isJumping", true);
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
-        if(Input.GetKey(KeyCode.S) && !isGrounded()){
+        if (Input.GetKey(KeyCode.S) && !isGrounded())
+        {
             rb.AddForce(new Vector2(0f, backToGroundSpeed), ForceMode2D.Impulse);
         }
         animator.SetBool("isJumping", !isGrounded());
@@ -80,15 +89,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void flipSprite()
     {
+        bool facingRight = spriteManager.getFacingRight();
         if (rb.velocity.x < 0 && facingRight)
         {
-            gameObject.transform.Rotate(new Vector3(0f, 180f, 0f));
-            facingRight = false;
+            spriteManager.rotateSprite();
         }
-        else if(rb.velocity.x > 0 && !facingRight)
+        else if (rb.velocity.x > 0 && !facingRight)
         {
-            gameObject.transform.Rotate(new Vector3(0f, 180f, 0f));
-            facingRight = true;
+            spriteManager.rotateSprite();
         }
     }
 }

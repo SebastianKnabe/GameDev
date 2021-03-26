@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DialogueManager2 : MonoBehaviour
 {
-    
-
     public static float dialogueCooldown;
     public static float timeSinceLastDialogue;
 
@@ -15,9 +13,6 @@ public class DialogueManager2 : MonoBehaviour
     public static bool dialogueMode;
     public Queue<string> sentences;
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,38 +20,37 @@ public class DialogueManager2 : MonoBehaviour
         dialogueMode = false;
         dialogueCooldown = 2.05f;
         timeSinceLastDialogue = 0;
-        
     }
 
- void Update(){
-
-           
-            if(Input.GetKeyDown(KeyCode.E) && dialogueMode){
-                DisplayNextSentence();
-            }
-
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && dialogueMode)
+        {
+            DisplayNextSentence();
+        }
     }
 
-    public void StartDialogue(Dialogue dialogue){
+    public void StartDialogue(Dialogue dialogue)
+    {
+        animator.SetBool("isOpen", true);
+        nameText.text = dialogue.name;
 
+        sentences.Clear();
 
-       animator.SetBool("isOpen", true);
-       nameText.text = dialogue.name;
-   
-       sentences.Clear();
+        foreach (string sentence in dialogue.sentences)
+        {
 
-       foreach (string sentence in dialogue.sentences){
-            
             sentences.Enqueue(sentence);
-       }
+        }
 
-       DisplayNextSentence();
-       dialogueMode = true;
+        DisplayNextSentence();
+        dialogueMode = true;
     }
 
-    public void DisplayNextSentence(){
-
-        if(sentences.Count == 0) {
+    public void DisplayNextSentence()
+    {
+        if (sentences.Count == 0)
+        {
 
             EndDialogue();
             return;
@@ -65,23 +59,24 @@ public class DialogueManager2 : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-        
     }
-    
-    IEnumerator TypeSentence(string sentence){
+
+    IEnumerator TypeSentence(string sentence)
+    {
         dialogueText.text = "";
-        foreach(char c in sentence.ToCharArray()){
+        foreach (char c in sentence.ToCharArray())
+        {
             dialogueText.text += c;
             yield return null;
         }
     }
 
-    void EndDialogue(){
-        
+    void EndDialogue()
+    {
         animator.SetBool("isOpen", false);
         dialogueMode = false;
         timeSinceLastDialogue = Time.time + dialogueCooldown;
-        
+
     }
 
 }
