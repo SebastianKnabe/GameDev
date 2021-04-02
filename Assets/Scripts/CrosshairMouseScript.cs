@@ -5,13 +5,13 @@ using UnityEngine;
 public class CrosshairMouseScript : MonoBehaviour
 {
     public GameObject bulletStart;
-    private Vector3 crosshairPlayerDifference; 
+    private Vector3 crosshairPlayerDifference;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false; 
+        Cursor.visible = false;
         crosshairPlayerDifference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - bulletStart.transform.position;
     }
 
@@ -20,14 +20,11 @@ public class CrosshairMouseScript : MonoBehaviour
     {
         transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         crosshairPlayerDifference = transform.position - bulletStart.transform.position;
-
-       
-
     }
 
-    public Vector2 getCrosshairPlayerPosition(){
-            return crosshairPlayerDifference;
-
+    public Vector2 getCrosshairPlayerPosition()
+    {
+        return crosshairPlayerDifference;
     }
 
 }

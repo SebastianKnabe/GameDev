@@ -98,12 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127ae03d0e0670f4587b6930845cf03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventory: {fileID: 11400000, guid: 067f42275e0ac8b499f707c1c421336f, type: 2}
   TextObject: {fileID: 759110591118936699, guid: b70768e776126c241b9385c160138515,
     type: 3}
   TextPosition: {fileID: 5391434400441282270}
+  inventoryEvent: {fileID: 11400000, guid: 903699d245b97b149a8c231f731f0802, type: 2}
   currency: 10
   animator: {fileID: 1976753901}
+  inventory: {fileID: 11400000, guid: 6c5b45f676eb10740b118099c49a7ca7, type: 2}
   items:
   - item: {fileID: 11400000, guid: 535f9aa4e49e81e48872f603715eadba, type: 2}
     quantity: 4

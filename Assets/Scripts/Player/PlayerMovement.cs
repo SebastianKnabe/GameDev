@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 20f;
-    public float sprintSpeed = 20f;
+    public float sprintSpeed = 30f;
     public float jumpForce = 30f;
     public float backToGroundSpeed = -0.3f;
     public float gravity = -0.4f;
@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float rayCastOffset = 0.05f;
     private static staminaRefillScript staminaRefillScript;
     private bool facingRight = true;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         staminaRefillScript = GameObject.FindObjectOfType<staminaRefillScript>();
         animator = gameObject.GetComponent<Animator>();
         spriteManager = gameObject.GetComponent<SpriteManager>();
+        speed = moveSpeed;
     }
 
     private void FixedUpdate()
@@ -46,11 +48,17 @@ public class PlayerMovement : MonoBehaviour
             staminaRefillScript.requestSprint(false);
             return;
         }
-
-        float speed = moveSpeed;
-        if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
+        if (isGrounded())
         {
-            speed = sprintSpeed;
+            if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
+            {
+                speed = sprintSpeed;
+            }
+            else
+            {
+                speed = moveSpeed;
+                staminaRefillScript.requestSprint(false);
+            }
         }
         else
         {

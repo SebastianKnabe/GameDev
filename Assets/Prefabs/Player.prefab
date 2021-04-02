@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4270141706195436408}
   - component: {fileID: 4270141706195436409}
   - component: {fileID: 4270141706195436407}
+  - component: {fileID: 275177604}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -178,13 +179,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  sprintSpeed: 20
+  sprintSpeed: 30
   jumpForce: 30
   backToGroundSpeed: -0.3
   gravity: -0.4
   platformMask:
     serializedVersion: 2
     m_Bits: 256
+  speed: 0
 --- !u!114 &4270141706195436408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +204,10 @@ MonoBehaviour:
     type: 3}
   bulletStart: {fileID: 4270141704612379689}
   bulletSpeed: 60
+  spriteFlipTreshold: 5
+  weaponCooldown: 1
+  audioSource: {fileID: 0}
+  bulletSound: {fileID: 8300000, guid: b2a378cde622778458425a07137365f3, type: 3}
 --- !u!114 &4270141706195436409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +223,8 @@ MonoBehaviour:
   maxHitPoints: 10
   healthbar: {fileID: 0}
   spriteRenderer: {fileID: 4270141706195436403}
+  scene:
+    m_Handle: 1
 --- !u!95 &4270141706195436407
 Animator:
   serializedVersion: 3
@@ -236,3 +244,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &275177604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270141706195436401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28feb8cd96c9fb449b6e6b37be943f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

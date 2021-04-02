@@ -23,27 +23,31 @@ public class LootableInventory : MonoBehaviour
         initItemContainer();
     }
 
+    private void FixedUpdate()
+    {
+        //if container is empty dont allow player to open chest again
+        if (!itemContainer.hasItems())
+        {
+            isLootable = false;
+            Destroy(instanceOfTextObject);
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.E) && playerInRange && isLootable)
         {
             Debug.Log("LootItems");
-            
-            if(animator != null)
+
+            if (animator != null)
             {
                 animator.SetTrigger("isLooted");
             }
+
             //Raise Event
             inventory.ItemContainer = itemContainer;
             inventory.inventoryType = InventoryType.Container;
             inventoryEvent.Raise(inventory);
-            
-            //if container is empty dont allow player to open chest again
-            if(!itemContainer.hasItems())
-            {
-                isLootable = false;
-                Destroy(instanceOfTextObject);
-            }
         }
     }
 
@@ -69,7 +73,7 @@ public class LootableInventory : MonoBehaviour
 
     private void initItemContainer()
     {
-        for(int i = 0; i < items.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
             itemContainer.AddItem(items[i]);
         }
