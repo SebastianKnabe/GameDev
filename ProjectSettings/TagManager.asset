@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - Coin
+  - accessoire
   - Wall
   - Danger
   - Obstacle
@@ -20,7 +21,9 @@ TagManager:
   - UI
   - 
   - 
+  - accessoire_background
   - Platform
+  - accessoire_foreground
   - Destructable
   - 
   - 
