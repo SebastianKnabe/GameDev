@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Coin
   - accessoire
+  - SpawnPoint0
+  - Door
   - Wall
   - Danger
   - Obstacle
@@ -21,8 +23,8 @@ TagManager:
   - UI
   - 
   - 
-  - accessoire_background
   - Platform
+  - accessoire_background
   - accessoire_foreground
   - Destructable
   - 

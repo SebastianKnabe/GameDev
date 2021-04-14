@@ -126,6 +126,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "MovingPlatform")
+        {
+            transform.parent = collision.gameObject.transform;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "MovingPlatform")
+        {
+            transform.parent = null;
+        }
+    }
+
+
     private void setBackupPosition()
     {
         RaycastHit2D raycastHitLeft = Physics2D.BoxCast(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.size.x, 0f, 0f), boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);

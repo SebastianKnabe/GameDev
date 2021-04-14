@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
+    public static PlayerEntity instance;
     public float maxHitPoints;
     public GameObject healthbar;
     public SpriteRenderer spriteRenderer;
@@ -30,6 +31,15 @@ public class PlayerEntity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
         rb = gameObject.GetComponent<Rigidbody2D>();
         currentHitPoints = maxHitPoints;
         damageCooldown = false;
