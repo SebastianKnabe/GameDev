@@ -18,22 +18,17 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (!this.GetComponent<Renderer>().isVisible)
         {
             Destroy(this.gameObject);
         }
-
-
     }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.tag == "Enemy")
         {
-
             other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
             Destroy(this.gameObject);
         }

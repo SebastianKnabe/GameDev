@@ -32,7 +32,6 @@ public class PlayerEntity : MonoBehaviour
 
     void Update()
     {
-
         if (damageCooldown)
         {
             //spriteRenderer.color = new Color32(255,0,0,255);
