@@ -12,12 +12,14 @@ public class CameraFollow : MonoBehaviour
     private Vector2 cameraThreshold;
     private Rigidbody2D rb;
     private Camera camera;
+    private PlayerMovement playerMovement;
 
     private void Start()
     {
         cameraThreshold = calculateThreshold();
         rb = target.GetComponent<Rigidbody2D>();
         camera = gameObject.GetComponent<Camera>();
+        playerMovement = target.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -132,5 +134,11 @@ public class CameraFollow : MonoBehaviour
         Rect aspect = Camera.main.pixelRect;
         Vector2 cameraSize = new Vector2(Camera.main.orthographicSize * aspect.width / aspect.height, Camera.main.orthographicSize);
         Gizmos.DrawWireCube(transform.position, new Vector3(cameraSize.x * 2, cameraSize.y * 2, 1));
+    }
+
+    public void resetPosition()
+    {
+        Vector2 backup = playerMovement.getBackupPosition();
+        transform.position = new Vector3(backup.x, backup.y, -10f);
     }
 }
