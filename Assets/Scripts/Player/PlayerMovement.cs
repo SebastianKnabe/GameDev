@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 20f;
     public float sprintSpeed = 30f;
-    public float jumpForce = 30f;
+    public float jumpVelocity;
     public float backToGroundSpeed = -0.3f;
     public float gravity = -0.4f;
 
@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private static staminaRefillScript staminaRefillScript;
     private bool facingRight = true;
     public float speed;
+    private float coyoteTimer;
+    private float coyoteFrames = 30;
+    private bool hasJumped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,18 +56,25 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
             {
                 speed = sprintSpeed;
+            
             }
             else
             {
+                if (hasJumped)
+                {
+                    hasJumped = false;
+                }
                 speed = moveSpeed;
                 staminaRefillScript.requestSprint(false);
             }
+            coyoteTimer = 0;
+
         }
         else
         {
+            coyoteTimer++;
             staminaRefillScript.requestSprint(false);
         }
-
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
         rb.velocity = movement;
         animator.SetFloat("movementSpeed", movement.magnitude);
@@ -75,14 +85,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        if (Input.GetButtonDown("Jump") && !hasJumped && (isGrounded() || coyoteTimer < coyoteFrames))
         {
+            Debug.Log(hasJumped);
             //animator.SetBool("isJumping", true);
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        }
-        if (Input.GetKey(KeyCode.S) && !isGrounded())
-        {
-            rb.AddForce(new Vector2(0f, backToGroundSpeed), ForceMode2D.Impulse);
+            hasJumped = true;
+            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
         }
         animator.SetBool("isJumping", !isGrounded());
     }
@@ -90,8 +98,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
-
-        //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
     }
 
