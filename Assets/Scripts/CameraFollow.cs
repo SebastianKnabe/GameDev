@@ -66,4 +66,9 @@ public class CameraFollow : MonoBehaviour
         Vector2 border = calculateThreshold();
         Gizmos.DrawWireCube(transform.position, new Vector3(border.x *2, border.y *2, 1));
     }
+
+    public void MoveCameraToSpawnPoint()
+    {
+        this.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z - 2);
+    }
 }

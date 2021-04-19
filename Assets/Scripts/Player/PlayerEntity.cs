@@ -9,7 +9,12 @@ public class PlayerEntity : MonoBehaviour
     public GameObject healthbar;
     public SpriteRenderer spriteRenderer;
     public Scene scene;
+    public AudioSource audioSource;
+    public Transform spawnPoint;
+    public GameObject camera;
 
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip respawnSound;
     private float currentHitPoints;
     private float hitRate = 1.5f;
     private float timeSinceLastDamage;
@@ -77,11 +82,20 @@ public class PlayerEntity : MonoBehaviour
 
     }
 
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(2);
+        audioSource.PlayOneShot(respawnSound);
+        this.transform.position = spawnPoint.position;
+        camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint();
+    }
+
     public void death()
     {
         //TODO
-
-        Destroy(this.gameObject);
+        audioSource.PlayOneShot(deathSound);
+        StartCoroutine("Respawn");
+        
     }
 
     private void updateHealthbar()

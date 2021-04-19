@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     public float speed;
     private float coyoteTimer;
-    private float coyoteFrames = 30;
+    private float coyoteFrames = 10;
     private bool hasJumped = false;
 
     // Start is called before the first frame update
