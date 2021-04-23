@@ -10,8 +10,11 @@ public class PlayerMovement : MonoBehaviour
     public float jumpVelocity;
     public float backToGroundSpeed = -0.3f;
     public float gravity = -0.4f;
+    public AudioSource audioSource;
+
 
     [SerializeField] LayerMask platformMask;
+    [SerializeField] private AudioClip jumpSound;
 
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D rb;
@@ -91,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
             //animator.SetBool("isJumping", true);
             hasJumped = true;
             GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            audioSource.PlayOneShot(jumpSound);
         }
         animator.SetBool("isJumping", !isGrounded());
     }
