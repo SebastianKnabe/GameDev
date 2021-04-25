@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
-    public static PlayerEntity instance;
+    //public static PlayerEntity instance;
+    
     public float maxHitPoints;
     public GameObject healthbar;
     public SpriteRenderer spriteRenderer;
@@ -16,6 +17,7 @@ public class PlayerEntity : MonoBehaviour
     public Transform spawnPoint;
     public GameObject camera;
 
+    //private string spawnPoint;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip respawnSound;
     private float currentHitPoints;
@@ -28,9 +30,22 @@ public class PlayerEntity : MonoBehaviour
     private float changeColorHitRate;
     private Animator animator;
 
+    
+    /*
+    public void setSpawnPoint(string spawnPoint)
+    {
+        this.spawnPoint = spawnPoint;
+    }
+
+    public string getSpawnPoint()
+    {
+        return this.spawnPoint;
+    }
+    /*/
     // Start is called before the first frame update
     void Start()
     {
+        /*
         if (instance == null)
         {
             instance = this;
@@ -40,6 +55,7 @@ public class PlayerEntity : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+        /*/
         rb = gameObject.GetComponent<Rigidbody2D>();
         currentHitPoints = maxHitPoints;
         damageCooldown = false;
