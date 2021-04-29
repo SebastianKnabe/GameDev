@@ -9,12 +9,13 @@ public class DoorScript : MonoBehaviour
     public int sceneIndex;
     public string connectedDoor;
     public string spawnId;
-   
+
+    private int inital_sceneIndex;
+    private string inital_connectedDoor;
+    private string inital_spawnId;
+
 
     private bool playerInRange;
-
-
-
 
 
     // Update is called once per frame
@@ -37,6 +38,9 @@ public class DoorScript : MonoBehaviour
     void Start()
     {
         playerInRange = false;
+        inital_sceneIndex = sceneIndex;
+        inital_connectedDoor = connectedDoor;
+        inital_spawnId = spawnId;
 
     }
 
@@ -89,5 +93,19 @@ public class DoorScript : MonoBehaviour
 
         }
     }
+
+
+    public void changeSpawnPoint(string newSpawn)
+    {
+        connectedDoor = newSpawn;
+    }
+
+    public void resetAllSettings()
+    {
+        sceneIndex = inital_sceneIndex;
+        connectedDoor = inital_connectedDoor;
+        spawnId = inital_spawnId;
+    }
+
 
 }

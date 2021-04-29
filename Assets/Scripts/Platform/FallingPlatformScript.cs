@@ -39,7 +39,14 @@ public class FallingPlatformScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            rb.isKinematic = false;
+
+            Vector3 direction = transform.position - collision.gameObject.transform.position;
+            if (direction.y < 0)
+            {
+                rb.isKinematic = false;
+
+            }
+
         }
     }
 

@@ -5,6 +5,12 @@ TextureImporter:
   - first:
       213: 5147079506599870712
     second: s4m_ur4i-2D-gothic-soulslike_tileset_0
+  - first:
+      213: 1134163094830217052
+    second: s4m_ur4i-2D-gothic-soulslike_tileset_1
+  - first:
+      213: -1988758479929839320
+    second: s4m_ur4i-2D-gothic-soulslike_tileset_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -98,7 +104,7 @@ TextureImporter:
         width: 11
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -106,6 +112,48 @@ TextureImporter:
       bones: []
       spriteID: 8f004957a891e6740800000000000000
       internalID: 5147079506599870712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i-2D-gothic-soulslike_tileset_1
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 49
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5776b0635b5dbf00800000000000000
+      internalID: 1134163094830217052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i-2D-gothic-soulslike_tileset_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 49
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8217cbb03b28664e0800000000000000
+      internalID: -1988758479929839320
       vertices: []
       indices: 
       edges: []
