@@ -95,10 +95,23 @@ public class DoorScript : MonoBehaviour
     }
 
 
-    public void changeSpawnPoint(string newSpawn)
+    public void changeConnectedDoor(string new_connectedDoor) 
     {
-        connectedDoor = newSpawn;
+        connectedDoor = new_connectedDoor;
+ 
     }
+    public void changeSceneIndex(int new_sceneIndex)
+    {
+        sceneIndex = new_sceneIndex;
+      
+    }
+
+    public void changeSpawnId(string new_spawnId)
+    {
+        spawnId = new_spawnId;
+
+    }
+
 
     public void resetAllSettings()
     {
