@@ -9,26 +9,26 @@ public class ItemContainer : IItemContainer
     public Action OnItemsUpdate = delegate { };
 
     public ItemContainer(int size) => itemSlots = new ItemSlot[size];
-    
+
     public ItemSlot GetSlotByIndex(int index) => itemSlots[index];
     public int ContainerSize() => itemSlots.Length;
     public int Currency { get; set; } = 0;
 
     /*
      * Item wird hinzugefügt, wenn genug Platz ist.
-     */ 
+     */
     public ItemSlot AddItem(ItemSlot itemSlot)
     {
         Debug.Log("add item " + itemSlot.item.name);
-        for(int i = 0; i < itemSlots.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            if(itemSlots[i].item != null)
+            if (itemSlots[i].item != null)
             {
-                if(itemSlots[i].item == itemSlot.item)
+                if (itemSlots[i].item == itemSlot.item)
                 {
                     int slotRemainingSpace = itemSlots[i].item.MaxStack - itemSlots[i].quantity;
 
-                    if(itemSlot.quantity <= slotRemainingSpace)
+                    if (itemSlot.quantity <= slotRemainingSpace)
                     {
                         itemSlots[i].quantity += itemSlot.quantity;
                         itemSlot.quantity = 0;
@@ -37,7 +37,7 @@ public class ItemContainer : IItemContainer
 
                         return itemSlot;
                     }
-                    else if (slotRemainingSpace > 0) 
+                    else if (slotRemainingSpace > 0)
                     {
                         itemSlots[i].quantity += slotRemainingSpace;
                         itemSlot.quantity -= slotRemainingSpace;
@@ -46,11 +46,11 @@ public class ItemContainer : IItemContainer
             }
         }
 
-        for(int i = 0; i < itemSlots.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            if(itemSlots[i].item == null)
+            if (itemSlots[i].item == null)
             {
-                if(itemSlot.quantity <= itemSlot.item.MaxStack)
+                if (itemSlot.quantity <= itemSlot.item.MaxStack)
                 {
                     itemSlots[i] = itemSlot;
                     itemSlot.quantity = 0;
@@ -115,9 +115,9 @@ public class ItemContainer : IItemContainer
     {
         int totalCount = 0;
 
-        foreach(ItemSlot itemSlot in itemSlots)
+        foreach (ItemSlot itemSlot in itemSlots)
         {
-            if(itemSlot.item == null || itemSlot.item != item)
+            if (itemSlot.item == null || itemSlot.item != item)
             {
                 continue;
             }
@@ -130,7 +130,7 @@ public class ItemContainer : IItemContainer
 
     public bool HasItem(InventoryItem item)
     {
-        foreach(ItemSlot itemSlot in itemSlots)
+        foreach (ItemSlot itemSlot in itemSlots)
         {
             if (itemSlot.item == null || itemSlot.item != item)
             {
@@ -143,13 +143,14 @@ public class ItemContainer : IItemContainer
 
     public void RemoveItem(ItemSlot itemSlot)
     {
-        for(int i = 0; i < itemSlots.Length; i++)
+        Debug.Log("RemoveItem: " + itemSlot.item.name + " with Quanity " + itemSlot.quantity);
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            if(itemSlots[i].item != null)
+            if (itemSlots[i].item != null)
             {
-                if(itemSlots[i].item == itemSlot.item)
+                if (itemSlots[i].item == itemSlot.item)
                 {
-                    if(itemSlots[i].quantity < itemSlot.quantity)
+                    if (itemSlots[i].quantity < itemSlot.quantity)
                     {
                         itemSlot.quantity -= itemSlots[i].quantity;
                         itemSlots[i] = new ItemSlot();
@@ -158,7 +159,7 @@ public class ItemContainer : IItemContainer
                     {
                         itemSlots[i].quantity -= itemSlot.quantity;
 
-                        if(itemSlots[i].quantity == 0)
+                        if (itemSlots[i].quantity == 0)
                         {
                             itemSlots[i] = new ItemSlot();
 
@@ -170,27 +171,29 @@ public class ItemContainer : IItemContainer
                 }
             }
         }
+        OnItemsUpdate.Invoke();
     }
 
     //Removes Item at specfic Index. If Item is not removed it returns an empty ItemSlot
     public ItemSlot RemoveItemAtIndex(ItemSlot itemSlot, int slotIndex)
     {
-        if(slotIndex < 0 || slotIndex > itemSlots.Length - 1)
+        if (slotIndex < 0 || slotIndex > itemSlots.Length - 1)
         {
             return new ItemSlot();
         }
         Debug.Log("Remove Item " + itemSlot.item.name + " at Index " + slotIndex);
         ItemSlot removedItem = itemSlots[slotIndex];
-        
-        if(removedItem.quantity > itemSlot.quantity)
+
+        if (removedItem.quantity > itemSlot.quantity)
         {
             itemSlots[slotIndex].quantity -= itemSlot.quantity;
-        } else
+        }
+        else
         {
             itemSlots[slotIndex] = new ItemSlot();
         }
         OnItemsUpdate.Invoke();
-        
+
         return removedItem;
     }
 
@@ -198,7 +201,7 @@ public class ItemContainer : IItemContainer
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if(itemSlots[i].quantity > 0)
+            if (itemSlots[i].quantity > 0)
             {
                 return true;
             }
@@ -217,18 +220,18 @@ public class ItemContainer : IItemContainer
 
         Debug.Log("Swap");
 
-        if(firstSlot == secondSlot)
+        if (firstSlot == secondSlot)
         {
             return;
         }
 
-        if(secondSlot != null)
+        if (secondSlot != null)
         {
-            if(firstSlot.item == secondSlot.item)
+            if (firstSlot.item == secondSlot.item)
             {
                 int secondSlotRemainingSpace = secondSlot.item.MaxStack - secondSlot.quantity;
 
-                if(firstSlot.quantity <= secondSlotRemainingSpace)
+                if (firstSlot.quantity <= secondSlotRemainingSpace)
                 {
                     itemSlots[indexTwo].quantity += firstSlot.quantity;
                     itemSlots[indexOne] = new ItemSlot();
@@ -248,7 +251,7 @@ public class ItemContainer : IItemContainer
 
     public ItemSlot getItemAtIndex(int slotIndex)
     {
-        if(slotIndex > itemSlots.Length)
+        if (slotIndex > itemSlots.Length)
         {
             return new ItemSlot();
         }
@@ -268,16 +271,17 @@ public class ItemContainer : IItemContainer
         for (int i = 0; i < itemSlots.Length; i++)
         {
             builder.Append("ItemSlot ").Append(i).Append(" with Item ");
-            if(itemSlots[i].item == null)
+            if (itemSlots[i].item == null)
             {
                 builder.Append("null");
-            } else
+            }
+            else
             {
                 builder.Append(itemSlots[i].item.name);
             }
             builder.AppendLine();
         }
- 
+
         return builder.ToString();
     }
 }

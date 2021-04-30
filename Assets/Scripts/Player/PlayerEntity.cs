@@ -9,6 +9,8 @@ public class PlayerEntity : MonoBehaviour
     public GameObject healthbar;
     public SpriteRenderer spriteRenderer;
     public Scene scene;
+    public Inventory inventory;
+    public InventoryItem healthKit;
 
     private float currentHitPoints;
     private float hitRate = 1.5f;
@@ -32,7 +34,6 @@ public class PlayerEntity : MonoBehaviour
 
     void Update()
     {
-
         if (damageCooldown)
         {
             //spriteRenderer.color = new Color32(255,0,0,255);
@@ -49,6 +50,26 @@ public class PlayerEntity : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyUp(KeyCode.H) && (currentHitPoints != maxHitPoints))
+        {
+            useHealthKit();
+        }
+    }
+
+    private void useHealthKit()
+    {
+        if (inventory.ItemContainer.HasItem(healthKit))
+        {
+            currentHitPoints += maxHitPoints * 0.25f;
+            if (currentHitPoints > maxHitPoints)
+            {
+                currentHitPoints = maxHitPoints;
+            }
+            updateHealthbar();
+
+            ItemSlot removeItem = new ItemSlot(healthKit, 1);
+            inventory.ItemContainer.RemoveItem(removeItem);
+        }
     }
 
     /* Methode wird aufgerufen, wenn die Entity Schaden erleidet.

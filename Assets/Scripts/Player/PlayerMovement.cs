@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 30f;
     public float backToGroundSpeed = -0.3f;
     public float gravity = -0.4f;
+    public float speed;
 
     [SerializeField] LayerMask platformMask;
 
@@ -19,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteManager spriteManager;
     private float rayCastOffset = 0.05f;
     private static staminaRefillScript staminaRefillScript;
-    private bool facingRight = true;
-    public float speed;
+    private Vector2 backupPosition;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isGrounded())
         {
+            setBackupPosition();
             if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
             {
                 speed = sprintSpeed;
@@ -91,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
 
+        Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down);
+
         //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
     }
@@ -106,5 +110,31 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteManager.rotateSprite();
         }
+    }
+
+    private void setBackupPosition()
+    {
+        RaycastHit2D raycastHitLeft = Physics2D.BoxCast(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.size.x, 0f, 0f), boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+        RaycastHit2D raycastHitRight = Physics2D.BoxCast(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.size.x, 0f, 0f), boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+
+        if (raycastHitLeft.collider != null)
+        {
+            backupPosition = transform.position - new Vector3(boxCollider2D.bounds.size.x, 0f, 0f);
+        }
+        else if (raycastHitRight.collider != null)
+        {
+            backupPosition = transform.position + new Vector3(boxCollider2D.bounds.size.x, 0f, 0f);
+        }
+    }
+
+    public void resetPosition()
+    {
+        transform.position = backupPosition;
+        rb.velocity = new Vector2(0f, 0f);
+    }
+
+    public Vector2 getBackupPosition()
+    {
+        return backupPosition;
     }
 }
