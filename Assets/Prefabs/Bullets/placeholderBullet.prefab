@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: placeholderBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 685931572056555841, guid: 49c3b2d428312194a95d57929fd3b3b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1862221633342359585, guid: 49c3b2d428312194a95d57929fd3b3b7,
         type: 3}
       propertyPath: m_Sprite

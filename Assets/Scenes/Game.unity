@@ -11198,6 +11198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlyingShootingEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6389765848566720443, guid: 9304e18d912820e4ba9cf41603bea412,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 275177611}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9304e18d912820e4ba9cf41603bea412, type: 3}
 --- !u!1 &2108576001 stripped
