@@ -6,15 +6,17 @@ public class EnemyEntity : MonoBehaviour
 {
     public float maxHitPoints;
     public GameObject healthbar;
+    public bool dropEnabled;
 
     private float currentHitPoints;
-    public bool dropEnabled;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHitPoints = maxHitPoints;
-        
+        animator = gameObject.GetComponent<Animator>();
+
         updateHealthbar();
     }
 
@@ -24,8 +26,8 @@ public class EnemyEntity : MonoBehaviour
     public void takeDamage(float incomingDamage)
     {
         currentHitPoints -= incomingDamage;
-        
-        if(currentHitPoints <= 0)
+
+        if (currentHitPoints <= 0)
         {
             death();
             return;
@@ -37,16 +39,17 @@ public class EnemyEntity : MonoBehaviour
     public void death()
     {
         //TODO
-        if(dropEnabled){
+        animator.SetTrigger("isDead");
+        if (dropEnabled)
+        {
             this.gameObject.GetComponent<DropLootScript>().dropLoot();
         }
-        Destroy(this.gameObject);
     }
 
     private void updateHealthbar()
     {
         float healthbarRatio = currentHitPoints / maxHitPoints;
-        if(healthbarRatio == 1f)
+        if (healthbarRatio == 1f)
         {
             healthbar.SetActive(false);
         }
@@ -55,6 +58,6 @@ public class EnemyEntity : MonoBehaviour
             healthbar.SetActive(true);
             healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
         }
-        
+
     }
 }

@@ -40,6 +40,12 @@ public class BulletScript : MonoBehaviour
             Destroy(this.gameObject);
             
         }
+        else if (other.tag == "Player")
+        {
+            other.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
+            Destroy(this.gameObject);
+        }
+        else if (other.tag == "Ground")
         else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
         {
             Destroy(this.gameObject);

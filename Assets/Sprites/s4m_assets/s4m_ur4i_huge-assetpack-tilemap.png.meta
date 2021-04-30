@@ -322,7 +322,7 @@ TextureImporter:
     second: s4m_ur4i_huge-assetpack-tilemap_105
   - first:
       213: 446962974885634574
-    second: s4m_ur4i_huge-assetpack-tilemap_106
+    second: Fire_Bullet
   - first:
       213: 6051588246430877340
     second: s4m_ur4i_huge-assetpack-tilemap_107
@@ -3381,7 +3381,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: s4m_ur4i_huge-assetpack-tilemap_106
+      name: Fire_Bullet
       rect:
         serializedVersion: 2
         x: 72
@@ -8513,7 +8513,7 @@ TextureImporter:
         width: 15
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -8534,7 +8534,7 @@ TextureImporter:
         width: 15
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
