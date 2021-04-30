@@ -2,7 +2,6 @@
 
 public class BulletScript : MonoBehaviour
 {
-
     //public float bulletSpeed = 60.0f;
     public float damage = 3.0f;
     private Rigidbody2D rb;
@@ -27,6 +26,14 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Wenn Kugel vom gleichen Tag ist, passiert nichts
+        //Mögliche Tags der Kugel sind Player oder Enemy
+        if (other.tag == tag)
+        {
+            return;
+        }
+
+        if (other.tag == "Enemy")
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
