@@ -31,6 +31,8 @@ public class BulletScript : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
             Destroy(this.gameObject);
+            other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
+            
         }
         else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
         {
