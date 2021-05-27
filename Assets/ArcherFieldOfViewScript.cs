@@ -1,25 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ArcherFieldOfViewScript : MonoBehaviour
 {
-    public Transform castPoint; 
-    public bool playerInRange;
-    public bool playerInSight;
+    public GameObject archer;
+    public Transform castPoint;
+    public Tilemap tilemapGround;
+
+    private BoundsInt size;
+    private TileBase[] allTiles;
+
     public Transform player;
     //public float radius;
     int layerMask;
-
+    StateModel archerEntity;
     // Start is called before the first frame update
     void Start()
     {
 
-        playerInRange = false;
-        playerInSight = false;
+        archerEntity = archer.GetComponent<StateModel>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        layerMask = 1 << LayerMask.NameToLayer("Platform");
-        //layerMask = 1 << 8;
+        layerMask = layerMask = 1 << 8;
+
+        size = tilemapGround.cellBounds;
+        allTiles = tilemapGround.GetTilesBlock(size);
+
+        //layerMask = layerMask = 1 << 8;
         //radius = GetComponent<CircleCollider2D>().radius;
     }
 
@@ -27,16 +35,19 @@ public class ArcherFieldOfViewScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerInRange = true;
+            archerEntity.playerInRange = true;
         }
+
+   
+
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerInRange = false;
-            playerInSight = false;
+            archerEntity.playerInRange = false;
+            archerEntity.playerInSight = false;
         }
     }
 
@@ -44,34 +55,46 @@ public class ArcherFieldOfViewScript : MonoBehaviour
     void FixedUpdate()
     {
 
-        //Debug.DrawRay(castPoint.position, player.position - castPoint.position, Color.red, 1, false);
+        Debug.DrawRay(castPoint.position, player.position - castPoint.position, Color.red, 1, false);
 
-        if (playerInRange)
+        if (archerEntity.playerInRange)
         {
             RaycastHit2D hit = Physics2D.Linecast(castPoint.position, player.position, layerMask);
             if (!hit)
             {
-                playerInSight = true;
+                archerEntity.playerInSight = true;
             }
             else
             {
-                playerInSight = false;
+                archerEntity.playerInSight = false;
+                //Debug.Log(hit.point);
+
+                
+
+    Vector3Int vec3HitPoint = new Vector3Int(
+                 Mathf.RoundToInt(hit.point.x + 1),
+                 Mathf.RoundToInt(hit.point.y),
+                 Mathf.RoundToInt(0)
+ );
+
+
+
+                GameObject hitObject = hit.collider.gameObject;
+
+                
+                Vector3Int position = tilemapGround.layoutGrid.WorldToCell(vec3HitPoint);
+
+
+                var sprite = tilemapGround.GetSprite(position);
+                var returnedVal = tilemapGround.GetTile(position);
+                //Debug.Log( position + " " + returnedVal +" " + sprite.rect + hitObject.GetComponent<Renderer>().bounds);
+               
             }
 
         }
         
     }
 
-    public bool getPlayerInRange()
-    {
-        return playerInRange;
-    }
-    public bool getPlayerInSight()
-    {
-        return playerInSight;
-    }
-    public Transform getPlayerTransform()
-    {
-        return player;
-    }
+
+
 }

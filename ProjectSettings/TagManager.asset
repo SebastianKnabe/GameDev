@@ -27,6 +27,7 @@ TagManager:
   - Platform
   - accessoire_background
   - accessoire_foreground
+  - JumpingWall
   - Rope
   - Destructable
   - 
