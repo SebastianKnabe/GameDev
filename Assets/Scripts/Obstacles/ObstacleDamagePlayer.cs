@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillPlayer : MonoBehaviour
+public class ObstacleDamagePlayer : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -12,7 +12,7 @@ public class KillPlayer : MonoBehaviour
 
       void OnCollisionEnter2D(Collision2D col)
     {
-        col.gameObject.GetComponent<PlayerEntity>().death();
+        col.gameObject.GetComponent<PlayerEntity>().hitObstacle();
     }
 
     // Update is called once per frame
