@@ -10,33 +10,34 @@ public class AttackState : State
     public GameObject arrowPrefab;
     public Transform arrowStart;
     public float arrowSpeed = 60.0f;
-
+    public string animatorStringForAttack;
 
 
 
     StateModel archerEntity;
-    private Animator attackAnimation;
     private string stateString = "attackState";
 
     public void Start()
     {
         archerEntity = archer.GetComponent<StateModel>();
-        attackAnimation = archer.GetComponent<Animator>();
+        runFixedUpdate = false;
     }
+
 
     public override State RunCurrentState()
     {
 
+        archerEntity.Flip();
 
-        if (archerEntity.getPlayerInRange() && !archerEntity.getPlayerInSight())
+        if (archerEntity.PlayerInRange && !archerEntity.PlayerInSight)
         {
             return chaseState;
-        }else if (!archerEntity.getPlayerInSight())
+        }else if (!archerEntity.PlayerInSight)
         {
             resetAttackAnimationSpeed();
             return idleState;
         }
-        else if(archerEntity.getPlayerInRange() && archerEntity.getPlayerInSight())
+        else if(archerEntity.PlayerInRange && archerEntity.PlayerInSight)
         {
             //attack
            
@@ -44,16 +45,16 @@ public class AttackState : State
             if (!DialogueManager.dialogueMode)
             {
                 increaseAttackAnimationSpeed();
-                attackAnimation.Play("archer_enemy_shoot");
+                archerEntity.Animator.Play(animatorStringForAttack);
             }
          
 
 
-            if (attackAnimation.GetCurrentAnimatorStateInfo(0).IsName("archer_enemy_shoot") &&
-                attackAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            if (archerEntity.Animator.GetCurrentAnimatorStateInfo(0).IsName(animatorStringForAttack) &&
+                archerEntity.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
 
-                Vector3 enemyPlayerDistance = archerEntity.getPlayerTransform().position - arrowStart.position;
+                Vector3 enemyPlayerDistance = archerEntity.Player.position - arrowStart.position;
                 Debug.Log(enemyPlayerDistance + "      " + arrowStart.position);
                 float rotationZ = Mathf.Atan2(enemyPlayerDistance.y, enemyPlayerDistance.x) * Mathf.Rad2Deg;
                 float distance = enemyPlayerDistance.magnitude;
@@ -61,7 +62,7 @@ public class AttackState : State
                 direction.Normalize();
                 fireBullet(direction, rotationZ);
 
-                archerEntity.timeSinceLastShot = 0f;
+                archerEntity.TimeSinceLastShot = 0f;
                 resetAttackAnimationSpeed();
                 return idleState;
             }
@@ -74,15 +75,16 @@ public class AttackState : State
         return this;
     }
 
+
     
     void increaseAttackAnimationSpeed()
     {
-            attackAnimation.speed = archerEntity.attackSpeed;
+        archerEntity.Animator.speed = archerEntity.AttackSpeed;
     }
 
     void resetAttackAnimationSpeed()
     {
-        attackAnimation.speed = 1;
+        archerEntity.Animator.speed = 1;
     }
 
     void fireBullet(Vector2 direction, float rotationZ)

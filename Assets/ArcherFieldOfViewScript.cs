@@ -9,8 +9,6 @@ public class ArcherFieldOfViewScript : MonoBehaviour
     public Transform castPoint;
     public Tilemap tilemapGround;
 
-    private BoundsInt size;
-    private TileBase[] allTiles;
 
     public Transform player;
     //public float radius;
@@ -24,8 +22,6 @@ public class ArcherFieldOfViewScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         layerMask = layerMask = 1 << 8;
 
-        size = tilemapGround.cellBounds;
-        allTiles = tilemapGround.GetTilesBlock(size);
 
         //layerMask = layerMask = 1 << 8;
         //radius = GetComponent<CircleCollider2D>().radius;
@@ -35,19 +31,19 @@ public class ArcherFieldOfViewScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            archerEntity.playerInRange = true;
+            archerEntity.PlayerInRange = true;
+           
+
         }
-
-   
-
     }
+
 
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            archerEntity.playerInRange = false;
-            archerEntity.playerInSight = false;
+            archerEntity.PlayerInRange = false;
+            archerEntity.PlayerInSight = false;
         }
     }
 
@@ -57,38 +53,19 @@ public class ArcherFieldOfViewScript : MonoBehaviour
 
         Debug.DrawRay(castPoint.position, player.position - castPoint.position, Color.red, 1, false);
 
-        if (archerEntity.playerInRange)
+        if (archerEntity.PlayerInRange)
         {
             RaycastHit2D hit = Physics2D.Linecast(castPoint.position, player.position, layerMask);
             if (!hit)
             {
-                archerEntity.playerInSight = true;
+                archerEntity.PlayerInSight = true;
+                archerEntity.LastPlayerPosition = archerEntity.Player.transform.position;
+                archerEntity.TimeSinceAwayFromSpawn = 0;
             }
             else
             {
-                archerEntity.playerInSight = false;
-                //Debug.Log(hit.point);
+                archerEntity.PlayerInSight = false;
 
-                
-
-    Vector3Int vec3HitPoint = new Vector3Int(
-                 Mathf.RoundToInt(hit.point.x + 1),
-                 Mathf.RoundToInt(hit.point.y),
-                 Mathf.RoundToInt(0)
- );
-
-
-
-                GameObject hitObject = hit.collider.gameObject;
-
-                
-                Vector3Int position = tilemapGround.layoutGrid.WorldToCell(vec3HitPoint);
-
-
-                var sprite = tilemapGround.GetSprite(position);
-                var returnedVal = tilemapGround.GetTile(position);
-                //Debug.Log( position + " " + returnedVal +" " + sprite.rect + hitObject.GetComponent<Renderer>().bounds);
-               
             }
 
         }

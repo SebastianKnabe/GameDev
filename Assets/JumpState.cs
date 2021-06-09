@@ -7,145 +7,48 @@ public class JumpState : State
     public ChaseState chaseState;
     public IdleState idleState;
 
-    Vector3 middlePoint;
+    public string animatorStringForJump;
+    public string animatorStringForFall;
 
     public Transform archer;
-    public float FallingThreshold = -8;
+    public float speed;
     StateModel archerEntity;
 
-    private Animator jumpAnimator;
     private string stateString = "jumpState";
-
-    private bool inJump = false;
-    public bool fall = false;
-    public bool move = false;
 
     private bool started = false;
     private bool playerFelt = false;
-    private Vector3 playerPosition;
-    private Vector3 archerPosition;
+    private Coroutine jmpRoutine;
 
-
-
-    // Start is called before the first frame update
+    
     public void Start()
     {
-
-        
-
-     
         archerEntity = archer.GetComponent<StateModel>();
-        jumpAnimator = archer.GetComponent<Animator>();
-        middlePoint = archerEntity.middlePoint;
-
+        runFixedUpdate = true ;
     }
 
     public override State RunCurrentState()
     {
-        archerEntity.checkingWall = Physics2D.OverlapCircle(archerEntity.wallCheck.position, archerEntity.circleRadius, archerEntity.getLayerMask());
-        archerEntity.isGrounded = Physics2D.OverlapBox(archerEntity.groundCheck.position, archerEntity.boxSize, 0, archerEntity.getLayerMask());
 
-        //Debug.Log(archer.GetComponent<Rigidbody2D>().velocity.y);
-        /*
-         * 
-         * check if jump is finished and changes state then
-         * 
-        float current_y = path.vectorPath[currentWaypoint].y;
-        int index = 0;
-        for (int i = currentWaypoint; i < path.vectorPath.Count; i++)
-        {
-            if (current_y >= path.vectorPath[i].y)
-            {
-                index = i;
-                break;
-            }
-            if (current_y < path.vectorPath[i].y)
-            {
-                current_y = path.vectorPath[i].y;
-            }
-        }
-        //StartCoroutine(jump());
-        
-        /*/
+        archerEntity.CheckingWall = Physics2D.OverlapCircle(archerEntity.WallCheck.position, archerEntity.CircleRadius, archerEntity.LayerMask);
+        archerEntity.IsGrounded = Physics2D.OverlapBox(archerEntity.GroundCheck.position, archerEntity.BoxSize, 0, archerEntity.LayerMask);
 
 
-
-        //interpolateAmount = (interpolateAmount + Time.deltaTime) % 1f;
-
-        if(started && playerFelt && archerEntity.isGrounded)
+        if (started && playerFelt && archerEntity.IsGrounded)
         {
             playerFelt = false;
             started = false;
+            StopCoroutine(jmpRoutine);
             return idleState;
+           
         }
 
         if (!started)
         {
-            archerPosition = archer.position;
             started = true;
+            jmpRoutine = StartCoroutine(JumpAnimation(archer.position, archerEntity.MiddlePoint));
         }
 
-
-
-        if(archer.GetComponent<Rigidbody2D>().velocity.y < FallingThreshold)
-        {
-            jumpAnimator.Play("archer_enemy_fall");
-            playerFelt = true;
-        }
-        else
-        {
-            jumpAnimator.Play("archer_enemy_jump");
-        }
-
-
-       
-
-       
-
-
-       Vector3 pointA = archer.position;
-       Vector3 pointB = new Vector3(archer.position.x, archerEntity.middlePoint.y + 20, 0);
-       Vector3 pointC = new Vector3(archerEntity.middlePoint.x, archerEntity.middlePoint.y + 20, 0);
-       Vector3 pointD = new Vector3(archerEntity.middlePoint.x, archerEntity.middlePoint.y, 0);
-
-
-
-
-       Vector3 result = GetPointOnBezierCurve(pointA, pointB, pointC, pointD, Time.deltaTime * 15);
-       inJump = true;
-
-       archer.GetComponent<Rigidbody2D>().position = result;
-        /*
-       * 
-       * 
-      Vector3 pointA = archer.position;
-      Vector3 pointB = new Vector3(archer.position.x, playerPosition.y + 10, 0);
-      Vector3 pointC = new Vector3(playerPosition.x, playerPosition.y + 10, 0);
-      Vector3 pointD = new Vector3(playerPosition.x, playerPosition.y, 0);
-       * 
-     if(archerEntity.isGrounded && !inJump){
-
-
-         float xDistance = archerEntity.middlePoint.x - archerEntity.transform.position.x;
-         float yDistance = archerEntity.middlePoint.y - archerEntity.transform.position.y;
-
-         archer.GetComponent<Rigidbody2D>().AddForce(new Vector2(xDistance, 20), ForceMode2D.Impulse);
-
-         inJump = true;
-     }
-
-     */
-
-        // transform.position = Vector3.Lerp(obj1, obj2, Time.deltaTime / finalSpeed);
-
-
-        //pointAB = Vector3.Lerp(archer.position, middlePoint, Time.deltaTime);
-        //pointBC = Vector3.Lerp(middlePoint, archerEntity.getPlayerTransform().position, Time.deltaTime);
-        // Vector3 final = Vector3.Lerp(pointAB, pointBC, Time.deltaTime);
-        //Vector3 final = Vector3.Lerp(archer.position, archerEntity.getPlayerTransform().position, Time.deltaTime);
-        // Debug.Log("pointAB " + pointAB + "pointBC " + pointBC + "result " + final);
-        //archer.GetComponent<Rigidbody2D>().position = Vector3.Lerp(archer.position, result, Time.deltaTime); ;
-        //
 
 
 
@@ -153,6 +56,55 @@ public class JumpState : State
 
     }
 
+
+    IEnumerator JumpAnimation(Vector3 fromPos, Vector3 toPos)
+    {
+
+        float duration = (toPos - fromPos).magnitude * speed;
+
+
+        Vector3 fromPos01 = fromPos;
+        Vector3 toPos01 = new Vector3(fromPos.x + ((toPos - fromPos).x / 2), toPos.y +  ((toPos).y * 1/8f), fromPos.z);
+        //Vector3 toPos01 = new Vector3(fromPos.x + ((toPos - fromPos).x / 2), toPos.y +  ((toPos - fromPos).y * 1.05f), fromPos.z);
+
+        //Debug.Log("toPos01 : " + toPos01);
+
+        float tempT;
+
+        for (float t = 0; t < 1.0f; t += Time.fixedDeltaTime / duration * 0.5f)
+        {
+            archerEntity.Animator.Play(animatorStringForJump);
+
+            //tempT = Mathf.Sin(t * Mathf.PI * 0.5f);
+            tempT = Mathf.Sin(t * Mathf.PI * 0.5f);
+           
+            archer.GetComponent<Rigidbody2D>().position = Vector3.Lerp(fromPos01, toPos01, t);
+
+            yield return null;
+        }
+
+        Vector3 fromPos02 = toPos01;
+        Vector3 toPos02 = toPos;
+
+        for (float t = 0; t < 1.0f; t += Time.fixedDeltaTime / duration * 0.5f)
+        {
+            //Debug.Log("FIRST LOOP");
+
+            archerEntity.Animator.Play(animatorStringForFall);
+            playerFelt = true;
+
+            tempT = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
+            archer.GetComponent<Rigidbody2D>().position = Vector3.Lerp(fromPos02, toPos02, t);
+
+            yield return null;
+        }
+
+        archer.GetComponent<Rigidbody2D>().position = toPos;
+
+    }
+
+
+   
 
     public override string getStateType()
     {

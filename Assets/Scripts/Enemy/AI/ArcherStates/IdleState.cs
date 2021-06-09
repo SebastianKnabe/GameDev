@@ -6,43 +6,101 @@ public class IdleState : State
 {
     public ChaseState chaseState;
     public AttackState attackState;
-    //public float sightRange = 5.0f;
-    //public float attackRange; 
     public Transform archer;
-    Transform states;
+    public string animatorStringForIdle;
+
 
     StateModel archerEntity;
 
-    private Animator idleAnimation;
+
     private string stateString = "idleState";
     public void Start()
     {
         archerEntity = archer.GetComponent<StateModel>();
-        idleAnimation = archer.GetComponent<Animator>();
+        runFixedUpdate = false;
     }
 
     public override State RunCurrentState()
     {
-        if (archerEntity.getPlayerInSight())
+
+        FlipCharPeriodically();
+
+        if (archerEntity.IsChasing && archerEntity.returnToSpawnPoint())
         {
-            if(Mathf.Abs(archerEntity.getPlayerTransform().position.x - archer.position.x) <= archerEntity.attackDistance )
+            return chaseState;
+        }
+
+
+        State nextState = checkPlayerInRange();
+
+        archerEntity.Animator.Play(animatorStringForIdle);
+
+
+        // only increase time if enemy isn't in attacking
+        if (archerEntity.TimeSinceLastShot >= archerEntity.ShootingCooldown && archerEntity.transform.position.x != archerEntity.SpawnPosition.x && archerEntity.TimeSinceAwayFromSpawn < archerEntity.TimePassUntilMoveBack)
+        {
+            archerEntity.TimeSinceAwayFromSpawn += Time.deltaTime;
+        }
+
+
+        return nextState;
+    }
+
+    public void FlipCharPeriodically()
+    {
+        if (archerEntity.TimeSinceLastFlip >= archerEntity.TimePassFlipChar)
+        {
+
+            //Flip char
+
+            if (archerEntity.FacingRight)
             {
-                if (archerEntity.timeSinceLastShot > archerEntity.shootingCooldown)
+                archerEntity.FacingRight = false;
+                archerEntity.transform.eulerAngles = new Vector3(0, 180, 0);
+
+            }
+            else
+            {
+                archerEntity.FacingRight = true;
+                archerEntity.transform.eulerAngles = new Vector3(0, 0, 0);
+
+            }
+
+            archerEntity.TimeSinceLastFlip = 0;
+        }
+    }
+
+
+    public State checkPlayerInRange()
+    {
+        float distanceFromSpawnPoint = Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x);
+
+        if (archerEntity.PlayerInSight)
+        {
+            
+            if (Mathf.Abs(archerEntity.Player.position.x - archerEntity.transform.position.x) <= archerEntity.AttackDistance)
+            {
+                if (archerEntity.TimeSinceLastShot >= archerEntity.ShootingCooldown)
                 {
                     return attackState;
                 }
             }
             else
             {
-                return chaseState;
+                if (distanceFromSpawnPoint < archerEntity.MaxDistanceFromSpawnPoint)
+                {
+                    return chaseState;
+                }
+
             }
         }
-        idleAnimation.Play("archer_enemy_idle");
-        archerEntity.timeSinceLastShot += Time.fixedDeltaTime;
+        else if (Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x) > 0.1f)
+        {
+            return chaseState;
+        }
+
         return this;
     }
-
-
 
     public override string getStateType()
     {

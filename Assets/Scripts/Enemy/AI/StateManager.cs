@@ -10,17 +10,15 @@ public class StateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (currentState.getStateType() != "chaseState" && currentState.getStateType() != "jumpState")
+        if (!currentState.runFixedUpdate)
         {
             RunStateMachine();
         }
-
     }
 
     void FixedUpdate()
     {
-        if (currentState.getStateType() == "chaseState" || currentState.getStateType() == "jumpState")
+        if (currentState.runFixedUpdate)
         {
             RunStateMachine();
         }

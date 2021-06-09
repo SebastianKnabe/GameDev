@@ -6,5 +6,6 @@ public abstract class State : MonoBehaviour
 {
     public abstract State RunCurrentState();
     public abstract string getStateType();
-    //public abstract State RunCurrentStateAsFixedUpdate();
+    // funFixedUpdate = 0 means that the function will be executed in the FixedUpdate method.
+    public bool runFixedUpdate;
 }
