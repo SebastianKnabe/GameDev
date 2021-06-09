@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - Danger
   - Obstacle
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - 
   - Platform
-  - 
+  - Destructable
   - 
   - 
   - 
