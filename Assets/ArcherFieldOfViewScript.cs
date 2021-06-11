@@ -31,7 +31,7 @@ public class ArcherFieldOfViewScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            archerEntity.PlayerInRange = true;
+            archerEntity.playerInRange = true;
            
 
         }
@@ -42,8 +42,8 @@ public class ArcherFieldOfViewScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            archerEntity.PlayerInRange = false;
-            archerEntity.PlayerInSight = false;
+            archerEntity.playerInRange = false;
+            archerEntity.playerInSight = false;
         }
     }
 
@@ -53,18 +53,18 @@ public class ArcherFieldOfViewScript : MonoBehaviour
 
         Debug.DrawRay(castPoint.position, player.position - castPoint.position, Color.red, 1, false);
 
-        if (archerEntity.PlayerInRange)
+        if (archerEntity.playerInRange)
         {
             RaycastHit2D hit = Physics2D.Linecast(castPoint.position, player.position, layerMask);
             if (!hit)
             {
-                archerEntity.PlayerInSight = true;
+                archerEntity.playerInSight = true;
                 archerEntity.LastPlayerPosition = archerEntity.Player.transform.position;
-                archerEntity.TimeSinceAwayFromSpawn = 0;
+               
             }
             else
             {
-                archerEntity.PlayerInSight = false;
+                archerEntity.playerInSight = false;
 
             }
 

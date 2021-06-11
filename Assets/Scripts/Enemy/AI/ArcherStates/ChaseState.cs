@@ -36,15 +36,10 @@ public class ChaseState : State
     }
 
 
-    //@TODO attack cooldown is too low when the enemy is heading back to the spawn point
     public override State RunCurrentState()
     {
 
-        if (!archerEntity.IsChasing)
-        {
-            archerEntity.IsChasing = true;
-            archerEntity.TimeSinceAwayFromSpawn = 0;
-        }
+        
 
         if(archerEntity.returnToSpawnPoint() && Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x) <= 0.1f)
         {
@@ -55,28 +50,29 @@ public class ChaseState : State
      
      
         // if enemy has passed the max distance 
-        if ( archerEntity.TimeSinceAwayFromSpawn < archerEntity.TimePassUntilMoveBack && Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x) > archerEntity.MaxDistanceFromSpawnPoint)
+        if (archerEntity.TimeSinceAwayFromSpawn < archerEntity.timePassUntilMoveBack && Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x) > archerEntity.maxDistanceFromSpawnPoint)
         {
             return idleState;
           
         }
 
+        /*
+        // also refresh timer cooldown if player is seen while the enemy is running back to the spawn point
+        if (archerEntity.returnToSpawnPoint() && archerEntity.PlayerInSight && archerEntity.TimeSinceLastRetargeting >= archerEntity.TimePassUntilRetargeting)
+        {
+            archerEntity.TimeSinceAwayFromSpawn = 0f;
+            archerEntity.TimeSinceLastRetargeting = 0f;
+        }
+        */
         archerEntity.Flip();
 
 
-        /**
-        if ((archerEntity.FacingRight && !archerEntity.PlayerInSight && archer.transform.position.x >= archerEntity.LastPlayerPosition.x)
-            || (!archerEntity.FacingRight && !archerEntity.PlayerInSight && archer.transform.position.x <= archerEntity.LastPlayerPosition.x))
-        {
-            return idleState;
-        }
-        else
-        */
 
-        if (archerEntity.PlayerInSight && Mathf.Abs(archerEntity.Player.position.x - archerEntity.transform.position.x) <= archerEntity.AttackDistance)
+
+        if (archerEntity.playerInSight && Mathf.Abs(archerEntity.Player.position.x - archerEntity.transform.position.x) <= archerEntity.attackDistance)
         {
            
-            if (archerEntity.TimeSinceLastShot >= archerEntity.ShootingCooldown)
+            if (archerEntity.TimeSinceLastShot >= archerEntity.shootingCooldown)
             {
                 return attackState;
                 
@@ -85,32 +81,35 @@ public class ChaseState : State
         }
 
         return chasePlayer();
-        //chase player
-        //archer.position = Vector3.MoveTowards(archer.position, new Vector3(archerEntity.getPlayerTransform().position.x, 0, 0), archerEntity.runningSpeed * Time.deltaTime);
-
-
+        
 
     }
 
     private State chasePlayer()
     {
 
-        Collider2D hitInfo = Physics2D.OverlapCircle(archerEntity.WallCheck.position, archerEntity.CircleRadius, wallLayerMask);
-        archerEntity.CheckingWall = Physics2D.OverlapCircle(archerEntity.WallCheck.position, archerEntity.CircleRadius, wallLayerMask);
-        archerEntity.IsGrounded = Physics2D.OverlapBox(archerEntity.GroundCheck.position, archerEntity.BoxSize, 0, archerEntity.LayerMask);
+        Collider2D hitInfo = Physics2D.OverlapBox(archerEntity.wallCheck.position, archerEntity.wallBoxSize, 0, wallLayerMask);
+        archerEntity.CheckingWall = Physics2D.OverlapBox(archerEntity.wallCheck.position, archerEntity.wallBoxSize,0, wallLayerMask);
+        archerEntity.IsGrounded = Physics2D.OverlapBox(archerEntity.groundCheck.position, archerEntity.groundBoxSize, 0, archerEntity.LayerMask);
+        bool detectedDeepAbyss = Physics2D.Raycast(archerEntity.heightCheck.position,Vector2.down, archerEntity.maxFallHeight, archerEntity.LayerMask);
+
         
-    
 
         if (archerEntity.CheckingWall && jumpEnabled)
         {
 
-           
+            
+            if (hitInfo.bounds.size.y > archerEntity.maxFallHeight)
+            {
+                return idleState;
+            }
+
             Vector3 offsetVector = hitInfo.transform.position;
             Vector3 parentWallColliderVector = hitInfo.transform.parent.transform.position;
             Vector3 relativePositionOfDetectedWall = hitInfo.transform.parent.transform.InverseTransformPoint(offsetVector);
             Vector3 topPositionOfDetectedWall = parentWallColliderVector + relativePositionOfDetectedWall;
 
-            Debug.Log(topPositionOfDetectedWall);
+            //Debug.Log(topPositionOfDetectedWall);
 
             archerEntity.MiddlePoint = new Vector3((topPositionOfDetectedWall.x), topPositionOfDetectedWall.y, 0);
 
@@ -119,8 +118,13 @@ public class ChaseState : State
 
         }
 
+
+        if (!detectedDeepAbyss)
+        {
+            return idleState;
+        }
         
-        archer.Translate(archerEntity.RunningSpeed * Time.deltaTime, 0f, 0f);
+        archer.Translate(archerEntity.runningSpeed * Time.deltaTime, 0f, 0f);
         
         if (!archerEntity.IsGrounded)
         {
@@ -130,7 +134,10 @@ public class ChaseState : State
         {
             archerEntity.Animator.Play(animatorStringForRun);
         }
-        
+
+
+     
+
         return this;
 
     }

@@ -22,10 +22,9 @@ public class IdleState : State
 
     public override State RunCurrentState()
     {
-
         FlipCharPeriodically();
 
-        if (archerEntity.IsChasing && archerEntity.returnToSpawnPoint())
+        if (archerEntity.returnToSpawnPoint())
         {
             return chaseState;
         }
@@ -35,20 +34,35 @@ public class IdleState : State
 
         archerEntity.Animator.Play(animatorStringForIdle);
 
+        updateChaseTimer();
 
-        // only increase time if enemy isn't in attacking
-        if (archerEntity.TimeSinceLastShot >= archerEntity.ShootingCooldown && archerEntity.transform.position.x != archerEntity.SpawnPosition.x && archerEntity.TimeSinceAwayFromSpawn < archerEntity.TimePassUntilMoveBack)
-        {
-            archerEntity.TimeSinceAwayFromSpawn += Time.deltaTime;
-        }
-
+       
 
         return nextState;
     }
 
+    public void updateChaseTimer()
+    {
+        // only increase time if enemy isn't in attacking
+        if (archerEntity.TimeSinceLastShot >= archerEntity.shootingCooldown && archerEntity.transform.position.x != archerEntity.SpawnPosition.x && archerEntity.TimeSinceAwayFromSpawn < archerEntity.timePassUntilMoveBack)
+        {
+            archerEntity.TimeSinceAwayFromSpawn += Time.deltaTime;
+        }
+
+        /*
+        // if enemy is heading back and the player appear in his sight field, then reset the timer cooldown 
+        if (archerEntity.LastPlayerPosition == archerEntity.SpawnPosition && archerEntity.TimeSinceAwayFromSpawn != 0)
+        {
+            Debug.Log("EXECUTE USELESS CODE");
+            archerEntity.TimeSinceAwayFromSpawn = 0;
+        }
+        /*/
+    }
+
+
     public void FlipCharPeriodically()
     {
-        if (archerEntity.TimeSinceLastFlip >= archerEntity.TimePassFlipChar)
+        if (archerEntity.TimeSinceLastFlip >= archerEntity.timePassFlipChar && !archerEntity.IsChasing)
         {
 
             //Flip char
@@ -74,31 +88,36 @@ public class IdleState : State
     public State checkPlayerInRange()
     {
         float distanceFromSpawnPoint = Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x);
+        bool detectedDeepAbyss = Physics2D.Raycast(archerEntity.heightCheck.position, Vector2.down, archerEntity.maxFallHeight, archerEntity.LayerMask);
 
-        if (archerEntity.PlayerInSight)
+       
+
+        //Debug.Log("detectedAbyss " + detectedDeepAbyss);
+        if (archerEntity.playerInSight)
         {
             
-            if (Mathf.Abs(archerEntity.Player.position.x - archerEntity.transform.position.x) <= archerEntity.AttackDistance)
+            if (Mathf.Abs(archerEntity.Player.position.x - archerEntity.transform.position.x) <= archerEntity.attackDistance)
             {
-                if (archerEntity.TimeSinceLastShot >= archerEntity.ShootingCooldown)
+                if (archerEntity.TimeSinceLastShot >= archerEntity.shootingCooldown)
                 {
                     return attackState;
                 }
             }
-            else
+            else if (!detectedDeepAbyss)
             {
-                if (distanceFromSpawnPoint < archerEntity.MaxDistanceFromSpawnPoint)
-                {
-                    return chaseState;
-                }
-
+                return this;
+            }
+            else if (distanceFromSpawnPoint < archerEntity.maxDistanceFromSpawnPoint)
+            {
+                return chaseState;
             }
         }
+        /*
         else if (Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x) > 0.1f)
         {
             return chaseState;
         }
-
+        /*/
         return this;
     }
 
@@ -106,5 +125,6 @@ public class IdleState : State
     {
         return stateString;
     }
+
 
 }

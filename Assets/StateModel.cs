@@ -7,44 +7,32 @@ public class StateModel : MonoBehaviour
 
 
     [Header("shared attack attributes")]
-    [SerializeField]
-    private float shootingCooldown;
-    [SerializeField]
-    private float attackSpeed;
+    public float shootingCooldown;
+    public float attackSpeed;
   
 
     
 
-    [Header("shared player attributes")]
-    
-    [SerializeField]
-    private bool playerInRange;
-    [SerializeField]
-    private bool playerInSight;
+    [Header("shared player attributes")]  
+    public bool playerInRange;
+    public bool playerInSight;
 
 
     [Header("shared obstacle object")]
-    [SerializeField]
-    private GameObject wallObjectsParent;
-
+    public GameObject wallObjectsParent;
+    
 
     [Header("shared archer attributes")]
-    [SerializeField]
-    private float runningSpeed;
-    [SerializeField]
-    private float attackDistance;
-    [SerializeField]
-    private float circleRadius = 0.2f;
-    [SerializeField]
-    private Transform groundCheck, wallCheck;
-    [SerializeField]
-    private Vector2 boxSize;
-    [SerializeField]
-    private float maxDistanceFromSpawnPoint;
-    [SerializeField]
-    private float timePassUntilMoveBack;
-    [SerializeField]
-    private float timePassFlipChar;
+    public float runningSpeed;
+    public float attackDistance;
+    public Transform groundCheck, wallCheck, heightCheck;
+    public Vector2 groundBoxSize;
+    public Vector2 wallBoxSize;
+    public float maxFallHeight;
+    public float maxDistanceFromSpawnPoint;
+    public float timePassUntilMoveBack;
+    public float timePassFlipChar;
+    public float timePassUntilRetargeting;
 
 
 
@@ -61,42 +49,36 @@ public class StateModel : MonoBehaviour
     private float timeSinceAwayFromSpawn;
     private float timeSinceLastShot;
     private float timeSinceLastFlip;
+    private float timeSinceLastRetargeting;
     private bool facingRight;
     private bool isChasing;
-    public float ShootingCooldown { get => shootingCooldown; set => shootingCooldown = value; }
-    public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
+
+
+   
     public Transform Player { get => player; set => player = value; }
-    public float RunningSpeed { get => runningSpeed; set => runningSpeed = value; }
-    public float AttackDistance { get => attackDistance; set => attackDistance = value; }
-    public bool PlayerInRange { get => playerInRange; set => playerInRange = value; }
-    public bool PlayerInSight { get => playerInSight; set => playerInSight = value; }
+    
     public Vector3 LastPlayerPosition { get => lastPlayerPosition; set => lastPlayerPosition = value; }
-    public GameObject WallObjectsParent { get => wallObjectsParent; set => wallObjectsParent = value; }
-    public float CircleRadius { get => circleRadius; set => circleRadius = value; }
-    public Transform GroundCheck { get => groundCheck; set => groundCheck = value; }
-    public Vector2 BoxSize { get => boxSize; set => boxSize = value; }
-    public Transform WallCheck { get => wallCheck; set => wallCheck = value; }
     public bool CheckingWall { get => checkingWall; set => checkingWall = value; }
     public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
     public Vector3 MiddlePoint { get => middlePoint; set => middlePoint = value; }
     public Animator Animator { get => animator; set => animator = value; }
     public int LayerMask { get => layerMask; set => layerMask = value; }
     public float TimeSinceLastShot { get => timeSinceLastShot; set => timeSinceLastShot = value; }
-    public float MaxDistanceFromSpawnPoint { get => maxDistanceFromSpawnPoint; set => maxDistanceFromSpawnPoint = value; }
     public Vector3 SpawnPosition { get => spawnPosition; set => spawnPosition = value; }
-    public float TimePassUntilMoveBack { get => timePassUntilMoveBack; set => timePassUntilMoveBack = value; }
     public float TimeSinceAwayFromSpawn { get => timeSinceAwayFromSpawn; set => timeSinceAwayFromSpawn = value; }
     public bool FacingRight { get => facingRight; set => facingRight = value; }
     public bool IsChasing { get => isChasing; set => isChasing = value; }
     public float TimeSinceLastFlip { get => timeSinceLastFlip; set => timeSinceLastFlip = value; }
-    public float TimePassFlipChar { get => timePassFlipChar; set => timePassFlipChar = value; }
+    public float TimeSinceLastRetargeting { get => timeSinceLastRetargeting; set => timeSinceLastRetargeting = value; }
+    
 
     void Start()
     {
         // to avoid that the enemy has cooldown before the first shot
         //layerMask = LayerMask.NameToLayer("Platform");
         layerMask = 1 << 8;
-        timeSinceLastShot = ShootingCooldown;
+        timeSinceLastShot = shootingCooldown;
+        //TimeSinceLastRetargeting = TimePassUntilRetargeting;
         playerInRange = false;
         playerInSight = false;
         facingRight = true;
@@ -108,24 +90,45 @@ public class StateModel : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (TimeSinceLastShot < ShootingCooldown)
+        if (TimeSinceLastShot < shootingCooldown)
         {
             TimeSinceLastShot += Time.fixedDeltaTime;
         }
 
-        if (TimeSinceLastFlip < TimePassFlipChar)
+        if (TimeSinceLastFlip < timePassFlipChar)
         {
             TimeSinceLastFlip += Time.fixedDeltaTime;
         }
 
-      
+        if(Mathf.Abs(transform.position.x - SpawnPosition.x) > 0.1f && !isChasing)
+        {
+            isChasing = true; 
+            TimeSinceAwayFromSpawn = 0;
+            timeSinceLastRetargeting = 0;
+        }
+
+        if(timeSinceLastRetargeting < timePassUntilRetargeting && returnToSpawnPoint())
+        {
+            timeSinceLastRetargeting += Time.fixedDeltaTime;
+        }
+
+        // also refresh timer cooldown if player is seen while the enemy is running back to the spawn point
+        if (returnToSpawnPoint() && playerInSight && TimeSinceLastRetargeting >= timePassUntilRetargeting)
+        {
+            TimeSinceAwayFromSpawn = 0f;
+            TimeSinceLastRetargeting = 0f;
+        }
+
     }
 
     public void Flip()
     {
-       
-        
-            
+
+
+            if (!isGrounded)
+            {
+                return;
+            }
             if (transform.position.x > lastPlayerPosition.x)
             {
                 FacingRight = false;
@@ -144,7 +147,7 @@ public class StateModel : MonoBehaviour
     public bool returnToSpawnPoint()
     {
 
-        if(isChasing && timeSinceAwayFromSpawn >= TimePassUntilMoveBack)
+        if(isChasing && timeSinceAwayFromSpawn >= timePassUntilMoveBack)
         {
             lastPlayerPosition = spawnPosition;
             return true;
@@ -152,6 +155,27 @@ public class StateModel : MonoBehaviour
    
         return false;
         
+    }
+
+
+    void OnDrawGizmos()
+    {
+        // Draw MaxFallHeight
+        Debug.DrawRay(heightCheck.position, Vector2.down * maxFallHeight, Color.red, 1, false);
+
+        // Draw raycast from enemy to player
+        //Debug.DrawRay(castPoint.position, player.position - castPoint.position, Color.red, 1, false);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawCube(groundCheck.position, new Vector3(groundBoxSize.x, groundBoxSize.y, 0));
+
+        Gizmos.DrawCube(wallCheck.position, new Vector3(wallBoxSize.x, wallBoxSize.y, 0));
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, attackDistance);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(spawnPosition, maxDistanceFromSpawnPoint);
+
+
     }
 
 

@@ -29,15 +29,15 @@ public class AttackState : State
 
         archerEntity.Flip();
 
-        if (archerEntity.PlayerInRange && !archerEntity.PlayerInSight)
+        if (archerEntity.playerInRange && !archerEntity.playerInSight)
         {
             return chaseState;
-        }else if (!archerEntity.PlayerInSight)
+        }else if (!archerEntity.playerInSight)
         {
             resetAttackAnimationSpeed();
             return idleState;
         }
-        else if(archerEntity.PlayerInRange && archerEntity.PlayerInSight)
+        else if(archerEntity.playerInRange && archerEntity.playerInSight)
         {
             //attack
            
@@ -79,7 +79,7 @@ public class AttackState : State
     
     void increaseAttackAnimationSpeed()
     {
-        archerEntity.Animator.speed = archerEntity.AttackSpeed;
+        archerEntity.Animator.speed = archerEntity.attackSpeed;
     }
 
     void resetAttackAnimationSpeed()
