@@ -94,7 +94,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && !hasJumped && (isGrounded() || coyoteTimer < coyoteFrames))
         {
-            Debug.Log(hasJumped);
             //animator.SetBool("isJumping", true);
             hasJumped = true;
             GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;

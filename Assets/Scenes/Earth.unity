@@ -3502,7 +3502,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingSpike
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4054024933566982269, guid: ec284407f1faa4dd38d9a6f42ebeba80, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ec284407f1faa4dd38d9a6f42ebeba80, type: 3}
 --- !u!1 &1785690086
 GameObject:
