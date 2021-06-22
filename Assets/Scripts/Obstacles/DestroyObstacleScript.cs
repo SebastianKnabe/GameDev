@@ -20,7 +20,6 @@ public class DestroyObstacleScript : MonoBehaviour
     {
         if (collision.tag == "Obstacle")
         {
-            Debug.Log("Collided");
             Destroy(collision.gameObject);
         }
     }

@@ -29,7 +29,7 @@ public class DispenserScript : MonoBehaviour
         {
             if (time < Time.time)
             {
-                TriggerObstacle obstacle = Instantiate(obstaclePrefab, transform.position, transform.rotation) as TriggerObstacle;
+                TriggerObstacle obstacle = Instantiate(obstaclePrefab, transform.position - new Vector3(2, 0, 0), transform.rotation) as TriggerObstacle;
                 obstacle.dir = dir;
                 time = Time.time + obstacleDelay;
             }

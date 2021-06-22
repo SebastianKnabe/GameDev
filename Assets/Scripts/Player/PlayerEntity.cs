@@ -123,8 +123,8 @@ public class PlayerEntity : MonoBehaviour
         healthbar.transform.localScale = new Vector3(5, 5, 0);
     }
 
-    public void SetNextSpawn(Transform newSpawn)
+    public void SetNextSpawn(Vector3 newSpawn)
     {
-        spawnPoint = newSpawn;
+        spawnPoint.position = newSpawn;
     }
 }

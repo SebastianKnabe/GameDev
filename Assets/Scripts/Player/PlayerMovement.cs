@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimer;
     private float coyoteFrames = 10;
     private bool hasJumped = false;
+    private List<Vector3> groundedPosition = new List<Vector3>();
+    private bool safeSpawn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isGrounded())
         {
+            setSpawnPointAfterSpikeHit(gameObject.transform.position);
+
             if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
             {
                 speed = sprintSpeed;
@@ -116,5 +120,35 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteManager.rotateSprite();
         }
+    }
+
+    public void setSpawnPointAfterSpikeHit(Vector3 currentGroundedPosition)
+    {
+        if (safeSpawn)
+        {
+
+            if (groundedPosition.Count == 20)
+            {
+                gameObject.GetComponent<PlayerEntity>().SetNextSpawn(getSpawnPointAfterSpikeHit());
+                groundedPosition.RemoveAt(0);
+                groundedPosition.Insert(19, currentGroundedPosition);
+            }
+            else
+            {
+                groundedPosition.Add(currentGroundedPosition);
+
+            }
+        }
+
+    }
+
+    public Vector3 getSpawnPointAfterSpikeHit()
+    {
+        return groundedPosition[0];
+    }
+
+    public void setSafeSpawn(bool safe)
+    {
+        safeSpawn = safe;
     }
 }

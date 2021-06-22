@@ -15,6 +15,21 @@ public class ObstacleDamagePlayer : MonoBehaviour
         col.gameObject.GetComponent<PlayerEntity>().hitObstacle();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<PlayerMovement>().setSafeSpawn(false);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<PlayerMovement>().setSafeSpawn(true);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
