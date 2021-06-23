@@ -141,4 +141,9 @@ public class CameraFollow : MonoBehaviour
         Vector2 backup = playerMovement.getBackupPosition();
         transform.position = new Vector3(backup.x, backup.y, -10f);
     }
+
+    public void MoveCameraToSpawnPoint(Transform spawnPoint)
+    {
+        this.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, -10);
+    }
 }
