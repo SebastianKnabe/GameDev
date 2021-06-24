@@ -11,10 +11,10 @@ public class EnemyShootingScript : MonoBehaviour
     public float attackRange = 1f;
     public float bulletSpeed = 60.0f;
     [Range(0f, 10f)] public float inAccuracyFactor = 1f;
-    public AudioSource audioSource;
+    //public AudioSource audioSource;
 
     private float weaponCooldownTimer = 0f;
-    [SerializeField] private AudioClip bulletSound;
+    //[SerializeField] private AudioClip bulletSound;
 
     public void Update()
     {
@@ -30,7 +30,7 @@ public class EnemyShootingScript : MonoBehaviour
             if (distance < attackRange)
             {
                 fireBullet(direction, rotationZ);
-                audioSource.PlayOneShot(bulletSound);
+                //audioSource.PlayOneShot(bulletSound);
                 weaponCooldownTimer = 0f;
             }
         }

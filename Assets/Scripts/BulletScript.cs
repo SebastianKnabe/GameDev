@@ -36,6 +36,7 @@ public class BulletScript : MonoBehaviour
         if (other.tag == "Enemy")
         if (other.gameObject.tag == "Enemy")
         {
+            Debug.Log("hit Enemy: " + other.gameObject.name);
             other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
             Destroy(this.gameObject);
             
