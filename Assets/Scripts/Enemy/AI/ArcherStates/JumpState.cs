@@ -31,7 +31,7 @@ public class JumpState : State
     {
 
         //archerEntity.CheckingWall = Physics2D.OverlapCircle(archerEntity.WallCheck.position, archerEntity.CircleRadius, archerEntity.LayerMask);
-        archerEntity.IsGrounded = Physics2D.OverlapBox(archerEntity.groundCheck.position, archerEntity.groundBoxSize, 0, archerEntity.LayerMask);
+        archerEntity.IsGrounded = Physics2D.OverlapBox(archerEntity.colliders[1].transform.position, archerEntity.colliders[1].boxSize, 0, archerEntity.LayerMask);
 
 
         if (started && playerFelt && archerEntity.IsGrounded)

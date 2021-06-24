@@ -87,11 +87,18 @@ public class ChaseState : State
 
     private State chasePlayer()
     {
-
+        //  wallcheck 0, groundcheck 1, heightcheck 2
+        /*
         Collider2D hitInfo = Physics2D.OverlapBox(archerEntity.wallCheck.position, archerEntity.wallBoxSize, 0, wallLayerMask);
         archerEntity.CheckingWall = Physics2D.OverlapBox(archerEntity.wallCheck.position, archerEntity.wallBoxSize,0, wallLayerMask);
         archerEntity.IsGrounded = Physics2D.OverlapBox(archerEntity.groundCheck.position, archerEntity.groundBoxSize, 0, archerEntity.LayerMask);
-        bool detectedDeepAbyss = Physics2D.Raycast(archerEntity.heightCheck.position,Vector2.down, archerEntity.maxFallHeight, archerEntity.LayerMask);
+        bool detectedGround = Physics2D.Raycast(archerEntity.heightCheck.position,Vector2.down, archerEntity.maxFallHeight, archerEntity.LayerMask);
+        */
+
+        Collider2D hitInfo = Physics2D.OverlapBox(archerEntity.colliders[0].transform.position, archerEntity.colliders[0].boxSize, 0, wallLayerMask);
+        archerEntity.CheckingWall = Physics2D.OverlapBox(archerEntity.colliders[0].transform.position, archerEntity.colliders[0].boxSize, 0, wallLayerMask);
+        archerEntity.IsGrounded = Physics2D.OverlapBox(archerEntity.colliders[1].transform.position, archerEntity.colliders[1].boxSize, 0, archerEntity.LayerMask);
+        bool detectedGround = Physics2D.Raycast(archerEntity.colliders[2].transform.position,Vector2.down, archerEntity.colliders[2].boxSize.y, archerEntity.LayerMask);
 
         
 
@@ -119,7 +126,7 @@ public class ChaseState : State
         }
 
 
-        if (!detectedDeepAbyss)
+        if (!detectedGround)
         {
             return idleState;
         }

@@ -156,6 +156,21 @@ public class PlayerEntity : MonoBehaviour
         camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
     }
 
+    public void takeDamageFromEffect(float incomingDamage)
+    {
+        animator.SetTrigger("takingDamage");
+        currentHitPoints -= incomingDamage;
+
+        if (currentHitPoints <= 0)
+        {
+            death();
+            return;
+        }
+
+        updateHealthbar();
+        timeSinceLastColorChange = Time.time - changeColorHitRate;
+    }
+
     public void death()
     {
         //TODO

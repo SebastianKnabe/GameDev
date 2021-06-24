@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class StateModel : MonoBehaviour
 {
-
+    [System.Serializable]
+    public class Colliders
+    {
+        public Transform transform;
+        public Vector2 boxSize;
+        public bool rayCastSpawnPoint;
+    }
 
     [Header("shared attack attributes")]
     public float shootingCooldown;
@@ -25,9 +31,10 @@ public class StateModel : MonoBehaviour
     [Header("shared archer attributes")]
     public float runningSpeed;
     public float attackDistance;
-    public Transform groundCheck, wallCheck, heightCheck;
-    public Vector2 groundBoxSize;
-    public Vector2 wallBoxSize;
+    public Colliders[] colliders;
+    //public Transform groundCheck, wallCheck, heightCheck;
+    //public Vector2 groundBoxSize;
+    //public Vector2 wallBoxSize;
     public float maxFallHeight;
     public float maxDistanceFromSpawnPoint;
     public float timePassUntilMoveBack;
@@ -52,6 +59,7 @@ public class StateModel : MonoBehaviour
     private float timeSinceLastRetargeting;
     private bool facingRight;
     private bool isChasing;
+    
 
 
    
@@ -160,20 +168,33 @@ public class StateModel : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        // Draw MaxFallHeight
-        Debug.DrawRay(heightCheck.position, Vector2.down * maxFallHeight, Color.red, 1, false);
+      
+        foreach (Colliders col in colliders)
+        {
+            if (col.rayCastSpawnPoint)
+            {
+                //draw raycast
+                Gizmos.color = Color.red;
+                Debug.DrawRay(col.transform.position, Vector2.down * col.boxSize.y, Color.red, 0, false); ;
+            }
+            else
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawCube(col.transform.position, new Vector3(col.boxSize.x, col.boxSize.y, 0));
+            }
+        }
 
-        // Draw raycast from enemy to player
-        //Debug.DrawRay(castPoint.position, player.position - castPoint.position, Color.red, 1, false);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawCube(groundCheck.position, new Vector3(groundBoxSize.x, groundBoxSize.y, 0));
-
-        Gizmos.DrawCube(wallCheck.position, new Vector3(wallBoxSize.x, wallBoxSize.y, 0));
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, attackDistance);
 
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(spawnPosition, maxDistanceFromSpawnPoint);
+
+
+        if(maxDistanceFromSpawnPoint > 0)
+        {
+            Gizmos.DrawWireSphere(spawnPosition, maxDistanceFromSpawnPoint);
+
+        }
 
 
     }

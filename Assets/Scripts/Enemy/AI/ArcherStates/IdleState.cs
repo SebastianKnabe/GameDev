@@ -43,20 +43,11 @@ public class IdleState : State
 
     public void updateChaseTimer()
     {
-        // only increase time if enemy isn't in attacking
+        // only increase time if enemy isn't attacking
         if (archerEntity.TimeSinceLastShot >= archerEntity.shootingCooldown && archerEntity.transform.position.x != archerEntity.SpawnPosition.x && archerEntity.TimeSinceAwayFromSpawn < archerEntity.timePassUntilMoveBack)
         {
             archerEntity.TimeSinceAwayFromSpawn += Time.deltaTime;
         }
-
-        /*
-        // if enemy is heading back and the player appear in his sight field, then reset the timer cooldown 
-        if (archerEntity.LastPlayerPosition == archerEntity.SpawnPosition && archerEntity.TimeSinceAwayFromSpawn != 0)
-        {
-            Debug.Log("EXECUTE USELESS CODE");
-            archerEntity.TimeSinceAwayFromSpawn = 0;
-        }
-        /*/
     }
 
 
@@ -88,7 +79,8 @@ public class IdleState : State
     public State checkPlayerInRange()
     {
         float distanceFromSpawnPoint = Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x);
-        bool detectedDeepAbyss = Physics2D.Raycast(archerEntity.heightCheck.position, Vector2.down, archerEntity.maxFallHeight, archerEntity.LayerMask);
+        //bool detectedGround = Physics2D.Raycast(archerEntity.colliders[2].transform.position, Vector2.down, archerEntity.maxFallHeight, archerEntity.LayerMask);
+        bool detectedGround = Physics2D.Raycast(archerEntity.colliders[2].transform.position, Vector2.down, archerEntity.colliders[2].boxSize.y, archerEntity.LayerMask);
 
        
 
@@ -103,7 +95,7 @@ public class IdleState : State
                     return attackState;
                 }
             }
-            else if (!detectedDeepAbyss)
+            else if (!detectedGround)
             {
                 return this;
             }

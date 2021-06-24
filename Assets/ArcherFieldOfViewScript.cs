@@ -51,10 +51,12 @@ public class ArcherFieldOfViewScript : MonoBehaviour
     void FixedUpdate()
     {
 
-        Debug.DrawRay(castPoint.position, player.position - castPoint.position, Color.red, 1, false);
+    
+            
 
         if (archerEntity.playerInRange)
         {
+            Debug.DrawRay(castPoint.position, player.position - castPoint.position, Color.red, 0, false);
             RaycastHit2D hit = Physics2D.Linecast(castPoint.position, player.position, layerMask);
             if (!hit)
             {

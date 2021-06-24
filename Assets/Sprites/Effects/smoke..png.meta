@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 9bffe0bba14be6b46a87345ad2fcfada
+guid: 135ff425470a76043943ca25d333f84f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4026636681693406134
-    second: enemy_sneaker_die_1
+      213: -5886360186265126661
+    second: smoke._0
   - first:
-      213: 8974658515432445465
-    second: enemy_sneaker_die_2
+      213: 7980876286584157170
+    second: smoke._1
   - first:
-      213: -7425758235114379319
-    second: enemy_sneaker_die_3
+      213: -5005980285789841568
+    second: smoke._2
   - first:
-      213: -3638156151566025253
-    second: enemy_sneaker_die_4
+      213: -7676267465750613711
+    second: smoke._3
   - first:
-      213: 5529481723517061175
-    second: enemy_sneaker_die_5
+      213: -2109045268128915453
+    second: smoke._4
   - first:
-      213: -6146659438207082602
-    second: enemy_sneaker_die_7
+      213: -6611004342315642712
+    second: smoke._5
   - first:
-      213: -4113374252828090049
-    second: enemy_sneaker_die_8
+      213: 7956145666633818305
+    second: smoke._6
   - first:
-      213: 3361648131988023589
-    second: enemy_sneaker_die_0
-  - first:
-      213: 2814239351414212653
-    second: enemy_sneaker_die_6
+      213: 5630112888540600731
+    second: smoke._7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -70,9 +67,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 2
-  spritePivot: {x: 0.5, y: 1}
-  spritePixelsToUnits: 5
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -114,169 +111,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_sneaker_die_1
+      name: smoke._0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.15}
+        x: 0
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b3a4eb5abc71e730800000000000000
-      internalID: 4026636681693406134
+      spriteID: bf83aad09927f4ea0800000000000000
+      internalID: -5886360186265126661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_sneaker_die_2
+      name: smoke._1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.15}
+        x: 1024
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91619c8be546c8c70800000000000000
-      internalID: 8974658515432445465
+      spriteID: 2f3ff2ab2b4c1ce60800000000000000
+      internalID: 7980876286584157170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_sneaker_die_3
+      name: smoke._2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.15}
+        x: 2048
+        y: 2048
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c763108a3862f890800000000000000
-      internalID: -7425758235114379319
+      spriteID: 06753e0f37f278ab0800000000000000
+      internalID: -5005980285789841568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_sneaker_die_4
+      name: smoke._3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.15}
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdd3184814ca28dc0800000000000000
-      internalID: -3638156151566025253
+      spriteID: 131fb07196b687590800000000000000
+      internalID: -7676267465750613711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_sneaker_die_5
+      name: smoke._4
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.15}
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 738cf32c45aacbc40800000000000000
-      internalID: 5529481723517061175
+      spriteID: 30025f9b08a2bb2e0800000000000000
+      internalID: -2109045268128915453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_sneaker_die_7
+      name: smoke._5
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.15}
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69f5d5eaecda2baa0800000000000000
-      internalID: -6146659438207082602
+      spriteID: 8a016b7c39ef044a0800000000000000
+      internalID: -6611004342315642712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_sneaker_die_0
+      name: smoke._6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.15}
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 529600f4a29f6ae20800000000000000
-      internalID: 3361648131988023589
+      spriteID: 1c0e8f09458e96e60800000000000000
+      internalID: 7956145666633818305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_sneaker_die_6
+      name: smoke._7
       rect:
         serializedVersion: 2
-        x: 192
+        x: 1024
         y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.15}
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2848f597cf2e0720800000000000000
-      internalID: 2814239351414212653
+      spriteID: b999fcea7dd222e40800000000000000
+      internalID: 5630112888540600731
       vertices: []
       indices: 
       edges: []
