@@ -71,7 +71,7 @@ public class PlayerEntity : MonoBehaviour
         {
             //spriteRenderer.color = new Color32(255,0,0,255);
             if (Time.time > timeSinceLastColorChange + changeColorHitRate)
-            {  
+            {
                 spriteRenderer.color = spriteRenderer.color == new Color32(255, 0, 0, 255) ? new Color32(255, 255, 255, 255) : new Color32(255, 0, 0, 255);
                 timeSinceLastColorChange = Time.time;
             }
@@ -176,7 +176,7 @@ public class PlayerEntity : MonoBehaviour
         //TODO
         audioSource.PlayOneShot(deathSound);
         StartCoroutine("Respawn");
-        
+
     }
 
     private void updateHealthbar()

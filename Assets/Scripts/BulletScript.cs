@@ -29,7 +29,7 @@ public class BulletScript : MonoBehaviour
     {
         //Wenn Kugel vom gleichen Tag ist, passiert nichts
         //Mögliche Tags der Kugel sind Player oder Enemy
-        if (other.tag == tag)
+        if (other.gameObject.tag == tag)
         {
             return;
         }
@@ -46,31 +46,30 @@ public class BulletScript : MonoBehaviour
             }
         }
 
-        if (other.tag == "Enemy")
         if (other.gameObject.tag == "Enemy")
-        {
-            Debug.Log("hit Enemy: " + other.gameObject.name);
-            EnemyEntity targetEntity = other.gameObject.GetComponent<EnemyEntity>();
-            if (targetEntity != null)
+            if (other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
+                Debug.Log("hit Enemy: " + other.gameObject.name);
+                EnemyEntity targetEntity = other.gameObject.GetComponent<EnemyEntity>();
+                if (targetEntity != null)
+                {
+                    other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
+                    Destroy(this.gameObject);
+                }
+            }
+            else if (other.gameObject.tag == "Player")
+            {
+                PlayerEntity targetEntity = other.gameObject.GetComponent<PlayerEntity>();
+                if (targetEntity != null)
+                {
+                    other.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
+                    Destroy(this.gameObject);
+                }
+            }
+            else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
+            {
                 Destroy(this.gameObject);
             }
-        }
-        else if (other.tag == "Player")
-        {
-            PlayerEntity targetEntity = other.gameObject.GetComponent<PlayerEntity>();
-            if (targetEntity != null)
-            {
-                other.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
-                Destroy(this.gameObject);
-            }
-        }
-        else if (other.tag == "Ground")
-        else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
-        {
-            Destroy(this.gameObject);
-        }
 
     }
 
