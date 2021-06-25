@@ -7,6 +7,10 @@ TagManager:
   - Ground
   - Enemy
   - Coin
+  - accessoire
+  - SpawnPoint0
+  - Door
+  - MovingPlatform
   - Wall
   - Danger
   - Obstacle
@@ -21,6 +25,10 @@ TagManager:
   - 
   - 
   - Platform
+  - accessoire_background
+  - accessoire_foreground
+  - JumpingWall
+  - Rope
   - Destructable
   - 
   - 

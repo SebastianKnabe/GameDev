@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
+    //public static PlayerEntity instance;
+    
     public float maxHitPoints;
     public GameObject healthbar;
     public SpriteRenderer spriteRenderer;
@@ -15,6 +17,7 @@ public class PlayerEntity : MonoBehaviour
     public Transform spawnPoint;
     public GameObject camera;
 
+    //private string spawnPoint;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip respawnSound;
     private float currentHitPoints;
@@ -27,9 +30,32 @@ public class PlayerEntity : MonoBehaviour
     private float changeColorHitRate;
     private Animator animator;
 
+    
+    /*
+    public void setSpawnPoint(string spawnPoint)
+    {
+        this.spawnPoint = spawnPoint;
+    }
+
+    public string getSpawnPoint()
+    {
+        return this.spawnPoint;
+    }
+    /*/
     // Start is called before the first frame update
     void Start()
     {
+        /*
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+        /*/
         rb = gameObject.GetComponent<Rigidbody2D>();
         currentHitPoints = maxHitPoints;
         damageCooldown = false;
@@ -130,6 +156,21 @@ public class PlayerEntity : MonoBehaviour
         camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
     }
 
+    public void takeDamageFromEffect(float incomingDamage)
+    {
+        animator.SetTrigger("takingDamage");
+        currentHitPoints -= incomingDamage;
+
+        if (currentHitPoints <= 0)
+        {
+            death();
+            return;
+        }
+
+        updateHealthbar();
+        timeSinceLastColorChange = Time.time - changeColorHitRate;
+    }
+
     public void death()
     {
         //TODO
@@ -141,7 +182,7 @@ public class PlayerEntity : MonoBehaviour
     private void updateHealthbar()
     {
         float healthbarRatio = currentHitPoints / maxHitPoints;
-        healthbar.transform.localScale = new Vector3(5, 5, 0);
+        healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
     }
 
     public void SetNextSpawn(Vector3 newSpawn)
