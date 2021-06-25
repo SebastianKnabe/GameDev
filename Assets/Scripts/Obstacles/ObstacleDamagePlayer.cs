@@ -12,7 +12,10 @@ public class ObstacleDamagePlayer : MonoBehaviour
 
       void OnCollisionEnter2D(Collision2D col)
     {
-        col.gameObject.GetComponent<PlayerEntity>().hitObstacle();
+        if(col.gameObject.tag == "Obstacle")
+        {
+            col.gameObject.GetComponent<PlayerEntity>().hitObstacle();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

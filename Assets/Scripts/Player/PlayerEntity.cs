@@ -182,7 +182,7 @@ public class PlayerEntity : MonoBehaviour
     private void updateHealthbar()
     {
         float healthbarRatio = currentHitPoints / maxHitPoints;
-        healthbar.transform.localScale = new Vector3(5, 5, 0);
+        healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
     }
 
     public void SetNextSpawn(Vector3 newSpawn)
