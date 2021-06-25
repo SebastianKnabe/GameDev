@@ -7,6 +7,10 @@ TagManager:
   - Ground
   - Enemy
   - Coin
+  - Wall
+  - Danger
+  - Obstacle
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -17,7 +21,7 @@ TagManager:
   - 
   - 
   - Platform
-  - 
+  - Destructable
   - 
   - 
   - 

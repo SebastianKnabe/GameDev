@@ -8,11 +8,12 @@ public class DealDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other);
 
         if (other.tag == "Player")
         {
-
             other.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
+            
 
         }
     }

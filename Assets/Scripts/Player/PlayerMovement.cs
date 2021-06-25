@@ -7,12 +7,15 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 20f;
     public float sprintSpeed = 30f;
-    public float jumpForce = 30f;
+    public float jumpVelocity;
     public float backToGroundSpeed = -0.3f;
     public float gravity = -0.4f;
     public float speed;
+    public AudioSource audioSource;
+
 
     [SerializeField] LayerMask platformMask;
+    [SerializeField] private AudioClip jumpSound;
 
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D rb;
@@ -21,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
     private float rayCastOffset = 0.05f;
     private static staminaRefillScript staminaRefillScript;
     private Vector2 backupPosition;
+    private float coyoteTimer;
+    private float coyoteFrames = 10;
+    private bool hasJumped = false;
+    private List<Vector3> groundedPosition = new List<Vector3>();
+    private bool safeSpawn = true;
 
 
     // Start is called before the first frame update
@@ -52,21 +60,29 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded())
         {
             setBackupPosition();
+            setSpawnPointAfterSpikeHit(gameObject.transform.position);
             if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
             {
                 speed = sprintSpeed;
+            
             }
             else
             {
+                if (hasJumped)
+                {
+                    hasJumped = false;
+                }
                 speed = moveSpeed;
                 staminaRefillScript.requestSprint(false);
             }
+            coyoteTimer = 0;
+
         }
         else
         {
+            coyoteTimer++;
             staminaRefillScript.requestSprint(false);
         }
-
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
         rb.velocity = movement;
         animator.SetFloat("movementSpeed", movement.magnitude);
@@ -77,14 +93,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        if (Input.GetButtonDown("Jump") && !hasJumped && (isGrounded() || coyoteTimer < coyoteFrames))
         {
             //animator.SetBool("isJumping", true);
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        }
-        if (Input.GetKey(KeyCode.S) && !isGrounded())
-        {
-            rb.AddForce(new Vector2(0f, backToGroundSpeed), ForceMode2D.Impulse);
+            hasJumped = true;
+            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            audioSource.PlayOneShot(jumpSound);
         }
         animator.SetBool("isJumping", !isGrounded());
     }
@@ -136,5 +150,35 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 getBackupPosition()
     {
         return backupPosition;
+    }
+
+    public void setSpawnPointAfterSpikeHit(Vector3 currentGroundedPosition)
+    {
+        if (safeSpawn)
+        {
+
+            if (groundedPosition.Count == 20)
+            {
+                gameObject.GetComponent<PlayerEntity>().SetNextSpawn(getSpawnPointAfterSpikeHit());
+                groundedPosition.RemoveAt(0);
+                groundedPosition.Insert(19, currentGroundedPosition);
+            }
+            else
+            {
+                groundedPosition.Add(currentGroundedPosition);
+
+            }
+        }
+
+    }
+
+    public Vector3 getSpawnPointAfterSpikeHit()
+    {
+        return groundedPosition[0];
+    }
+
+    public void setSafeSpawn(bool safe)
+    {
+        safeSpawn = safe;
     }
 }

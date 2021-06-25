@@ -11,11 +11,17 @@ public class PlayerEntity : MonoBehaviour
     public Scene scene;
     public Inventory inventory;
     public InventoryItem healthKit;
+    public AudioSource audioSource;
+    public Transform spawnPoint;
+    public GameObject camera;
 
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip respawnSound;
     private float currentHitPoints;
     private float hitRate = 1.5f;
     private float timeSinceLastDamage;
     private bool damageCooldown;
+    private Rigidbody2D rb;
 
     private float timeSinceLastColorChange;
     private float changeColorHitRate;
@@ -24,6 +30,7 @@ public class PlayerEntity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
         currentHitPoints = maxHitPoints;
         damageCooldown = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -38,7 +45,7 @@ public class PlayerEntity : MonoBehaviour
         {
             //spriteRenderer.color = new Color32(255,0,0,255);
             if (Time.time > timeSinceLastColorChange + changeColorHitRate)
-            {
+            {  
                 spriteRenderer.color = spriteRenderer.color == new Color32(255, 0, 0, 255) ? new Color32(255, 255, 255, 255) : new Color32(255, 0, 0, 255);
                 timeSinceLastColorChange = Time.time;
             }
@@ -98,16 +105,47 @@ public class PlayerEntity : MonoBehaviour
 
     }
 
+    public void hitObstacle()
+    {
+        rb.AddForce(transform.up * 15, ForceMode2D.Impulse);
+        takeDamage(2);
+        StartCoroutine("WaitForHit");
+
+    }
+
+    IEnumerator WaitForHit()
+    {
+        yield return new WaitForSeconds(0.5f);
+        this.transform.position = spawnPoint.position;
+        camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
+
+    }
+
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(2);
+        audioSource.PlayOneShot(respawnSound);
+        this.transform.position = spawnPoint.position;
+        camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
+    }
+
     public void death()
     {
         //TODO
-
-        Destroy(this.gameObject);
+        audioSource.PlayOneShot(deathSound);
+        StartCoroutine("Respawn");
+        
     }
 
     private void updateHealthbar()
     {
         float healthbarRatio = currentHitPoints / maxHitPoints;
-        healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
+        healthbar.transform.localScale = new Vector3(5, 5, 0);
+    }
+
+    public void SetNextSpawn(Vector3 newSpawn)
+    {
+        spawnPoint.position = newSpawn;
     }
 }
