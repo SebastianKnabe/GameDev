@@ -4,6 +4,7 @@ public class BulletScript : MonoBehaviour
 {
     //public float bulletSpeed = 60.0f;
     public float damage = 3.0f;
+    [SerializeField] protected bool isDestructable = false;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
 
@@ -32,19 +33,38 @@ public class BulletScript : MonoBehaviour
         {
             return;
         }
+        else
+        {
+            BulletScript targetBulletScript = other.gameObject.GetComponent<BulletScript>();
+            if (targetBulletScript != null)
+            {
+                if (targetBulletScript.isDestructable)
+                {
+                    Destroy(this.gameObject);
+                    Destroy(other.gameObject);
+                }
+            }
+        }
 
         if (other.tag == "Enemy")
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("hit Enemy: " + other.gameObject.name);
-            other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
-            Destroy(this.gameObject);
-            
+            EnemyEntity targetEntity = other.gameObject.GetComponent<EnemyEntity>();
+            if (targetEntity != null)
+            {
+                other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
+                Destroy(this.gameObject);
+            }
         }
         else if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
-            Destroy(this.gameObject);
+            PlayerEntity targetEntity = other.gameObject.GetComponent<PlayerEntity>();
+            if (targetEntity != null)
+            {
+                other.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
+                Destroy(this.gameObject);
+            }
         }
         else if (other.tag == "Ground")
         else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))

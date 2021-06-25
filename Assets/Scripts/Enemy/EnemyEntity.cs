@@ -62,6 +62,10 @@ public class EnemyEntity : MonoBehaviour
     public void death()
     {
         animator.SetTrigger("isDead");
+        if (this.gameObject.GetComponent<EnemyShootingScript>())
+        {
+            this.gameObject.GetComponent<EnemyShootingScript>().enabled = false;
+        }
         if (dropEnabled)
         {
             this.gameObject.GetComponent<DropLootScript>().dropLoot();

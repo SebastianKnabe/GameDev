@@ -4,27 +4,40 @@ using UnityEngine;
 
 public class WizardBossBehavior : MonoBehaviour
 {
-    [SerializeField] private float teleportCooldown;
+    [Header("Basic")]
+    [SerializeField] private VoidEvent bossDefeatedEvent;
+
+    [Header("Shooting")]
+    [SerializeField] private GameObject playerTarget;
+    [SerializeField] private GameObject bulletStart;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] [Range(1, 10)] private float shootCooldown;
+    [SerializeField] [Range(1, 50)] private float bulletSpeed;
+
+    [Header("Teleport")]
+    [SerializeField] [Range(1, 10)] private float teleportCooldown;
     [SerializeField] private List<GameObject> teleportPoints;
 
+    [Header("MeteorRain")]
     [SerializeField] private GameObject meteorSpawnArea;
     [SerializeField] private GameObject meteorPrefab;
-    [SerializeField] private float meteorRainCooldown;
-    [SerializeField] private float meteorRainCanneling;
-    [SerializeField] private float meteorsPerSecond;
-    [SerializeField] private float meteorSpawnDistance;
+    [SerializeField] [Range(1, 10)] private float meteorRainCooldown;
+    [SerializeField] [Range(1, 10)] private float meteorRainCanneling;
+    [SerializeField] [Range(1, 10)] private float meteorsPerSecond;
+    [SerializeField] [Range(1, 10)] private float meteorSpawnDistance;
 
+    [Header("Adds")]
     [SerializeField] private GameObject addSpawnArea;
     [SerializeField] private GameObject spawnAddPrefab;
-    [SerializeField] private int numberOfAdds = 2;
+    [SerializeField] [Range(1, 5)] private int numberOfAdds = 2;
 
-    [SerializeField] private VoidEvent bossDefeatedEvent;
 
     private SpriteRenderer spriteRenderer;
     private Renderer renderer;
     private EnemyEntity enemyEntity;
     private Animator animator;
     private WizardBossFX bossFX;
+    private float shootTimer = 0f;
     private float teleportTimer = 0f;
     private int lastTeleportLocation = 0;
     private float meteorRainCooldownTimer = 0f;
@@ -62,6 +75,11 @@ public class WizardBossBehavior : MonoBehaviour
          *  - Mehr Adds
          *  - Metoerregen
          */
+        if (phase >= 1)
+        {
+            Shoot();
+        }
+
         if (phase >= 2)
         {
             Teleport();
@@ -72,6 +90,35 @@ public class WizardBossBehavior : MonoBehaviour
             MeteorRain();
         }
 
+    }
+
+    private void Shoot()
+    {
+        if (shootCooldown < shootTimer && !isChanneling && renderer.isVisible)
+        {
+            shootTimer = 0;
+            animator.SetTrigger("castAttack2");
+        }
+        else if (!isChanneling)
+        {
+            shootTimer += Time.fixedDeltaTime;
+        }
+    }
+
+    public void FireBullet()
+    {
+        Vector2 targetPosition = (Vector2)playerTarget.transform.position;
+        Vector2 playerDifference = targetPosition - (Vector2)bulletStart.transform.position;
+        float rotationZ = Mathf.Atan2(playerDifference.y, playerDifference.x) * Mathf.Rad2Deg;
+        float distance = playerDifference.magnitude;
+        Vector2 direction = playerDifference / distance;
+        direction.Normalize();
+        GameObject b = Instantiate(bulletPrefab) as GameObject;
+        b.tag = tag;
+        b.transform.position = bulletStart.transform.position;
+        b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        //audioSource.PlayOneShot(bulletSound);
     }
 
     private void Teleport()
@@ -86,10 +133,11 @@ public class WizardBossBehavior : MonoBehaviour
             {
                 teleportIndex = Random.Range(0, teleportPoints.Count);
             }
+            FlipSprite(gameObject.transform.localPosition, teleportPoints[teleportIndex].transform.localPosition);
+
             gameObject.transform.localPosition = teleportPoints[teleportIndex].transform.localPosition;
             lastTeleportLocation = teleportIndex;
 
-            FlipSprite();
         }
         else if (!isChanneling)
         {
@@ -186,15 +234,11 @@ public class WizardBossBehavior : MonoBehaviour
         }
     }
 
-    private void FlipSprite()
+    private void FlipSprite(Vector3 oldLocalPosition, Vector3 newLocalPosition)
     {
-        if (transform.localPosition.x > 0)
+        if (oldLocalPosition.x != newLocalPosition.x)
         {
-            spriteRenderer.flipX = true;
-        }
-        else
-        {
-            spriteRenderer.flipX = false;
+            gameObject.transform.Rotate(new Vector3(0f, 180f, 0f));
         }
     }
 

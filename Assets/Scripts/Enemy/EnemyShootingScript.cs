@@ -32,6 +32,7 @@ public class EnemyShootingScript : MonoBehaviour
                 fireBullet(direction, rotationZ);
                 //audioSource.PlayOneShot(bulletSound);
                 weaponCooldownTimer = 0f;
+
             }
         }
         else

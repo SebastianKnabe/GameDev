@@ -813,6 +813,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &542886633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6516129187208230345, guid: fbc9c9171d58c924a8c1e27fc1210ccd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6516129186738100656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &542886634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542886633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a708adcb5784b4ca388ab4a48167e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTarget: {fileID: 275177603}
+  bulletPrefab: {fileID: 3280158922204274115, guid: 43e83f7413ebad64a8d865b0697a33b4,
+    type: 3}
+  bulletStart: {fileID: 542886633}
+  weaponCooldown: 4
+  attackRange: 20
+  bulletSpeed: 10
+  inAccuracyFactor: 5
 --- !u!1 &569403371
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1186625535}
+  - {fileID: 733444196}
   m_Father: {fileID: 697741100}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -978,6 +1005,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abe3d0943356704a9a01550a08aaa46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootCooldown: 2
+  playerTarget: {fileID: 275177603}
+  bulletStart: {fileID: 733444195}
+  bulletPrefab: {fileID: 3280158922204274115, guid: 43e83f7413ebad64a8d865b0697a33b4,
+    type: 3}
+  bulletSpeed: 25
   teleportCooldown: 5
   teleportPoints:
   - {fileID: 2030302809}
@@ -990,7 +1023,7 @@ MonoBehaviour:
   meteorRainCooldown: 5
   meteorRainCanneling: 10
   meteorsPerSecond: 3
-  meteorSpawnDistance: 0
+  meteorSpawnDistance: 1
   addSpawnArea: {fileID: 298303169}
   spawnAddPrefab: {fileID: 6516129187208230345, guid: fbc9c9171d58c924a8c1e27fc1210ccd,
     type: 3}
@@ -1171,6 +1204,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1899533397}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &733444195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733444196}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &733444196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733444195}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.98, y: 2.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 569403372}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &785013734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17458,6 +17521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746859901833454105, guid: f63dfe4e9be15064fad73fe4edafccdc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8746859901833454107, guid: f63dfe4e9be15064fad73fe4edafccdc,
         type: 3}
