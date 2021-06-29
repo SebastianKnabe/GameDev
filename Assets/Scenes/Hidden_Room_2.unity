@@ -1121,7 +1121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362337770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 0, z: 0}
+  m_LocalPosition: {x: 4.68, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1325034397}
@@ -8653,6 +8653,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7327329309123210179, guid: f72dd9a11f70ef94ebcb9090bce47c63,
         type: 3}
+      propertyPath: attackDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309123210179, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
       propertyPath: wallObjectsParent
       value: 
       objectReference: {fileID: 1945239737}
@@ -8849,6 +8854,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
         type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
       propertyPath: animatorStringForAttack
       value: knight_attack_1
       objectReference: {fileID: 0}
@@ -8860,17 +8870,17 @@ PrefabInstance:
     - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
         type: 3}
       propertyPath: damagePerAttack.Array.data[0]
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
         type: 3}
       propertyPath: damagePerAttack.Array.data[1]
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
         type: 3}
       propertyPath: damagePerAttack.Array.data[2]
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
         type: 3}

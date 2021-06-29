@@ -112,10 +112,16 @@ public class AttackState : State
 
         Collider2D[] hitInfo = Physics2D.OverlapCircleAll(damageArea.transform.position, damageRadius, layerMask);
         foreach(Collider2D col in hitInfo){
-            Debug.Log(col);
             if (col != null && col.gameObject.CompareTag("Player"))
             {
-                col.gameObject.GetComponent<PlayerEntity>().takeDamage(damagePerAttack[currentAttackIndex]);
+                if(currentAttackIndex < animatorStringForAttack.Length - 1)
+                {
+                    col.gameObject.GetComponent<PlayerEntity>().takeDamageFromEffect(damagePerAttack[currentAttackIndex]);
+                }
+                else
+                {
+                    col.gameObject.GetComponent<PlayerEntity>().takeDamage(damagePerAttack[currentAttackIndex]);
+                }
                 successfullyDealtDamage = true;
             }
         }
