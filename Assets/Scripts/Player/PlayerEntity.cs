@@ -131,10 +131,10 @@ public class PlayerEntity : MonoBehaviour
 
     }
 
-    public void hitObstacle()
+    public void hitObstacle(float damageTaken)
     {
         rb.AddForce(transform.up * 15, ForceMode2D.Impulse);
-        takeDamage(2);
+        takeDamage(damageTaken);
         StartCoroutine("WaitForHit");
 
     }
@@ -182,6 +182,7 @@ public class PlayerEntity : MonoBehaviour
     private void updateHealthbar()
     {
         float healthbarRatio = currentHitPoints / maxHitPoints;
+        Debug.Log(currentHitPoints);
         healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
     }
 
