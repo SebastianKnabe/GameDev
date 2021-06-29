@@ -142,16 +142,21 @@ public class PlayerEntity : MonoBehaviour
     IEnumerator WaitForHit()
     {
         yield return new WaitForSeconds(0.5f);
-        this.transform.position = spawnPoint.position;
-        camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
-
+        if (currentHitPoints > 0)
+        {
+            this.transform.position = spawnPoint.position;
+            camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
+        }
     }
 
 
     IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(2);
+        // set to 0.5 since we have no death animation, was at 2
+        yield return new WaitForSeconds(0.5f);
         audioSource.PlayOneShot(respawnSound);
+        currentHitPoints = 400;
+        updateHealthbar();
         this.transform.position = spawnPoint.position;
         camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
     }
@@ -174,6 +179,7 @@ public class PlayerEntity : MonoBehaviour
     public void death()
     {
         //TODO
+        updateHealthbar();
         audioSource.PlayOneShot(deathSound);
         StartCoroutine("Respawn");
         
@@ -182,7 +188,6 @@ public class PlayerEntity : MonoBehaviour
     private void updateHealthbar()
     {
         float healthbarRatio = currentHitPoints / maxHitPoints;
-        Debug.Log(currentHitPoints);
         healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
     }
 
