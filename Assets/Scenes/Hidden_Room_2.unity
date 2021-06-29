@@ -1097,6 +1097,36 @@ Transform:
   m_Father: {fileID: 963299209}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &362337770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 362337771}
+  m_Layer: 0
+  m_Name: damageArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &362337771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362337770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1325034397}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &419863510
 GameObject:
   m_ObjectHideFlags: 0
@@ -8527,6 +8557,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1317975999}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1325034397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7327329309167026061, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+    type: 3}
+  m_PrefabInstance: {fileID: 1409302539}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1379535867
 GameObject:
   m_ObjectHideFlags: 0
@@ -8798,8 +8834,63 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: eb51696b8308f5d4482e3f95b4a14031, type: 2}
     - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
         type: 3}
+      propertyPath: ranged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: damageArea
+      value: 
+      objectReference: {fileID: 362337771}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: damageRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
       propertyPath: animatorStringForAttack
       value: knight_attack_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: damagePerAttack.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: damagePerAttack.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: damagePerAttack.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: damagePerAttack.Array.data[2]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: animatorStringForAttack.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: animatorStringForAttack.Array.data[0]
+      value: knight_attack_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: animatorStringForAttack.Array.data[1]
+      value: knight_attack_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: animatorStringForAttack.Array.data[2]
+      value: knight_attack_3
       objectReference: {fileID: 0}
     - target: {fileID: 7327329309421894265, guid: f72dd9a11f70ef94ebcb9090bce47c63,
         type: 3}
@@ -9876,6 +9967,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: ranged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: animatorStringForAttack.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327329309167026058, guid: f72dd9a11f70ef94ebcb9090bce47c63,
+        type: 3}
+      propertyPath: animatorStringForAttack.Array.data[0]
+      value: archer_enemy_shoot
       objectReference: {fileID: 0}
     - target: {fileID: 7327329309781027626, guid: f72dd9a11f70ef94ebcb9090bce47c63,
         type: 3}
