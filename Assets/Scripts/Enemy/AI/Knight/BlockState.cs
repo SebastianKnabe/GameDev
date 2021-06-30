@@ -18,7 +18,7 @@ public class BlockState : State
 
     public override State RunCurrentState()
     {
-
+        archerEntity.BlockProjectile();
         archerEntity.Animator.Play(animatorStringForBlock);
 
         if (archerEntity.Animator.GetCurrentAnimatorStateInfo(0).IsName(animatorStringForBlock) &&
