@@ -27,6 +27,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.tag);
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
@@ -35,6 +36,11 @@ public class BulletScript : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
         {
+            Destroy(this.gameObject);
+        } else if (other.tag == "Destructable")
+        {
+            Debug.Log("Hello?");
+            Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
 

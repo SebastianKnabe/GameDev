@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 4747685307942977081
-    second: s4m_ur4i_huge-assetpack-tilemap_0
+    second: gray_block_dark_0
   - first:
       213: 1949615966641895904
     second: s4m_ur4i_huge-assetpack-tilemap_1
@@ -1155,13 +1155,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: s4m_ur4i_huge-assetpack-tilemap_0
+      name: gray_block_dark_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 791
-        width: 207
-        height: 101
+        x: 16
+        y: 548
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -8513,7 +8513,7 @@ TextureImporter:
         width: 15
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -8534,7 +8534,7 @@ TextureImporter:
         width: 15
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -22,7 +22,13 @@ public class ItemScreen : MonoBehaviour
             {
                 Pause();
             }
-        }    
+        } else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isGamePaused)
+            {
+                Resume();
+            }
+        }   
     }
 
     //Unpause and close Inventory
