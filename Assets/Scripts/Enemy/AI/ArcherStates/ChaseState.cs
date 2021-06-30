@@ -8,6 +8,7 @@ public class ChaseState : State
 
     public Transform archer;
     public IdleState idleState;
+    public BlockState blockState;
     public AttackState attackState;
     public JumpState jumpState;
 
@@ -39,9 +40,13 @@ public class ChaseState : State
     public override State RunCurrentState()
     {
 
-        
 
-        if(archerEntity.returnToSpawnPoint() && Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x) <= 0.1f)
+        if (archerEntity.BlockProjectile())
+        {
+            return blockState;
+        }
+
+        if (archerEntity.returnToSpawnPoint() && Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x) <= 0.1f)
         {
             
             archerEntity.IsChasing = false;

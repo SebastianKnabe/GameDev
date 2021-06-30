@@ -32,6 +32,9 @@ public class StateModel : MonoBehaviour
     public float runningSpeed;
     public float attackDistance;
     public Colliders[] colliders;
+    public bool blockAbility;
+    public float blockProbability;
+    public LayerMask blockMask;
     //public Transform groundCheck, wallCheck, heightCheck;
     //public Vector2 groundBoxSize;
     //public Vector2 wallBoxSize;
@@ -93,7 +96,6 @@ public class StateModel : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         spawnPosition = transform.position;
-
     }
 
     void FixedUpdate()
@@ -163,6 +165,31 @@ public class StateModel : MonoBehaviour
    
         return false;
         
+    }
+
+    public bool BlockProjectile()
+    {
+
+        if (!blockAbility)
+        {
+            return false;
+        }
+        Collider2D[] hitInfo = Physics2D.OverlapBoxAll(colliders[3].transform.position, colliders[3].boxSize, 0, blockMask);
+        foreach (Collider2D col in hitInfo)
+        {
+            if (col.gameObject.CompareTag("Bullet"))
+            {
+                
+                if (Random.value <= blockProbability)
+                {
+                    Debug.Log("Block");
+                    Destroy(col.gameObject);
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
 

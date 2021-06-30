@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,7 +43,7 @@ public class ShootingScript : MonoBehaviour
             audioSource.PlayOneShot(bulletSound);
             weaponCooldownTimer = 0f;
         }
-        else
+        else if (weaponCooldownTimer <= weaponCooldown)
         {
             weaponCooldownTimer += Time.fixedDeltaTime;
         }

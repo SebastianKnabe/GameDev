@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
 
     //public float bulletSpeed = 60.0f;
     public float damage = 3.0f;
+    [HideInInspector]
+    public Vector2 maxDistance;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
 
