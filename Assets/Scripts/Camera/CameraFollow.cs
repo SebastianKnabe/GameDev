@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     [Range(1, 10)] public float smoothFactor;
     public PolygonCollider2D bound;
+    public float cameraBound = 0.7f;
 
     private Vector2 cameraThreshold;
     private Rigidbody2D rb;
@@ -48,13 +49,13 @@ public class CameraFollow : MonoBehaviour
             newPosition.y = targetPosition.y;
         }
 
-        //check InBounds
+        //check InBounds, wenn target nicht inBound wird position nicht verändert
         if (checkCameraBoundsWidth(newPosition) == false)
         {
             newPosition.x = transform.position.x;
         }
 
-        //check InBounds
+        //check InBounds, wenn target nicht inBound wird position nicht verändert
         if (checkCameraBoundsHeight(newPosition) == false)
         {
             newPosition.y = transform.position.y;
@@ -84,8 +85,8 @@ public class CameraFollow : MonoBehaviour
          * CameraSize.y = Height / 2
          */
         Vector2 cameraSize = new Vector2(Camera.main.orthographicSize * aspect.width / aspect.height, Camera.main.orthographicSize);
-        if (checkInBound(targetPosition - new Vector2(cameraSize.x * 0.7f, 0f)) &&
-            checkInBound(targetPosition + new Vector2(cameraSize.x * 0.7f, 0f)))
+        if (checkInBound(targetPosition - new Vector2(cameraSize.x * cameraBound, 0f)) &&
+            checkInBound(targetPosition + new Vector2(cameraSize.x * cameraBound, 0f)))
         {
             return true;
         }
@@ -101,8 +102,8 @@ public class CameraFollow : MonoBehaviour
          * CameraSize.y = Height / 2
          */
         Vector2 cameraSize = new Vector2(Camera.main.orthographicSize * aspect.width / aspect.height, Camera.main.orthographicSize);
-        if (checkInBound(targetPosition - new Vector2(0f, cameraSize.y * 0.7f)) &&
-            checkInBound(targetPosition + new Vector2(0f, cameraSize.y * 0.7f)))
+        if (checkInBound(targetPosition - new Vector2(0f, cameraSize.y * cameraBound)) &&
+            checkInBound(targetPosition + new Vector2(0f, cameraSize.y * cameraBound)))
         {
             return true;
         }
