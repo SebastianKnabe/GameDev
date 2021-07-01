@@ -45,31 +45,28 @@ public class BulletScript : MonoBehaviour
                 }
             }
         }
-
         if (other.gameObject.tag == "Enemy")
-            if (other.gameObject.tag == "Enemy")
+        {
+            EnemyEntity targetEntity = other.gameObject.GetComponent<EnemyEntity>();
+            if (targetEntity != null)
             {
-                Debug.Log("hit Enemy: " + other.gameObject.name);
-                EnemyEntity targetEntity = other.gameObject.GetComponent<EnemyEntity>();
-                if (targetEntity != null)
-                {
-                    other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
-                    Destroy(this.gameObject);
-                }
-            }
-            else if (other.gameObject.tag == "Player")
-            {
-                PlayerEntity targetEntity = other.gameObject.GetComponent<PlayerEntity>();
-                if (targetEntity != null)
-                {
-                    other.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
-                    Destroy(this.gameObject);
-                }
-            }
-            else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
-            {
+                other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
                 Destroy(this.gameObject);
             }
+        }
+        else if (other.gameObject.tag == "Player")
+        {
+            PlayerEntity targetEntity = other.gameObject.GetComponent<PlayerEntity>();
+            if (targetEntity != null)
+            {
+                other.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
+                Destroy(this.gameObject);
+            }
+        }
+        else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
 
     }
 

@@ -229,8 +229,22 @@ public class WizardBossBehavior : MonoBehaviour
                     tooCloseToOldSpawn = false;
                 }
 
+                //check spawn collision
+                Collider2D[] spawnTest = Physics2D.OverlapCircleAll(pos, 1);
+                if (spawnTest.Length > 0)
+                {
+                    foreach (Collider2D collider in spawnTest)
+                    {
+                        if (collider.CompareTag("Ground"))
+                        {
+                            tooCloseToOldSpawn = true;
+                        }
+                    }
+
+                }
             }
-            Instantiate(spawnAddPrefab, pos, Quaternion.identity);
+            GameObject add = Instantiate(spawnAddPrefab, pos, Quaternion.identity);
+            add.GetComponent<EnemyShootingScript>().playerTarget = playerTarget;
         }
     }
 
