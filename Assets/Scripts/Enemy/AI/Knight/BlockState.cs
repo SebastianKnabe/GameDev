@@ -32,10 +32,16 @@ public class BlockState : State
         return this;
     }
 
+    public override void initVariables()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         archerEntity = archer.GetComponent<StateModel>();
+        initVariables();
     }
 
 }

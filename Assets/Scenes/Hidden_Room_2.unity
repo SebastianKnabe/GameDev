@@ -9484,6 +9484,16 @@ PrefabInstance:
       propertyPath: tilemapGround
       value: 
       objectReference: {fileID: 521979174}
+    - target: {fileID: 5733161460201949313, guid: 11ccddee926e9c44d8b536bc73e5ca79,
+        type: 3}
+      propertyPath: m_Radius
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733161460201949313, guid: 11ccddee926e9c44d8b536bc73e5ca79,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ccddee926e9c44d8b536bc73e5ca79, type: 3}
 --- !u!1001 &6824978506806293743

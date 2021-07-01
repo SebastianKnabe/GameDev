@@ -182,7 +182,6 @@ public class StateModel : MonoBehaviour
                 
                 if (Random.value <= blockProbability)
                 {
-                    Debug.Log("Block");
                     Destroy(col.gameObject);
                     return true;
                 }

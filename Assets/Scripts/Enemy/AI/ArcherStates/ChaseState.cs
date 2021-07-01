@@ -26,13 +26,18 @@ public class ChaseState : State
     private string stateString = "chaseState";
     private int wallLayerMask;
 
-    
+
+    public override void initVariables()
+    {
+
+    }
+
     public void Start()
     {
 
         archerEntity = archer.GetComponentInChildren<StateModel>();
         wallLayerMask = LayerMask.GetMask("JumpingWall");
-        runFixedUpdate = true;
+        initVariables();
 
     }
 

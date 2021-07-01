@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class AttackState : State
 {
+    [System.Serializable]
+    public class AttackMoves
+    {
+        public string animatorStringForAttack;
+        public int damage;
+    }
+
     public Transform archer;
     public IdleState idleState;
     public ChaseState chaseState;
-    public string[] animatorStringForAttack;
+    public AttackMoves[] attackMoves;
+    //public string[] animatorStringForAttack;
 
     [Header("ranged attributes")]
     public GameObject arrowPrefab;
@@ -18,7 +26,7 @@ public class AttackState : State
     [Header("melee attributes")]
     public Transform damageArea;
     public int damageRadius;
-    public int[] damagePerAttack;
+    //public int[] damagePerAttack;
     public LayerMask layerMask;
 
 
@@ -28,29 +36,38 @@ public class AttackState : State
     private int currentAttackIndex;
     private float animationEndTime;
     private bool successfullyDealtDamage = false;
+
+    public override void initVariables()
+    {
+        successfullyDealtDamage = false;
+        currentAttackIndex = 0;
+        archerEntity.TimeSinceLastShot = 0;
+        animationEndTime = ranged ? 1.0f : 0.5f;
+
+    }
     public void Start()
     {
         archerEntity = archer.GetComponent<StateModel>();
-        currentAttackIndex = 0;
-        animationEndTime = ranged ? 1.0f : 0.5f;
+        initVariables();
+        //animationEndTime = ranged ? 1.0f : 0.5f;
     }
 
 
     public override State RunCurrentState()
     {
-        archerEntity.TimeSinceLastShot = 0;
+        //archerEntity.TimeSinceLastShot = 0;
         archerEntity.Flip();
 
         if (archerEntity.playerInRange && !archerEntity.playerInSight)
         {
-            currentAttackIndex = 0;
-            successfullyDealtDamage = false;
+            //currentAttackIndex = 0;
+            //successfullyDealtDamage = false;
             return chaseState;
         }else if (!archerEntity.playerInSight)
         {
             resetAttackAnimationSpeed();
-            currentAttackIndex = 0;
-            successfullyDealtDamage = false;
+            //currentAttackIndex = 0;
+            //successfullyDealtDamage = false;
             return idleState;
         }
         else if(archerEntity.playerInRange && archerEntity.playerInSight)
@@ -61,26 +78,26 @@ public class AttackState : State
             if (!DialogueManager.dialogueMode)
             {
                 increaseAttackAnimationSpeed();
-                archerEntity.Animator.Play(animatorStringForAttack[currentAttackIndex]);
+                archerEntity.Animator.Play(attackMoves[currentAttackIndex].animatorStringForAttack);
             }
          
 
 
-            if (archerEntity.Animator.GetCurrentAnimatorStateInfo(0).IsName(animatorStringForAttack[currentAttackIndex]) &&
+            if (archerEntity.Animator.GetCurrentAnimatorStateInfo(0).IsName(attackMoves[currentAttackIndex].animatorStringForAttack) &&
                 archerEntity.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= animationEndTime)
             {
 
                 attack();
 
-                if(currentAttackIndex + 1 >= animatorStringForAttack.Length || !ranged && !successfullyDealtDamage)
+                if(currentAttackIndex + 1 >= attackMoves.Length|| !ranged && !successfullyDealtDamage)
                 {
-                    currentAttackIndex = 0;
-                    successfullyDealtDamage = false;
+                    //currentAttackIndex = 0;
+                    //successfullyDealtDamage = false;
                     return idleState;
                 }
                 else
                 {
-                    successfullyDealtDamage = false;
+                    //successfullyDealtDamage = false;
                     currentAttackIndex++;
                 }
 
@@ -114,13 +131,13 @@ public class AttackState : State
         foreach(Collider2D col in hitInfo){
             if (col != null && col.gameObject.CompareTag("Player"))
             {
-                if(currentAttackIndex < animatorStringForAttack.Length - 1)
+                if(currentAttackIndex < attackMoves[currentAttackIndex].animatorStringForAttack.Length - 1)
                 {
-                    col.gameObject.GetComponent<PlayerEntity>().takeDamageFromEffect(damagePerAttack[currentAttackIndex]);
+                    col.gameObject.GetComponent<PlayerEntity>().takeDamageFromEffect(attackMoves[currentAttackIndex].damage);
                 }
                 else
                 {
-                    col.gameObject.GetComponent<PlayerEntity>().takeDamage(damagePerAttack[currentAttackIndex]);
+                    col.gameObject.GetComponent<PlayerEntity>().takeDamage(attackMoves[currentAttackIndex].damage);
                 }
                 successfullyDealtDamage = true;
             }

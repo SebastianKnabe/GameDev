@@ -15,10 +15,15 @@ public class IdleState : State
 
 
     private string stateString = "idleState";
+
+    public override void initVariables()
+    {
+
+    }
     public void Start()
     {
         archerEntity = archer.GetComponent<StateModel>();
-        
+        initVariables();
     }
 
     public override State RunCurrentState()
@@ -124,5 +129,5 @@ public class IdleState : State
         return stateString;
     }
 
-
+   
 }

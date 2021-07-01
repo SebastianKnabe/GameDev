@@ -13,6 +13,10 @@ public class PatrollingState: State
     private StateModel sneakerEntity;
     private Rigidbody2D sneakerRigidbody;
 
+    public override void initVariables()
+    {
+    }
+
     public void Start()
     {
         sneakerEntity = sneaker.GetComponent<StateModel>();
@@ -92,4 +96,5 @@ public class PatrollingState: State
 
     }
 
+  
 }
