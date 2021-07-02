@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DoorScript : MonoBehaviour
 {
 
+    public bool changeScene;
     public int sceneIndex;
     public string connectedDoor;
     public string spawnId;
@@ -48,7 +49,7 @@ public class DoorScript : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.E) && playerInRange && !DialogueManager.dialogueMode)
         {
-            Debug.Log("CURRENT conn " + connectedDoor);
+            //Debug.Log("CURRENT conn " + connectedDoor);
 
 
             //player.spawnPoint = connectedDoor;
@@ -56,8 +57,20 @@ public class DoorScript : MonoBehaviour
             //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>().setSpawnPoint(connectedDoor);
 
             // Debug.Log("CURRENT conn2 " + GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerEntity>().getSpawnPoint());
-            GameObject.Find("SpawnManagerObject").GetComponent<SpawnManager>().spawnPoint = connectedDoor;
-            SceneManager.LoadScene(sceneIndex);
+            SpawnManager spawnManager = GameObject.Find("SpawnManagerObject").GetComponent<SpawnManager>() as SpawnManager;
+            spawnManager.spawnPoint = connectedDoor;
+            if (changeScene)
+            {
+                SceneManager.LoadScene(sceneIndex);
+            }
+            else
+            {
+                spawnManager.FindDoor();
+            }
+            
+
+           
+                
 
 
 

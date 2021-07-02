@@ -7,6 +7,7 @@ public class IdleState : State
     public ChaseState chaseState;
     public AttackState attackState;
     public BlockState blockState;
+    public OnHitState onHitState;
     public Transform archer;
     public string animatorStringForIdle;
 
@@ -29,6 +30,10 @@ public class IdleState : State
     public override State RunCurrentState()
     {
         FlipCharPeriodically();
+        if (archerEntity.checkHealth() == 1)
+        {
+            return onHitState;
+        }
 
         if (archerEntity.BlockProjectile()) {
             return blockState;

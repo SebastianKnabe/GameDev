@@ -6,13 +6,15 @@ public class JumpState : State
 {
     public ChaseState chaseState;
     public IdleState idleState;
+    public DeathState deathState;
 
     public string animatorStringForJump;
     public string animatorStringForFall;
 
     public Transform archer;
     public float speed;
-    StateModel archerEntity;
+    private StateModel archerEntity;
+    private EnemyEntity enemyEntity;
 
     private string stateString = "jumpState";
 
@@ -30,6 +32,7 @@ public class JumpState : State
     public void Start()
     {
         archerEntity = archer.GetComponent<StateModel>();
+        enemyEntity = archer.GetComponent<EnemyEntity>();
         initVariables();
     }
 
@@ -46,6 +49,10 @@ public class JumpState : State
             StopCoroutine(jmpRoutine);
             return idleState;
            
+        }else if(enemyEntity.getCurrentHitPoints() <= 0)
+        {
+            StopCoroutine(jmpRoutine);
+            return deathState;
         }
 
         if (!started)

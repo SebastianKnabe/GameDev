@@ -44,7 +44,6 @@ public class FallingPlatformScript : MonoBehaviour
             if (direction.y < 0)
             {
                 rb.isKinematic = false;
-
             }
 
         }

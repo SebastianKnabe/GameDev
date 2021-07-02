@@ -8,13 +8,19 @@ public class EnemyEntity : MonoBehaviour
     public GameObject healthbar;
 
     private float currentHitPoints;
+    private StateModel stateModel;
     public bool dropEnabled;
 
+
+    public float getCurrentHitPoints()
+    {
+        return currentHitPoints;
+    }
     // Start is called before the first frame update
     void Start()
     {
         currentHitPoints = maxHitPoints;
-        
+        stateModel = GetComponent<StateModel>();
         updateHealthbar();
     }
 
@@ -23,8 +29,11 @@ public class EnemyEntity : MonoBehaviour
      */
     public void takeDamage(float incomingDamage)
     {
+        if(stateModel != null)
+        {
+            stateModel.fireDamageEvent();
+        }
         currentHitPoints -= incomingDamage;
-        
         if(currentHitPoints <= 0)
         {
             death();
@@ -40,7 +49,9 @@ public class EnemyEntity : MonoBehaviour
         if(dropEnabled){
             this.gameObject.GetComponent<DropLootScript>().dropLoot();
         }
-        Destroy(this.gameObject);
+
+        if(GetComponent<StateModel>() == null)
+            Destroy(this.gameObject);
     }
 
     private void updateHealthbar()

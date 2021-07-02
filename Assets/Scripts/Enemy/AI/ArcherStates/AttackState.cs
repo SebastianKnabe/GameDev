@@ -14,6 +14,7 @@ public class AttackState : State
     public Transform archer;
     public IdleState idleState;
     public ChaseState chaseState;
+    public DeathState deathState;
     public AttackMoves[] attackMoves;
     //public string[] animatorStringForAttack;
 
@@ -36,18 +37,20 @@ public class AttackState : State
     private int currentAttackIndex;
     private float animationEndTime;
     private bool successfullyDealtDamage = false;
-
+    private EnemyEntity enemyEntity;
     public override void initVariables()
     {
         successfullyDealtDamage = false;
         currentAttackIndex = 0;
         archerEntity.TimeSinceLastShot = 0;
-        animationEndTime = ranged ? 1.0f : 0.5f;
+        //animationEndTime = ranged ? 1.0f : 0.5f;
+        
 
     }
     public void Start()
     {
         archerEntity = archer.GetComponent<StateModel>();
+        enemyEntity = archer.GetComponent<EnemyEntity>();
         initVariables();
         //animationEndTime = ranged ? 1.0f : 0.5f;
     }
@@ -57,47 +60,56 @@ public class AttackState : State
     {
         //archerEntity.TimeSinceLastShot = 0;
         archerEntity.Flip();
+        if(enemyEntity.getCurrentHitPoints() <= 0)
+        {
+            return deathState;
+        }
 
         if (archerEntity.playerInRange && !archerEntity.playerInSight)
         {
             //currentAttackIndex = 0;
             //successfullyDealtDamage = false;
             return chaseState;
-        }else if (!archerEntity.playerInSight)
+        } else if (!archerEntity.playerInSight)
         {
             resetAttackAnimationSpeed();
             //currentAttackIndex = 0;
             //successfullyDealtDamage = false;
             return idleState;
         }
-        else if(archerEntity.playerInRange && archerEntity.playerInSight)
+        else if (archerEntity.playerInRange && archerEntity.playerInSight)
         {
             //attack
-           
+
 
             if (!DialogueManager.dialogueMode)
             {
                 increaseAttackAnimationSpeed();
                 archerEntity.Animator.Play(attackMoves[currentAttackIndex].animatorStringForAttack);
             }
-         
+
+
+            if (archerEntity.AnimationTriggerEvent >= 1)
+            {
+                attack();
+                archerEntity.AnimationTriggerEvent = 0;
+                archerEntity.TimeSinceLastShot = 0;
+            }
 
 
             if (archerEntity.Animator.GetCurrentAnimatorStateInfo(0).IsName(attackMoves[currentAttackIndex].animatorStringForAttack) &&
-                archerEntity.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= animationEndTime)
+                archerEntity.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
             {
-
-                attack();
-
-                if(currentAttackIndex + 1 >= attackMoves.Length|| !ranged && !successfullyDealtDamage)
+                if(currentAttackIndex + 1 >= attackMoves.Length || !ranged && !successfullyDealtDamage)
                 {
                     //currentAttackIndex = 0;
                     //successfullyDealtDamage = false;
+                    resetAttackAnimationSpeed();
                     return idleState;
                 }
                 else
                 {
-                    //successfullyDealtDamage = false;
+                    successfullyDealtDamage = false;
                     currentAttackIndex++;
                 }
 
@@ -159,8 +171,7 @@ public class AttackState : State
         direction.Normalize();
         fireBullet(direction, rotationZ);
 
-        archerEntity.TimeSinceLastShot = 0f;
-        resetAttackAnimationSpeed();
+        
     }
 
     

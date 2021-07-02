@@ -11,7 +11,7 @@ public class ChaseState : State
     public BlockState blockState;
     public AttackState attackState;
     public JumpState jumpState;
-
+    public OnHitState onHitState;
 
 
     public string animatorStringForRun;
@@ -45,6 +45,10 @@ public class ChaseState : State
     public override State RunCurrentState()
     {
 
+        if (archerEntity.checkHealth() == 1)
+        {
+            return onHitState;
+        }
 
         if (archerEntity.BlockProjectile())
         {
@@ -202,9 +206,7 @@ public class ChaseState : State
         return stateString;
     }
 
- 
 
-   
 
 }
 
