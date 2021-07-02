@@ -5,11 +5,12 @@ using UnityEngine;
 public class BossRoomTrigger : MonoBehaviour
 {
     public GameObject BossUI;
-    public AudioSource audioSource;
+    public AudioSource BGMAudioSource;
 
     [SerializeField] private AudioClip bossMusic;
 
     private bool fightStarted = false;
+    private AudioClip oldClip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,8 +18,9 @@ public class BossRoomTrigger : MonoBehaviour
         {
             BossUI.SetActive(true);
 
-            audioSource.clip = bossMusic;
-            audioSource.Play();
+            oldClip = BGMAudioSource.clip;
+            BGMAudioSource.clip = bossMusic;
+            BGMAudioSource.Play();
 
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
@@ -29,7 +31,9 @@ public class BossRoomTrigger : MonoBehaviour
     public void EndBossFight()
     {
         BossUI.SetActive(false);
-        audioSource.Stop();
+        BGMAudioSource.Stop();
+        BGMAudioSource.clip = oldClip;
+        BGMAudioSource.Play();
         Destroy(gameObject);
     }
 }
