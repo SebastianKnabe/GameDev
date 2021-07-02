@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Start Screen.unity
     guid: fc494e642831e3e43ba8b24786e328cb
+  - enabled: 1
+    path: Assets/Scenes/Earth.unity
+    guid: cca4d7f0f0dad404fb1eb9a415206aff
   - enabled: 1
     path: Assets/Scenes/Hidden_Room_2.unity
     guid: 8478907c73a473947a182e334e4cd547
