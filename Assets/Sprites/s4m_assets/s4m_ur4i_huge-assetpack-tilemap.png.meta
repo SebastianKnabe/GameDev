@@ -322,7 +322,7 @@ TextureImporter:
     second: s4m_ur4i_huge-assetpack-tilemap_105
   - first:
       213: 446962974885634574
-    second: s4m_ur4i_huge-assetpack-tilemap_106
+    second: Fire_Bullet
   - first:
       213: 6051588246430877340
     second: s4m_ur4i_huge-assetpack-tilemap_107
@@ -3381,7 +3381,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: s4m_ur4i_huge-assetpack-tilemap_106
+      name: Fire_Bullet
       rect:
         serializedVersion: 2
         x: 72
