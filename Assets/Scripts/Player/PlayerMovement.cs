@@ -61,21 +61,21 @@ public class PlayerMovement : MonoBehaviour
         {
             setBackupPosition();
             setSpawnPointAfterSpikeHit(gameObject.transform.position);
-            if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
+            if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true) && rb.velocity.magnitude > 0)
             {
                 speed = sprintSpeed;
-            
+
             }
             else
             {
-                if (hasJumped)
-                {
-                    hasJumped = false;
-                }
                 speed = moveSpeed;
                 staminaRefillScript.requestSprint(false);
             }
             coyoteTimer = 0;
+            if (hasJumped)
+            {
+                hasJumped = false;
+            }
 
         }
         else
