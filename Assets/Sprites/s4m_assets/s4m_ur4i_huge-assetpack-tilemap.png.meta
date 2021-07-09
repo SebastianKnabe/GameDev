@@ -1,0 +1,1865 @@
+fileFormatVersion: 2
+guid: 2cab978acac42b040970e2dddda0e900
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4747685307942977081
+    second: gray_block_dark_0
+  - first:
+      213: 1949615966641895904
+    second: s4m_ur4i_huge-assetpack-tilemap_1
+  - first:
+      213: -1253083713736310529
+    second: s4m_ur4i_huge-assetpack-tilemap_2
+  - first:
+      213: 8215030772735776017
+    second: s4m_ur4i_huge-assetpack-tilemap_3
+  - first:
+      213: -4230754953634570184
+    second: s4m_ur4i_huge-assetpack-tilemap_4
+  - first:
+      213: -5278196518316114769
+    second: s4m_ur4i_huge-assetpack-tilemap_5
+  - first:
+      213: -5489629921847468251
+    second: s4m_ur4i_huge-assetpack-tilemap_6
+  - first:
+      213: 2944549369556289943
+    second: s4m_ur4i_huge-assetpack-tilemap_7
+  - first:
+      213: 5087484611084341502
+    second: s4m_ur4i_huge-assetpack-tilemap_8
+  - first:
+      213: -7428975184089925353
+    second: s4m_ur4i_huge-assetpack-tilemap_9
+  - first:
+      213: 943451760117101268
+    second: s4m_ur4i_huge-assetpack-tilemap_10
+  - first:
+      213: 3899028612549396029
+    second: s4m_ur4i_huge-assetpack-tilemap_11
+  - first:
+      213: -8825774485309438930
+    second: s4m_ur4i_huge-assetpack-tilemap_12
+  - first:
+      213: 7446723708209216147
+    second: s4m_ur4i_huge-assetpack-tilemap_13
+  - first:
+      213: 7494909899091501916
+    second: s4m_ur4i_huge-assetpack-tilemap_14
+  - first:
+      213: 714994525101315927
+    second: s4m_ur4i_huge-assetpack-tilemap_15
+  - first:
+      213: -9073569621214632834
+    second: s4m_ur4i_huge-assetpack-tilemap_16
+  - first:
+      213: -4564131931413680428
+    second: s4m_ur4i_huge-assetpack-tilemap_17
+  - first:
+      213: -4504810556741990661
+    second: s4m_ur4i_huge-assetpack-tilemap_18
+  - first:
+      213: -6680442721159767538
+    second: s4m_ur4i_huge-assetpack-tilemap_19
+  - first:
+      213: 1482655703849653528
+    second: s4m_ur4i_huge-assetpack-tilemap_20
+  - first:
+      213: -832606333185250826
+    second: chest_1
+  - first:
+      213: -8272531995874051036
+    second: chest_4
+  - first:
+      213: -4391291703542488212
+    second: chest_5
+  - first:
+      213: -8991458583446013604
+    second: s4m_ur4i_huge-assetpack-tilemap_24
+  - first:
+      213: -2112963459239383177
+    second: s4m_ur4i_huge-assetpack-tilemap_25
+  - first:
+      213: 6808372308563740956
+    second: s4m_ur4i_huge-assetpack-tilemap_26
+  - first:
+      213: -5448469655070418288
+    second: s4m_ur4i_huge-assetpack-tilemap_27
+  - first:
+      213: 1513049344846565230
+    second: s4m_ur4i_huge-assetpack-tilemap_28
+  - first:
+      213: 1090568242072965784
+    second: s4m_ur4i_huge-assetpack-tilemap_29
+  - first:
+      213: -95571996146606688
+    second: s4m_ur4i_huge-assetpack-tilemap_30
+  - first:
+      213: -7190725680037455079
+    second: s4m_ur4i_huge-assetpack-tilemap_31
+  - first:
+      213: -8221401664659573336
+    second: s4m_ur4i_huge-assetpack-tilemap_32
+  - first:
+      213: 1694688109414668894
+    second: s4m_ur4i_huge-assetpack-tilemap_33
+  - first:
+      213: 6605722052723966743
+    second: s4m_ur4i_huge-assetpack-tilemap_34
+  - first:
+      213: -7595723807872526290
+    second: s4m_ur4i_huge-assetpack-tilemap_35
+  - first:
+      213: 5199046677547709265
+    second: s4m_ur4i_huge-assetpack-tilemap_36
+  - first:
+      213: 4725958615602658612
+    second: s4m_ur4i_huge-assetpack-tilemap_37
+  - first:
+      213: 1022649833298710319
+    second: s4m_ur4i_huge-assetpack-tilemap_38
+  - first:
+      213: -5813614355213543807
+    second: s4m_ur4i_huge-assetpack-tilemap_39
+  - first:
+      213: -3053386520003807056
+    second: s4m_ur4i_huge-assetpack-tilemap_40
+  - first:
+      213: -4580255438439203042
+    second: s4m_ur4i_huge-assetpack-tilemap_41
+  - first:
+      213: 5905454390297544287
+    second: s4m_ur4i_huge-assetpack-tilemap_42
+  - first:
+      213: -4096987349404426510
+    second: s4m_ur4i_huge-assetpack-tilemap_43
+  - first:
+      213: 8838082252336775439
+    second: s4m_ur4i_huge-assetpack-tilemap_44
+  - first:
+      213: -3410166783389846982
+    second: s4m_ur4i_huge-assetpack-tilemap_45
+  - first:
+      213: 4832608407640380210
+    second: s4m_ur4i_huge-assetpack-tilemap_46
+  - first:
+      213: 8054672770019502137
+    second: s4m_ur4i_huge-assetpack-tilemap_47
+  - first:
+      213: -425926609853426696
+    second: s4m_ur4i_huge-assetpack-tilemap_48
+  - first:
+      213: -9091541963829596303
+    second: s4m_ur4i_huge-assetpack-tilemap_49
+  - first:
+      213: -134519404745805840
+    second: s4m_ur4i_huge-assetpack-tilemap_50
+  - first:
+      213: 8684816428375106527
+    second: s4m_ur4i_huge-assetpack-tilemap_51
+  - first:
+      213: -8814632418298717101
+    second: s4m_ur4i_huge-assetpack-tilemap_52
+  - first:
+      213: 5062759870555655176
+    second: s4m_ur4i_huge-assetpack-tilemap_53
+  - first:
+      213: 2163261127341422365
+    second: s4m_ur4i_huge-assetpack-tilemap_54
+  - first:
+      213: -2376534595035242625
+    second: s4m_ur4i_huge-assetpack-tilemap_55
+  - first:
+      213: -5205192079802752196
+    second: s4m_ur4i_huge-assetpack-tilemap_56
+  - first:
+      213: 4256327126728989317
+    second: s4m_ur4i_huge-assetpack-tilemap_57
+  - first:
+      213: 525109056206160825
+    second: s4m_ur4i_huge-assetpack-tilemap_58
+  - first:
+      213: -4364119343311390040
+    second: s4m_ur4i_huge-assetpack-tilemap_59
+  - first:
+      213: 404883593402809011
+    second: s4m_ur4i_huge-assetpack-tilemap_60
+  - first:
+      213: 6116188684621179323
+    second: s4m_ur4i_huge-assetpack-tilemap_61
+  - first:
+      213: -8082284960322581003
+    second: s4m_ur4i_huge-assetpack-tilemap_62
+  - first:
+      213: -1451114408336939395
+    second: s4m_ur4i_huge-assetpack-tilemap_63
+  - first:
+      213: -2751480886680860667
+    second: s4m_ur4i_huge-assetpack-tilemap_64
+  - first:
+      213: 1178296961049005446
+    second: s4m_ur4i_huge-assetpack-tilemap_65
+  - first:
+      213: -834968536490571920
+    second: s4m_ur4i_huge-assetpack-tilemap_66
+  - first:
+      213: -8321708059407595389
+    second: s4m_ur4i_huge-assetpack-tilemap_67
+  - first:
+      213: 7363796304460020869
+    second: s4m_ur4i_huge-assetpack-tilemap_68
+  - first:
+      213: 4709381445979228958
+    second: s4m_ur4i_huge-assetpack-tilemap_69
+  - first:
+      213: -5360209883335365561
+    second: s4m_ur4i_huge-assetpack-tilemap_70
+  - first:
+      213: -695622605210823180
+    second: s4m_ur4i_huge-assetpack-tilemap_71
+  - first:
+      213: 6434328524535740774
+    second: s4m_ur4i_huge-assetpack-tilemap_72
+  - first:
+      213: 656888691769562838
+    second: s4m_ur4i_huge-assetpack-tilemap_73
+  - first:
+      213: -7519324238025537597
+    second: s4m_ur4i_huge-assetpack-tilemap_74
+  - first:
+      213: 6399751885136529455
+    second: s4m_ur4i_huge-assetpack-tilemap_75
+  - first:
+      213: 5800196689585649488
+    second: s4m_ur4i_huge-assetpack-tilemap_76
+  - first:
+      213: 4498341166653105048
+    second: s4m_ur4i_huge-assetpack-tilemap_77
+  - first:
+      213: 5265211076919720124
+    second: s4m_ur4i_huge-assetpack-tilemap_78
+  - first:
+      213: -5081985534889844146
+    second: s4m_ur4i_huge-assetpack-tilemap_79
+  - first:
+      213: -6024060662705764667
+    second: s4m_ur4i_huge-assetpack-tilemap_80
+  - first:
+      213: -1020755430075056215
+    second: s4m_ur4i_huge-assetpack-tilemap_81
+  - first:
+      213: 1175983847669741463
+    second: s4m_ur4i_huge-assetpack-tilemap_82
+  - first:
+      213: 9095321088635230229
+    second: s4m_ur4i_huge-assetpack-tilemap_83
+  - first:
+      213: -7294587370248265419
+    second: s4m_ur4i_huge-assetpack-tilemap_84
+  - first:
+      213: -2011002468245995810
+    second: s4m_ur4i_huge-assetpack-tilemap_85
+  - first:
+      213: -3155397329560947011
+    second: s4m_ur4i_huge-assetpack-tilemap_86
+  - first:
+      213: -2283182749461939026
+    second: s4m_ur4i_huge-assetpack-tilemap_87
+  - first:
+      213: -3750569234315929737
+    second: s4m_ur4i_huge-assetpack-tilemap_88
+  - first:
+      213: 8318562315075153047
+    second: s4m_ur4i_huge-assetpack-tilemap_89
+  - first:
+      213: 4113602242690794736
+    second: s4m_ur4i_huge-assetpack-tilemap_90
+  - first:
+      213: 674037802783863255
+    second: s4m_ur4i_huge-assetpack-tilemap_91
+  - first:
+      213: -7420962789160403739
+    second: s4m_ur4i_huge-assetpack-tilemap_92
+  - first:
+      213: -3889867097540370304
+    second: s4m_ur4i_huge-assetpack-tilemap_93
+  - first:
+      213: -5643176880759086099
+    second: s4m_ur4i_huge-assetpack-tilemap_94
+  - first:
+      213: -5651677233945894019
+    second: s4m_ur4i_huge-assetpack-tilemap_95
+  - first:
+      213: -6977769274474790515
+    second: s4m_ur4i_huge-assetpack-tilemap_96
+  - first:
+      213: -1550716064897756590
+    second: s4m_ur4i_huge-assetpack-tilemap_97
+  - first:
+      213: 6758520011549148143
+    second: s4m_ur4i_huge-assetpack-tilemap_98
+  - first:
+      213: 634471540290488898
+    second: s4m_ur4i_huge-assetpack-tilemap_99
+  - first:
+      213: 2658850665016421806
+    second: s4m_ur4i_huge-assetpack-tilemap_100
+  - first:
+      213: -2334887952836877215
+    second: s4m_ur4i_huge-assetpack-tilemap_101
+  - first:
+      213: -8414940576732994888
+    second: s4m_ur4i_huge-assetpack-tilemap_102
+  - first:
+      213: -5777133898407480054
+    second: s4m_ur4i_huge-assetpack-tilemap_103
+  - first:
+      213: 3064075849732697013
+    second: s4m_ur4i_huge-assetpack-tilemap_104
+  - first:
+      213: -8248680970093214548
+    second: s4m_ur4i_huge-assetpack-tilemap_105
+  - first:
+      213: 446962974885634574
+    second: Fire_Bullet
+  - first:
+      213: 6051588246430877340
+    second: s4m_ur4i_huge-assetpack-tilemap_107
+  - first:
+      213: 5622631057810379270
+    second: s4m_ur4i_huge-assetpack-tilemap_108
+  - first:
+      213: -2488400894215034926
+    second: s4m_ur4i_huge-assetpack-tilemap_109
+  - first:
+      213: -8196270301128003237
+    second: s4m_ur4i_huge-assetpack-tilemap_110
+  - first:
+      213: 1938805813592272108
+    second: s4m_ur4i_huge-assetpack-tilemap_111
+  - first:
+      213: 5305582722146642295
+    second: s4m_ur4i_huge-assetpack-tilemap_112
+  - first:
+      213: -752003958057493373
+    second: s4m_ur4i_huge-assetpack-tilemap_113
+  - first:
+      213: -4383065105092108218
+    second: s4m_ur4i_huge-assetpack-tilemap_114
+  - first:
+      213: -2055098063742259501
+    second: s4m_ur4i_huge-assetpack-tilemap_115
+  - first:
+      213: 4385607433250642051
+    second: s4m_ur4i_huge-assetpack-tilemap_116
+  - first:
+      213: 5737339183985438001
+    second: s4m_ur4i_huge-assetpack-tilemap_117
+  - first:
+      213: -7264622316827772730
+    second: s4m_ur4i_huge-assetpack-tilemap_118
+  - first:
+      213: 5680302307291305279
+    second: s4m_ur4i_huge-assetpack-tilemap_119
+  - first:
+      213: 3605616929423310180
+    second: s4m_ur4i_huge-assetpack-tilemap_120
+  - first:
+      213: 3835984323088190279
+    second: s4m_ur4i_huge-assetpack-tilemap_121
+  - first:
+      213: -3997750700011989163
+    second: s4m_ur4i_huge-assetpack-tilemap_122
+  - first:
+      213: -8321989155917508728
+    second: s4m_ur4i_huge-assetpack-tilemap_123
+  - first:
+      213: -1130739632801720058
+    second: s4m_ur4i_huge-assetpack-tilemap_124
+  - first:
+      213: -7592852452818829056
+    second: s4m_ur4i_huge-assetpack-tilemap_125
+  - first:
+      213: 6360794964314150360
+    second: s4m_ur4i_huge-assetpack-tilemap_126
+  - first:
+      213: 2867906674927578135
+    second: s4m_ur4i_huge-assetpack-tilemap_127
+  - first:
+      213: -1093414305745604207
+    second: s4m_ur4i_huge-assetpack-tilemap_128
+  - first:
+      213: 3024747149663911269
+    second: s4m_ur4i_huge-assetpack-tilemap_129
+  - first:
+      213: -4278247934969268828
+    second: s4m_ur4i_huge-assetpack-tilemap_130
+  - first:
+      213: 7460455216342235082
+    second: s4m_ur4i_huge-assetpack-tilemap_131
+  - first:
+      213: 546515950269394082
+    second: s4m_ur4i_huge-assetpack-tilemap_132
+  - first:
+      213: 5553242993116859816
+    second: s4m_ur4i_huge-assetpack-tilemap_133
+  - first:
+      213: -374104052090482530
+    second: s4m_ur4i_huge-assetpack-tilemap_134
+  - first:
+      213: -2708105905928647122
+    second: s4m_ur4i_huge-assetpack-tilemap_135
+  - first:
+      213: 3895709322710314830
+    second: s4m_ur4i_huge-assetpack-tilemap_136
+  - first:
+      213: -3853289590406792077
+    second: s4m_ur4i_huge-assetpack-tilemap_137
+  - first:
+      213: 8438915489483728354
+    second: s4m_ur4i_huge-assetpack-tilemap_138
+  - first:
+      213: 5376903005531980475
+    second: s4m_ur4i_huge-assetpack-tilemap_139
+  - first:
+      213: 1218592430810803364
+    second: s4m_ur4i_huge-assetpack-tilemap_140
+  - first:
+      213: 7196222253197185269
+    second: s4m_ur4i_huge-assetpack-tilemap_141
+  - first:
+      213: 205075641879099556
+    second: s4m_ur4i_huge-assetpack-tilemap_142
+  - first:
+      213: 1311561746173824441
+    second: s4m_ur4i_huge-assetpack-tilemap_143
+  - first:
+      213: 2908932966201107290
+    second: s4m_ur4i_huge-assetpack-tilemap_144
+  - first:
+      213: -5093615601531614475
+    second: s4m_ur4i_huge-assetpack-tilemap_145
+  - first:
+      213: -266054847603423403
+    second: s4m_ur4i_huge-assetpack-tilemap_146
+  - first:
+      213: -6848953020114414330
+    second: s4m_ur4i_huge-assetpack-tilemap_147
+  - first:
+      213: 283295998073640720
+    second: s4m_ur4i_huge-assetpack-tilemap_148
+  - first:
+      213: -9152728701288094928
+    second: s4m_ur4i_huge-assetpack-tilemap_149
+  - first:
+      213: -403304166913084527
+    second: s4m_ur4i_huge-assetpack-tilemap_150
+  - first:
+      213: -1832929348498907905
+    second: s4m_ur4i_huge-assetpack-tilemap_151
+  - first:
+      213: 8200582879388499425
+    second: s4m_ur4i_huge-assetpack-tilemap_152
+  - first:
+      213: -1609692630974809893
+    second: s4m_ur4i_huge-assetpack-tilemap_153
+  - first:
+      213: 9118711941422511639
+    second: s4m_ur4i_huge-assetpack-tilemap_154
+  - first:
+      213: 7170794278654105150
+    second: s4m_ur4i_huge-assetpack-tilemap_155
+  - first:
+      213: -370624146650068379
+    second: s4m_ur4i_huge-assetpack-tilemap_156
+  - first:
+      213: -2784996445327559593
+    second: s4m_ur4i_huge-assetpack-tilemap_157
+  - first:
+      213: 8674590839790005630
+    second: s4m_ur4i_huge-assetpack-tilemap_158
+  - first:
+      213: 7069663326359736265
+    second: s4m_ur4i_huge-assetpack-tilemap_159
+  - first:
+      213: 3010934313304106168
+    second: s4m_ur4i_huge-assetpack-tilemap_160
+  - first:
+      213: -6786618733904012644
+    second: s4m_ur4i_huge-assetpack-tilemap_161
+  - first:
+      213: 7088966103327705526
+    second: s4m_ur4i_huge-assetpack-tilemap_162
+  - first:
+      213: 3519364380734556976
+    second: s4m_ur4i_huge-assetpack-tilemap_163
+  - first:
+      213: 7611847887737670260
+    second: s4m_ur4i_huge-assetpack-tilemap_164
+  - first:
+      213: -7329271283401017781
+    second: s4m_ur4i_huge-assetpack-tilemap_165
+  - first:
+      213: 795208845498025053
+    second: s4m_ur4i_huge-assetpack-tilemap_166
+  - first:
+      213: 2830172892885579298
+    second: s4m_ur4i_huge-assetpack-tilemap_167
+  - first:
+      213: 4373810550499820117
+    second: s4m_ur4i_huge-assetpack-tilemap_168
+  - first:
+      213: 1194620069564343442
+    second: s4m_ur4i_huge-assetpack-tilemap_169
+  - first:
+      213: -5089377001266447907
+    second: s4m_ur4i_huge-assetpack-tilemap_170
+  - first:
+      213: -6162711732949246559
+    second: s4m_ur4i_huge-assetpack-tilemap_171
+  - first:
+      213: 7787740690380396653
+    second: s4m_ur4i_huge-assetpack-tilemap_172
+  - first:
+      213: 8274120357831589344
+    second: s4m_ur4i_huge-assetpack-tilemap_173
+  - first:
+      213: -8206438597824170136
+    second: s4m_ur4i_huge-assetpack-tilemap_174
+  - first:
+      213: 4531747827601126290
+    second: s4m_ur4i_huge-assetpack-tilemap_175
+  - first:
+      213: -3078520941867507940
+    second: s4m_ur4i_huge-assetpack-tilemap_176
+  - first:
+      213: 3686782621211982803
+    second: s4m_ur4i_huge-assetpack-tilemap_177
+  - first:
+      213: 2626088092087911717
+    second: s4m_ur4i_huge-assetpack-tilemap_178
+  - first:
+      213: -4544123207558614544
+    second: s4m_ur4i_huge-assetpack-tilemap_179
+  - first:
+      213: 3245818932798517686
+    second: s4m_ur4i_huge-assetpack-tilemap_180
+  - first:
+      213: 2671588600133883601
+    second: s4m_ur4i_huge-assetpack-tilemap_181
+  - first:
+      213: 3210037414853648069
+    second: s4m_ur4i_huge-assetpack-tilemap_182
+  - first:
+      213: 7130268581335325102
+    second: s4m_ur4i_huge-assetpack-tilemap_183
+  - first:
+      213: -4712796373667414761
+    second: s4m_ur4i_huge-assetpack-tilemap_184
+  - first:
+      213: -2632139170392993170
+    second: s4m_ur4i_huge-assetpack-tilemap_185
+  - first:
+      213: -1108366172265269023
+    second: s4m_ur4i_huge-assetpack-tilemap_186
+  - first:
+      213: 8795146425086297687
+    second: s4m_ur4i_huge-assetpack-tilemap_187
+  - first:
+      213: 4602172775288423722
+    second: s4m_ur4i_huge-assetpack-tilemap_188
+  - first:
+      213: -6602725162266359014
+    second: s4m_ur4i_huge-assetpack-tilemap_189
+  - first:
+      213: 1085795276818933480
+    second: s4m_ur4i_huge-assetpack-tilemap_190
+  - first:
+      213: 6808453171972955058
+    second: s4m_ur4i_huge-assetpack-tilemap_191
+  - first:
+      213: 8109046616085193844
+    second: s4m_ur4i_huge-assetpack-tilemap_192
+  - first:
+      213: -5156970151904124651
+    second: s4m_ur4i_huge-assetpack-tilemap_193
+  - first:
+      213: -1443064611044011544
+    second: s4m_ur4i_huge-assetpack-tilemap_194
+  - first:
+      213: -218474837629053596
+    second: s4m_ur4i_huge-assetpack-tilemap_195
+  - first:
+      213: 4978705070916193356
+    second: s4m_ur4i_huge-assetpack-tilemap_196
+  - first:
+      213: -5097678225052089818
+    second: s4m_ur4i_huge-assetpack-tilemap_197
+  - first:
+      213: 1536764994066830932
+    second: s4m_ur4i_huge-assetpack-tilemap_198
+  - first:
+      213: -1774544499709501020
+    second: s4m_ur4i_huge-assetpack-tilemap_199
+  - first:
+      213: -7085662568439884781
+    second: s4m_ur4i_huge-assetpack-tilemap_200
+  - first:
+      213: -4957848074649961113
+    second: s4m_ur4i_huge-assetpack-tilemap_201
+  - first:
+      213: -375258979480487827
+    second: s4m_ur4i_huge-assetpack-tilemap_202
+  - first:
+      213: -1755040790754832280
+    second: s4m_ur4i_huge-assetpack-tilemap_203
+  - first:
+      213: -5016790151705991392
+    second: s4m_ur4i_huge-assetpack-tilemap_204
+  - first:
+      213: -8503324051229508290
+    second: s4m_ur4i_huge-assetpack-tilemap_205
+  - first:
+      213: -2650929761862919451
+    second: s4m_ur4i_huge-assetpack-tilemap_206
+  - first:
+      213: 6028755713824656680
+    second: s4m_ur4i_huge-assetpack-tilemap_207
+  - first:
+      213: -4031888753644756598
+    second: s4m_ur4i_huge-assetpack-tilemap_208
+  - first:
+      213: 6160119279164635394
+    second: s4m_ur4i_huge-assetpack-tilemap_209
+  - first:
+      213: -4604427398874357924
+    second: s4m_ur4i_huge-assetpack-tilemap_210
+  - first:
+      213: -6357882174382576811
+    second: s4m_ur4i_huge-assetpack-tilemap_211
+  - first:
+      213: 5070859234380706964
+    second: s4m_ur4i_huge-assetpack-tilemap_212
+  - first:
+      213: 8428411502920055109
+    second: s4m_ur4i_huge-assetpack-tilemap_213
+  - first:
+      213: 4362794245518471330
+    second: s4m_ur4i_huge-assetpack-tilemap_214
+  - first:
+      213: 6645411425568517211
+    second: s4m_ur4i_huge-assetpack-tilemap_215
+  - first:
+      213: -3490300040160841680
+    second: s4m_ur4i_huge-assetpack-tilemap_216
+  - first:
+      213: 2715287071309038678
+    second: s4m_ur4i_huge-assetpack-tilemap_217
+  - first:
+      213: 4146027681016962395
+    second: s4m_ur4i_huge-assetpack-tilemap_218
+  - first:
+      213: 8900610471477733793
+    second: s4m_ur4i_huge-assetpack-tilemap_219
+  - first:
+      213: -8166291085680187122
+    second: s4m_ur4i_huge-assetpack-tilemap_220
+  - first:
+      213: 7308541368539379721
+    second: s4m_ur4i_huge-assetpack-tilemap_221
+  - first:
+      213: -3249292335954511384
+    second: s4m_ur4i_huge-assetpack-tilemap_222
+  - first:
+      213: 5092036471612668524
+    second: s4m_ur4i_huge-assetpack-tilemap_223
+  - first:
+      213: -8419109907109632975
+    second: s4m_ur4i_huge-assetpack-tilemap_224
+  - first:
+      213: 3755695392151614302
+    second: s4m_ur4i_huge-assetpack-tilemap_225
+  - first:
+      213: -8148271120582336928
+    second: s4m_ur4i_huge-assetpack-tilemap_226
+  - first:
+      213: 6735702071805912065
+    second: s4m_ur4i_huge-assetpack-tilemap_227
+  - first:
+      213: 5312180991367909881
+    second: s4m_ur4i_huge-assetpack-tilemap_228
+  - first:
+      213: 7413907290401501722
+    second: s4m_ur4i_huge-assetpack-tilemap_229
+  - first:
+      213: -5329071132773495414
+    second: s4m_ur4i_huge-assetpack-tilemap_230
+  - first:
+      213: 3989998391199299433
+    second: s4m_ur4i_huge-assetpack-tilemap_231
+  - first:
+      213: -1371966818011324499
+    second: s4m_ur4i_huge-assetpack-tilemap_232
+  - first:
+      213: -69177357723045850
+    second: s4m_ur4i_huge-assetpack-tilemap_233
+  - first:
+      213: -2737666745036490089
+    second: s4m_ur4i_huge-assetpack-tilemap_234
+  - first:
+      213: -1265771200244478890
+    second: s4m_ur4i_huge-assetpack-tilemap_235
+  - first:
+      213: -8738691164295226145
+    second: s4m_ur4i_huge-assetpack-tilemap_236
+  - first:
+      213: 1387904779337021418
+    second: s4m_ur4i_huge-assetpack-tilemap_237
+  - first:
+      213: 5268488286492212127
+    second: s4m_ur4i_huge-assetpack-tilemap_238
+  - first:
+      213: 7627019284878173427
+    second: s4m_ur4i_huge-assetpack-tilemap_239
+  - first:
+      213: 1366656569992898671
+    second: s4m_ur4i_huge-assetpack-tilemap_240
+  - first:
+      213: -8074612481272818371
+    second: s4m_ur4i_huge-assetpack-tilemap_241
+  - first:
+      213: 7904109422653927168
+    second: s4m_ur4i_huge-assetpack-tilemap_242
+  - first:
+      213: -5516541418316568863
+    second: s4m_ur4i_huge-assetpack-tilemap_243
+  - first:
+      213: -4280319693363728473
+    second: s4m_ur4i_huge-assetpack-tilemap_244
+  - first:
+      213: -3423957254661336909
+    second: s4m_ur4i_huge-assetpack-tilemap_245
+  - first:
+      213: 4873678513502188319
+    second: s4m_ur4i_huge-assetpack-tilemap_246
+  - first:
+      213: -3856561121071615329
+    second: s4m_ur4i_huge-assetpack-tilemap_247
+  - first:
+      213: 3762987295074054033
+    second: s4m_ur4i_huge-assetpack-tilemap_248
+  - first:
+      213: 3348089824285175496
+    second: s4m_ur4i_huge-assetpack-tilemap_249
+  - first:
+      213: -9136564773059821170
+    second: s4m_ur4i_huge-assetpack-tilemap_250
+  - first:
+      213: 182174328950399032
+    second: s4m_ur4i_huge-assetpack-tilemap_251
+  - first:
+      213: -1833657822360263464
+    second: s4m_ur4i_huge-assetpack-tilemap_252
+  - first:
+      213: 228325781989995430
+    second: s4m_ur4i_huge-assetpack-tilemap_253
+  - first:
+      213: 1783129237839016252
+    second: s4m_ur4i_huge-assetpack-tilemap_254
+  - first:
+      213: 1215888007870910058
+    second: s4m_ur4i_huge-assetpack-tilemap_255
+  - first:
+      213: -6323240803781573924
+    second: s4m_ur4i_huge-assetpack-tilemap_256
+  - first:
+      213: 8708881162383133498
+    second: s4m_ur4i_huge-assetpack-tilemap_257
+  - first:
+      213: -8493402993670423372
+    second: s4m_ur4i_huge-assetpack-tilemap_258
+  - first:
+      213: 4383478621740163684
+    second: s4m_ur4i_huge-assetpack-tilemap_259
+  - first:
+      213: 1948613978932097988
+    second: s4m_ur4i_huge-assetpack-tilemap_260
+  - first:
+      213: 8316788253564268501
+    second: s4m_ur4i_huge-assetpack-tilemap_261
+  - first:
+      213: -802779767064687910
+    second: s4m_ur4i_huge-assetpack-tilemap_262
+  - first:
+      213: -830257669908228572
+    second: s4m_ur4i_huge-assetpack-tilemap_263
+  - first:
+      213: 2728198690391461495
+    second: s4m_ur4i_huge-assetpack-tilemap_264
+  - first:
+      213: -2789954214397195123
+    second: s4m_ur4i_huge-assetpack-tilemap_265
+  - first:
+      213: -5070846521598542338
+    second: s4m_ur4i_huge-assetpack-tilemap_266
+  - first:
+      213: -8127905328705520441
+    second: s4m_ur4i_huge-assetpack-tilemap_267
+  - first:
+      213: 4625218708388703405
+    second: s4m_ur4i_huge-assetpack-tilemap_268
+  - first:
+      213: 3822558179205013850
+    second: s4m_ur4i_huge-assetpack-tilemap_269
+  - first:
+      213: -5469916073605269412
+    second: s4m_ur4i_huge-assetpack-tilemap_270
+  - first:
+      213: -2600664962982147578
+    second: s4m_ur4i_huge-assetpack-tilemap_271
+  - first:
+      213: 5039626503877469060
+    second: s4m_ur4i_huge-assetpack-tilemap_272
+  - first:
+      213: 7950492453514707766
+    second: s4m_ur4i_huge-assetpack-tilemap_273
+  - first:
+      213: 3457014451378133290
+    second: s4m_ur4i_huge-assetpack-tilemap_274
+  - first:
+      213: -4453599627242090803
+    second: s4m_ur4i_huge-assetpack-tilemap_275
+  - first:
+      213: -3520410675796643548
+    second: s4m_ur4i_huge-assetpack-tilemap_276
+  - first:
+      213: 2212425825388826288
+    second: s4m_ur4i_huge-assetpack-tilemap_277
+  - first:
+      213: 6797841242680445083
+    second: s4m_ur4i_huge-assetpack-tilemap_278
+  - first:
+      213: 2377103315494415063
+    second: s4m_ur4i_huge-assetpack-tilemap_279
+  - first:
+      213: -341821531073354969
+    second: s4m_ur4i_huge-assetpack-tilemap_280
+  - first:
+      213: -2690208966196565365
+    second: s4m_ur4i_huge-assetpack-tilemap_281
+  - first:
+      213: -7708675743902691830
+    second: s4m_ur4i_huge-assetpack-tilemap_282
+  - first:
+      213: -1147589006978928127
+    second: s4m_ur4i_huge-assetpack-tilemap_283
+  - first:
+      213: 1123696240089844075
+    second: s4m_ur4i_huge-assetpack-tilemap_284
+  - first:
+      213: 3833569794694320107
+    second: s4m_ur4i_huge-assetpack-tilemap_285
+  - first:
+      213: 763631772529543280
+    second: s4m_ur4i_huge-assetpack-tilemap_286
+  - first:
+      213: -9120735085000137892
+    second: s4m_ur4i_huge-assetpack-tilemap_287
+  - first:
+      213: 1620261603171022035
+    second: s4m_ur4i_huge-assetpack-tilemap_288
+  - first:
+      213: 3120313976820896180
+    second: s4m_ur4i_huge-assetpack-tilemap_289
+  - first:
+      213: 1333613025114226909
+    second: s4m_ur4i_huge-assetpack-tilemap_290
+  - first:
+      213: 805273440934066103
+    second: s4m_ur4i_huge-assetpack-tilemap_291
+  - first:
+      213: 3259492667326408248
+    second: s4m_ur4i_huge-assetpack-tilemap_292
+  - first:
+      213: 7519631623412465530
+    second: s4m_ur4i_huge-assetpack-tilemap_293
+  - first:
+      213: -1091231162551478384
+    second: s4m_ur4i_huge-assetpack-tilemap_294
+  - first:
+      213: 8966913204049863001
+    second: s4m_ur4i_huge-assetpack-tilemap_295
+  - first:
+      213: 5562165627114186424
+    second: s4m_ur4i_huge-assetpack-tilemap_296
+  - first:
+      213: 6120869719319015184
+    second: s4m_ur4i_huge-assetpack-tilemap_297
+  - first:
+      213: 1658553816949805890
+    second: s4m_ur4i_huge-assetpack-tilemap_298
+  - first:
+      213: -3672851835795952394
+    second: s4m_ur4i_huge-assetpack-tilemap_299
+  - first:
+      213: 8141688348304853028
+    second: s4m_ur4i_huge-assetpack-tilemap_300
+  - first:
+      213: -3528154113930586550
+    second: s4m_ur4i_huge-assetpack-tilemap_301
+  - first:
+      213: -6984741322854902017
+    second: s4m_ur4i_huge-assetpack-tilemap_302
+  - first:
+      213: 3480519466732142096
+    second: s4m_ur4i_huge-assetpack-tilemap_303
+  - first:
+      213: 6977327169113115869
+    second: s4m_ur4i_huge-assetpack-tilemap_304
+  - first:
+      213: 2465971439874299576
+    second: s4m_ur4i_huge-assetpack-tilemap_305
+  - first:
+      213: -8803428899485645393
+    second: s4m_ur4i_huge-assetpack-tilemap_306
+  - first:
+      213: -6765063250915265249
+    second: s4m_ur4i_huge-assetpack-tilemap_307
+  - first:
+      213: 1750652589069977986
+    second: s4m_ur4i_huge-assetpack-tilemap_308
+  - first:
+      213: 8636925692360495544
+    second: s4m_ur4i_huge-assetpack-tilemap_309
+  - first:
+      213: -7196305539160504119
+    second: s4m_ur4i_huge-assetpack-tilemap_310
+  - first:
+      213: -8349947919306984428
+    second: s4m_ur4i_huge-assetpack-tilemap_311
+  - first:
+      213: -5669215504544862691
+    second: s4m_ur4i_huge-assetpack-tilemap_312
+  - first:
+      213: 8773025578997125539
+    second: s4m_ur4i_huge-assetpack-tilemap_313
+  - first:
+      213: 3229576610919669081
+    second: s4m_ur4i_huge-assetpack-tilemap_314
+  - first:
+      213: 7610224385558484536
+    second: s4m_ur4i_huge-assetpack-tilemap_315
+  - first:
+      213: -1095323407454129656
+    second: s4m_ur4i_huge-assetpack-tilemap_316
+  - first:
+      213: 7030584246985584206
+    second: s4m_ur4i_huge-assetpack-tilemap_317
+  - first:
+      213: -257815636768724854
+    second: s4m_ur4i_huge-assetpack-tilemap_318
+  - first:
+      213: -2373921359693660888
+    second: s4m_ur4i_huge-assetpack-tilemap_319
+  - first:
+      213: 8316827060538406255
+    second: s4m_ur4i_huge-assetpack-tilemap_320
+  - first:
+      213: 3846563926947793068
+    second: s4m_ur4i_huge-assetpack-tilemap_321
+  - first:
+      213: -5501829538931778614
+    second: s4m_ur4i_huge-assetpack-tilemap_322
+  - first:
+      213: 5379201462920648246
+    second: s4m_ur4i_huge-assetpack-tilemap_323
+  - first:
+      213: -8721064259585726505
+    second: s4m_ur4i_huge-assetpack-tilemap_324
+  - first:
+      213: -5066016210978328657
+    second: s4m_ur4i_huge-assetpack-tilemap_325
+  - first:
+      213: -4737627902380249730
+    second: s4m_ur4i_huge-assetpack-tilemap_326
+  - first:
+      213: 2025988330063669738
+    second: s4m_ur4i_huge-assetpack-tilemap_327
+  - first:
+      213: -4914491122452207243
+    second: s4m_ur4i_huge-assetpack-tilemap_328
+  - first:
+      213: -7142796335448910266
+    second: s4m_ur4i_huge-assetpack-tilemap_329
+  - first:
+      213: -328669339987067091
+    second: s4m_ur4i_huge-assetpack-tilemap_330
+  - first:
+      213: -3993670816933996541
+    second: s4m_ur4i_huge-assetpack-tilemap_331
+  - first:
+      213: -4446028665563511250
+    second: s4m_ur4i_huge-assetpack-tilemap_332
+  - first:
+      213: -7237035147257688736
+    second: s4m_ur4i_huge-assetpack-tilemap_333
+  - first:
+      213: -5301866449681010942
+    second: s4m_ur4i_huge-assetpack-tilemap_334
+  - first:
+      213: 2554318479060375211
+    second: s4m_ur4i_huge-assetpack-tilemap_335
+  - first:
+      213: -6312833647238033944
+    second: s4m_ur4i_huge-assetpack-tilemap_336
+  - first:
+      213: -4011995337384785847
+    second: s4m_ur4i_huge-assetpack-tilemap_337
+  - first:
+      213: 4916868751141680426
+    second: s4m_ur4i_huge-assetpack-tilemap_338
+  - first:
+      213: -8754220841745497330
+    second: s4m_ur4i_huge-assetpack-tilemap_339
+  - first:
+      213: 4675445676694810037
+    second: s4m_ur4i_huge-assetpack-tilemap_340
+  - first:
+      213: -4753605582647694498
+    second: s4m_ur4i_huge-assetpack-tilemap_341
+  - first:
+      213: 6612633771998681936
+    second: s4m_ur4i_huge-assetpack-tilemap_342
+  - first:
+      213: 6322341812388768659
+    second: s4m_ur4i_huge-assetpack-tilemap_343
+  - first:
+      213: 1556211821213552546
+    second: s4m_ur4i_huge-assetpack-tilemap_344
+  - first:
+      213: -4556552608050023154
+    second: s4m_ur4i_huge-assetpack-tilemap_345
+  - first:
+      213: 1249653947925175568
+    second: s4m_ur4i_huge-assetpack-tilemap_346
+  - first:
+      213: -2108420807792892704
+    second: s4m_ur4i_huge-assetpack-tilemap_347
+  - first:
+      213: -7156409161458599974
+    second: s4m_ur4i_huge-assetpack-tilemap_348
+  - first:
+      213: 321866815109687883
+    second: s4m_ur4i_huge-assetpack-tilemap_349
+  - first:
+      213: -9155703061634635640
+    second: chest_2
+  - first:
+      213: 6354711305517766461
+    second: chest_3
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gray_block_dark_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 548
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e384d12aa23e140800000000000000
+      internalID: 4747685307942977081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_1
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 874
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e9be14646d6e0b10800000000000000
+      internalID: 1949615966641895904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_2
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 853
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff08be060072c9ee0800000000000000
+      internalID: -1253083713736310529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_3
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 841
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11591d376f6a10270800000000000000
+      internalID: 8215030772735776017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_4
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 823
+        width: 160
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83023e009c65945c0800000000000000
+      internalID: -4230754953634570184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_5
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 864
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac701f4b3410c6b0800000000000000
+      internalID: -5278196518316114769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_6
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 864
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f1defdbaae0d3b0800000000000000
+      internalID: -5489629921847468251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_7
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 864
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799c00cfc042dd820800000000000000
+      internalID: 2944549369556289943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_8
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 864
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0d2f39c406a9640800000000000000
+      internalID: 5087484611084341502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_9
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 864
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719b0233e6af6e890800000000000000
+      internalID: -7428975184089925353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_10
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 748
+        width: 54
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d23f709060d71d00800000000000000
+      internalID: 943451760117101268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 853
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36471c7dd12c1630800000000000000
+      internalID: 3899028612549396029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_12
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 852
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24cc67dddc848580800000000000000
+      internalID: -8825774485309438930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_13
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 803
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a3a4812c3185760800000000000000
+      internalID: 7446723708209216147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_14
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 830
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5368eee7d4430860800000000000000
+      internalID: 7494909899091501916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 789
+        width: 23
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 757530d7bbb2ce900800000000000000
+      internalID: 714994525101315927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_16
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 797
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74e9bad084341280800000000000000
+      internalID: -9073569621214632834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_17
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 756
+        width: 112
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dee110b032f8a0c0800000000000000
+      internalID: -4564131931413680428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_18
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 537
+        width: 65
+        height: 271
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6c6f88aa2bb71c0800000000000000
+      internalID: -4504810556741990661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_19
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 750
+        width: 14
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a9de65dbc4a43a0800000000000000
+      internalID: -6680442721159767538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 764
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8155a28d183739410800000000000000
+      internalID: 1482655703849653528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_1
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 780
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f9a0c883fcf174f0800000000000000
+      internalID: -832606333185250826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_4
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 780
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42cbfd0caff023d80800000000000000
+      internalID: -8272531995874051036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_5
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 780
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c63ea31367ffe03c0800000000000000
+      internalID: -4391291703542488212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_35
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 748
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e28d7cbc071969690800000000000000
+      internalID: -7595723807872526290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_39
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 749
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1869268bb84e15fa0800000000000000
+      internalID: -5813614355213543807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_56
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 724
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c332ea7b16173c7b0800000000000000
+      internalID: -5205192079802752196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_60
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 724
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba7828ab7f6e9500800000000000000
+      internalID: 404883593402809011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_69
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 718
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b486749751b5140800000000000000
+      internalID: 4709381445979228958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_74
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 716
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7c081d17ef5a790800000000000000
+      internalID: -7519324238025537597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: s4m_ur4i_huge-assetpack-tilemap_76
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 716
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057362e88207e7050800000000000000
+      internalID: 5800196689585649488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_2
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 780
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888af4e039860f080800000000000000
+      internalID: -9155703061634635640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_3
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 780
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d379b8f7348703850800000000000000
+      internalID: 6354711305517766461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
