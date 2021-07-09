@@ -8,10 +8,6 @@ public class ObstacleDamagePlayer : MonoBehaviour
 
     public float damageTaken;
 
-    void Start()
-    {
-        
-    }
 
       void OnCollisionEnter2D(Collision2D col)
     {
@@ -21,24 +17,5 @@ public class ObstacleDamagePlayer : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            collision.GetComponent<PlayerMovement>().setSafeSpawn(false);
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            collision.GetComponent<PlayerMovement>().setSafeSpawn(true);
-        }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
