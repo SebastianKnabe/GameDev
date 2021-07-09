@@ -88,7 +88,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -181,13 +181,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   sprintSpeed: 30
-  jumpVelocity: 20
+  jumpVelocity: 25
   backToGroundSpeed: -0.3
   gravity: -0.4
+  speed: 0
+  audioSource: {fileID: 0}
   platformMask:
     serializedVersion: 2
     m_Bits: 256
-  speed: 0
+  jumpSound: {fileID: 8300000, guid: 03c018510e5454931a6faa39c401ad19, type: 3}
 --- !u!114 &4270141706195436408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,11 +223,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ba6867a6492a64b923c672d5c2c9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 10
+  maxHitPoints: 400
   healthbar: {fileID: 0}
   spriteRenderer: {fileID: 4270141706195436403}
   scene:
     m_Handle: 1
+  inventory: {fileID: 0}
+  healthKit: {fileID: 0}
+  audioSource: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  camera: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: bd8857660a16ba549b8cc522d93d9117, type: 3}
+  respawnSound: {fileID: 8300000, guid: c134bf6bd85561b4b938c913b97b57c9, type: 3}
 --- !u!95 &4270141706195436407
 Animator:
   serializedVersion: 3
