@@ -66,6 +66,11 @@ public class BulletScript : MonoBehaviour
         else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
         {
             Destroy(this.gameObject);
+        } else if (other.tag == "Destructable")
+        {
+            Debug.Log("Hello?");
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
 
     }

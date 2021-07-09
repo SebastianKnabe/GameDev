@@ -15,6 +15,7 @@ TagManager:
   - Danger
   - Obstacle
   - Bullet
+  - Destructable
   layers:
   - Default
   - TransparentFX
@@ -30,10 +31,6 @@ TagManager:
   - JumpingWall
   - Rope
   - Destructable
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 

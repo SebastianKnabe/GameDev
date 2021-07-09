@@ -42,6 +42,8 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     public virtual void OnDrag(PointerEventData eventData)
     {
+
+        Debug.Log(eventData);
         if(eventData.button == PointerEventData.InputButton.Left)
         {
             transform.position = Input.mousePosition;
