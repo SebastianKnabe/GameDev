@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         }
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
         rb.velocity = movement;
-        animator.SetFloat("movementSpeed", movement.magnitude);
+        animator.SetFloat("movementSpeed", movement.x);
         flipSprite();
 
         Jump();
