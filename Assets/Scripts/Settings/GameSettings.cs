@@ -8,4 +8,23 @@ public class GameSettings : ScriptableObject
     [SerializeField] [Range(0, 1)] public float TotalVolume = 1f;
     [SerializeField] [Range(0, 1)] public float BGMVolume = 0.2f;
     [SerializeField] [Range(0, 1)] public float SFXVolume = 0.2f;
+
+    [SerializeField] private VoidEvent audioSettingsChanged;
+
+    public void ChangeTotaleVolume(float value)
+    {
+        TotalVolume = value;
+        audioSettingsChanged.Raise();
+    }
+
+    public void ChangeBGMVolume(float value)
+    {
+        BGMVolume = value;
+        audioSettingsChanged.Raise();
+    }
+    public void ChangeSFXVolume(float value)
+    {
+        SFXVolume = value;
+        audioSettingsChanged.Raise();
+    }
 }
