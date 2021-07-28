@@ -228,8 +228,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4270141706195436403}
   scene:
     m_Handle: 1
-  inventory: {fileID: 0}
-  healthKit: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 067f42275e0ac8b499f707c1c421336f, type: 2}
+  healthKit: {fileID: 11400000, guid: 78cc947aacdfba8499ae26b14c167411, type: 2}
   audioSource: {fileID: 0}
   spawnPoint: {fileID: 0}
   camera: {fileID: 0}
