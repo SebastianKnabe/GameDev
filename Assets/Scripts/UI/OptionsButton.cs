@@ -8,7 +8,7 @@ public class OptionsButton : MonoBehaviour
 
     public void clickButton()
     {
-        if (optionsMenu.active)
+        if (optionsMenu.activeInHierarchy)
         {
             optionsMenu.SetActive(false);
         }

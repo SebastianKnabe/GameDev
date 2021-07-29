@@ -77,5 +77,6 @@ public class LootableInventory : MonoBehaviour
         {
             itemContainer.AddItem(items[i]);
         }
+        itemContainer.addCurrency(currency);
     }
 }
