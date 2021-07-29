@@ -6,6 +6,11 @@ public class OptionsButton : MonoBehaviour
 {
     [SerializeField] private GameObject optionsMenu;
 
+    public void OnDisable()
+    {
+        optionsMenu.SetActive(false);
+    }
+
     public void clickButton()
     {
         if (optionsMenu.activeInHierarchy)
