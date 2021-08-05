@@ -357,14 +357,30 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5391434400125323508, guid: 659eb1c4922ba304c8d4ba37f3352943,
         type: 3}
+      propertyPath: items.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391434400125323508, guid: 659eb1c4922ba304c8d4ba37f3352943,
+        type: 3}
       propertyPath: items.Array.data[0].item
       value: 
       objectReference: {fileID: 11400000, guid: 78cc947aacdfba8499ae26b14c167411,
         type: 2}
     - target: {fileID: 5391434400125323508, guid: 659eb1c4922ba304c8d4ba37f3352943,
         type: 3}
+      propertyPath: items.Array.data[1].item
+      value: 
+      objectReference: {fileID: 11400000, guid: ea2fed7216886a24aa485619d6a0e75a,
+        type: 2}
+    - target: {fileID: 5391434400125323508, guid: 659eb1c4922ba304c8d4ba37f3352943,
+        type: 3}
       propertyPath: items.Array.data[0].quantity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391434400125323508, guid: 659eb1c4922ba304c8d4ba37f3352943,
+        type: 3}
+      propertyPath: items.Array.data[1].quantity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5391434400125323509, guid: 659eb1c4922ba304c8d4ba37f3352943,
         type: 3}

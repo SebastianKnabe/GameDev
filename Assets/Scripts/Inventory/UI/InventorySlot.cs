@@ -20,20 +20,20 @@ public class InventorySlot : ItemSlotUI, IDropHandler
     public override void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop: " + eventData.pointerDrag.GetComponent<ItemDragHandler>());
-        
+
         ItemDragHandler itemDragHandler = eventData.pointerDrag.GetComponent<ItemDragHandler>();
-        
-        if(itemDragHandler == null)
+
+        if (itemDragHandler == null)
         {
             Debug.Log("OnDrop: Return");
             return;
         }
 
-        if((itemDragHandler.ItemSlotUI as InventorySlot) != null)
-        {            
+        if ((itemDragHandler.ItemSlotUI as InventorySlot) != null)
+        {
             InventorySlot targetSlot = itemDragHandler.ItemSlotUI as InventorySlot;
 
-            if(targetSlot.inventory != inventory)
+            if (targetSlot.inventory != inventory)
             {
                 Debug.Log("onDrop: on different inventory");
                 tradeItems(targetSlot, itemDragHandler);
@@ -49,7 +49,7 @@ public class InventorySlot : ItemSlotUI, IDropHandler
 
     public override void UpdateSlotUI()
     {
-        if(ItemSlot.item == null)
+        if (ItemSlot.item == null)
         {
             EnableSlotUI(false);
             return;
@@ -69,28 +69,32 @@ public class InventorySlot : ItemSlotUI, IDropHandler
 
     private void tradeItems(InventorySlot targetSlot, ItemDragHandler itemDragHandler)
     {
+
         int SlotIndex = itemDragHandler.ItemSlotUI.SlotIndex;
         ItemSlot swapItem = targetSlot.inventory.ItemContainer.getItemAtIndex(SlotIndex);
 
         if (inventory.inventoryType == InventoryType.Vendor || targetSlot.inventory.inventoryType == InventoryType.Vendor)
-        {            
-            int buyCount = inventory.ItemContainer.Currency / swapItem.item.SellPrice;
-            int price = swapItem.item.SellPrice * swapItem.quantity;
-
-            //Nicht genügend Geld um etwas zu kaufen
-            if(buyCount == 0)
+        {
+            if (swapItem.item.sellable)
             {
-                return;
+                int buyCount = inventory.ItemContainer.Currency / swapItem.item.SellPrice;
+                int price = swapItem.item.SellPrice * swapItem.quantity;
+
+                //Nicht genügend Geld um etwas zu kaufen
+                if (buyCount == 0)
+                {
+                    return;
+                }
+
+                if (buyCount < swapItem.quantity)
+                {
+                    price = swapItem.item.SellPrice * buyCount;
+                    swapItem.quantity -= buyCount;
+                }
+                targetSlot.inventory.ItemContainer.addCurrency(price);
+                inventory.ItemContainer.addCurrency(-1 * price);
             }
-
-            if (buyCount < swapItem.quantity)
-            {
-                price = swapItem.item.SellPrice * buyCount;
-                swapItem.quantity -= buyCount;
-            } 
-            targetSlot.inventory.ItemContainer.addCurrency(price);
-            inventory.ItemContainer.addCurrency(-1 * price);
-        }    
+        }
         targetSlot.inventory.ItemContainer.RemoveItemAtIndex(swapItem, SlotIndex);
         inventory.ItemContainer.AddItemAtSlotIndex(swapItem, this.SlotIndex);
     }
