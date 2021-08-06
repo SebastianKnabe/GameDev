@@ -16384,6 +16384,7 @@ GameObject:
   - component: {fileID: 1668956314}
   - component: {fileID: 1668956313}
   - component: {fileID: 1668956312}
+  - component: {fileID: 1668956315}
   m_Layer: 0
   m_Name: BGM - Audio Source
   m_TagString: Untagged
@@ -16417,7 +16418,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e409bc3c926bf554cbccb9c5cd0c705d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -16515,6 +16516,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1668956315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668956311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d599773778ffb634ba0e2b7c9285bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 79641dbc79786d142a7756c6c3155aa7, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1668956312}
+        m_MethodName: updateVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1678617722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6516129187208230346, guid: fbc9c9171d58c924a8c1e27fc1210ccd,
@@ -16749,6 +16777,7 @@ GameObject:
   - component: {fileID: 1831353373}
   - component: {fileID: 1831353372}
   - component: {fileID: 1831353374}
+  - component: {fileID: 1831353375}
   m_Layer: 0
   m_Name: GlobalSFX - Audio Source
   m_TagString: Untagged
@@ -16880,6 +16909,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: d5cbe039cbcf56045827d8527da837aa, type: 2}
   isSFX: 1
+--- !u!114 &1831353375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831353371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d599773778ffb634ba0e2b7c9285bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 79641dbc79786d142a7756c6c3155aa7, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1831353374}
+        m_MethodName: updateVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1861562004
 PrefabInstance:
   m_ObjectHideFlags: 0

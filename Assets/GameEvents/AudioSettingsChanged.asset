@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e43928e41bbe8947818e7c6cdff1a06, type: 3}
-  m_Name: GameSettings
+  m_Script: {fileID: 11500000, guid: 3156aec80c3420d4687c63267bbf001c, type: 3}
+  m_Name: AudioSettingsChanged
   m_EditorClassIdentifier: 
-  TotalVolume: 1
-  BGMVolume: 0.27338424
-  SFXVolume: 0.20818904
-  audioSettingsChanged: {fileID: 11400000, guid: 79641dbc79786d142a7756c6c3155aa7,
-    type: 2}

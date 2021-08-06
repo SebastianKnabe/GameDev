@@ -29,7 +29,7 @@ public class BulletScript : MonoBehaviour
     {
         //Wenn Kugel vom gleichen Tag ist, passiert nichts
         //Mögliche Tags der Kugel sind Player oder Enemy
-        if (other.gameObject.tag == tag)
+        if (other.gameObject.tag == tag || other.gameObject.tag == "Untagged")
         {
             return;
         }
@@ -45,6 +45,7 @@ public class BulletScript : MonoBehaviour
                 }
             }
         }
+        Debug.Log("Tag: " + other.gameObject.tag + " from " + other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
             EnemyEntity targetEntity = other.gameObject.GetComponent<EnemyEntity>();
@@ -66,7 +67,8 @@ public class BulletScript : MonoBehaviour
         else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
         {
             Destroy(this.gameObject);
-        } else if (other.tag == "Destructable")
+        }
+        else if (other.gameObject.tag == "Destructable")
         {
             Debug.Log("Hello?");
             Destroy(other.gameObject);
