@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
 
-        Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down);
+        Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down, Color.red);
 
         //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;

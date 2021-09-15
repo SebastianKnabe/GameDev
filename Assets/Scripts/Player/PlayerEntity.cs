@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerEntity : MonoBehaviour
 {
     //public static PlayerEntity instance;
-    
+
     public float maxHitPoints;
     public GameObject healthbar;
     public SpriteRenderer spriteRenderer;
@@ -15,7 +15,7 @@ public class PlayerEntity : MonoBehaviour
     public InventoryItem healthKit;
     public AudioSource audioSource;
     public Transform spawnPoint;
-    public GameObject camera;
+    public Camera camera;
 
     //private string spawnPoint;
     [SerializeField] private AudioClip deathSound;
@@ -30,7 +30,7 @@ public class PlayerEntity : MonoBehaviour
     private float changeColorHitRate;
     private Animator animator;
 
-    
+
     /*
     public void setSpawnPoint(string spawnPoint)
     {
