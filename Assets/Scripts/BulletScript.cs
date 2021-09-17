@@ -29,7 +29,7 @@ public class BulletScript : MonoBehaviour
     {
         //Wenn Kugel vom gleichen Tag ist, passiert nichts
         //Mögliche Tags der Kugel sind Player oder Enemy
-        if (other.gameObject.tag == tag || other.gameObject.tag == "Untagged")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Untagged")
         {
             return;
         }

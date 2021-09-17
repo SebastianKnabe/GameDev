@@ -84,7 +84,14 @@ public class PlayerMovement : MonoBehaviour
             staminaRefillScript.requestSprint(false);
         }
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
-        rb.velocity = movement;
+        if (!IsSlippery())
+        {
+            rb.velocity = movement;
+        }
+        else
+        {
+            rb.AddForce(movement * 0.66f, ForceMode2D.Force);
+        }
         animator.SetFloat("movementSpeed", movement.magnitude);
         flipSprite();
 
@@ -107,10 +114,22 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
 
-        Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down);
+        Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down, Color.red);
 
         //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
+    }
+
+    private bool IsSlippery()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+        if (raycastHit.collider != null)
+        {
+            Debug.Log(raycastHit.collider.tag);
+            return raycastHit.collider.tag == "Slippery";
+        }
+        return false;
+
     }
 
     private void flipSprite()

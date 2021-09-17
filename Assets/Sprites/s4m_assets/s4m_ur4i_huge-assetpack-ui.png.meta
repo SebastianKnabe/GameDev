@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: f18c6e8eb3314044b995eff8a922d517
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6991865106486504897
+    second: Questitem_Placeholder
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,7 +100,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Questitem_Placeholder
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 1008
+        width: 125
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cda3951548180160800000000000000
+      internalID: 6991865106486504897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
