@@ -4,6 +4,7 @@ using UnityEngine;
 public class SaveFileHandler : MonoBehaviour
 {
     [SerializeField] private GameSettings gameSettings;
+    [SerializeField] private Inventory playerInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class SaveFileHandler : MonoBehaviour
         SaveFile saveFile = new SaveFile();
 
         saveFile.SetGameSettings(gameSettings);
+        saveFile.SetPlayerInventory(playerInventory);
 
         string saveFileJson = JsonUtility.ToJson(saveFile);
         File.WriteAllText(Application.dataPath + "/save.txt", saveFileJson);
@@ -32,6 +34,7 @@ public class SaveFileHandler : MonoBehaviour
             SaveFile loadedSaveFile = JsonUtility.FromJson<SaveFile>(saveFileJson);
 
             gameSettings.LoadSaveFile(loadedSaveFile);
+            playerInventory.LoadInventory(loadedSaveFile);
         }
     }
 }
