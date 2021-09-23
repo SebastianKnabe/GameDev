@@ -849,11 +849,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1864131233}
-    - target: {fileID: 7679585607476270238, guid: fac084afc3cf9b944ac29c15633a96ee,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fac084afc3cf9b944ac29c15633a96ee, type: 3}
 --- !u!224 &289044756 stripped
@@ -6301,6 +6296,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4270141706195436405, guid: 965fdb5f9c79e9a40901522bf964d668,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.575714
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270141706195436405, guid: 965fdb5f9c79e9a40901522bf964d668,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270141706195436405, guid: 965fdb5f9c79e9a40901522bf964d668,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.6055708
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270141706195436405, guid: 965fdb5f9c79e9a40901522bf964d668,
+        type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4270141706195436406, guid: 965fdb5f9c79e9a40901522bf964d668,
         type: 3}
       propertyPath: audioSource
@@ -9632,7 +9647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870951421}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -38.98, y: 12.63, z: 0}
+  m_LocalPosition: {x: -39.03, y: 12.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124530208}
@@ -9700,10 +9715,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 3.6966684
+  m_Mass: 2.113107
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 2
@@ -9722,7 +9737,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 10.656852, y: 0.019811869}
+  m_Offset: {x: 11.269649, y: 0.019811869}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9733,7 +9748,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 23.009512, y: 5.231792}
+  m_Size: {x: 21.783918, y: 5.231792}
   m_EdgeRadius: 0
 --- !u!114 &1870951426
 MonoBehaviour:
@@ -9748,6 +9763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleDamage: 200
+  fallSpeed: 1
 --- !u!58 &1870951427
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9761,9 +9777,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15254495, y: 0.038135067}
+  m_Offset: {x: 0.4171607, y: 0.038135096}
   serializedVersion: 2
-  m_Radius: 1.0847514
+  m_Radius: 0.82013565
 --- !u!1 &1875655266
 GameObject:
   m_ObjectHideFlags: 0
@@ -55390,7 +55406,7 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
-  m_OffsetDistance: 0
+  m_OffsetDistance: 0.00005
 --- !u!50 &2103238856
 Rigidbody2D:
   serializedVersion: 4

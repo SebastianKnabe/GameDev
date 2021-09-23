@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //animator.SetBool("isJumping", true);
             hasJumped = true;
-            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            rb.velocity = Vector2.up * jumpVelocity;
             audioSource.PlayOneShot(jumpSound);
         }
         animator.SetBool("isJumping", !isGrounded());
