@@ -11,6 +11,14 @@ public class GameSettings : ScriptableObject
 
     [SerializeField] private VoidEvent audioSettingsChanged;
 
+    public void LoadSaveFile(SaveFile saveFile)
+    {
+        TotalVolume = saveFile.TotalVolume;
+        BGMVolume = saveFile.BGMVolume;
+        SFXVolume = saveFile.SFXVolume;
+        audioSettingsChanged.Raise();
+    }
+
     public void ChangeTotaleVolume(float value)
     {
         TotalVolume = value;
