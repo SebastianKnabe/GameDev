@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             if (hasJumped)
             {
                 hasJumped = false;
+                animator.SetBool("isJumping", false);
             }
 
         }
@@ -100,12 +101,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && !hasJumped && (isGrounded() || coyoteTimer < coyoteFrames))
         {
-            //animator.SetBool("isJumping", true);
+            animator.SetBool("isJumping", true);
             hasJumped = true;
             rb.velocity = Vector2.up * jumpVelocity;
             audioSource.PlayOneShot(jumpSound);
         }
-        animator.SetBool("isJumping", !isGrounded());
+        if (hasJumped)
+        {
+            animator.SetBool("isJumping", !isGrounded());
+        }
     }
 
     private bool isGrounded()
