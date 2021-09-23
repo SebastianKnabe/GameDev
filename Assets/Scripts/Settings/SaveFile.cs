@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class SaveFile
 {
+    //Player
+    //public Transform PlayerTransform
+    //public int currentScene
+
+    //GameSettings
     public float TotalVolume;
     public float BGMVolume;
     public float SFXVolume;
 
+    //Inventory
     public ItemSlot[] itemSlots;
 
     public void SetGameSettings(GameSettings settings)
