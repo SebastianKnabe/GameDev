@@ -1,32 +1,23 @@
+﻿using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootingScript : MonoBehaviour
+public class SingeBulletWeapon : WeaponEntity
 {
-
-    public GameObject crosshair;
-    public GameObject bulletPrefab;
-    public GameObject bulletStart;
-    public float spriteFlipTreshold = 5f;
-    public AudioSource audioSource;
-    private SpriteManager spriteManager;
-    private BulletScript bullet;
-    private Animator animator;
-    [SerializeField] private AudioClip bulletSound;
-    private float weaponCooldownTimer = 0f;
-    private Rigidbody2D rb;
-
-    private void Start()
+    // Start is called before the first frame update
+    public override void Start()
     {
-        animator = gameObject.GetComponent<Animator>();
-        spriteManager = gameObject.GetComponent<SpriteManager>();
-        rb = gameObject.GetComponent<Rigidbody2D>();
+
+        animator = Player.GetComponent<Animator>();
+        spriteManager = Player.GetComponent<SpriteManager>();
+        rb = Player.GetComponent<Rigidbody2D>();
         bullet = bulletPrefab.GetComponent<BulletScript>();
+        switched = true;
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         Vector3 crosshairPlayerDifference = crosshair.GetComponent<CrosshairMouseScript>().getCrosshairPlayerPosition();
         float rotationZ = Mathf.Atan2(crosshairPlayerDifference.y, crosshairPlayerDifference.x) * Mathf.Rad2Deg;
@@ -42,13 +33,10 @@ public class ShootingScript : MonoBehaviour
             audioSource.PlayOneShot(bulletSound);
             weaponCooldownTimer = 0f;
         }
-        else if (weaponCooldownTimer <= bullet.weaponCooldown)
-        {
-            weaponCooldownTimer += Time.fixedDeltaTime;
-        }
+        
     }
 
-    void fireBullet(Vector2 direction, float rotationZ)
+      void fireBullet(Vector2 direction, float rotationZ)
     {
         GameObject b = Instantiate(bulletPrefab) as GameObject;
         b.transform.position = bulletStart.transform.position;

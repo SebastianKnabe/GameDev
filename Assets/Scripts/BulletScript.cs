@@ -5,10 +5,13 @@ public class BulletScript : MonoBehaviour
 
     //public float bulletSpeed = 60.0f;
     public float damage = 3.0f;
-    [HideInInspector]
-    public Vector2 maxDistance;
+    public float bulletSpeed = 60.0f;
+    public float weaponCooldown = 1f;
+
+
     private Rigidbody2D rb;
     private Vector2 screenBounds;
+    
 
     // Start is called before the first frame update
     void Start()
