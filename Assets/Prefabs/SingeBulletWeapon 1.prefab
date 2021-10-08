@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4917083935182687836}
   - component: {fileID: 4917083935182687839}
   m_Layer: 0
-  m_Name: SingeBulletWeapon
+  m_Name: SingeBulletWeapon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,13 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d35e5761530e564a900cdfe04d3d50b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot: {fileID: 0}
+  Player: {fileID: 0}
+  crosshair: {fileID: 0}
   weaponImage: {fileID: 0}
-  background: {fileID: 0}
+  cooldownImage: {fileID: 0}
   bulletPrefab: {fileID: 7719220469888607292, guid: 13617519db9f64e4ea9a40b92eeccf11,
     type: 3}
   bulletStart: {fileID: 0}
   spriteFlipTreshold: 5
   audioSource: {fileID: 0}
+  spriteManager: {fileID: 0}
+  bullet: {fileID: 0}
+  animator: {fileID: 0}
   bulletSound: {fileID: 8300000, guid: 26e19616f6ba9f6469e9d3d6c38b23fe, type: 3}
-  weaponCooldown: 2
+  weaponCooldownTimer: 0
+  weaponCooldown: 5
+  rb: {fileID: 0}
+  crosshairScript: {fileID: 0}
+  switched: 0

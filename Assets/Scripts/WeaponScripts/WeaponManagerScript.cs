@@ -39,9 +39,9 @@ public class WeaponManagerScript : MonoBehaviour
             weaponEntry.weapon.audioSource = audioSource;
             weaponEntry.weapon.Start();
 
-            weaponEntry.slot.transform.FindChild("Image").gameObject.GetComponent<Image>().sprite = weaponEntry.weapon.bulletPrefab.GetComponent<SpriteRenderer>().sprite;
-            weaponEntry.weapon.weaponImage = weaponEntry.slot.transform.FindChild("Image").gameObject.GetComponent<Image>();
-            weaponEntry.weapon.cooldownImage =  weaponEntry.slot.transform.FindChild("Cooldown").gameObject.GetComponent<Image>();
+            weaponEntry.slot.transform.Find("Image").gameObject.GetComponent<Image>().sprite = weaponEntry.weapon.bulletPrefab.GetComponent<SpriteRenderer>().sprite;
+            weaponEntry.weapon.weaponImage = weaponEntry.slot.transform.Find("Image").gameObject.GetComponent<Image>();
+            weaponEntry.weapon.cooldownImage =  weaponEntry.slot.transform.Find("Cooldown").gameObject.GetComponent<Image>();
 
             weaponEntry.weapon.cooldownImage.fillAmount = 0.0f;
 

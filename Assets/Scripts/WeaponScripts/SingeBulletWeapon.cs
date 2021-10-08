@@ -13,17 +13,18 @@ public class SingeBulletWeapon : WeaponEntity
         spriteManager = Player.GetComponent<SpriteManager>();
         rb = Player.GetComponent<Rigidbody2D>();
         bullet = bulletPrefab.GetComponent<BulletScript>();
+        crosshairScript = crosshair.GetComponent<CrosshairMouseScript>();
         switched = true;
     }
 
     // Update is called once per frame
     public override void Update()
     {
-        Vector3 crosshairPlayerDifference = crosshair.GetComponent<CrosshairMouseScript>().getCrosshairPlayerPosition();
+        Vector3 crosshairPlayerDifference = crosshairScript.getCrosshairPlayerPosition();
         float rotationZ = Mathf.Atan2(crosshairPlayerDifference.y, crosshairPlayerDifference.x) * Mathf.Rad2Deg;
         flipSprite(crosshairPlayerDifference);
 
-        if (Input.GetMouseButton(0) && !DialogueManager.dialogueMode && weaponCooldownTimer > bullet.weaponCooldown)
+        if (Input.GetMouseButton(0) && !DialogueManager.dialogueMode && weaponCooldownTimer > weaponCooldown)
         {
             float distance = crosshairPlayerDifference.magnitude;
             Vector2 direction = crosshairPlayerDifference / distance;
@@ -36,7 +37,9 @@ public class SingeBulletWeapon : WeaponEntity
         
     }
 
-      void fireBullet(Vector2 direction, float rotationZ)
+
+
+    void fireBullet(Vector2 direction, float rotationZ)
     {
         GameObject b = Instantiate(bulletPrefab) as GameObject;
         b.transform.position = bulletStart.transform.position;
@@ -44,16 +47,5 @@ public class SingeBulletWeapon : WeaponEntity
         b.GetComponent<Rigidbody2D>().velocity = direction * bullet.bulletSpeed;
     }
 
-    private void flipSprite(Vector3 crosshairPlayerDifference)
-    {
-        bool facingRight = spriteManager.getFacingRight();
-        if (crosshairPlayerDifference.x > spriteFlipTreshold && !facingRight && rb.velocity.magnitude == 0)
-        {
-            spriteManager.rotateSprite();
-        }
-        else if (crosshairPlayerDifference.x < -spriteFlipTreshold && facingRight && rb.velocity.magnitude == 0)
-        {
-            spriteManager.rotateSprite();
-        }
-    }
+    
 }

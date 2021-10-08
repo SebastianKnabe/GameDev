@@ -18,10 +18,26 @@ public abstract class WeaponEntity : MonoBehaviour
     [HideInInspector] public Animator animator;
     [SerializeField] public AudioClip bulletSound;
     public float weaponCooldownTimer = 0f;
+    public float weaponCooldown;
     [HideInInspector] public Rigidbody2D rb;
+
+    public CrosshairMouseScript crosshairScript;
 
     [HideInInspector] public bool switched = false;
     
     public abstract void Start();
     public abstract void Update();
+
+    public void flipSprite(Vector3 crosshairPlayerDifference)
+    {
+        bool facingRight = spriteManager.getFacingRight();
+        if (crosshairPlayerDifference.x > spriteFlipTreshold && !facingRight && rb.velocity.magnitude == 0)
+        {
+            spriteManager.rotateSprite();
+        }
+        else if (crosshairPlayerDifference.x < -spriteFlipTreshold && facingRight && rb.velocity.magnitude == 0)
+        {
+            spriteManager.rotateSprite();
+        }
+    }
 }

@@ -46,7 +46,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   crosshair: {fileID: 0}
   weaponImage: {fileID: 0}
-  background: {fileID: 0}
+  cooldownImage: {fileID: 0}
   bulletPrefab: {fileID: 7719220469888607292, guid: 1dfdfa8656f684042ba862f4d8dd3383,
     type: 3}
   bulletStart: {fileID: 0}
@@ -57,5 +57,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   bulletSound: {fileID: 8300000, guid: 26e19616f6ba9f6469e9d3d6c38b23fe, type: 3}
   weaponCooldownTimer: 0
+  weaponCooldown: 5
   rb: {fileID: 0}
+  crosshairScript: {fileID: 0}
   switched: 0
