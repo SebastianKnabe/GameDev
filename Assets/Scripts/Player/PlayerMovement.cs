@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 20f;
     [SerializeField] private float sprintSpeed = 30f;
-    [SerializeField] private float jumpVelocity;
+    [SerializeField] private float jumpVelocity = 25f;
     [SerializeField] private float backToGroundSpeed = -0.3f;
     [SerializeField] private float gravity = -0.4f;
     [SerializeField] private float speed;
@@ -25,8 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimer;
     private float coyoteFrames = 10;
     private bool hasJumped = false;
+    private bool slipperyJump = false;
     private List<Vector3> groundedPosition = new List<Vector3>();
     private bool safeSpawn = true;
+    private float horizontalMovementLimit = 100f;
 
 
     // Start is called before the first frame update
@@ -38,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         spriteManager = gameObject.GetComponent<SpriteManager>();
         speed = moveSpeed;
+        horizontalMovementLimit = sprintSpeed * 1.5f;
     }
 
     private void FixedUpdate()
@@ -74,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 hasJumped = false;
                 animator.SetBool("isJumping", false);
+                slipperyJump = false;
             }
 
         }
@@ -83,13 +87,17 @@ public class PlayerMovement : MonoBehaviour
             staminaRefillScript.requestSprint(false);
         }
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
-        if (!IsSlippery())
+        if (IsSlippery() || slipperyJump)
         {
-            rb.velocity = movement;
+            rb.AddForce(movement * 0.1f, ForceMode2D.Force);
+            if (rb.velocity.x > horizontalMovementLimit)
+            {
+                rb.velocity = new Vector2(horizontalMovementLimit, rb.velocity.y);
+            }
         }
         else
         {
-            rb.AddForce(movement * 0.66f, ForceMode2D.Force);
+            rb.velocity = movement;
         }
         animator.SetFloat("movementSpeed", movement.magnitude);
         flipSprite();
@@ -99,16 +107,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
+        animator.SetBool("isJumping", !isGrounded());
         if (Input.GetButtonDown("Jump") && !hasJumped && (isGrounded() || coyoteTimer < coyoteFrames))
         {
             animator.SetBool("isJumping", true);
             hasJumped = true;
-            rb.velocity = Vector2.up * jumpVelocity;
             audioSource.PlayOneShot(jumpSound);
-        }
-        if (hasJumped)
-        {
-            animator.SetBool("isJumping", !isGrounded());
+            if (IsSlippery())
+            {
+                slipperyJump = true;
+                rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.velocity = Vector2.up * jumpVelocity;
+            }
         }
     }
 
