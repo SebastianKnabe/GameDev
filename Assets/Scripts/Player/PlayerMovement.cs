@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
     private bool safeSpawn = true;
     private float horizontalMovementLimit = 100f;
 
-
     // Start is called before the first frame update
     void Start()
     {
