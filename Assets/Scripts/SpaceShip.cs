@@ -8,7 +8,7 @@ public class SpaceShip : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject camera;
     [SerializeField] private string interactionText;
-    [SerializeField] private string animationTriggerName;
+    [SerializeField] private CurrentScene currentScene;
 
     private bool playerInRange = false;
     private GameObject instanceOfTextObject;
@@ -35,7 +35,19 @@ public class SpaceShip : MonoBehaviour
         {
             camera.GetComponent<CameraFollow>().SetCameraTarget(this.gameObject);
             player.SetActive(false);
-            animator.SetTrigger(animationTriggerName);
+
+            if (currentScene == CurrentScene.TestScene)
+            {
+                animator.SetTrigger("LaunchTestScene");
+            }
+            else if (currentScene == CurrentScene.Ice)
+            {
+                animator.SetTrigger("LaunchIce");
+            }
+            else if (currentScene == CurrentScene.Earth)
+            {
+                animator.SetTrigger("LaunchEarth");
+            }
         }
     }
 
@@ -62,4 +74,11 @@ public class SpaceShip : MonoBehaviour
             playerInRange = false;
         }
     }
+}
+
+enum CurrentScene
+{
+    Earth,
+    Ice,
+    TestScene
 }

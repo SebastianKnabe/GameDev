@@ -1913,7 +1913,7 @@ MonoBehaviour:
   player: {fileID: 275177603}
   camera: {fileID: 796077814}
   interactionText: fly to space
-  animationTriggerName: LaunchTestScene
+  currentScene: 2
 --- !u!212 &1219005769
 SpriteRenderer:
   m_ObjectHideFlags: 0
