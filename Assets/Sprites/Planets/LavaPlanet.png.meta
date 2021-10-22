@@ -1,0 +1,1544 @@
+fileFormatVersion: 2
+guid: a0093bdf9a66d814fad1770d807a0373
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3388450432743998238
+    second: LavaPlanet_0
+  - first:
+      213: -3366299019518217083
+    second: LavaPlanet_1
+  - first:
+      213: -1457497793323406421
+    second: LavaPlanet_2
+  - first:
+      213: 2079436902866866681
+    second: LavaPlanet_3
+  - first:
+      213: 2980815623000855683
+    second: LavaPlanet_4
+  - first:
+      213: 6463252685185890141
+    second: LavaPlanet_5
+  - first:
+      213: 7476689008781662122
+    second: LavaPlanet_6
+  - first:
+      213: -7966842446956975199
+    second: LavaPlanet_7
+  - first:
+      213: 3072613606450182310
+    second: LavaPlanet_8
+  - first:
+      213: 9165003486353724090
+    second: LavaPlanet_9
+  - first:
+      213: 1734500407729101465
+    second: LavaPlanet_10
+  - first:
+      213: 3463437722045870652
+    second: LavaPlanet_11
+  - first:
+      213: -7682629493181024559
+    second: LavaPlanet_12
+  - first:
+      213: -8399659657640743994
+    second: LavaPlanet_13
+  - first:
+      213: 948440987352199277
+    second: LavaPlanet_14
+  - first:
+      213: 4904447172731886659
+    second: LavaPlanet_15
+  - first:
+      213: -6553163690294222942
+    second: LavaPlanet_16
+  - first:
+      213: 7060530706225084711
+    second: LavaPlanet_17
+  - first:
+      213: -6423653293606598455
+    second: LavaPlanet_18
+  - first:
+      213: -8735762950332340030
+    second: LavaPlanet_19
+  - first:
+      213: 7498236632952349021
+    second: LavaPlanet_20
+  - first:
+      213: 4631117135832491791
+    second: LavaPlanet_21
+  - first:
+      213: -5428744476173079464
+    second: LavaPlanet_22
+  - first:
+      213: -1022560782033746296
+    second: LavaPlanet_23
+  - first:
+      213: 5771238649623324786
+    second: LavaPlanet_24
+  - first:
+      213: -7570151040865457862
+    second: LavaPlanet_25
+  - first:
+      213: 1945246798662531953
+    second: LavaPlanet_26
+  - first:
+      213: 7915123390496608517
+    second: LavaPlanet_27
+  - first:
+      213: -499944710250765559
+    second: LavaPlanet_28
+  - first:
+      213: 3443276825351775084
+    second: LavaPlanet_29
+  - first:
+      213: 4302765292424240673
+    second: LavaPlanet_30
+  - first:
+      213: 8409915278882540822
+    second: LavaPlanet_31
+  - first:
+      213: -6294544319517624478
+    second: LavaPlanet_32
+  - first:
+      213: 7254594142715885430
+    second: LavaPlanet_33
+  - first:
+      213: -163770275388279164
+    second: LavaPlanet_34
+  - first:
+      213: 7662245233126758699
+    second: LavaPlanet_35
+  - first:
+      213: 4895241973563428999
+    second: LavaPlanet_36
+  - first:
+      213: 1896014552201683730
+    second: LavaPlanet_37
+  - first:
+      213: -2253992559039931295
+    second: LavaPlanet_38
+  - first:
+      213: -4478041754630827060
+    second: LavaPlanet_39
+  - first:
+      213: -8512537312460415398
+    second: LavaPlanet_40
+  - first:
+      213: 5251249575932425398
+    second: LavaPlanet_41
+  - first:
+      213: -4456174885095982342
+    second: LavaPlanet_42
+  - first:
+      213: -3349217594360441202
+    second: LavaPlanet_43
+  - first:
+      213: -6576400718675053223
+    second: LavaPlanet_44
+  - first:
+      213: 6735715437870981803
+    second: LavaPlanet_45
+  - first:
+      213: -4001597973674266438
+    second: LavaPlanet_46
+  - first:
+      213: -1230054301424452234
+    second: LavaPlanet_47
+  - first:
+      213: 1374778204948650094
+    second: LavaPlanet_48
+  - first:
+      213: 4370772636734934174
+    second: LavaPlanet_49
+  - first:
+      213: 4392874593501515656
+    second: LavaPlanet_50
+  - first:
+      213: -5226829701196148559
+    second: LavaPlanet_51
+  - first:
+      213: 4899033007086799616
+    second: LavaPlanet_52
+  - first:
+      213: -1903726534096540974
+    second: LavaPlanet_53
+  - first:
+      213: 3808319629967752124
+    second: LavaPlanet_54
+  - first:
+      213: -2906963344510622576
+    second: LavaPlanet_55
+  - first:
+      213: -6896344524425837660
+    second: LavaPlanet_56
+  - first:
+      213: -4749393153410691769
+    second: LavaPlanet_57
+  - first:
+      213: -6511082983705874803
+    second: LavaPlanet_58
+  - first:
+      213: -1702747781426080593
+    second: LavaPlanet_59
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LavaPlanet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec7641c84ec9f0d0800000000000000
+      internalID: -3388450432743998238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 584fedd80e08841d0800000000000000
+      internalID: -3366299019518217083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_2
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: babea08aa7de5cbe0800000000000000
+      internalID: -1457497793323406421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_3
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1d73888d4abdc10800000000000000
+      internalID: 2079436902866866681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_4
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38496ed140cfd5920800000000000000
+      internalID: 2980815623000855683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_5
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57381ac21612b950800000000000000
+      internalID: 6463252685185890141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_6
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa79f705a0982c760800000000000000
+      internalID: 7476689008781662122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_7
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab20af2107107190800000000000000
+      internalID: -7966842446956975199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_8
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8be70bbcd14aa20800000000000000
+      internalID: 3072613606450182310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_9
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 500
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab29451dc12a03f70800000000000000
+      internalID: 9165003486353724090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a96795eee221810800000000000000
+      internalID: 1734500407729101465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_11
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c327b34124a901030800000000000000
+      internalID: 3463437722045870652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_12
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d671062e21d16590800000000000000
+      internalID: -7682629493181024559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_13
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbe4207b0a6e6b80800000000000000
+      internalID: -8399659657640743994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_14
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d607c8d8d0a892d00800000000000000
+      internalID: 948440987352199277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_15
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c5a5ef7b8101440800000000000000
+      internalID: 4904447172731886659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_16
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af5605085c7e05a0800000000000000
+      internalID: -6553163690294222942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_17
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729b84ed44b0cf160800000000000000
+      internalID: 7060530706225084711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_18
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c88f4a0d599ad6a0800000000000000
+      internalID: -6423653293606598455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_19
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 400
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c82c6771e554c680800000000000000
+      internalID: -8735762950332340030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5122f48d761f0860800000000000000
+      internalID: 7498236632952349021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_21
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0725829f78054040800000000000000
+      internalID: 4631117135832491791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_22
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ce65169a939a4b0800000000000000
+      internalID: -5428744476173079464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_23
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88602a1f2622fc1f0800000000000000
+      internalID: -1022560782033746296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_24
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278adc879fe871050800000000000000
+      internalID: 5771238649623324786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_25
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3929299cbb61f690800000000000000
+      internalID: -7570151040865457862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_26
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17bfeb238a7eefa10800000000000000
+      internalID: 1945246798662531953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_27
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5019feb99ca28dd60800000000000000
+      internalID: 7915123390496608517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_28
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903ea225fe6df09f0800000000000000
+      internalID: -499944710250765559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_29
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 300
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c636d66870af8cf20800000000000000
+      internalID: 3443276825351775084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e93d68c3e76bb30800000000000000
+      internalID: 4302765292424240673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_31
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d8ce4736506b470800000000000000
+      internalID: 8409915278882540822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_32
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267f2349a4945a8a0800000000000000
+      internalID: -6294544319517624478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_33
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677b532bfee7da460800000000000000
+      internalID: 7254594142715885430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_34
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486b6be5dcb2abdf0800000000000000
+      internalID: -163770275388279164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_35
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2953767173c55a60800000000000000
+      internalID: 7662245233126758699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_36
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78094db83a46fe340800000000000000
+      internalID: 4895241973563428999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_37
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 213e3f0903fff4a10800000000000000
+      internalID: 1896014552201683730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_38
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c1d00b5b538b0e0800000000000000
+      internalID: -2253992559039931295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_39
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 200
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3dcd5ffbccad1c0800000000000000
+      internalID: -4478041754630827060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_40
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ed9896a646dd980800000000000000
+      internalID: -8512537312460415398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_41
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b47f50caaf20e840800000000000000
+      internalID: 5251249575932425398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_42
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa36d44d8c7822c0800000000000000
+      internalID: -4456174885095982342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_43
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8658a4c7503581d0800000000000000
+      internalID: -3349217594360441202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_44
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 955ffbeb36eebb4a0800000000000000
+      internalID: -6576400718675053223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_45
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba22a6ed0811a7d50800000000000000
+      internalID: 6735715437870981803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_46
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab0f83528d77778c0800000000000000
+      internalID: -4001597973674266438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_47
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d77254128fdeee0800000000000000
+      internalID: -1230054301424452234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_48
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e68d9e65e71341310800000000000000
+      internalID: 1374778204948650094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_49
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 100
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c45964e8a18ac30800000000000000
+      internalID: 4370772636734934174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_50
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f0f781b20a6fc30800000000000000
+      internalID: 4392874593501515656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_51
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b01eb664129677b0800000000000000
+      internalID: -5226829701196148559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_52
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b8252509cdcf340800000000000000
+      internalID: 4899033007086799616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_53
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2daa0b9bdca9495e0800000000000000
+      internalID: -1903726534096540974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_54
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbff5fa68ed9d430800000000000000
+      internalID: 3808319629967752124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_55
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094ec5b6d3468a7d0800000000000000
+      internalID: -2906963344510622576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_56
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a343e481334b40a0800000000000000
+      internalID: -6896344524425837660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_57
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d88402714c61eb0800000000000000
+      internalID: -4749393153410691769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_58
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8eee15068cf3a5a0800000000000000
+      internalID: -6511082983705874803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LavaPlanet_59
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 0
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa493021aef9e58e0800000000000000
+      internalID: -1702747781426080593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
