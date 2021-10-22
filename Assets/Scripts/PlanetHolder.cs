@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlanetHolder : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlanetHolder : MonoBehaviour
     private int currentSelectedPlanet;
     private int numberOfPlanets;
     private int maxPlanetDistance;
-    private int[] planetPosition;
+    private int[] planetSelectionPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +18,9 @@ public class PlanetHolder : MonoBehaviour
         currentSelectedPlanet = 0;
         numberOfPlanets = gameObject.transform.childCount;
         maxPlanetDistance = numberOfPlanets / 2;
-        planetPosition = new int[numberOfPlanets];
+        planetSelectionPosition = new int[numberOfPlanets];
 
+        DeterminPlanetArrayPosition();
         SetPlanetPositions();
     }
 
@@ -32,6 +34,7 @@ public class PlanetHolder : MonoBehaviour
             {
                 currentSelectedPlanet = numberOfPlanets - 1;
             }
+            DeterminPlanetArrayPosition();
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
@@ -40,11 +43,12 @@ public class PlanetHolder : MonoBehaviour
             {
                 currentSelectedPlanet = 0;
             }
+            DeterminPlanetArrayPosition();
         }
         SetPlanetPositions();
     }
 
-    private void SetPlanetPositions()
+    private void DeterminPlanetArrayPosition()
     {
         for (int i = 0; i < numberOfPlanets; i++)
         {
@@ -62,6 +66,19 @@ public class PlanetHolder : MonoBehaviour
                 planetArrayPosition = 3 - Mathf.Abs(planetArrayPosition) + maxPlanetDistance;
             }
 
+            planetSelectionPosition[i] = planetArrayPosition;
+        }
+
+        ChangeClickablePlanet();
+    }
+
+    private void SetPlanetPositions()
+    {
+        for (int i = 0; i < numberOfPlanets; i++)
+        {
+            //Hole Planeten Position im Kreis
+            int planetArrayPosition = planetSelectionPosition[i];
+
             //Ermittle Position
             float xPosition = planetArrayPosition * 400;
             float yPosition = Mathf.Abs(planetArrayPosition) * 2 * 100f;
@@ -70,9 +87,6 @@ public class PlanetHolder : MonoBehaviour
                 xPosition = 60 * planetArrayPosition;
                 yPosition = 400;
             }
-
-            //Für Debug falls Planeten Anzahl > 5
-            planetPosition[i] = planetArrayPosition;
 
             //Planet-Gameobject
             GameObject planet = gameObject.transform.GetChild(i).gameObject;
@@ -99,6 +113,24 @@ public class PlanetHolder : MonoBehaviour
             {
                 Vector3 targetScale = new Vector3(1f, 1f, 1f);
                 planet.transform.localScale = Vector3.Lerp(currentScale, targetScale, Time.deltaTime * scaleTimeFactor);
+            }
+        }
+    }
+
+    private void ChangeClickablePlanet()
+    {
+        for (int i = 0; i < numberOfPlanets; i++)
+        {
+            int planetArrayPosition = planetSelectionPosition[i];
+            GameObject planet = gameObject.transform.GetChild(i).gameObject;
+            if (planetArrayPosition == 0)
+            {
+                planet.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                Debug.Log("Deaktiviere Planet: " + i);
+                planet.GetComponent<Button>().interactable = false;
             }
         }
     }
