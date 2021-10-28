@@ -48,7 +48,7 @@ MonoBehaviour:
   obstaclePrefab: {fileID: 9190034321415266469, guid: a155fa417033e4a9fb9ebfff0c13b8cb,
     type: 3}
   obstacleSpeed: -10
-  obstacleDelay: 1.5
+  obstacleDelay: 1
 --- !u!58 &875004940
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,12 +104,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: acea16447bd054960981802fc80c7c0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8cc893897c16b9d47a998365bb3a3353, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 2.7, y: 2.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

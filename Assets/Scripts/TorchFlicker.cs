@@ -7,16 +7,19 @@ public class TorchFlicker : MonoBehaviour
 {
 
     private Light2D light;
+    public float flickerTimer = 0.2f;
+    public float rangeFrom = 1.3f;
+    public float rangeTo = 3f;
 
     private void Start()
     {
         light = GetComponent<Light2D>();
-        InvokeRepeating("flicker", 1f, 1f);
+        InvokeRepeating("flicker", 0.1f, flickerTimer);
 
     }
 
     private void flicker()
     {
-        light.intensity = Random.Range(0.5f, 2.9f);
+        light.intensity = Random.Range(rangeFrom, rangeTo);
     }
 }

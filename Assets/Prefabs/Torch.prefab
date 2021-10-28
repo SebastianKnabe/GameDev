@@ -149,19 +149,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.685
   m_Color: {r: 0.9528302, g: 0.8773823, b: 0, a: 1}
   m_Intensity: 1.5
-  m_LightVolumeOpacity: 0
+  m_LightVolumeOpacity: 0.121
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 290.72
-  m_PointLightOuterAngle: 290.72
+  m_ShadowIntensity: 0.129
+  m_ShadowVolumeIntensity: 0.145
+  m_PointLightInnerAngle: 271.61
+  m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.1
   m_PointLightOuterRadius: 4.5
   m_PointLightDistance: 3
@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 2024715006755006750}
   - component: {fileID: 2024715006755006745}
   - component: {fileID: 2024715006755006744}
+  - component: {fileID: 315300379}
   m_Layer: 0
   m_Name: Point Light 2D (1)
   m_TagString: Untagged
@@ -258,9 +259,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2024715006755006749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
+  m_Script: {fileID: 11500000, guid: 145541d1be56e20478d2c152afda79d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
+  flickerTimer: 0.2
+--- !u!114 &315300379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024715006755006749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145541d1be56e20478d2c152afda79d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerTimer: 0.2
