@@ -29,7 +29,9 @@ public class BulletScript : MonoBehaviour
     {
         //Wenn Kugel vom gleichen Tag ist, passiert nichts
         //Mögliche Tags der Kugel sind Player oder Enemy
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Untagged")
+        Debug.Log(other);
+        Debug.Log(this.GetComponent<Collider2D>());
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Untagged" || other.gameObject.tag == this.gameObject.tag)
         {
             return;
         }
