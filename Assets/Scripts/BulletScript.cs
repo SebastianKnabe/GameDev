@@ -31,7 +31,7 @@ public class BulletScript : MonoBehaviour
         //Mögliche Tags der Kugel sind Player oder Enemy
         Debug.Log(other);
         Debug.Log(this.GetComponent<Collider2D>());
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Untagged" || other.gameObject.tag == this.gameObject.tag)
+        if (other.gameObject.tag == "Untagged" || other.gameObject.tag == this.gameObject.tag)
         {
             return;
         }
