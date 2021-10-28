@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 762442676735011126}
   m_Layer: 0
   m_Name: MovingSpikeReversed
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 100
+  damageTaken: 50
 --- !u!58 &9141515825429818245
 CircleCollider2D:
   m_ObjectHideFlags: 0

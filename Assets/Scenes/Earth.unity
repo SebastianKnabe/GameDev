@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &52033466
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &118839917
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &229635525
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2382,7 +2382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &417076872
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4417,7 +4417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &554042193
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4917,7 +4917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &604170510
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5075,7 +5075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &609501329
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5327,6 +5327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423144440763526448, guid: 90d762fd374a34538b2f85952b72f1ef,
+        type: 3}
+      propertyPath: damageTaken
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8246201269727921824, guid: 90d762fd374a34538b2f85952b72f1ef,
         type: 3}
@@ -5651,7 +5656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &797300563
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6144,7 +6149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &931495182
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7264,11 +7269,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingSpikeReversed
       objectReference: {fileID: 0}
-    - target: {fileID: 8246201269727921824, guid: 90d762fd374a34538b2f85952b72f1ef,
-        type: 3}
-      propertyPath: m_TagString
-      value: Obstacle
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d762fd374a34538b2f85952b72f1ef, type: 3}
 --- !u!1 &1110249000
@@ -8086,7 +8086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &1192167614
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8493,6 +8493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299164228570594659, guid: ec284407f1faa4dd38d9a6f42ebeba80,
+        type: 3}
+      propertyPath: damageTaken
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4762928554779219699, guid: ec284407f1faa4dd38d9a6f42ebeba80,
         type: 3}
@@ -10443,7 +10448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &1700056204
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10539,6 +10544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299164228570594659, guid: ec284407f1faa4dd38d9a6f42ebeba80,
+        type: 3}
+      propertyPath: damageTaken
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4762928554779219699, guid: ec284407f1faa4dd38d9a6f42ebeba80,
         type: 3}
@@ -10856,6 +10866,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2299164228570594659, guid: ec284407f1faa4dd38d9a6f42ebeba80,
+        type: 3}
+      propertyPath: damageTaken
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4762928554779219699, guid: ec284407f1faa4dd38d9a6f42ebeba80,
         type: 3}
       propertyPath: m_Name
@@ -11079,7 +11094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &1785690091
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11315,7 +11330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &1839856928
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11696,7 +11711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &1889677813
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -53701,7 +53716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0433b2d44609419ebf86abc6adc7ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 20
+  damageTaken: 50
 --- !u!58 &2073332351
 CircleCollider2D:
   m_ObjectHideFlags: 0
