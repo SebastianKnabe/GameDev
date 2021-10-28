@@ -59,6 +59,14 @@ public class EnemyEntity : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerEntity>().hitObstacle(50);
+        }
+    }
+
     public void death()
     {
         animator.SetTrigger("isDead");

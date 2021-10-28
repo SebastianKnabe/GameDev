@@ -4,6 +4,7 @@ public class BulletScript : MonoBehaviour
 {
     //public float bulletSpeed = 60.0f;
     public float damage = 3.0f;
+    public string shooter = "Enemy";
     [SerializeField] protected bool isDestructable = false;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
@@ -29,9 +30,9 @@ public class BulletScript : MonoBehaviour
     {
         //Wenn Kugel vom gleichen Tag ist, passiert nichts
         //Mögliche Tags der Kugel sind Player oder Enemy
-        Debug.Log(other);
-        Debug.Log(this.GetComponent<Collider2D>());
-        if (other.gameObject.tag == "Untagged" || other.gameObject.tag == this.gameObject.tag)
+        Debug.Log(other.gameObject.tag);
+        Debug.Log("??? " + gameObject.tag);
+        if (other.gameObject.tag == "Untagged" || other.gameObject.tag == shooter)
         {
             return;
         }
