@@ -18,5 +18,7 @@ public class TriggerObstacle : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = dir;
+        transform.Rotate(new Vector3(0, 0, 720 * Time.deltaTime));
+
     }
 }
