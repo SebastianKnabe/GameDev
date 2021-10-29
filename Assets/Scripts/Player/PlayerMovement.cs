@@ -125,7 +125,6 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
         if (raycastHit.collider != null)
         {
-            Debug.Log(raycastHit.collider.tag);
             return raycastHit.collider.tag == "Slippery";
         }
         return false;

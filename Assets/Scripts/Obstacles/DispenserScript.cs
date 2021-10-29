@@ -7,9 +7,10 @@ public class DispenserScript : MonoBehaviour
 
     public TriggerObstacle obstaclePrefab;
     public float obstacleSpeed;
+    public Transform fireSpawn;
     private float time = 0;
     public float obstacleDelay;
-
+    public float variance;
     private bool shoot;
 
     private Vector2 dir;
@@ -17,7 +18,8 @@ public class DispenserScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dir = new Vector2(obstacleSpeed, 0);
+        dir = new Vector3(transform.rotation.x * obstacleSpeed, transform.rotation.y * obstacleSpeed , transform.rotation.z);
+
 
         
     }
@@ -29,8 +31,8 @@ public class DispenserScript : MonoBehaviour
         {
             if (time < Time.time)
             {
-                TriggerObstacle obstacle = Instantiate(obstaclePrefab, transform.position - new Vector3(2, 0, 0), transform.rotation) as TriggerObstacle;
-                obstacle.dir = dir;
+                TriggerObstacle obstacle = Instantiate(obstaclePrefab, fireSpawn.position, transform.rotation) as TriggerObstacle;
+                obstacle.dir = new Vector2(obstacle.transform.up.x + variance, obstacle.transform.up.y) * obstacleSpeed;
                 time = Time.time + obstacleDelay;
             }
         }
