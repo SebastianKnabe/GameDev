@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExitButton : MonoBehaviour
 {
     [SerializeField] private GameObject exitGameMenu;
+    [SerializeField] private VoidEvent saveGameEvent;
 
     public void ActivateExitGameMenu()
     {
@@ -18,7 +19,8 @@ public class ExitButton : MonoBehaviour
 
     public void ExitGame()
     {
-        Debug.Log("Exit Game");
+        Debug.Log("Exit Game " + saveGameEvent);
+        saveGameEvent.Raise();
         Application.Quit();
     }
 }

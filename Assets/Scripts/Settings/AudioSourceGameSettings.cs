@@ -24,13 +24,16 @@ public class AudioSourceGameSettings : MonoBehaviour
 
     public void updateVolume()
     {
-        if (isSFX)
+        if (audioSource != null)
         {
-            audioSource.volume = gameSettings.SFXVolume * gameSettings.TotalVolume;
-        }
-        else
-        {
-            audioSource.volume = gameSettings.BGMVolume * gameSettings.TotalVolume;
+            if (isSFX)
+            {
+                audioSource.volume = gameSettings.SFXVolume * gameSettings.TotalVolume;
+            }
+            else
+            {
+                audioSource.volume = gameSettings.BGMVolume * gameSettings.TotalVolume;
+            }
         }
     }
 }
