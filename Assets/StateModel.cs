@@ -201,6 +201,7 @@ public class StateModel : MonoBehaviour
 
                 if (Random.value <= blockProbability)
                 {
+                    ScreenShakeController.instace.startShake(.5f, .2f);
                     Destroy(col.gameObject);
                     return true;
                 }

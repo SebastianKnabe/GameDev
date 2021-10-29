@@ -23,6 +23,7 @@ public class ShootingScript : MonoBehaviour
         spriteManager = gameObject.GetComponent<SpriteManager>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         bullet = bulletPrefab.GetComponent<BulletScript>();
+        
     }
 
     // Update is called once per frame

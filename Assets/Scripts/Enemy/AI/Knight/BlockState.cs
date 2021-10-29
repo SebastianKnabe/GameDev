@@ -34,7 +34,7 @@ public class BlockState : State
 
     public override void initVariables()
     {
-        
+
     }
 
     // Start is called before the first frame update

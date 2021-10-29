@@ -35,11 +35,13 @@ public class BulletScript : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
+            ScreenShakeController.instace.startShake(.5f, 0.2f);
             Destroy(this.gameObject);
             
         }
         else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Wall"))
         {
+            ScreenShakeController.instace.startShake(.5f, 0.2f);
             Destroy(this.gameObject);
         }
 

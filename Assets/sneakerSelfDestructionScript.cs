@@ -52,7 +52,7 @@ public class sneakerSelfDestructionScript : MonoBehaviour
             instance.InitEffect(playerObject);
           
         }
-
+        ScreenShakeController.instace.startShake(.5f, .5f);
         Destroy(sneaker.gameObject);
 
 

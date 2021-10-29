@@ -869,7 +869,7 @@ MonoBehaviour:
       type: 3}
     slot: {fileID: 961586542}
     KeyCode: 49
-  - weapon: {fileID: 4917083935182687839, guid: 2ec565fdd18f77947a09d5020538a5fe,
+  - weapon: {fileID: 7566312725351696073, guid: 86c29c78f227b154da702867adc738b4,
       type: 3}
     slot: {fileID: 2123858358}
     KeyCode: 50

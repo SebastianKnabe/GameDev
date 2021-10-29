@@ -134,6 +134,8 @@ public class AttackState : State
         {
             meleeAttack();
         }
+        
+        this.archerEntity.TimeSinceLastFlip= 0f;
     }
 
     private void meleeAttack()
@@ -151,6 +153,7 @@ public class AttackState : State
                 {
                     col.gameObject.GetComponent<PlayerEntity>().takeDamage(attackMoves[currentAttackIndex].damage);
                 }
+                ScreenShakeController.instace.startShake(.5f, .25f);
                 successfullyDealtDamage = true;
             }
         }
@@ -190,6 +193,7 @@ public class AttackState : State
         GameObject b = Instantiate(arrowPrefab) as GameObject;
         b.transform.position = arrowStart.position;
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        b.GetComponent<ArrowScript>().damage = attackMoves[currentAttackIndex].damage;
         b.GetComponent<Rigidbody2D>().velocity = direction * arrowSpeed;
     }
 
