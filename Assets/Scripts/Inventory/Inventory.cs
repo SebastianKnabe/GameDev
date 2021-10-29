@@ -31,7 +31,7 @@ public class Inventory : ScriptableObject
         for (int i = 0; i < itemSlots.Length; i++)
         {
             ItemSlot itemSlot = itemSlots[i];
-            if (itemSlot.quantity > 0)
+            if (itemSlot.quantity > 0 && itemSlot.item.GetInstanceID() != 0)
             {
                 ItemContainer.AddItemAtSlotIndex(itemSlot, i);
             }
