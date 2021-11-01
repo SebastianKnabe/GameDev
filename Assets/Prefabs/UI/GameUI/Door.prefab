@@ -10,15 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 526829856576705772}
   - component: {fileID: 526829856576705773}
-  - component: {fileID: 526829856576705775}
   - component: {fileID: 526829856576705774}
+  - component: {fileID: 1846857933}
+  - component: {fileID: 1846857935}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &526829856576705772
 Transform:
   m_ObjectHideFlags: 0
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5147079506599870712, guid: 37543eb99b1d23345a4b4fe2e7a2db71,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,19 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &526829856576705775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526829856576705770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077b7ca0519ce6c4fad5fd66784f601c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneIndex: 2
 --- !u!61 &526829856576705774
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,3 +111,46 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2, y: 6.2}
   m_EdgeRadius: 0
+--- !u!114 &1846857933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526829856576705770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7602fd6e7a95bf54e8850dd2875383b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playTeleportedEvent: {fileID: 11400000, guid: 069f65fcea2776f46bf5648cabfff742,
+    type: 2}
+  teleportPos: {fileID: 0}
+  camera: {fileID: 0}
+--- !u!114 &1846857935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526829856576705770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d599773778ffb634ba0e2b7c9285bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 069f65fcea2776f46bf5648cabfff742, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: PlayerTeleported
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
