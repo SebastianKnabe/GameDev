@@ -69,8 +69,9 @@ public class EnemyStickyMovement : MonoBehaviour
                 //Wand Lauf Richtung
                 else if (CheckFacingWall() && IsGrounded())
                 {
-                    currentRotation = (currentRotation + 90f) % 360;
+                    currentRotation = (currentRotation + 90f);
                     StartCoroutine(RotateEnemy(currentRotation, rotationDuration));
+                    currentRotation = currentRotation % 360;
 
                     Debug.Log("currentRotation: " + currentRotation);
                     Vector3 currentPosition = gameObject.transform.localPosition;
@@ -116,18 +117,21 @@ public class EnemyStickyMovement : MonoBehaviour
 
     private void Move()
     {
-        switch (currentRotation)
+        float checkRotation = currentRotation;
+        if (checkRotation < 0f)
         {
-            case 90f:
-                rb.velocity = new Vector2(0f, moveSpeed);
-                break;
-            case -90f:
+            checkRotation += 360;
+        }
+
+        switch (checkRotation)
+        {
+            case 270f:
                 rb.velocity = new Vector2(0f, -moveSpeed);
                 break;
-            case -180f:
+            case 180f:
                 rb.velocity = new Vector2(-moveSpeed, 0f);
                 break;
-            case -270f:
+            case 90f:
                 rb.velocity = new Vector2(0f, moveSpeed);
                 break;
             default:
@@ -138,21 +142,23 @@ public class EnemyStickyMovement : MonoBehaviour
 
     private void CheckVectors()
     {
-        switch (currentRotation)
+        float checkRotation = currentRotation;
+        if (checkRotation < 0f)
         {
-            case 90f:
-                checkGroundedVector = Vector3.right;
-                checkFacingWallVector = Vector3.up;
-                break;
-            case -90f:
+            checkRotation += 360;
+        }
+
+        switch (checkRotation)
+        {
+            case 270f:
                 checkGroundedVector = Vector3.left;
                 checkFacingWallVector = Vector3.down;
                 break;
-            case -180f:
+            case 180f:
                 checkGroundedVector = Vector3.up;
                 checkFacingWallVector = Vector3.left;
                 break;
-            case -270f:
+            case 90f:
                 checkGroundedVector = Vector3.right;
                 checkFacingWallVector = Vector3.up;
                 break;
