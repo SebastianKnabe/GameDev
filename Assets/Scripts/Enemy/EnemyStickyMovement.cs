@@ -10,11 +10,14 @@ public class EnemyStickyMovement : MonoBehaviour
     [SerializeField] private bool isPatrol = false;
     [SerializeField] private bool isStickToPlatform = false;
 
+    private Vector3 checkGroundedVector = Vector3.down;
+    private Vector3 checkWallRightVector = Vector3.right;
+    private Vector3 checkWallLeftVector = Vector3.left;
+
     private Rigidbody2D rb;
     private CircleCollider2D circleCollider;
     private float rayCastOffset = 0.05f;
     private float currentRotation = 0f;
-    private Vector3 checkGroundedVector = Vector3.down;
     private bool isRotating = false;
 
     // Start is called before the first frame update
@@ -27,41 +30,55 @@ public class EnemyStickyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        checkWallRight();
         if (isPatrol)
         {
 
         }
         else if (isStickToPlatform)
         {
-            if (isGrounded())
+            if (isRotating)
             {
+                //Rotiert langsam                
                 Move();
             }
-            else if (!isRotating)
+            else
             {
-                currentRotation = (currentRotation - 90f) % 360;
-                StartCoroutine(RotateEnemy(currentRotation, rotationDuration));
-
-                Debug.Log("currentRotation: " + currentRotation);
-                Vector3 currentPosition = gameObject.transform.localPosition;
-                gameObject.transform.localPosition = currentPosition + checkGroundedVector * 0.5f;
-
-                switch (currentRotation)
+                //Steht auf Platform
+                if (isGrounded() && !checkWallRight())
                 {
-                    case -90f:
-                        checkGroundedVector = Vector3.left;
-                        break;
-                    case -180f:
-                        checkGroundedVector = Vector3.up;
-                        break;
-                    case -270f:
-                        checkGroundedVector = Vector3.right;
-                        break;
-                    default:
-                        checkGroundedVector = Vector3.down;
-                        break;
+                    Move();
                 }
-                Move();
+                //Kante
+                else if (!isGrounded() && !checkWallRight())
+                {
+                    currentRotation = (currentRotation - 90f) % 360;
+                    StartCoroutine(RotateEnemy(currentRotation, rotationDuration));
+
+                    Debug.Log("currentRotation: " + currentRotation);
+                    Vector3 currentPosition = gameObject.transform.localPosition;
+                    gameObject.transform.localPosition = currentPosition + checkGroundedVector * 0.5f;
+
+                    CheckVectors();
+                    Move();
+                }
+                //Wand Lauf Richtung
+                else if (checkWallRight() && isGrounded())
+                {
+                    currentRotation = (currentRotation + 90f) % 360;
+                    StartCoroutine(RotateEnemy(currentRotation, rotationDuration));
+
+                    Debug.Log("currentRotation: " + currentRotation);
+                    Vector3 currentPosition = gameObject.transform.localPosition;
+                    gameObject.transform.localPosition = currentPosition - checkGroundedVector * 0.5f;
+
+                    CheckVectors();
+                    Move();
+                }
+                else
+                {
+                    rb.velocity = Vector2.zero;
+                }
             }
         }
     }
@@ -97,6 +114,9 @@ public class EnemyStickyMovement : MonoBehaviour
     {
         switch (currentRotation)
         {
+            case 90f:
+                rb.velocity = new Vector2(0f, moveSpeed);
+                break;
             case -90f:
                 rb.velocity = new Vector2(0f, -moveSpeed);
                 break;
@@ -110,6 +130,50 @@ public class EnemyStickyMovement : MonoBehaviour
                 rb.velocity = new Vector2(moveSpeed, 0f);
                 break;
         }
+    }
+
+    private void CheckVectors()
+    {
+        float checkRotation = currentRotation;
+        Debug.Log("CheckVectors: " + checkRotation);
+        if (checkRotation > 1f)
+        {
+            checkRotation = checkRotation - 360f;
+        }
+        Debug.Log("CheckVectors: " + checkRotation);
+        switch (checkRotation)
+        {
+            case -90f:
+                checkGroundedVector = Vector3.left;
+                checkWallRightVector = Vector3.down;
+                checkWallLeftVector = Vector3.up;
+                break;
+            case -180f:
+                checkGroundedVector = Vector3.up;
+                checkWallRightVector = Vector3.left;
+                checkWallLeftVector = Vector3.right;
+                break;
+            case -270f:
+                checkGroundedVector = Vector3.right;
+                checkWallRightVector = Vector3.up;
+                checkWallLeftVector = Vector3.down;
+                break;
+            default:
+                checkGroundedVector = Vector3.down;
+                checkWallRightVector = Vector3.right;
+                checkWallLeftVector = Vector3.left;
+                break;
+        }
+    }
+
+    private bool checkWallRight()
+    {
+        RaycastHit2D raycastHit = Physics2D.Raycast(circleCollider.bounds.center, checkWallRightVector, 1f, platformMask);
+
+        Debug.DrawRay(circleCollider.bounds.center, checkWallRightVector, Color.red);
+
+        Debug.Log("checkWallRight: " + raycastHit.collider);
+        return raycastHit.collider != null;
     }
 
     private bool isGrounded()
