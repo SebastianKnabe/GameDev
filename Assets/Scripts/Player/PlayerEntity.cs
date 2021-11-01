@@ -133,9 +133,13 @@ public class PlayerEntity : MonoBehaviour
 
     public void hitObstacle(float damageTaken)
     {
+        if (!damageCooldown)
+        {
+
         rb.AddForce(transform.up * 15, ForceMode2D.Impulse);
         takeDamage(damageTaken);
         StartCoroutine("WaitForHit");
+        }
 
     }
 

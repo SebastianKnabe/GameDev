@@ -69,6 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6506914532516400149, guid: 49c3b2d428312194a95d57929fd3b3b7,
         type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506914532516400149, guid: 49c3b2d428312194a95d57929fd3b3b7,
+        type: 3}
       propertyPath: shooter
       value: Player
       objectReference: {fileID: 0}

@@ -30,8 +30,6 @@ public class BulletScript : MonoBehaviour
     {
         //Wenn Kugel vom gleichen Tag ist, passiert nichts
         //Mögliche Tags der Kugel sind Player oder Enemy
-        Debug.Log(other.gameObject.tag);
-        Debug.Log("??? " + gameObject.tag);
         if (other.gameObject.tag == "Untagged" || other.gameObject.tag == shooter)
         {
             return;
