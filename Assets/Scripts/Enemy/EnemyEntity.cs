@@ -15,6 +15,7 @@ public class EnemyEntity : MonoBehaviour
     private bool isShielded = false;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private Collider2D collider;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class EnemyEntity : MonoBehaviour
         currentHitPoints = maxHitPoints;
         animator = gameObject.GetComponent<Animator>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        collider = gameObject.GetComponent<Collider2D>();
 
         InitHealthbar();
 
@@ -63,8 +65,9 @@ public class EnemyEntity : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerEntity>().hitObstacle(50);
-        }
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), collider);
+            collision.gameObject.GetComponent<PlayerEntity>().takeDamage(50);
+        } 
     }
 
     public void death()
