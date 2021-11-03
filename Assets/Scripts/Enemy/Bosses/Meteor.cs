@@ -5,14 +5,12 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
     [SerializeField] private int damage = 1;
+    private IEnumerator coroutine;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (gameObject.transform.localPosition.y < 0)
-        {
-            Destroy(gameObject);
-        }
+        coroutine = DestroyMeteor();
+        StartCoroutine(coroutine);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,4 +20,14 @@ public class Meteor : MonoBehaviour
             collision.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
         }
     }
+
+    private IEnumerator DestroyMeteor()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+
+    }
+
+
+
 }
