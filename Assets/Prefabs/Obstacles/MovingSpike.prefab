@@ -321,3 +321,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8750493ed8cb348cab72d3192c2f2637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpawnSafe: {fileID: 11400000, guid: 82d93606e03c0444a9dbc0c7b7072c77, type: 2}
+  playerSpawnUnsafe: {fileID: 11400000, guid: c9a455aa9cc66334b926051cf97192f1, type: 2}
