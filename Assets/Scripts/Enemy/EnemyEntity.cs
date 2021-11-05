@@ -13,7 +13,6 @@ public class EnemyEntity : MonoBehaviour
 
     private float currentHitPoints;
     private StateModel stateModel;
-    public bool dropEnabled;
     private bool isShielded = false;
     private Animator animator;
     private SpriteRenderer spriteRenderer;

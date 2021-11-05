@@ -86,7 +86,7 @@ public class WeaponManagerScript : MonoBehaviour
     public void updateCooldown(){
 
         foreach (var weaponEntity in weapons){
-            if (weaponEntity.weapon.weaponCooldownTimer <= weaponEntity.weapon.bullet.weaponCooldown)
+            if (weaponEntity.weapon.weaponCooldownTimer <= weaponEntity.weapon.weaponCooldown)
             {
                 weaponEntity.weapon.weaponCooldownTimer += Time.fixedDeltaTime;
                 updateImageFillAmount(weaponEntity);
