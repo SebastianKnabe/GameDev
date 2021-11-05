@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class SingeBulletWeapon : WeaponEntity
 {
+    public override void onSwitch()
+    {
+    }
+
     // Start is called before the first frame update
     public override void Start()
     {

@@ -69,6 +69,7 @@ public class WeaponManagerScript : MonoBehaviour
         foreach(var keyBinding in keyBindings){
             if(Input.GetKeyDown(keyBinding.Key)){
                 resetScaling();
+                currentWeapon.weapon.onSwitch();
                 currentWeapon = keyBinding.Value;
                 alterScaling();
                 break;

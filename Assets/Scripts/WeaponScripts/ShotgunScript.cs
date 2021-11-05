@@ -8,7 +8,11 @@ public class ShotgunScript : WeaponEntity
     [SerializeField] private int NumberOfProjectiles = 3;
     [Range(0, 360)]
     [SerializeField] private float SpreadAngle = 20;
-    
+
+    public override void onSwitch()
+    {
+    }
+
     public override void Start()
     {
 

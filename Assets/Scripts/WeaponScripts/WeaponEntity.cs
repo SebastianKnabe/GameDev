@@ -28,6 +28,8 @@ public abstract class WeaponEntity : MonoBehaviour
     public abstract void Start();
     public abstract void Update();
 
+    public abstract void onSwitch();
+
     public void flipSprite(Vector3 crosshairPlayerDifference)
     {
         bool facingRight = spriteManager.getFacingRight();
