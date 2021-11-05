@@ -12,15 +12,22 @@ public class EnemyEntity : MonoBehaviour
     [SerializeField] private VoidEvent bossTookDamageEvent;
 
     private float currentHitPoints;
+    private StateModel stateModel;
     private bool isShielded = false;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Collider2D collider;
 
+
+    public float getCurrentHitPoints()
+    {
+        return currentHitPoints;
+    }
     // Start is called before the first frame update
     void Start()
     {
         currentHitPoints = maxHitPoints;
+        stateModel = GetComponent<StateModel>();
         animator = gameObject.GetComponent<Animator>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         collider = gameObject.GetComponent<Collider2D>();
@@ -35,6 +42,10 @@ public class EnemyEntity : MonoBehaviour
      */
     public void takeDamage(float incomingDamage)
     {
+        if(stateModel != null)
+        {
+            stateModel.fireDamageEvent();
+        }
         if (!isShielded)
         {
             currentHitPoints -= incomingDamage;
@@ -81,6 +92,9 @@ public class EnemyEntity : MonoBehaviour
         {
             this.gameObject.GetComponent<DropLootScript>().dropLoot();
         }
+
+        if(GetComponent<StateModel>() == null)
+            Destroy(this.gameObject);
     }
 
     public float getHealthPercentage()

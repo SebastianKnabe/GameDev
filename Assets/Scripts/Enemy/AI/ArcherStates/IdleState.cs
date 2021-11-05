@@ -6,6 +6,8 @@ public class IdleState : State
 {
     public ChaseState chaseState;
     public AttackState attackState;
+    public BlockState blockState;
+    public OnHitState onHitState;
     public Transform archer;
     public string animatorStringForIdle;
 
@@ -14,15 +16,28 @@ public class IdleState : State
 
 
     private string stateString = "idleState";
+
+    public override void initVariables()
+    {
+
+    }
     public void Start()
     {
         archerEntity = archer.GetComponent<StateModel>();
-        runFixedUpdate = false;
+        initVariables();
     }
 
     public override State RunCurrentState()
     {
         FlipCharPeriodically();
+        if (archerEntity.checkHealth() == 1)
+        {
+            return onHitState;
+        }
+
+        if (archerEntity.BlockProjectile()) {
+            return blockState;
+        }
 
         if (archerEntity.returnToSpawnPoint())
         {
@@ -41,6 +56,7 @@ public class IdleState : State
         return nextState;
     }
 
+   
     public void updateChaseTimer()
     {
         // only increase time if enemy isn't attacking
@@ -118,5 +134,5 @@ public class IdleState : State
         return stateString;
     }
 
-
+   
 }

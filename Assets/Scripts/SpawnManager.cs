@@ -20,8 +20,7 @@ public class SpawnManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-   
-    public void onLevelLoaded()
+    public void FindDoor()
     {
         // all objects are loaded, call other methods
         DoorScript[] doors = FindObjectsOfType(typeof(DoorScript)) as DoorScript[];
@@ -33,11 +32,17 @@ public class SpawnManager : MonoBehaviour
 
                 changePositiion("Player", t.transform);
                 changePositiion("MainCamera", t.transform);
-               
+
 
             }
 
         }
+    }
+
+   
+    public void onLevelLoaded()
+    {
+        FindDoor();
     }
 
     private void changePositiion(string tag, Transform trans)

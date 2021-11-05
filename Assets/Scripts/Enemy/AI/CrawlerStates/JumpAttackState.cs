@@ -14,13 +14,20 @@ public class JumpAttackState : State
     private Rigidbody2D enemyRB;
     private string stateString = "jumpAttackState";
     private bool started = false;
-    private bool enemyFelt = false;
+    private bool enemyFall = false;
     private Coroutine jmpRoutine;
+
+
+    public override void initVariables()
+    {
+        started = false;
+    }
 
     public void Start()
     {
         enemyEntity = enemy.GetComponent<StateModel>();
         enemyRB = enemyEntity.GetComponent<Rigidbody2D>();
+        initVariables();
     }
 
     public override string getStateType()
@@ -44,7 +51,7 @@ public class JumpAttackState : State
             bool isGrounded = Physics2D.OverlapBox(enemyEntity.colliders[1].transform.position, enemyEntity.colliders[1].boxSize, 0, enemyEntity.LayerMask);
             if (isGrounded)
             {
-                started = false;
+                //started = false;
                 return patrollingState;
             }
         }
@@ -52,5 +59,5 @@ public class JumpAttackState : State
         return this;
     }
 
-  
+   
 }

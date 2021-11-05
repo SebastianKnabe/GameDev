@@ -177,7 +177,7 @@ public class PlayerEntity : MonoBehaviour
         }
 
         updateHealthbar();
-        timeSinceLastColorChange = Time.time - changeColorHitRate;
+        //timeSinceLastColorChange = Time.time - changeColorHitRate;
     }
 
     public void death()

@@ -15,23 +15,26 @@ public class StateModel : MonoBehaviour
     [Header("shared attack attributes")]
     public float shootingCooldown;
     public float attackSpeed;
-  
 
-    
 
-    [Header("shared player attributes")]  
+
+
+    [Header("shared player attributes")]
     public bool playerInRange;
     public bool playerInSight;
 
 
     [Header("shared obstacle object")]
     public GameObject wallObjectsParent;
-    
+
 
     [Header("shared archer attributes")]
     public float runningSpeed;
     public float attackDistance;
     public Colliders[] colliders;
+    public bool blockAbility;
+    public float blockProbability;
+    public LayerMask blockMask;
     //public Transform groundCheck, wallCheck, heightCheck;
     //public Vector2 groundBoxSize;
     //public Vector2 wallBoxSize;
@@ -57,14 +60,21 @@ public class StateModel : MonoBehaviour
     private float timeSinceLastShot;
     private float timeSinceLastFlip;
     private float timeSinceLastRetargeting;
+   
     private bool facingRight;
     private bool isChasing;
-    
+    // animation event doesent allow to execute boolean typed functions
+    private int animationTriggerEvent;
+    private bool damageTriggerEvent;
+    private float timePassUntilDamageOnHit = 0.3f;
+    private float timeSinceDamageOnHit;
+    private float previoiusHealth;
+    private EnemyEntity enemyEntity;
 
 
-   
+
     public Transform Player { get => player; set => player = value; }
-    
+
     public Vector3 LastPlayerPosition { get => lastPlayerPosition; set => lastPlayerPosition = value; }
     public bool CheckingWall { get => checkingWall; set => checkingWall = value; }
     public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
@@ -78,7 +88,9 @@ public class StateModel : MonoBehaviour
     public bool IsChasing { get => isChasing; set => isChasing = value; }
     public float TimeSinceLastFlip { get => timeSinceLastFlip; set => timeSinceLastFlip = value; }
     public float TimeSinceLastRetargeting { get => timeSinceLastRetargeting; set => timeSinceLastRetargeting = value; }
-    
+    public int AnimationTriggerEvent { get => animationTriggerEvent; set => animationTriggerEvent = value; }
+    public float PrevioiusHealth { get => previoiusHealth; set => previoiusHealth = value; }
+    public bool DamageTriggerEvent { get => damageTriggerEvent; set => damageTriggerEvent = value; }
 
     void Start()
     {
@@ -86,6 +98,7 @@ public class StateModel : MonoBehaviour
         //layerMask = LayerMask.NameToLayer("Platform");
         layerMask = 1 << 8;
         timeSinceLastShot = shootingCooldown;
+        timeSinceDamageOnHit = timePassUntilDamageOnHit;
         //TimeSinceLastRetargeting = TimePassUntilRetargeting;
         playerInRange = false;
         playerInSight = false;
@@ -93,7 +106,8 @@ public class StateModel : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         spawnPosition = transform.position;
-
+        AnimationTriggerEvent = 0;
+        enemyEntity = GetComponent<EnemyEntity>();
     }
 
     void FixedUpdate()
@@ -108,14 +122,14 @@ public class StateModel : MonoBehaviour
             TimeSinceLastFlip += Time.fixedDeltaTime;
         }
 
-        if(Mathf.Abs(transform.position.x - SpawnPosition.x) > 0.1f && !isChasing)
+        if (Mathf.Abs(transform.position.x - SpawnPosition.x) > 0.1f && !isChasing)
         {
-            isChasing = true; 
+            isChasing = true;
             TimeSinceAwayFromSpawn = 0;
             timeSinceLastRetargeting = 0;
         }
 
-        if(timeSinceLastRetargeting < timePassUntilRetargeting && returnToSpawnPoint())
+        if (timeSinceLastRetargeting < timePassUntilRetargeting && returnToSpawnPoint())
         {
             timeSinceLastRetargeting += Time.fixedDeltaTime;
         }
@@ -126,6 +140,13 @@ public class StateModel : MonoBehaviour
             TimeSinceAwayFromSpawn = 0f;
             TimeSinceLastRetargeting = 0f;
         }
+        if (timeSinceDamageOnHit < timePassUntilDamageOnHit)
+        {
+            timeSinceDamageOnHit += Time.fixedDeltaTime;
+        } else if(damageTriggerEvent)
+        {
+            damageTriggerEvent = false;
+        }
 
     }
 
@@ -133,38 +154,79 @@ public class StateModel : MonoBehaviour
     {
 
 
-            if (!isGrounded)
-            {
-                return;
-            }
-            if (transform.position.x > lastPlayerPosition.x)
-            {
-                FacingRight = false;
-                transform.eulerAngles = new Vector3(0, 180, 0);
+        if (!isGrounded)
+        {
+            return;
+        }
+        if (transform.position.x > lastPlayerPosition.x)
+        {
+            FacingRight = false;
+            transform.eulerAngles = new Vector3(0, 180, 0);
 
-            }
-            else
-            {
-                FacingRight = true;
-                transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            FacingRight = true;
+            transform.eulerAngles = new Vector3(0, 0, 0);
 
-            }
-        
+        }
+
     }
 
     public bool returnToSpawnPoint()
     {
 
-        if(isChasing && timeSinceAwayFromSpawn >= timePassUntilMoveBack)
+        if (isChasing && timeSinceAwayFromSpawn >= timePassUntilMoveBack)
         {
             lastPlayerPosition = spawnPosition;
             return true;
         }
-   
+
         return false;
-        
+
     }
 
+    public bool BlockProjectile()
+    {
+
+        if (!blockAbility)
+        {
+            return false;
+        }
+        Collider2D[] hitInfo = Physics2D.OverlapBoxAll(colliders[3].transform.position, colliders[3].boxSize, 0, blockMask);
+        foreach (Collider2D col in hitInfo)
+        {
+            if (col.gameObject.CompareTag("Bullet"))
+            {
+
+                if (Random.value <= blockProbability)
+                {
+                    ScreenShakeController.instace.startShake(.5f, .2f);
+                    Destroy(col.gameObject);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+    public void fireDamageEvent()
+    {
+        damageTriggerEvent = true;
+        timeSinceDamageOnHit = 0;
+    }
+
+    public int checkHealth()
+    {
+        if(damageTriggerEvent)
+        {
+            damageTriggerEvent = false;
+            return 1;
+        }
+        return 0;
+    }
 
     void OnDrawGizmos()
     {
@@ -199,5 +261,5 @@ public class StateModel : MonoBehaviour
 
     }
 
-
+   
 }

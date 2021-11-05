@@ -49,10 +49,14 @@ public class BurnScript : EffectScript
             if (target.tag == "Player")
             {
                 target.GetComponent<PlayerEntity>().takeDamageFromEffect(damage);
+                ScreenShakeController.instace.startShake(.5f, .1f);
+
             }
             else if (target.tag == "Enemy")
             {
                 target.GetComponent<EnemyEntity>().takeDamage(damage);
+                ScreenShakeController.instace.startShake(.5f, .1f);
+
             }
             else
             {

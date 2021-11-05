@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2567699535009588810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8870304075677926896}
+  - component: {fileID: 7566312725351696073}
+  m_Layer: 0
+  m_Name: ShotgunWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8870304075677926896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2567699535009588810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 149, y: 41.4, z: -8.261719}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7566312725351696073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2567699535009588810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1566175abf9d73345981526982487b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  crosshair: {fileID: 0}
+  weaponImage: {fileID: 0}
+  cooldownImage: {fileID: 0}
+  bulletPrefab: {fileID: 7719220469888607292, guid: 13617519db9f64e4ea9a40b92eeccf11,
+    type: 3}
+  bulletStart: {fileID: 0}
+  spriteFlipTreshold: 5
+  audioSource: {fileID: 0}
+  spriteManager: {fileID: 0}
+  bullet: {fileID: -5122297615798638232, guid: 13617519db9f64e4ea9a40b92eeccf11, type: 3}
+  animator: {fileID: 0}
+  bulletSound: {fileID: 8300000, guid: 26e19616f6ba9f6469e9d3d6c38b23fe, type: 3}
+  weaponCooldownTimer: 0
+  weaponCooldown: 5
+  rb: {fileID: 0}
+  crosshairScript: {fileID: 0}
+  switched: 0
+  startAngle: 80
+  endAngle: 90
+  bulletCount: 3

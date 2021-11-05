@@ -35,11 +35,13 @@ public class ArrowScript : MonoBehaviour
         if (other.tag == "Player")
         {
             Destroy(this.gameObject);
+            ScreenShakeController.instace.startShake(.5f, .25f);
             other.gameObject.GetComponent<PlayerEntity>().takeDamage(damage);
 
         }
         else if (other.tag == "Ground")
         {
+            ScreenShakeController.instace.startShake(.5f, .25f);
             Destroy(this.gameObject);
         }
     }
