@@ -14,7 +14,7 @@ public class ItemScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if(isGamePaused)
+            if (isGamePaused)
             {
                 Resume();
             }
@@ -22,11 +22,17 @@ public class ItemScreen : MonoBehaviour
             {
                 Pause();
             }
-        }    
+        } else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isGamePaused)
+            {
+                Resume();
+            }
+        }   
     }
 
     //Unpause and close Inventory
-    void Resume ()
+    void Resume()
     {
         Time.timeScale = 1f;
         isGamePaused = false;

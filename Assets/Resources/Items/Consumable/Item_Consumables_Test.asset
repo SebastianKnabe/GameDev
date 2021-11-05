@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   sellPrice: 1
   maxStack: 3
+  sellable: 1
   useText: Does something.

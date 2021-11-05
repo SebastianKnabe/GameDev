@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4248006612215162496}
   - component: {fileID: 4248006612215162499}
   - component: {fileID: 4248006612215162511}
+  - component: {fileID: 8772934824633530695}
+  - component: {fileID: 9052402641673260450}
   m_Layer: 8
   m_Name: fallingPlatform
   m_TagString: Untagged
@@ -52,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3173278686166571628, guid: 02b6823ab6b4124468877d7774161505,
+  m_Sprite: {fileID: 4747685307942977081, guid: 2cab978acac42b040970e2dddda0e900,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4248006612215162496}
-  boundValue: -32
+  boundValue: -100
   respawns: 1
 --- !u!61 &4248006612215162511
 BoxCollider2D:
@@ -147,3 +149,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9846449, y: 1.9846452}
   m_EdgeRadius: 0
+--- !u!61 &8772934824633530695
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248006612215162498}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 4}
+  m_EdgeRadius: 0
+--- !u!114 &9052402641673260450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248006612215162498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8750493ed8cb348cab72d3192c2f2637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

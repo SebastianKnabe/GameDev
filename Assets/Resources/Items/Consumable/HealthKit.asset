@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: -2287800487391013232, guid: 97b32c67b21b90947a2eeac50613e2d0, type: 3}
   sellPrice: 1
   maxStack: 10
+  sellable: 1
   useText: Restores 25% of the Players HP.

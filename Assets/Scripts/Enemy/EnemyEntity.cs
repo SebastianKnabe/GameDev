@@ -6,10 +6,17 @@ public class EnemyEntity : MonoBehaviour
 {
     public float maxHitPoints;
     public GameObject healthbar;
+    public bool dropEnabled;
+    public bool isBoss;
+
+    [SerializeField] private VoidEvent bossTookDamageEvent;
 
     private float currentHitPoints;
     private StateModel stateModel;
     public bool dropEnabled;
+    private bool isShielded = false;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
 
     public float getCurrentHitPoints()
@@ -21,11 +28,16 @@ public class EnemyEntity : MonoBehaviour
     {
         currentHitPoints = maxHitPoints;
         stateModel = GetComponent<StateModel>();
+        animator = gameObject.GetComponent<Animator>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        InitHealthbar();
+
         updateHealthbar();
     }
 
-    /* Methode wird aufgerufen, wenn die Entity Schaden erleidet.
-     * 
+    /* 
+     * Methode wird aufgerufen, wenn die Entity Schaden erleidet.
      */
     public void takeDamage(float incomingDamage)
     {
@@ -33,20 +45,49 @@ public class EnemyEntity : MonoBehaviour
         {
             stateModel.fireDamageEvent();
         }
-        currentHitPoints -= incomingDamage;
-        if(currentHitPoints <= 0)
+        if (!isShielded)
         {
-            death();
-            return;
-        }
+            currentHitPoints -= incomingDamage;
 
-        updateHealthbar();
+            BossDamageEvent();
+
+            if (currentHitPoints <= 0)
+            {
+                currentHitPoints = 0;
+                updateHealthbar();
+                death();
+                return;
+            }
+
+            updateHealthbar();
+        }
+    }
+
+    private void BossDamageEvent()
+    {
+        if (isBoss)
+        {
+            bossTookDamageEvent.Raise();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerEntity>().hitObstacle(50);
+        }
     }
 
     public void death()
     {
-        //TODO
-        if(dropEnabled){
+        animator.SetTrigger("isDead");
+        if (this.gameObject.GetComponent<EnemyShootingScript>())
+        {
+            this.gameObject.GetComponent<EnemyShootingScript>().enabled = false;
+        }
+        if (dropEnabled)
+        {
             this.gameObject.GetComponent<DropLootScript>().dropLoot();
         }
 
@@ -54,10 +95,29 @@ public class EnemyEntity : MonoBehaviour
             Destroy(this.gameObject);
     }
 
+    public float getHealthPercentage()
+    {
+        return currentHitPoints / maxHitPoints;
+    }
+
+    public void setShield(bool shield)
+    {
+        isShielded = shield;
+        if (isShielded)
+        {
+            spriteRenderer.color = new Color32(0, 255, 255, 255);
+        }
+        else
+        {
+            spriteRenderer.color = new Color32(255, 255, 255, 255);
+        }
+
+    }
+
     private void updateHealthbar()
     {
         float healthbarRatio = currentHitPoints / maxHitPoints;
-        if(healthbarRatio == 1f)
+        if (healthbarRatio == 1f && !isBoss)
         {
             healthbar.SetActive(false);
         }
@@ -66,6 +126,17 @@ public class EnemyEntity : MonoBehaviour
             healthbar.SetActive(true);
             healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
         }
-        
     }
+
+    private void InitHealthbar()
+    {
+        if (!isBoss)
+        {
+            GameObject bar = Instantiate(healthbar);
+            bar.transform.parent = gameObject.transform;
+            healthbar = bar;
+        }
+    }
+
+
 }

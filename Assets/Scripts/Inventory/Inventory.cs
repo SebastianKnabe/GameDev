@@ -13,7 +13,8 @@ public class Inventory : ScriptableObject
 
     public void OnDisable() => ItemContainer.OnItemsUpdate -= onInventoryItemsUpdated.Raise;
 
-    public void setOnInventoryItemsUpdatedEvent(VoidEvent onInventoryItemsUpdatedEvent) {
+    public void setOnInventoryItemsUpdatedEvent(VoidEvent onInventoryItemsUpdatedEvent)
+    {
         onInventoryItemsUpdated = onInventoryItemsUpdatedEvent;
     }
 
@@ -21,5 +22,19 @@ public class Inventory : ScriptableObject
     public void ResetInventory()
     {
         ItemContainer = new ItemContainer(20);
+    }
+
+    public void LoadInventory(SaveFile saveFile)
+    {
+        ItemSlot[] itemSlots = saveFile.itemSlots;
+        ItemContainer = new ItemContainer(itemSlots.Length);
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            ItemSlot itemSlot = itemSlots[i];
+            if (itemSlot.quantity > 0 && itemSlot.item.GetInstanceID() != 0)
+            {
+                ItemContainer.AddItemAtSlotIndex(itemSlot, i);
+            }
+        }
     }
 }

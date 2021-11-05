@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerEntity : MonoBehaviour
 {
     //public static PlayerEntity instance;
-    
+
     public float maxHitPoints;
     public GameObject healthbar;
     public SpriteRenderer spriteRenderer;
@@ -15,7 +15,7 @@ public class PlayerEntity : MonoBehaviour
     public InventoryItem healthKit;
     public AudioSource audioSource;
     public Transform spawnPoint;
-    public GameObject camera;
+    public Camera camera;
 
     //private string spawnPoint;
     [SerializeField] private AudioClip deathSound;
@@ -30,7 +30,7 @@ public class PlayerEntity : MonoBehaviour
     private float changeColorHitRate;
     private Animator animator;
 
-    
+
     /*
     public void setSpawnPoint(string spawnPoint)
     {
@@ -71,7 +71,7 @@ public class PlayerEntity : MonoBehaviour
         {
             //spriteRenderer.color = new Color32(255,0,0,255);
             if (Time.time > timeSinceLastColorChange + changeColorHitRate)
-            {  
+            {
                 spriteRenderer.color = spriteRenderer.color == new Color32(255, 0, 0, 255) ? new Color32(255, 255, 255, 255) : new Color32(255, 0, 0, 255);
                 timeSinceLastColorChange = Time.time;
             }
@@ -131,10 +131,10 @@ public class PlayerEntity : MonoBehaviour
 
     }
 
-    public void hitObstacle()
+    public void hitObstacle(float damageTaken)
     {
         rb.AddForce(transform.up * 15, ForceMode2D.Impulse);
-        takeDamage(2);
+        takeDamage(damageTaken);
         StartCoroutine("WaitForHit");
 
     }
@@ -142,16 +142,21 @@ public class PlayerEntity : MonoBehaviour
     IEnumerator WaitForHit()
     {
         yield return new WaitForSeconds(0.5f);
-        this.transform.position = spawnPoint.position;
-        camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
-
+        if (currentHitPoints > 0)
+        {
+            this.transform.position = spawnPoint.position;
+            camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
+        }
     }
 
 
     IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(2);
+        // set to 0.5 since we have no death animation, was at 2
+        yield return new WaitForSeconds(0.5f);
         audioSource.PlayOneShot(respawnSound);
+        currentHitPoints = 400;
+        updateHealthbar();
         this.transform.position = spawnPoint.position;
         camera.gameObject.GetComponent<CameraFollow>().MoveCameraToSpawnPoint(spawnPoint);
     }
@@ -174,9 +179,10 @@ public class PlayerEntity : MonoBehaviour
     public void death()
     {
         //TODO
+        updateHealthbar();
         audioSource.PlayOneShot(deathSound);
         StartCoroutine("Respawn");
-        
+
     }
 
     private void updateHealthbar()

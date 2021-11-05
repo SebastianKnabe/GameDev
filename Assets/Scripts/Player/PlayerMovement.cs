@@ -61,21 +61,21 @@ public class PlayerMovement : MonoBehaviour
         {
             setBackupPosition();
             setSpawnPointAfterSpikeHit(gameObject.transform.position);
-            if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true))
+            if (Input.GetKey(KeyCode.LeftShift) && staminaRefillScript.staminaUI.fillAmount > 0 && staminaRefillScript.requestSprint(true) && rb.velocity.magnitude > 0)
             {
                 speed = sprintSpeed;
-            
+
             }
             else
             {
-                if (hasJumped)
-                {
-                    hasJumped = false;
-                }
                 speed = moveSpeed;
                 staminaRefillScript.requestSprint(false);
             }
             coyoteTimer = 0;
+            if (hasJumped)
+            {
+                hasJumped = false;
+            }
 
         }
         else
@@ -84,8 +84,15 @@ public class PlayerMovement : MonoBehaviour
             staminaRefillScript.requestSprint(false);
         }
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
-        rb.velocity = movement;
-        animator.SetFloat("movementSpeed", movement.x);
+        if (!IsSlippery())
+        {
+            rb.velocity = movement;
+        }
+        else
+        {
+            rb.AddForce(movement * 0.66f, ForceMode2D.Force);
+        }
+        animator.SetFloat("movementSpeed", movement.magnitude);
         flipSprite();
 
         Jump();
@@ -107,10 +114,21 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
 
-        Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down);
+        Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down, Color.red);
 
         //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
+    }
+
+    private bool IsSlippery()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+        if (raycastHit.collider != null)
+        {
+            return raycastHit.collider.tag == "Slippery";
+        }
+        return false;
+
     }
 
     private void flipSprite()

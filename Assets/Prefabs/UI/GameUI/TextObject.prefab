@@ -85,7 +85,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759110591118936699}
-  m_Text: Press [E] to loot
+  m_Text: "Press [E] to \nfly to space"
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
