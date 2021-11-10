@@ -8544,6 +8544,18 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 401924413}
+    - target: {fileID: 8145677424242070394, guid: 301f4b996c8bdf148ae31ec2f236563d,
+        type: 3}
+      propertyPath: enemyHealthbarPrefab
+      value: 
+      objectReference: {fileID: 5985344465474725283, guid: b5872183874660e47b6727a1338e1ca9,
+        type: 3}
+    - target: {fileID: 8145677425253275886, guid: 301f4b996c8bdf148ae31ec2f236563d,
+        type: 3}
+      propertyPath: enemyHealthbarPrefab
+      value: 
+      objectReference: {fileID: 5985344465474725283, guid: b5872183874660e47b6727a1338e1ca9,
+        type: 3}
     - target: {fileID: 8145677425267247004, guid: 301f4b996c8bdf148ae31ec2f236563d,
         type: 3}
       propertyPath: m_IsTrigger

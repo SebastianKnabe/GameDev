@@ -128,12 +128,12 @@ public class EnemyEntity : MonoBehaviour
         float healthbarRatio = currentHitPoints / maxHitPoints;
         if (healthbarRatio == 1f && !isBoss)
         {
-            healthbar.SetActive(false);
+            enemyHealthbarPrefab.SetActive(false);
         }
         else
         {
-            healthbar.SetActive(true);
-            healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
+            enemyHealthbarPrefab.SetActive(true);
+            enemyHealthbarPrefab.transform.localScale = new Vector3(healthbarRatio, 1, 0);
         }
     }
 
@@ -141,9 +141,9 @@ public class EnemyEntity : MonoBehaviour
     {
         if (!isBoss)
         {
-            GameObject bar = Instantiate(healthbar);
+            GameObject bar = Instantiate(enemyHealthbarPrefab);
             bar.transform.parent = gameObject.transform;
-            healthbar = bar;
+            enemyHealthbarPrefab = bar;
         }
     }
 
