@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 961586543}
   - component: {fileID: 961586545}
   m_Layer: 5
-  m_Name: Slot 1
+  m_Name: Weaponslot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 1267661363}
   - component: {fileID: 1267661365}
   m_Layer: 5
-  m_Name: Slot 3
+  m_Name: Weaponslot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1264,7 +1264,7 @@ GameObject:
   - component: {fileID: 2123858359}
   - component: {fileID: 2123858361}
   m_Layer: 5
-  m_Name: Slot 2
+  m_Name: Weaponslot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2027,6 +2027,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026269759356531647, guid: 295f216826b608740ae6111cdd1dfd65,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026269759356531647, guid: 295f216826b608740ae6111cdd1dfd65,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8026269759356531647, guid: 295f216826b608740ae6111cdd1dfd65,
         type: 3}
