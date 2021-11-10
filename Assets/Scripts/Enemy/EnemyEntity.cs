@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyEntity : MonoBehaviour
 {
-    public float maxHitPoints;
-    public GameObject healthbar;
-    public bool dropEnabled;
-    public bool isBoss;
-
+    [SerializeField] private float maxHitPoints;
+    [SerializeField] private float collideDamage = 1f;
+    [SerializeField] private GameObject enemyHealthbarPrefab; //Die EnemyEntity erstellt für sich selber eine Healthbar aus dem Prefab
+    [SerializeField] private bool dropEnabled;
+    [SerializeField] private bool isBoss;
     [SerializeField] private VoidEvent bossTookDamageEvent;
 
     private float currentHitPoints;
@@ -16,12 +16,8 @@ public class EnemyEntity : MonoBehaviour
     private bool isShielded = false;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private CircleCollider2D circleCollider2D;
 
-
-    public float getCurrentHitPoints()
-    {
-        return currentHitPoints;
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +25,16 @@ public class EnemyEntity : MonoBehaviour
         stateModel = GetComponent<StateModel>();
         animator = gameObject.GetComponent<Animator>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        circleCollider2D = gameObject.GetComponent<CircleCollider2D>();
 
         InitHealthbar();
 
         updateHealthbar();
+    }
+
+    public float getCurrentHitPoints()
+    {
+        return currentHitPoints;
     }
 
     /* 
@@ -40,7 +42,7 @@ public class EnemyEntity : MonoBehaviour
      */
     public void takeDamage(float incomingDamage)
     {
-        if(stateModel != null)
+        if (stateModel != null)
         {
             stateModel.fireDamageEvent();
         }
@@ -70,11 +72,19 @@ public class EnemyEntity : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerEntity>().takeDamage(collideDamage);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerEntity>().hitObstacle(50);
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CapsuleCollider2D>(), circleCollider2D);
         }
     }
 
@@ -90,7 +100,7 @@ public class EnemyEntity : MonoBehaviour
             this.gameObject.GetComponent<DropLootScript>().dropLoot();
         }
 
-        if(GetComponent<StateModel>() == null)
+        if (GetComponent<StateModel>() == null)
             Destroy(this.gameObject);
     }
 
