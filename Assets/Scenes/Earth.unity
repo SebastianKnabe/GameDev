@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1713,6 +1713,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 62651923, guid: fac084afc3cf9b944ac29c15633a96ee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 166707229, guid: fac084afc3cf9b944ac29c15633a96ee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 166707229, guid: fac084afc3cf9b944ac29c15633a96ee, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 166707229, guid: fac084afc3cf9b944ac29c15633a96ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 166707229, guid: fac084afc3cf9b944ac29c15633a96ee, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -8868,16 +8884,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270141706195436406, guid: 965fdb5f9c79e9a40901522bf964d668,
-        type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 595230778}
-    - target: {fileID: 4270141706195436408, guid: 965fdb5f9c79e9a40901522bf964d668,
-        type: 3}
-      propertyPath: crosshair
-      value: 
-      objectReference: {fileID: 2128712979}
-    - target: {fileID: 4270141706195436408, guid: 965fdb5f9c79e9a40901522bf964d668,
         type: 3}
       propertyPath: audioSource
       value: 

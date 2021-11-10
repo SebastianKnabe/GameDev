@@ -12,7 +12,7 @@ public class BulletScript : MonoBehaviour
     [SerializeField] protected bool isDestructable = false;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +59,7 @@ public class BulletScript : MonoBehaviour
             other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
             ScreenShakeController.instace.startShake(.5f, 0.2f);
             Destroy(this.gameObject);
-            
+
         }
         else if (other.gameObject.tag == "Player")
         {
