@@ -43,11 +43,11 @@ GameObject:
   - component: {fileID: 4270141706195436402}
   - component: {fileID: 4270141706195436405}
   - component: {fileID: 4270141706195436406}
-  - component: {fileID: 4270141706195436408}
   - component: {fileID: 4270141706195436409}
   - component: {fileID: 4270141706195436407}
   - component: {fileID: 275177604}
   - component: {fileID: 583730194}
+  - component: {fileID: 232437294}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -190,27 +190,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   jumpSound: {fileID: 8300000, guid: 03c018510e5454931a6faa39c401ad19, type: 3}
---- !u!114 &4270141706195436408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4270141706195436401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 922a14ba66cf486479067b216d4c1d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crosshair: {fileID: 0}
-  bulletPrefab: {fileID: 7719220469888607292, guid: 13617519db9f64e4ea9a40b92eeccf11,
-    type: 3}
-  bulletStart: {fileID: 4270141704612379689}
-  bulletSpeed: 60
-  spriteFlipTreshold: 5
-  weaponCooldown: 1
-  audioSource: {fileID: 0}
-  bulletSound: {fileID: 8300000, guid: b2a378cde622778458425a07137365f3, type: 3}
 --- !u!114 &4270141706195436409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +213,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   camera: {fileID: 0}
   deathSound: {fileID: 8300000, guid: bd8857660a16ba549b8cc522d93d9117, type: 3}
-  respawnSound: {fileID: 8300000, guid: c134bf6bd85561b4b938c913b97b57c9, type: 3}
+  respawnSound: {fileID: 8300000, guid: 832aa39d4fbe053428a67083bb091a1a, type: 3}
 --- !u!95 &4270141706195436407
 Animator:
   serializedVersion: 3
@@ -280,3 +259,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallMultiplier: 5
   lowJumpMultiplier: 6
+--- !u!114 &232437294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270141706195436401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191ac1324f0a49d45a60ac25b8a39fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - weapon: {fileID: 4917083935182687839, guid: 2741b3f01e72b6846a4dda0e629047d1,
+      type: 3}
+    slot: {fileID: 0}
+    KeyCode: 49
+  - weapon: {fileID: 7566312725351696073, guid: 86c29c78f227b154da702867adc738b4,
+      type: 3}
+    slot: {fileID: 0}
+    KeyCode: 50
+  - weapon: {fileID: 454872991458339080, guid: 8e82f7908f0836c41af69662f60d952c, type: 3}
+    slot: {fileID: 0}
+    KeyCode: 51
+  Player: {fileID: 4270141706195436401}
+  crosshair: {fileID: 0}
+  bulletStart: {fileID: 4270141704612379689}
+  audioSource: {fileID: 0}

@@ -136,7 +136,6 @@ public class PlayerEntity : MonoBehaviour
         rb.AddForce(transform.up * 15, ForceMode2D.Impulse);
         takeDamage(damageTaken);
         StartCoroutine("WaitForHit");
-
     }
 
     IEnumerator WaitForHit()
