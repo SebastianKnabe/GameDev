@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyStickyMovement : MonoBehaviour
 {
     [SerializeField] LayerMask platformMask;
-    [SerializeField] [Range(0, 5f)] private float moveSpeed = 1f;
+    [SerializeField] [Range(-5f, 5f)] private float moveSpeed = 1f;
     [SerializeField] private bool isPatrol = false;
     [SerializeField] private bool isStickToPlatform = false;
 
@@ -24,16 +24,17 @@ public class EnemyStickyMovement : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         circleCollider = gameObject.GetComponent<CircleCollider2D>();
-        if (moveSpeed > 2f)
+        if (moveSpeed > 2f || moveSpeed < -2f)
         {
             rotationDuration = 1f / moveSpeed;
         }
+        CheckVectors();
     }
 
     // Update is called once per frame
     void Update()
     {
-        DebugRaycasts();
+        //DebugRaycasts();
         CheckFacingWall();
         if (isPatrol)
         {
@@ -53,27 +54,42 @@ public class EnemyStickyMovement : MonoBehaviour
                 {
                     Move();
                 }
-                //Kante
+                //Kante im Weg
                 else if (!IsGrounded() && !CheckFacingWall())
                 {
-                    currentRotation = (currentRotation - 90f) % 360;
+                    if (moveSpeed < 0f)
+                    {
+                        currentRotation = (currentRotation + 90f);
+                    }
+                    else
+                    {
+                        currentRotation = (currentRotation - 90f);
+                    }
                     StartCoroutine(RotateEnemy(currentRotation, rotationDuration));
+                    currentRotation = currentRotation % 360;
 
-                    Debug.Log("currentRotation: " + currentRotation);
+                    //Debug.Log("currentRotation: " + currentRotation);
                     Vector3 currentPosition = gameObject.transform.localPosition;
                     gameObject.transform.localPosition = currentPosition + checkGroundedVector * 0.5f;
 
                     CheckVectors();
                     Move();
                 }
-                //Wand Lauf Richtung
+                //Wand im Weg
                 else if (CheckFacingWall() && IsGrounded())
                 {
-                    currentRotation = (currentRotation + 90f);
+                    if (moveSpeed < 0f)
+                    {
+                        currentRotation = (currentRotation - 90f) % 360;
+                    }
+                    else
+                    {
+                        currentRotation = (currentRotation + 90f);
+                    }
                     StartCoroutine(RotateEnemy(currentRotation, rotationDuration));
                     currentRotation = currentRotation % 360;
 
-                    Debug.Log("currentRotation: " + currentRotation);
+                    //Debug.Log("currentRotation: " + currentRotation);
                     Vector3 currentPosition = gameObject.transform.localPosition;
                     gameObject.transform.localPosition = currentPosition - checkGroundedVector * 0.5f;
 
@@ -98,10 +114,12 @@ public class EnemyStickyMovement : MonoBehaviour
         }
         Vector3 startLocalEulerAngles = gameObject.transform.localEulerAngles;
         Vector3 deltaLocalEulerAngles = new Vector3(0.0f, 0.0f, targetAngle - startLocalEulerAngles.z);
-        Debug.Log("startLocalEulersAngles: " + startLocalEulerAngles.ToString() + "\n" +
+        /*
+        Debug.Log("startLocalEulersAngles: " + startLocalEulerAngles.ToString() + "\n" + 
                   "deltaLocalEulerAngles: " + deltaLocalEulerAngles.ToString() + "\n" +
                   "targetAngle: " + targetAngle
             );
+        */
         float timer = 0.0f;
 
         while (timer < duration)
@@ -167,13 +185,38 @@ public class EnemyStickyMovement : MonoBehaviour
                 checkFacingWallVector = Vector3.right;
                 break;
         }
+
+        if (moveSpeed < 0f)
+        {
+            InvertFacingWall();
+        }
+    }
+
+    private void InvertFacingWall()
+    {
+        if (checkFacingWallVector == Vector3.left)
+        {
+            checkFacingWallVector = Vector3.right;
+        }
+        else if (checkFacingWallVector == Vector3.right)
+        {
+            checkFacingWallVector = Vector3.left;
+        }
+        else if (checkFacingWallVector == Vector3.up)
+        {
+            checkFacingWallVector = Vector3.down;
+        }
+        else if (checkFacingWallVector == Vector3.down)
+        {
+            checkFacingWallVector = Vector3.up;
+        }
     }
 
     private bool CheckFacingWall()
     {
         RaycastHit2D raycastHit = Physics2D.Raycast(circleCollider.bounds.center, checkFacingWallVector, 1f, platformMask);
 
-        Debug.Log("checkWallRight: " + raycastHit.collider);
+        //Debug.Log("checkWallRight: " + raycastHit.collider);
         return raycastHit.collider != null;
     }
 

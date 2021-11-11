@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4999,22 +4999,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1339926256}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &600058225
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600058224}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 8c5cdbd149aa27248aa5b02c1c0a51d6, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.3457285, y: -0.7488027}
-  m_Size: {x: 1.947934, y: 4.851738}
-  m_Direction: 0
 --- !u!4 &600058234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4270141706195436404, guid: 965fdb5f9c79e9a40901522bf964d668,
@@ -8922,20 +8906,10 @@ PrefabInstance:
       propertyPath: weapons.Array.data[2].slot
       value: 
       objectReference: {fileID: 1708735065}
-    - target: {fileID: 4270141704612379689, guid: 965fdb5f9c79e9a40901522bf964d668,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4270141706195436401, guid: 965fdb5f9c79e9a40901522bf964d668,
         type: 3}
       propertyPath: m_Name
       value: 'Player '
-      objectReference: {fileID: 0}
-    - target: {fileID: 4270141706195436401, guid: 965fdb5f9c79e9a40901522bf964d668,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270141706195436404, guid: 965fdb5f9c79e9a40901522bf964d668,
         type: 3}
@@ -8990,11 +8964,6 @@ PrefabInstance:
     - target: {fileID: 4270141706195436404, guid: 965fdb5f9c79e9a40901522bf964d668,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4270141706195436405, guid: 965fdb5f9c79e9a40901522bf964d668,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270141706195436406, guid: 965fdb5f9c79e9a40901522bf964d668,
