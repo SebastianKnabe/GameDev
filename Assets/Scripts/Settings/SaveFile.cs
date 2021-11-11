@@ -1,26 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SaveFile
+﻿public class SaveFile
 {
     //Player
     //public Transform PlayerTransform
-    //public int currentScene
+    public int lastPlayerScene = 2;
 
     //GameSettings
-    public float TotalVolume;
-    public float BGMVolume;
-    public float SFXVolume;
+    public float TotalVolume = 1f;
+    public float BGMVolume = 0.2f;
+    public float SFXVolume = 0.2f;
 
     //Inventory
     public ItemSlot[] itemSlots;
+
+    //Misc
+    public bool gameJustStarted = true;
 
     public void SetGameSettings(GameSettings settings)
     {
         TotalVolume = settings.TotalVolume;
         BGMVolume = settings.BGMVolume;
         SFXVolume = settings.SFXVolume;
+        gameJustStarted = settings.gameJustStarted;
     }
 
     public void SetPlayerInventory(Inventory playerInventory)

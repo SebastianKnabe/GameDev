@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.1
+  m_fontSize: 28.05
   m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2083,6 +2083,7 @@ MonoBehaviour:
   planetNameTextholder: {fileID: 1669947807}
   planetFlavourTextholder: {fileID: 177673532}
   scaleTimeFactor: 2.5
+  gameSettings: {fileID: 11400000, guid: d5cbe039cbcf56045827d8527da837aa, type: 2}
 --- !u!1 &1820472900
 GameObject:
   m_ObjectHideFlags: 0
