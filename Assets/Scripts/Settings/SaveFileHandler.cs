@@ -37,4 +37,13 @@ public class SaveFileHandler : MonoBehaviour
             playerInventory.LoadInventory(loadedSaveFile);
         }
     }
+
+    public void ResetSaveFile()
+    {
+        Debug.Log("Reset Files");
+        SaveFile saveFile = new SaveFile();
+
+        string saveFileJson = JsonUtility.ToJson(saveFile);
+        File.WriteAllText(Application.dataPath + "/save.txt", saveFileJson);
+    }
 }
