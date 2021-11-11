@@ -90,7 +90,11 @@ public class EnemyEntity : MonoBehaviour
 
     public void death()
     {
-        animator.SetTrigger("isDead");
+        if (animator != null)
+        {
+            animator.SetTrigger("isDead");
+        }
+
         if (this.gameObject.GetComponent<EnemyShootingScript>())
         {
             this.gameObject.GetComponent<EnemyShootingScript>().enabled = false;

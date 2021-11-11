@@ -41,13 +41,13 @@ GameObject:
   - component: {fileID: 4270141706195436404}
   - component: {fileID: 4270141706195436403}
   - component: {fileID: 4270141706195436402}
-  - component: {fileID: 4270141706195436405}
   - component: {fileID: 4270141706195436406}
   - component: {fileID: 4270141706195436409}
   - component: {fileID: 4270141706195436407}
   - component: {fileID: 275177604}
   - component: {fileID: 583730194}
   - component: {fileID: 232437294}
+  - component: {fileID: 600058225}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -64,7 +64,7 @@ Transform:
   m_GameObject: {fileID: 4270141706195436401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.83, y: 4.11, z: -8.261719}
-  m_LocalScale: {x: 1.0813657, y: 1.0497234, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4270141704612379690}
   m_Father: {fileID: 0}
@@ -141,32 +141,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &4270141706195436405
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4270141706195436401}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 8c5cdbd149aa27248aa5b02c1c0a51d6, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.45605755, y: -0.66094255}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
-    newSize: {x: 0.8, y: 0.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.3372488, y: 4.6864576}
-  m_EdgeRadius: 0
 --- !u!114 &4270141706195436406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,3 +261,19 @@ MonoBehaviour:
   crosshair: {fileID: 0}
   bulletStart: {fileID: 4270141704612379689}
   audioSource: {fileID: 0}
+--- !u!70 &600058225
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270141706195436401}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 8c5cdbd149aa27248aa5b02c1c0a51d6, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.34572846, y: -0.6581309}
+  m_Size: {x: 1.947934, y: 4.6703944}
+  m_Direction: 0
