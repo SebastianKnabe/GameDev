@@ -2,21 +2,25 @@
 {
     //Player
     //public Transform PlayerTransform
-    //public int currentScene
+    public int lastPlayerScene = 2;
 
     //GameSettings
-    public float TotalVolume = 0.2f;
+    public float TotalVolume = 1f;
     public float BGMVolume = 0.2f;
     public float SFXVolume = 0.2f;
 
     //Inventory
     public ItemSlot[] itemSlots;
 
+    //Misc
+    public bool gameJustStarted = true;
+
     public void SetGameSettings(GameSettings settings)
     {
         TotalVolume = settings.TotalVolume;
         BGMVolume = settings.BGMVolume;
         SFXVolume = settings.SFXVolume;
+        gameJustStarted = settings.gameJustStarted;
     }
 
     public void SetPlayerInventory(Inventory playerInventory)

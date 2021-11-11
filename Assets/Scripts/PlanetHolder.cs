@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlanetHolder : MonoBehaviour
@@ -9,6 +8,7 @@ public class PlanetHolder : MonoBehaviour
     [SerializeField] private TextMeshProUGUI planetNameTextholder;
     [SerializeField] private TextMeshProUGUI planetFlavourTextholder;
     [SerializeField] [Range(1f, 5f)] private float scaleTimeFactor = 2.5f;
+    [SerializeField] private GameSettings gameSettings;
 
     private int currentSelectedPlanet;
     private int numberOfPlanets;
@@ -19,13 +19,23 @@ public class PlanetHolder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentSelectedPlanet = 0;
-        numberOfPlanets = gameObject.transform.childCount;
-        maxPlanetArrayDistance = numberOfPlanets / 2;
-        planetSelectionPosition = new int[numberOfPlanets];
+        int lastScene = PlayerPrefs.GetInt("LastScene");
+        if (lastScene == 0)
+        {
+            //Todo Start Animation
+            PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(gameSettings.lastPlayerScene);
+        }
+        else
+        {
+            currentSelectedPlanet = 0;
+            numberOfPlanets = gameObject.transform.childCount;
+            maxPlanetArrayDistance = numberOfPlanets / 2;
+            planetSelectionPosition = new int[numberOfPlanets];
 
-        DeterminPlanetArrayPosition();
-        SetPlanetPositions();
+            DeterminPlanetArrayPosition();
+            SetPlanetPositions();
+        }
     }
 
     // Update is called once per frame
