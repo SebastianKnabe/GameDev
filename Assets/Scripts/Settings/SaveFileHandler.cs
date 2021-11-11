@@ -45,5 +45,7 @@ public class SaveFileHandler : MonoBehaviour
 
         string saveFileJson = JsonUtility.ToJson(saveFile);
         File.WriteAllText(Application.dataPath + "/save.txt", saveFileJson);
+
+        Load();
     }
 }

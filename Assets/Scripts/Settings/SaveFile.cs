@@ -1,17 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SaveFile
+﻿public class SaveFile
 {
     //Player
     //public Transform PlayerTransform
     //public int currentScene
 
     //GameSettings
-    public float TotalVolume;
-    public float BGMVolume;
-    public float SFXVolume;
+    public float TotalVolume = 0.2f;
+    public float BGMVolume = 0.2f;
+    public float SFXVolume = 0.2f;
 
     //Inventory
     public ItemSlot[] itemSlots;
