@@ -34,6 +34,7 @@ public class SpaceShip : MonoBehaviour
         if (camera != null)
         {
             camera.GetComponent<CameraFollow>().SetCameraTarget(this.gameObject);
+            camera.GetComponent<CameraFollow>().smoothFactor = 10f;
             player.SetActive(false);
 
             if (currentScene == CurrentScene.TestScene)
