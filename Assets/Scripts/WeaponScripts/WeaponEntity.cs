@@ -24,7 +24,7 @@ public abstract class WeaponEntity : MonoBehaviour
     public CrosshairMouseScript crosshairScript;
 
     [HideInInspector] public bool switched = false;
-    
+
     public abstract void Start();
     public abstract void Update();
 

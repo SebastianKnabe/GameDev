@@ -5,19 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 20f;
-    public float sprintSpeed = 30f;
-    public float jumpVelocity;
-    public float backToGroundSpeed = -0.3f;
-    public float gravity = -0.4f;
-    public float speed;
-    public AudioSource audioSource;
-
-
-    [SerializeField] LayerMask platformMask;
+    [SerializeField] private float moveSpeed = 20f;
+    [SerializeField] private float sprintSpeed = 30f;
+    [SerializeField] private float jumpVelocity = 25f;
+    [SerializeField] private float backToGroundSpeed = -0.3f;
+    [SerializeField] private float gravity = -0.4f;
+    [SerializeField] private float speed;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private LayerMask platformMask;
     [SerializeField] private AudioClip jumpSound;
 
-    private BoxCollider2D boxCollider2D;
+    private CapsuleCollider2D capsuleCollider2D;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteManager spriteManager;
@@ -27,19 +25,21 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimer;
     private float coyoteFrames = 10;
     private bool hasJumped = false;
+    private bool slipperyJump = false;
     private List<Vector3> groundedPosition = new List<Vector3>();
     private bool safeSpawn = true;
-
+    private float horizontalMovementLimit = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
-        boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
+        capsuleCollider2D = gameObject.GetComponent<CapsuleCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         staminaRefillScript = GameObject.FindObjectOfType<staminaRefillScript>();
         animator = gameObject.GetComponent<Animator>();
         spriteManager = gameObject.GetComponent<SpriteManager>();
         speed = moveSpeed;
+        horizontalMovementLimit = sprintSpeed * 1.5f;
     }
 
     private void FixedUpdate()
@@ -75,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
             if (hasJumped)
             {
                 hasJumped = false;
+                animator.SetBool("isJumping", false);
+                slipperyJump = false;
             }
 
         }
@@ -84,13 +86,17 @@ public class PlayerMovement : MonoBehaviour
             staminaRefillScript.requestSprint(false);
         }
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, 0f);
-        if (!IsSlippery())
+        if (IsSlippery() || slipperyJump)
         {
-            rb.velocity = movement;
+            rb.AddForce(movement * 0.1f, ForceMode2D.Force);
+            if (rb.velocity.x > horizontalMovementLimit)
+            {
+                rb.velocity = new Vector2(horizontalMovementLimit, rb.velocity.y);
+            }
         }
         else
         {
-            rb.AddForce(movement * 0.66f, ForceMode2D.Force);
+            rb.velocity = movement;
         }
         animator.SetFloat("movementSpeed", movement.magnitude);
         flipSprite();
@@ -100,21 +106,29 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
+        animator.SetBool("isJumping", !isGrounded());
         if (Input.GetButtonDown("Jump") && !hasJumped && (isGrounded() || coyoteTimer < coyoteFrames))
         {
-            //animator.SetBool("isJumping", true);
+            animator.SetBool("isJumping", true);
             hasJumped = true;
-            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
             audioSource.PlayOneShot(jumpSound);
+            if (IsSlippery())
+            {
+                slipperyJump = true;
+                rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.velocity = Vector2.up * jumpVelocity;
+            }
         }
-        animator.SetBool("isJumping", !isGrounded());
     }
 
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider2D.bounds.center, capsuleCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
 
-        Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down, Color.red);
+        Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down, Color.red);
 
         //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
@@ -122,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsSlippery()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider2D.bounds.center, capsuleCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
         if (raycastHit.collider != null)
         {
             return raycastHit.collider.tag == "Slippery";
@@ -163,16 +177,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void setBackupPosition()
     {
-        RaycastHit2D raycastHitLeft = Physics2D.BoxCast(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.size.x, 0f, 0f), boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
-        RaycastHit2D raycastHitRight = Physics2D.BoxCast(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.size.x, 0f, 0f), boxCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+        RaycastHit2D raycastHitLeft = Physics2D.BoxCast(capsuleCollider2D.bounds.center - new Vector3(capsuleCollider2D.bounds.size.x, 0f, 0f), capsuleCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+        RaycastHit2D raycastHitRight = Physics2D.BoxCast(capsuleCollider2D.bounds.center + new Vector3(capsuleCollider2D.bounds.size.x, 0f, 0f), capsuleCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
 
         if (raycastHitLeft.collider != null)
         {
-            backupPosition = transform.position - new Vector3(boxCollider2D.bounds.size.x, 0f, 0f);
+            backupPosition = transform.position - new Vector3(capsuleCollider2D.bounds.size.x, 0f, 0f);
         }
         else if (raycastHitRight.collider != null)
         {
-            backupPosition = transform.position + new Vector3(boxCollider2D.bounds.size.x, 0f, 0f);
+            backupPosition = transform.position + new Vector3(capsuleCollider2D.bounds.size.x, 0f, 0f);
         }
     }
 
@@ -191,7 +205,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (safeSpawn)
         {
-
             if (groundedPosition.Count == 20)
             {
                 gameObject.GetComponent<PlayerEntity>().SetNextSpawn(getSpawnPointAfterSpikeHit());
@@ -204,7 +217,6 @@ public class PlayerMovement : MonoBehaviour
 
             }
         }
-
     }
 
     public Vector3 getSpawnPointAfterSpikeHit()

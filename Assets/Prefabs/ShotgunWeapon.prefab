@@ -57,10 +57,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   bulletSound: {fileID: 8300000, guid: 26e19616f6ba9f6469e9d3d6c38b23fe, type: 3}
   weaponCooldownTimer: 0
-  weaponCooldown: 5
+  weaponCooldown: 2
   rb: {fileID: 0}
   crosshairScript: {fileID: 0}
   switched: 0
-  startAngle: 80
-  endAngle: 90
-  bulletCount: 3
+  NumberOfProjectiles: 3
+  SpreadAngle: 20

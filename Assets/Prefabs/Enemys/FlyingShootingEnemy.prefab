@@ -28,8 +28,34 @@ Transform:
   m_LocalScale: {x: 0.9569676, y: 0.95422965, z: 1}
   m_Children: []
   m_Father: {fileID: 3269490267965111962}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4839726396730163380
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269490267965111965}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 1.875}
+    newSize: {x: 2, y: 1.875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.875}
+  m_EdgeRadius: 0
 --- !u!114 &1296949907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,6 +83,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1365906718, guid: 6707b7155dd0e174baf002a00f41ca7e, type: 3}
+      propertyPath: enemyHealthbarPrefab
+      value: 
+      objectReference: {fileID: 5985344465474725283, guid: b5872183874660e47b6727a1338e1ca9,
+        type: 3}
     - target: {fileID: 1365906719, guid: 6707b7155dd0e174baf002a00f41ca7e, type: 3}
       propertyPath: player
       value: 

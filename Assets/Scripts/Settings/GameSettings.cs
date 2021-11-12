@@ -5,17 +5,27 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New GameSettings", menuName = "Settings/GameSettings")]
 public class GameSettings : ScriptableObject
 {
+    //Player
+    [SerializeField] public int lastPlayerScene = 2;
+
+    //Audio
     [SerializeField] [Range(0, 1)] public float TotalVolume = 1f;
     [SerializeField] [Range(0, 1)] public float BGMVolume = 0.2f;
     [SerializeField] [Range(0, 1)] public float SFXVolume = 0.2f;
 
+    //Misc
+    [SerializeField] public bool gameJustStarted;
+
     [SerializeField] private VoidEvent audioSettingsChanged;
+
 
     public void LoadSaveFile(SaveFile saveFile)
     {
         TotalVolume = saveFile.TotalVolume;
         BGMVolume = saveFile.BGMVolume;
         SFXVolume = saveFile.SFXVolume;
+        gameJustStarted = saveFile.gameJustStarted;
+        lastPlayerScene = saveFile.lastPlayerScene;
         audioSettingsChanged.Raise();
     }
 

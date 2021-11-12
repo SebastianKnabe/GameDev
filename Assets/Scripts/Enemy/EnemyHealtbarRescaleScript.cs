@@ -9,8 +9,7 @@ public class EnemyHealtbarRescaleScript : MonoBehaviour
         rescaleHealthbar();
     }
 
-   
-
+    [ContextMenu("Rescale")]
     private void rescaleHealthbar()
     {
         GameObject parentEnemyObject = gameObject.transform.parent.gameObject;
@@ -21,7 +20,6 @@ public class EnemyHealtbarRescaleScript : MonoBehaviour
         healthbarPosition.x -= spriteWidth / 2f;
         healthbarPosition.y += spriteHeight * 0.75f;
         gameObject.transform.position = healthbarPosition;
-
 
         gameObject.GetComponentInChildren<SpriteRenderer>().size = new Vector2(spriteWidth, 0.2f);
 
