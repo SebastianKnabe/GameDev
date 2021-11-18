@@ -9,10 +9,15 @@ public class SpaceShip : MonoBehaviour
     [SerializeField] private GameObject camera;
     [SerializeField] private string interactionText;
     [SerializeField] private CurrentScene currentScene;
+    [SerializeField] private Inventory inventory;
+    [SerializeField] private InventoryItem questItem;
+
+
 
     private bool playerInRange = false;
     private GameObject instanceOfTextObject;
     private Animator animator;
+    private int fuel;
 
     void Start()
     {
@@ -24,8 +29,19 @@ public class SpaceShip : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.E) && playerInRange)
         {
-            Debug.Log("Fly to Space");
-            StartFlyingAnimation();
+            if (currentScene == CurrentScene.Earth)
+            {
+                if (fuel == 4)
+                {
+                    Debug.Log("Fly to Space");
+                    StartFlyingAnimation();
+                }
+            } else
+            {
+                Debug.Log("Fly to Space");
+                StartFlyingAnimation();
+            }
+           
         }
     }
 
@@ -59,7 +75,15 @@ public class SpaceShip : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        updateFuel();
+        if (other.tag == "Player" && currentScene == CurrentScene.Earth && fuel != 4f)
+        {
+            textObject.GetComponent<TextMesh>().text = "You cant fly away now. You can only \nstart your ship if it is completely filled up.\n Progress: [" + fuel + "/4]";
+            instanceOfTextObject = Instantiate(textObject, textPosition.transform.position, Quaternion.identity, textPosition.transform);
+            playerInRange = true;
+        }
+
+        if (fuel == 4f)
         {
             textObject.GetComponent<TextMesh>().text = "Press [" + KeyCode.E + "] to \n" + interactionText;
             instanceOfTextObject = Instantiate(textObject, textPosition.transform.position, Quaternion.identity, textPosition.transform);
@@ -74,6 +98,15 @@ public class SpaceShip : MonoBehaviour
             Destroy(instanceOfTextObject);
             playerInRange = false;
         }
+    }
+
+
+
+
+    public void updateFuel()
+    {
+        fuel = inventory.ItemContainer.GetTotalQuantity(questItem);
+        Debug.Log("something happened");
     }
 }
 
