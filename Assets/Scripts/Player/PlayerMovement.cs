@@ -126,7 +126,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider2D.bounds.center, capsuleCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+        Vector2 boxCastBox = new Vector2(capsuleCollider2D.bounds.size.x * 0.5f, capsuleCollider2D.bounds.size.y);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider2D.bounds.center, boxCastBox, 0f, Vector2.down, rayCastOffset, platformMask);
 
         Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down, Color.red);
 
@@ -136,7 +137,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsSlippery()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider2D.bounds.center, capsuleCollider2D.bounds.size, 0f, Vector2.down, rayCastOffset, platformMask);
+        Vector2 boxCastBox = new Vector2(capsuleCollider2D.bounds.size.x * 0.5f, capsuleCollider2D.bounds.size.y);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider2D.bounds.center, boxCastBox, 0f, Vector2.down, rayCastOffset, platformMask);
+
         if (raycastHit.collider != null)
         {
             return raycastHit.collider.tag == "Slippery";

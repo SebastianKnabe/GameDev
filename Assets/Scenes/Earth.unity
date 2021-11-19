@@ -2899,6 +2899,11 @@ PrefabInstance:
       propertyPath: variance
       value: 1.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3157629871034066856, guid: 7a207ffe992e74b209cfce7dbb52e0e4,
+        type: 3}
+      propertyPath: obstacleDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9035535584722049715, guid: 7a207ffe992e74b209cfce7dbb52e0e4,
         type: 3}
       propertyPath: m_Name
