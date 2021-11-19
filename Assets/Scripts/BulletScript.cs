@@ -35,8 +35,8 @@ public class BulletScript : MonoBehaviour
     {
         //Wenn Kugel vom gleichen Tag ist, passiert nichts
         //Mögliche Tags der Kugel sind Player oder Enemy
-        Debug.Log(other.gameObject.tag);
-        Debug.Log("??? " + gameObject.tag);
+        //Debug.Log(other.gameObject.tag);
+        //Debug.Log("??? " + gameObject.tag);
         if (other.gameObject.tag == "Untagged" || other.gameObject.tag == shooter)
         {
             return;
@@ -53,7 +53,7 @@ public class BulletScript : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Tag: " + other.gameObject.tag + " from " + other.gameObject.name);
+        //Debug.Log("Tag: " + other.gameObject.tag + " from " + other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);

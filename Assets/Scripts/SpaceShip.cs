@@ -7,6 +7,7 @@ public class SpaceShip : MonoBehaviour
     [SerializeField] private GameObject textPosition;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject saveFileHandler;
     [SerializeField] private string interactionText;
     [SerializeField] private CurrentScene currentScene;
 
@@ -18,6 +19,7 @@ public class SpaceShip : MonoBehaviour
     {
         playerInRange = false;
         animator = GetComponent<Animator>();
+        PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class SpaceShip : MonoBehaviour
         {
             Debug.Log("Fly to Space");
             StartFlyingAnimation();
+            saveFileHandler.GetComponent<SaveFileHandler>().Save();
         }
     }
 

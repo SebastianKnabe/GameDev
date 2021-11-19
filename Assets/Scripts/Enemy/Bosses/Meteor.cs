@@ -6,13 +6,15 @@ public class Meteor : MonoBehaviour
 {
     [SerializeField] private int damage = 1;
 
+    private float fallTimer = 0f;
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.localPosition.y < 0)
+        if (fallTimer > 10f)
         {
             Destroy(gameObject);
         }
+        fallTimer += Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

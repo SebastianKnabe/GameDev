@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 10
-  healthbar: {fileID: 5985344465474725283, guid: b5872183874660e47b6727a1338e1ca9,
+  collideDamage: 1
+  enemyHealthbarPrefab: {fileID: 5985344465474725283, guid: b5872183874660e47b6727a1338e1ca9,
     type: 3}
   dropEnabled: 0
   isBoss: 0
