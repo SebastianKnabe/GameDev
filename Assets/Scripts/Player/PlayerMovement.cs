@@ -72,13 +72,6 @@ public class PlayerMovement : MonoBehaviour
                 staminaRefillScript.requestSprint(false);
             }
             coyoteTimer = 0;
-            if (hasJumped)
-            {
-                hasJumped = false;
-                animator.SetBool("isJumping", false);
-                slipperyJump = false;
-            }
-
         }
         else
         {
@@ -106,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        animator.SetBool("isJumping", !isGrounded());
         if (Input.GetButtonDown("Jump") && !hasJumped && (isGrounded() || coyoteTimer < coyoteFrames))
         {
             animator.SetBool("isJumping", true);
@@ -122,11 +114,17 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = Vector2.up * jumpVelocity;
             }
         }
+        else if (hasJumped && isGrounded())
+        {
+            hasJumped = false;
+            animator.SetBool("isJumping", false);
+            slipperyJump = false;
+        }
     }
 
     private bool isGrounded()
     {
-        Vector2 boxCastBox = new Vector2(capsuleCollider2D.bounds.size.x * 0.5f, capsuleCollider2D.bounds.size.y);
+        Vector2 boxCastBox = new Vector2(capsuleCollider2D.bounds.size.x * 0.9f, capsuleCollider2D.bounds.size.y);
         RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider2D.bounds.center, boxCastBox, 0f, Vector2.down, rayCastOffset, platformMask);
 
         Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down, Color.red);
