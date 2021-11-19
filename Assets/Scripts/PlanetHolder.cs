@@ -61,7 +61,7 @@ public class PlanetHolder : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))
         {
-            if (sumPlanetDistance < 10f)
+            if (sumPlanetDistance < 25f)
             {
                 GameObject planet = gameObject.transform.GetChild(currentSelectedPlanet).gameObject;
                 planet.GetComponent<PlanetSelection>().selectPlanet();
