@@ -8,4 +8,4 @@
 
 ## Download
 
-[Download Latest Release](https://github.com/SebastianKnabe/GameDev/raw/master/Game.zip)
+[Download Latest Release](https://github.com/SebastianKnabe/GameDev/releases/download/0.2.0/build.zip)

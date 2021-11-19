@@ -72,3 +72,4 @@ crashlytics-build.properties
 
 # Save File
 /Assets/save.txt
+Assets/save.txt.meta

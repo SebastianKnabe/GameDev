@@ -264,7 +264,7 @@ public class ItemContainer : IItemContainer
         OnItemsUpdate.Invoke();
     }
 
-    public string containerToString()
+    public string ContainerToString()
     {
         StringBuilder builder = new StringBuilder();
 

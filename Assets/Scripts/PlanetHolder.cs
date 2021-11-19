@@ -7,7 +7,6 @@ public class PlanetHolder : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI planetNameTextholder;
     [SerializeField] private TextMeshProUGUI planetFlavourTextholder;
-    [SerializeField] [Range(1f, 5f)] private float scaleTimeFactor = 2.5f;
     [SerializeField] private GameSettings gameSettings;
 
     private int currentSelectedPlanet;
@@ -15,6 +14,8 @@ public class PlanetHolder : MonoBehaviour
     private int maxPlanetArrayDistance;
     private int[] planetSelectionPosition;
     private float sumPlanetDistance;
+    private float planetMoveFactor = 50f;
+    private float scaleTimeFactor = 2.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +29,20 @@ public class PlanetHolder : MonoBehaviour
         }
         else
         {
-            currentSelectedPlanet = 0;
+            currentSelectedPlanet = lastScene - 2;
             numberOfPlanets = gameObject.transform.childCount;
             maxPlanetArrayDistance = numberOfPlanets / 2;
             planetSelectionPosition = new int[numberOfPlanets];
 
+            float oldMoveFactor = planetMoveFactor;
+            float oldScaleFactor = scaleTimeFactor;
+
+            planetMoveFactor = 1f;
+            scaleTimeFactor = 100f;
             DeterminPlanetArrayPosition();
             SetPlanetPositions();
+            scaleTimeFactor = oldScaleFactor;
+            planetMoveFactor = oldMoveFactor;
         }
     }
 
@@ -61,7 +69,7 @@ public class PlanetHolder : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))
         {
-            if (sumPlanetDistance < 10f)
+            if (sumPlanetDistance < 100f)
             {
                 GameObject planet = gameObject.transform.GetChild(currentSelectedPlanet).gameObject;
                 planet.GetComponent<PlanetSelection>().selectPlanet();
@@ -119,7 +127,7 @@ public class PlanetHolder : MonoBehaviour
             Vector3 currentPosition = planet.transform.localPosition;
             float positionDistance = (currentPosition - targetPosition).magnitude;
             sumPlanetDistance += positionDistance;
-            planet.transform.localPosition = Vector3.MoveTowards(currentPosition, targetPosition, positionDistance / 100f);
+            planet.transform.localPosition = Vector3.MoveTowards(currentPosition, targetPosition, positionDistance / planetMoveFactor);
 
             //Skaliere Planeten -> Vordergrund größer, Hintergrund kleiner
             Vector3 currentScale = planet.transform.localScale;

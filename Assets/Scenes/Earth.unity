@@ -3418,6 +3418,11 @@ PrefabInstance:
       propertyPath: variance
       value: 1.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3157629871034066856, guid: 7a207ffe992e74b209cfce7dbb52e0e4,
+        type: 3}
+      propertyPath: obstacleDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9035535584722049715, guid: 7a207ffe992e74b209cfce7dbb52e0e4,
         type: 3}
       propertyPath: m_Name
@@ -6580,8 +6585,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0, y: 0}
       - {x: 300, y: 0}
-      - {x: 300, y: -150}
-      - {x: 0, y: -150}
+      - {x: 311.8432, y: -182.413}
+      - {x: 0, y: -183.65964}
 --- !u!4 &871431372
 Transform:
   m_ObjectHideFlags: 0
@@ -7108,7 +7113,7 @@ PrefabInstance:
     - target: {fileID: 6309235995792422710, guid: 3c47e15f46dff574c9ecef6e159d315b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 48
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 6309235995792422710, guid: 3c47e15f46dff574c9ecef6e159d315b,
         type: 3}
@@ -9744,6 +9749,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 595230778}
+    - target: {fileID: 4270141706195436409, guid: 965fdb5f9c79e9a40901522bf964d668,
+        type: 3}
+      propertyPath: maxHitPoints
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 965fdb5f9c79e9a40901522bf964d668, type: 3}
 --- !u!1001 &1353104116
@@ -17193,6 +17203,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a011a9576fea6a4b9925185d7d17299, type: 3}
+--- !u!1 &1536583193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8037173622982378965, guid: 7a011a9576fea6a4b9925185d7d17299,
+    type: 3}
+  m_PrefabInstance: {fileID: 1536583192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1558239879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5110629622875877967, guid: 42d33c19b0c58428194eee47ee07f543,
@@ -58337,6 +58353,11 @@ PrefabInstance:
       propertyPath: fireSpawn
       value: 
       objectReference: {fileID: 678553519}
+    - target: {fileID: 3157629871034066856, guid: 7a207ffe992e74b209cfce7dbb52e0e4,
+        type: 3}
+      propertyPath: resetPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3157629871034066856, guid: 7a207ffe992e74b209cfce7dbb52e0e4,
         type: 3}
       propertyPath: obstacleSpeed

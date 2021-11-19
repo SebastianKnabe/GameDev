@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTaken: 50
+  resetPlayer: 1
 --- !u!114 &1308355925
 MonoBehaviour:
   m_ObjectHideFlags: 0
