@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -55731,6 +55731,11 @@ PrefabInstance:
       propertyPath: fireSpawn
       value: 
       objectReference: {fileID: 678553519}
+    - target: {fileID: 3157629871034066856, guid: 7a207ffe992e74b209cfce7dbb52e0e4,
+        type: 3}
+      propertyPath: resetPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3157629871034066856, guid: 7a207ffe992e74b209cfce7dbb52e0e4,
         type: 3}
       propertyPath: obstacleSpeed

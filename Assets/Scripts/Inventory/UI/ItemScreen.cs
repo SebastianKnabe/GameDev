@@ -12,7 +12,7 @@ public class ItemScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (isGamePaused)
             {
@@ -22,13 +22,7 @@ public class ItemScreen : MonoBehaviour
             {
                 Pause();
             }
-        } else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isGamePaused)
-            {
-                Resume();
-            }
-        }   
+        }
     }
 
     //Unpause and close Inventory
