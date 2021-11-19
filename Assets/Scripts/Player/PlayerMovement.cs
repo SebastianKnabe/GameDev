@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 backupPosition;
     private float coyoteTimer;
     private float coyoteFrames = 10;
+    private float jumpTimer;
+    private float jumpFrames = 10;
     private bool hasJumped = false;
     private bool slipperyJump = false;
     private List<Vector3> groundedPosition = new List<Vector3>();
@@ -114,17 +116,22 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = Vector2.up * jumpVelocity;
             }
         }
-        else if (hasJumped && isGrounded())
+        else if (hasJumped && isGrounded() && jumpTimer > jumpFrames)
         {
             hasJumped = false;
             animator.SetBool("isJumping", false);
             slipperyJump = false;
+            jumpTimer = 0;
+        }
+        else if (hasJumped)
+        {
+            jumpTimer++;
         }
     }
 
     private bool isGrounded()
     {
-        Vector2 boxCastBox = new Vector2(capsuleCollider2D.bounds.size.x * 0.9f, capsuleCollider2D.bounds.size.y);
+        Vector2 boxCastBox = new Vector2(capsuleCollider2D.bounds.size.x * 0.75f, capsuleCollider2D.bounds.size.y);
         RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider2D.bounds.center, boxCastBox, 0f, Vector2.down, rayCastOffset, platformMask);
 
         Debug.DrawRay(capsuleCollider2D.bounds.center, Vector2.down, Color.red);
@@ -135,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsSlippery()
     {
-        Vector2 boxCastBox = new Vector2(capsuleCollider2D.bounds.size.x * 0.5f, capsuleCollider2D.bounds.size.y);
+        Vector2 boxCastBox = new Vector2(capsuleCollider2D.bounds.size.x * 0.75f, capsuleCollider2D.bounds.size.y);
         RaycastHit2D raycastHit = Physics2D.BoxCast(capsuleCollider2D.bounds.center, boxCastBox, 0f, Vector2.down, rayCastOffset, platformMask);
 
         if (raycastHit.collider != null)
