@@ -19,6 +19,7 @@ public class SpaceShip : MonoBehaviour
     {
         playerInRange = false;
         animator = GetComponent<Animator>();
+        PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
     }
 
     void Update()

@@ -834,7 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetScene: 3
   planetName: Frivis
-  flavourText: Eis mit Nice
+  flavourText: Ein Eisplanet
 --- !u!223 &684225341
 Canvas:
   m_ObjectHideFlags: 0
@@ -929,8 +929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetScene: -1
-  planetName: Moon
-  flavourText: Leer
+  planetName: DLC
+  flavourText: "Zuk\xFCnftiger kostenpflichtiger DLC"
 --- !u!114 &834744994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1577,8 +1577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetScene: -1
-  planetName: Lava
-  flavourText: "Hei\xDF wie ne hei\xDFe Kartoffel"
+  planetName: DLC
+  flavourText: "Zuk\xFCnftiger kostenpflichtiger DLC"
 --- !u!114 &1627870804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,8 +1990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetScene: -1
-  planetName: Blackhole
-  flavourText: Dunkel
+  planetName: DLC
+  flavourText: "Zuk\xFCnftiger kostenpflichtiger DLC"
 --- !u!223 &1676738965
 Canvas:
   m_ObjectHideFlags: 0
@@ -2230,7 +2230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetScene: 2
-  planetName: Earth
+  planetName: Erde
   flavourText: "Die Erde ist der dichteste, f\xFCnftgr\xF6\xDFte und der Sonne drittn\xE4chste
     Planet des Sonnensystems. Sie ist Ursprungsort und Heimat aller bekannten Lebewesen.
     Ihr Durchmesser betr\xE4gt mehr als 12.700 Kilometer und ihr Alter etwa 4,6 Milliarden
