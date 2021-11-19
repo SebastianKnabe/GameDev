@@ -10,7 +10,7 @@
     public float SFXVolume = 0.2f;
 
     //Inventory
-    public ItemSlot[] itemSlots;
+    public ItemSlot[] itemSlots = new ItemSlot[20];
 
     //Misc
     public bool gameJustStarted = true;
