@@ -104,8 +104,10 @@ public class EnemyEntity : MonoBehaviour
             this.gameObject.GetComponent<DropLootScript>().dropLoot();
         }
 
-        if (GetComponent<StateModel>() == null)
+        if (GetComponent<StateModel>() == null && animator == null)
+        {
             Destroy(this.gameObject);
+        }
     }
 
     public float getHealthPercentage()
