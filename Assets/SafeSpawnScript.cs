@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class SafeSpawnScript : MonoBehaviour
 {
+
+    [Header("Safe")]
+    [SerializeField] private VoidEvent playerSpawnSafe;
+
+    [Header("Unsafe")]
+    [SerializeField] private VoidEvent playerSpawnUnsafe;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerMovement>().setSafeSpawn(false);
+            playerSpawnUnsafe.Raise();
         }
     }
 
@@ -16,7 +22,7 @@ public class SafeSpawnScript : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerMovement>().setSafeSpawn(true);
+            playerSpawnSafe.Raise();
         }
     }
 }

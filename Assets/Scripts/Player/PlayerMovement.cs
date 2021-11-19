@@ -232,8 +232,13 @@ public class PlayerMovement : MonoBehaviour
         return groundedPosition[0];
     }
 
-    public void setSafeSpawn(bool safe)
+    public void spawnIsSafe()
     {
-        safeSpawn = safe;
+        safeSpawn = true;
+    }
+
+    public void spawnIsNotSafe()
+    {
+        safeSpawn = false;
     }
 }

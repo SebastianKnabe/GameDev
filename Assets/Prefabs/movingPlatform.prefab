@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4747685307942977081, guid: 2cab978acac42b040970e2dddda0e900,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -189,3 +189,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8750493ed8cb348cab72d3192c2f2637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpawnSafe: {fileID: 11400000, guid: 82d93606e03c0444a9dbc0c7b7072c77, type: 2}
+  playerSpawnUnsafe: {fileID: 11400000, guid: c9a455aa9cc66334b926051cf97192f1, type: 2}
