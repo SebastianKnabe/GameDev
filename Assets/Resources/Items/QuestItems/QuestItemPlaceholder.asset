@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuestItemPlaceholder
   m_EditorClassIdentifier: 
   name: QuestItem
-  icon: {fileID: 6991865106486504897, guid: f18c6e8eb3314044b995eff8a922d517, type: 3}
+  icon: {fileID: 21300000, guid: b0c76f6bb56cb7a49b0b17f4b56f3f3e, type: 3}
   sellPrice: 0
   maxStack: 99
   sellable: 0

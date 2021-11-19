@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4917083935182687836}
   - component: {fileID: 454872991458339080}
   - component: {fileID: 9210551154570024359}
+  - component: {fileID: 174912247487292866}
   m_Layer: 0
   m_Name: LaserWeapon
   m_TagString: Untagged
@@ -44,25 +45,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5e027930e69454aaadf53d467fb44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  crosshair: {fileID: 0}
+  Player: {fileID: 4270141706195436401, guid: 965fdb5f9c79e9a40901522bf964d668, type: 3}
+  crosshair: {fileID: 8026269759356531646, guid: 295f216826b608740ae6111cdd1dfd65,
+    type: 3}
   weaponImage: {fileID: 0}
   cooldownImage: {fileID: 0}
   bulletPrefab: {fileID: 7719220469888607292, guid: 9750b7b230dba2546875b6a5ea4f6e9a,
     type: 3}
-  bulletStart: {fileID: 0}
+  bulletStart: {fileID: 7719220469888607292, guid: 13617519db9f64e4ea9a40b92eeccf11,
+    type: 3}
   spriteFlipTreshold: 5
   audioSource: {fileID: 0}
   spriteManager: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: -5122297615798638232, guid: 9750b7b230dba2546875b6a5ea4f6e9a, type: 3}
   animator: {fileID: 0}
   bulletSound: {fileID: 8300000, guid: 7506d45c02d7a514d921b18c18d6dc9f, type: 3}
-  weaponCooldownTimer: 0
+  weaponCooldownTimer: 1.4599992
   weaponCooldown: 4
   rb: {fileID: 0}
   crosshairScript: {fileID: 0}
-  switched: 0
-  lineRender: {fileID: 0}
+  switched: 1
+  lineRender: {fileID: 9210551154570024359}
   damage: 2
   range: 20
   statusEffectOfTarget:
@@ -85,7 +88,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d944b8dc82ab76246b4be53c465ca784, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,8 +132,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -159,8 +162,30 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &174912247487292866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917083935182687838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad89c4998512524d81efe839fc8c551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: 4e01ccfa6b82f75469df9227af58ca7d, type: 3}
+  - {fileID: 2800000, guid: f37315b544a0a8142aa9f60812b150f9, type: 3}
+  - {fileID: 2800000, guid: 38fe899263f8171448461672af6964a6, type: 3}
+  - {fileID: 2800000, guid: 8d73e0f0472ffc7418768599e270441e, type: 3}
+  - {fileID: 2800000, guid: 2fee05e807a5d30469d985ba87cd7989, type: 3}
+  - {fileID: 2800000, guid: f1145313a87626c4da1ce8f6c57f11d3, type: 3}
+  - {fileID: 2800000, guid: b84acbed2b7fbb8409bc830738429c94, type: 3}
+  - {fileID: 2800000, guid: 35527457c7b76964ea2ef7b5381db659, type: 3}
+  fps: 30
