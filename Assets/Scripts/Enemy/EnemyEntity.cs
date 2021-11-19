@@ -4,28 +4,37 @@ using UnityEngine;
 
 public class EnemyEntity : MonoBehaviour
 {
-    public float maxHitPoints;
-    public GameObject healthbar;
-    public bool dropEnabled;
-    public bool isBoss;
-
+    [SerializeField] private float maxHitPoints;
+    [SerializeField] private float collideDamage = 1f;
+    [SerializeField] private GameObject enemyHealthbarPrefab; //Die EnemyEntity erstellt für sich selber eine Healthbar aus dem Prefab
+    [SerializeField] private bool dropEnabled;
+    [SerializeField] private bool isBoss;
     [SerializeField] private VoidEvent bossTookDamageEvent;
 
     private float currentHitPoints;
+    private StateModel stateModel;
     private bool isShielded = false;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private CircleCollider2D circleCollider2D;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHitPoints = maxHitPoints;
+        stateModel = GetComponent<StateModel>();
         animator = gameObject.GetComponent<Animator>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        circleCollider2D = gameObject.GetComponent<CircleCollider2D>();
 
         InitHealthbar();
 
         updateHealthbar();
+    }
+
+    public float getCurrentHitPoints()
+    {
+        return currentHitPoints;
     }
 
     /* 
@@ -33,6 +42,10 @@ public class EnemyEntity : MonoBehaviour
      */
     public void takeDamage(float incomingDamage)
     {
+        if (stateModel != null)
+        {
+            stateModel.fireDamageEvent();
+        }
         if (!isShielded)
         {
             currentHitPoints -= incomingDamage;
@@ -59,9 +72,29 @@ public class EnemyEntity : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerEntity>().takeDamage(collideDamage);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CapsuleCollider2D>(), circleCollider2D);
+        }
+    }
+
     public void death()
     {
-        animator.SetTrigger("isDead");
+        if (animator != null)
+        {
+            animator.SetTrigger("isDead");
+        }
+
         if (this.gameObject.GetComponent<EnemyShootingScript>())
         {
             this.gameObject.GetComponent<EnemyShootingScript>().enabled = false;
@@ -69,6 +102,11 @@ public class EnemyEntity : MonoBehaviour
         if (dropEnabled)
         {
             this.gameObject.GetComponent<DropLootScript>().dropLoot();
+        }
+
+        if (GetComponent<StateModel>() == null && animator == null)
+        {
+            Destroy(this.gameObject);
         }
     }
 
@@ -96,12 +134,12 @@ public class EnemyEntity : MonoBehaviour
         float healthbarRatio = currentHitPoints / maxHitPoints;
         if (healthbarRatio == 1f && !isBoss)
         {
-            healthbar.SetActive(false);
+            enemyHealthbarPrefab.SetActive(false);
         }
         else
         {
-            healthbar.SetActive(true);
-            healthbar.transform.localScale = new Vector3(healthbarRatio, 1, 0);
+            enemyHealthbarPrefab.SetActive(true);
+            enemyHealthbarPrefab.transform.localScale = new Vector3(healthbarRatio, 1, 0);
         }
     }
 
@@ -109,9 +147,9 @@ public class EnemyEntity : MonoBehaviour
     {
         if (!isBoss)
         {
-            GameObject bar = Instantiate(healthbar);
+            GameObject bar = Instantiate(enemyHealthbarPrefab);
             bar.transform.parent = gameObject.transform;
-            healthbar = bar;
+            enemyHealthbarPrefab = bar;
         }
     }
 

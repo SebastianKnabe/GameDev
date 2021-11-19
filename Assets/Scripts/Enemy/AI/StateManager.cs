@@ -26,9 +26,15 @@ public class StateManager : MonoBehaviour
     public void RunStateMachine()
     {
         State nextState = currentState?.RunCurrentState();
-        if(nextState != null)
+        if (nextState != null)
         {
+            // init variables if the next state is different from the previous one
+            State previousState = currentState;
             SwitchState(nextState);
+            if (nextState.getStateType() != previousState.getStateType())
+            {
+                currentState.initVariables();
+            }
         }
     }
 

@@ -125,7 +125,7 @@ public class WizardBossBehavior : MonoBehaviour
     {
         if (teleportCooldown < teleportTimer && !isChanneling && renderer.isVisible)
         {
-            Debug.Log("Casting Teleport");
+            //Debug.Log("Casting Teleport");
             bossFX.playTeleportSound();
             teleportTimer = 0;
             int teleportIndex = lastTeleportLocation;
@@ -157,7 +157,7 @@ public class WizardBossBehavior : MonoBehaviour
         //Abbruch Channel Meteor
         else if (meteorRainChannelTimer >= meteorRainCanneling && isChanneling)
         {
-            Debug.Log("Stop Casting Meteor");
+            //Debug.Log("Stop Casting Meteor");
             meteorRainCooldownTimer = 0f;
             isChanneling = false;
             bossFX.turnBackgroundNormal();
@@ -165,7 +165,7 @@ public class WizardBossBehavior : MonoBehaviour
         //Check Meteor Cooldown Ready
         else if (meteorRainCooldown < meteorRainCooldownTimer)
         {
-            Debug.Log("Casting Meteor");
+            //Debug.Log("Casting Meteor");
             isChanneling = true;
             meteorRainChannelTimer = 0f;
         }

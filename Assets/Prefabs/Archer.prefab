@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6963894447796222211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110555066385394588}
+  - component: {fileID: 120583919986076216}
+  m_Layer: 0
+  m_Name: OnHitState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &110555066385394588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6963894447796222211}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 94.83, y: 0.91999817, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7327329309079343320}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &120583919986076216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6963894447796222211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ea34a2de646924ca6dd6c4e0a34534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runFixedUpdate: 0
+  archer: {fileID: 7327329309123210185}
+  idleState: {fileID: 7327329309873729838}
+  deathState: {fileID: 939110706285089634}
+  animatorStringOnHit: archer_enemy_hit
 --- !u!1 &7327329308106071810
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,40 +94,11 @@ MonoBehaviour:
   runFixedUpdate: 0
   chaseState: {fileID: 7327329309533014942}
   idleState: {fileID: 7327329309873729838}
+  deathState: {fileID: 939110706285089634}
   animatorStringForJump: archer_enemy_jump
   animatorStringForFall: archer_enemy_fall
   archer: {fileID: 7327329309123210185}
   speed: 0.2
---- !u!1 &7327329308215831716
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7327329308215831717}
-  m_Layer: 0
-  m_Name: ReturnBaseState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7327329308215831717
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7327329308215831716}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7327329309079343320}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7327329308949081199
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +160,8 @@ Transform:
   - {fileID: 7327329309873729839}
   - {fileID: 7327329309167026061}
   - {fileID: 7327329309533014913}
-  - {fileID: 7327329308215831717}
+  - {fileID: 110555066385394588}
+  - {fileID: 9135901724730404605}
   m_Father: {fileID: 7327329309123210185}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -381,11 +401,21 @@ MonoBehaviour:
   wallObjectsParent: {fileID: 0}
   runningSpeed: 5
   attackDistance: 5
-  groundCheck: {fileID: 7327329309709163802}
-  wallCheck: {fileID: 7327329309421894265}
-  heightCheck: {fileID: 7327329309528069539}
-  groundBoxSize: {x: 1, y: 1}
-  wallBoxSize: {x: 1, y: 5}
+  colliders:
+  - transform: {fileID: 7327329309421894265}
+    boxSize: {x: 1, y: 5}
+    rayCastSpawnPoint: 0
+  - transform: {fileID: 7327329309709163802}
+    boxSize: {x: 1, y: 1}
+    rayCastSpawnPoint: 0
+  - transform: {fileID: 7327329309528069539}
+    boxSize: {x: 0, y: 10}
+    rayCastSpawnPoint: 1
+  blockAbility: 0
+  blockProbability: 0
+  blockMask:
+    serializedVersion: 2
+    m_Bits: 0
   maxFallHeight: 10
   maxDistanceFromSpawnPoint: 40
   timePassUntilMoveBack: 3
@@ -454,11 +484,18 @@ MonoBehaviour:
   archer: {fileID: 7327329309123210185}
   idleState: {fileID: 7327329309873729838}
   chaseState: {fileID: 7327329309533014942}
+  deathState: {fileID: 939110706285089634}
+  attackMoves: []
   arrowPrefab: {fileID: 4581170621196694201, guid: 520984d1a2de16d40b12f937c08455bc,
     type: 3}
   arrowStart: {fileID: 7327329308949081196}
   arrowSpeed: 60
-  animatorStringForAttack: archer_enemy_shoot
+  ranged: 1
+  damageArea: {fileID: 0}
+  damageRadius: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &7327329309421894264
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,8 +602,10 @@ MonoBehaviour:
   runFixedUpdate: 0
   archer: {fileID: 7327329309123210185}
   idleState: {fileID: 7327329309873729838}
+  blockState: {fileID: 0}
   attackState: {fileID: 7327329309167026058}
   jumpState: {fileID: 7327329308106071808}
+  onHitState: {fileID: 120583919986076216}
   animatorStringForRun: archer_enemy_run
   animatorStringForFall: archer_enemy_fall
   jumpEnabled: 1
@@ -666,7 +705,6 @@ MonoBehaviour:
   castPoint: {fileID: 7327329309942657990}
   tilemapGround: {fileID: 0}
   player: {fileID: 0}
-  drawRayCast: 0
 --- !u!1 &7327329309873729873
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +751,8 @@ MonoBehaviour:
   runFixedUpdate: 0
   chaseState: {fileID: 7327329309533014942}
   attackState: {fileID: 7327329309167026058}
+  blockState: {fileID: 0}
+  onHitState: {fileID: 120583919986076216}
   archer: {fileID: 7327329309123210185}
   animatorStringForIdle: archer_enemy_idle
 --- !u!1 &7327329309942657993
@@ -745,6 +785,52 @@ Transform:
   m_Father: {fileID: 7327329309781027629}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8323321398763498705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9135901724730404605}
+  - component: {fileID: 939110706285089634}
+  m_Layer: 0
+  m_Name: DeathState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9135901724730404605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323321398763498705}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 94.83, y: 0.91999817, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7327329309079343320}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &939110706285089634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323321398763498705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b6e973543925b488dac011f5776aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runFixedUpdate: 0
+  archer: {fileID: 7327329309123210185}
+  animatorDeathString: archer_enemy_death
 --- !u!1001 &7327329309728964782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -844,15 +930,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5872183874660e47b6727a1338e1ca9, type: 3}
---- !u!1 &3945100750694950157 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5985344465474725283, guid: b5872183874660e47b6727a1338e1ca9,
-    type: 3}
-  m_PrefabInstance: {fileID: 7327329309728964782}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &964026151650089324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7552272151445658050, guid: b5872183874660e47b6727a1338e1ca9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7327329309728964782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3945100750694950157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5985344465474725283, guid: b5872183874660e47b6727a1338e1ca9,
     type: 3}
   m_PrefabInstance: {fileID: 7327329309728964782}
   m_PrefabAsset: {fileID: 0}

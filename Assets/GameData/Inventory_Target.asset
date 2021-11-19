@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onInventoryItemsUpdated: {fileID: 11400000, guid: 04201be25b8689d47ae88136f49f75f7,
     type: 2}
-  inventoryType: 0
+  inventoryType: 1

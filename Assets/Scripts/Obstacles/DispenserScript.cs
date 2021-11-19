@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class DispenserScript : MonoBehaviour
 {
-
     public TriggerObstacle obstaclePrefab;
     public float obstacleSpeed;
-    private float time = 0;
+    public Transform fireSpawn;
     public float obstacleDelay;
+    public float variance;
+    [SerializeField] private bool resetPlayer;
 
     private bool shoot;
-
+    private float time = 0;
     private Vector2 dir;
 
     // Start is called before the first frame update
     void Start()
     {
-        dir = new Vector2(obstacleSpeed, 0);
-
-        
+        dir = new Vector3(transform.rotation.x * obstacleSpeed, transform.rotation.y * obstacleSpeed, transform.rotation.z);
     }
 
     // Update is called once per frame
@@ -29,8 +28,9 @@ public class DispenserScript : MonoBehaviour
         {
             if (time < Time.time)
             {
-                TriggerObstacle obstacle = Instantiate(obstaclePrefab, transform.position - new Vector3(2, 0, 0), transform.rotation) as TriggerObstacle;
-                obstacle.dir = dir;
+                TriggerObstacle obstacle = Instantiate(obstaclePrefab, fireSpawn.position, transform.rotation) as TriggerObstacle;
+                obstacle.GetComponent<DispenserMunitionDamagePlayer>().resetPlayer = resetPlayer;
+                obstacle.dir = new Vector2(obstacle.transform.up.x + variance, obstacle.transform.up.y) * obstacleSpeed;
                 time = Time.time + obstacleDelay;
             }
         }
@@ -41,7 +41,7 @@ public class DispenserScript : MonoBehaviour
         if (collision.tag == "Player")
         {
             shoot = true;
-        } 
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

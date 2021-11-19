@@ -6,25 +6,34 @@ public class JumpState : State
 {
     public ChaseState chaseState;
     public IdleState idleState;
+    public DeathState deathState;
 
     public string animatorStringForJump;
     public string animatorStringForFall;
 
     public Transform archer;
     public float speed;
-    StateModel archerEntity;
+    private StateModel archerEntity;
+    private EnemyEntity enemyEntity;
 
     private string stateString = "jumpState";
 
     private bool started = false;
-    private bool playerFelt = false;
+    private bool enemyFall = false;
     private Coroutine jmpRoutine;
 
     
+    public override void initVariables()
+    {
+        enemyFall = false;
+        started = false;
+    }
+
     public void Start()
     {
         archerEntity = archer.GetComponent<StateModel>();
-        runFixedUpdate = true ;
+        enemyEntity = archer.GetComponent<EnemyEntity>();
+        initVariables();
     }
 
     public override State RunCurrentState()
@@ -34,13 +43,16 @@ public class JumpState : State
         archerEntity.IsGrounded = Physics2D.OverlapBox(archerEntity.colliders[1].transform.position, archerEntity.colliders[1].boxSize, 0, archerEntity.LayerMask);
 
 
-        if (started && playerFelt && archerEntity.IsGrounded)
+        if (started && enemyFall && archerEntity.IsGrounded)
         {
-            playerFelt = false;
-            started = false;
+            
             StopCoroutine(jmpRoutine);
             return idleState;
            
+        }else if(enemyEntity.getCurrentHitPoints() <= 0)
+        {
+            StopCoroutine(jmpRoutine);
+            return deathState;
         }
 
         if (!started)
@@ -91,7 +103,7 @@ public class JumpState : State
             //Debug.Log("FIRST LOOP");
 
             archerEntity.Animator.Play(animatorStringForFall);
-            playerFelt = true;
+            enemyFall = true;
 
             tempT = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
             archer.GetComponent<Rigidbody2D>().position = Vector3.Lerp(fromPos02, toPos02, t);

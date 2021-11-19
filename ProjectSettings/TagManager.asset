@@ -16,6 +16,8 @@ TagManager:
   - Obstacle
   - Bullet
   - Destructable
+  - Slippery
+  - Bounds
   layers:
   - Default
   - TransparentFX

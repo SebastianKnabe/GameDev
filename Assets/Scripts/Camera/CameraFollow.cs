@@ -147,4 +147,9 @@ public class CameraFollow : MonoBehaviour
     {
         this.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, -10);
     }
+
+    public void SetCameraTarget(GameObject newTarget)
+    {
+        target = newTarget;
+    }
 }

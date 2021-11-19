@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3284422528222512156}
   m_Layer: 0
   m_Name: EnemyBullet
-  m_TagString: Player
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9005506411ffc8140a3b35aa21a6b5cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 50
   isDestructable: 0
 --- !u!58 &3284422528222512156
 CircleCollider2D:

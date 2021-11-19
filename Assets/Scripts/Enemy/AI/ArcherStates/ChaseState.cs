@@ -8,9 +8,10 @@ public class ChaseState : State
 
     public Transform archer;
     public IdleState idleState;
+    public BlockState blockState;
     public AttackState attackState;
     public JumpState jumpState;
-
+    public OnHitState onHitState;
 
 
     public string animatorStringForRun;
@@ -25,13 +26,18 @@ public class ChaseState : State
     private string stateString = "chaseState";
     private int wallLayerMask;
 
-    
+
+    public override void initVariables()
+    {
+
+    }
+
     public void Start()
     {
 
         archerEntity = archer.GetComponentInChildren<StateModel>();
         wallLayerMask = LayerMask.GetMask("JumpingWall");
-        runFixedUpdate = true;
+        initVariables();
 
     }
 
@@ -39,9 +45,17 @@ public class ChaseState : State
     public override State RunCurrentState()
     {
 
-        
+        if (archerEntity.checkHealth() == 1)
+        {
+            return onHitState;
+        }
 
-        if(archerEntity.returnToSpawnPoint() && Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x) <= 0.1f)
+        if (archerEntity.BlockProjectile())
+        {
+            return blockState;
+        }
+
+        if (archerEntity.returnToSpawnPoint() && Mathf.Abs(archerEntity.transform.position.x - archerEntity.SpawnPosition.x) <= 0.1f)
         {
             
             archerEntity.IsChasing = false;
@@ -192,9 +206,7 @@ public class ChaseState : State
         return stateString;
     }
 
- 
 
-   
 
 }
 

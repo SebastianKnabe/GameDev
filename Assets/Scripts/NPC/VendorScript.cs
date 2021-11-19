@@ -47,7 +47,6 @@ public class VendorScript : MonoBehaviour
             TextObject.GetComponent<TextMesh>().text = "Press [E] to shop";
             instanceOfTextObject = Instantiate(TextObject, TextPosition.transform.position, Quaternion.identity, TextPosition.transform);
             playerInRange = true;
-
         }
     }
 
