@@ -56,7 +56,11 @@ public class BulletScript : MonoBehaviour
         //Debug.Log("Tag: " + other.gameObject.tag + " from " + other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyEntity>().takeDamage(damage);
+            EnemyEntity entity = other.gameObject.GetComponent<EnemyEntity>();
+            if (entity != null)
+            {
+                entity.takeDamage(damage);
+            }
             //ScreenShakeController.instace.startShake(.5f, 0.2f);
             Destroy(this.gameObject);
 

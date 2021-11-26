@@ -10,7 +10,6 @@ public class coinCollectScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("CoinTrigger: " + other.tag);
             if (playerInventory != null)
             {
                 playerInventory.ItemContainer.addCurrency(1);
