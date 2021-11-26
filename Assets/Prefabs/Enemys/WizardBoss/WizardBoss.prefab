@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 8145677424105413560}
   - component: {fileID: 8145677424105413562}
   - component: {fileID: 8145677424105413563}
+  - component: {fileID: 346033250}
   m_Layer: 0
   m_Name: WizardBoss
   m_TagString: Enemy
@@ -140,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542de93de627fd24ba2db81df7b20766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossUI: {fileID: 4877476803879087323, guid: 9eb838c424cf74caaa313ef874643aa0, type: 3}
+  BossUI: {fileID: 0}
   BGMAudioSource: {fileID: 0}
   bossMusic: {fileID: 8300000, guid: d915bb0ea3a36224ba6e292b2f1d7504, type: 3}
 --- !u!58 &8145677424105413562
@@ -156,9 +157,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.509159, y: 6.7974358}
+  m_Offset: {x: -15.67836, y: 40}
   serializedVersion: 2
-  m_Radius: 14.902447
+  m_Radius: 4.9936447
 --- !u!114 &8145677424105413563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +187,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 346033250}
+        m_MethodName: ActivateTeleports
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &346033250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145677424105413566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f41916378bff741b13a38b58c2e4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tpFrom: {fileID: 0}
+  tpTo: {fileID: 0}
 --- !u!1 &8145677424242070398
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,8 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoints: 100
   collideDamage: 1
-  enemyHealthbarPrefab: {fileID: 5985344465474725283, guid: b5872183874660e47b6727a1338e1ca9,
-    type: 3}
+  enemyHealthbarPrefab: {fileID: 0}
   dropEnabled: 0
   isBoss: 1
   bossTookDamageEvent: {fileID: 11400000, guid: 12e9df497a6b19e438c9ab6e75e3fbb4,
@@ -307,7 +332,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -394,6 +419,7 @@ MonoBehaviour:
   meteorSoundFX: {fileID: 8300000, guid: 06eae133ccea8f64b83b9805030a8a02, type: 3}
   audioSource: {fileID: 0}
   mainCamera: {fileID: 0}
+  lighting: {fileID: 0}
 --- !u!114 &8145677424242070375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,7 +640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8145677425267246994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.9, y: 32.8, z: 0}
+  m_LocalPosition: {x: -15, y: 27.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8145677424105413561}
@@ -798,6 +824,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5985344465474725283, guid: b5872183874660e47b6727a1338e1ca9,
         type: 3}
+    - target: {fileID: 6516129187208230349, guid: fbc9c9171d58c924a8c1e27fc1210ccd,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbc9c9171d58c924a8c1e27fc1210ccd, type: 3}
 --- !u!4 &8145677425253275887 stripped

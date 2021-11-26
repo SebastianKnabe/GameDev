@@ -82,13 +82,13 @@ public class SpaceShip : MonoBehaviour
         updateFuel();
         if (other.tag == "Player")
         {
-            if (currentScene == CurrentScene.Earth && fuel != 4f)
+            if (currentScene == CurrentScene.Earth && fuel < 4f)
             {
                 textObject.GetComponent<TextMesh>().text = "You cant fly away now. You can only \nstart your ship if it is completely filled up.\n Progress: [" + fuel + "/4]";
                 instanceOfTextObject = Instantiate(textObject, textPosition.transform.position, Quaternion.identity, textPosition.transform);
                 playerInRange = true;
             }
-            else if (fuel == 4f)
+            else if (fuel >= 4f)
             {
                 textObject.GetComponent<TextMesh>().text = "Press [" + KeyCode.E + "] to \n" + interactionText;
                 instanceOfTextObject = Instantiate(textObject, textPosition.transform.position, Quaternion.identity, textPosition.transform);
