@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2160,6 +2160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679585606853586435, guid: fac084afc3cf9b944ac29c15633a96ee,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fac084afc3cf9b944ac29c15633a96ee, type: 3}
@@ -7076,6 +7081,11 @@ PrefabInstance:
       propertyPath: currentScene
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6309235995792422708, guid: 3c47e15f46dff574c9ecef6e159d315b,
+        type: 3}
+      propertyPath: saveFileHandler
+      value: 
+      objectReference: {fileID: 1028293527}
     - target: {fileID: 6309235995792422709, guid: 3c47e15f46dff574c9ecef6e159d315b,
         type: 3}
       propertyPath: m_SortingOrder
@@ -7637,6 +7647,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2084005187147797677, guid: ec284407f1faa4dd38d9a6f42ebeba80,
     type: 3}
   m_PrefabInstance: {fileID: 965161429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1028293527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8037173622982378965, guid: 7a011a9576fea6a4b9925185d7d17299,
+    type: 3}
+  m_PrefabInstance: {fileID: 1536583192}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1048498979
 GameObject:
