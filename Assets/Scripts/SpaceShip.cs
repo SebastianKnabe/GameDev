@@ -106,9 +106,6 @@ public class SpaceShip : MonoBehaviour
         }
     }
 
-
-
-
     public void updateFuel()
     {
         fuel = inventory.ItemContainer.GetTotalQuantity(questItem);

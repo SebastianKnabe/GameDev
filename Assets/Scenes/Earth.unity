@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1751,40 +1751,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpawnSafe: {fileID: 11400000, guid: 82d93606e03c0444a9dbc0c7b7072c77, type: 2}
   playerSpawnUnsafe: {fileID: 11400000, guid: c9a455aa9cc66334b926051cf97192f1, type: 2}
---- !u!1 &246249371 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6309235995792422715, guid: 3c47e15f46dff574c9ecef6e159d315b,
-    type: 3}
-  m_PrefabInstance: {fileID: 943313507}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &246249377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246249371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d599773778ffb634ba0e2b7c9285bb24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 04201be25b8689d47ae88136f49f75f7, type: 2}
-  unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6309235995792422708, guid: 3c47e15f46dff574c9ecef6e159d315b,
-          type: 3}
-        m_MethodName: updateFuel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &247506383
 GameObject:
   m_ObjectHideFlags: 0
