@@ -110,25 +110,27 @@ public class PlayerEntity : MonoBehaviour
      */
     public void takeDamage(float incomingDamage)
     {
-        if (damageCooldown)
+        if (incomingDamage > 0f)
         {
-            return;
+            if (damageCooldown)
+            {
+                return;
+            }
+            animator.SetTrigger("takingDamage");
+            currentHitPoints -= incomingDamage;
+
+            if (currentHitPoints <= 0)
+            {
+                death();
+                return;
+            }
+
+            updateHealthbar();
+
+            damageCooldown = true;
+            timeSinceLastDamage = Time.time;
+            timeSinceLastColorChange = Time.time - changeColorHitRate;
         }
-        animator.SetTrigger("takingDamage");
-        currentHitPoints -= incomingDamage;
-
-        if (currentHitPoints <= 0)
-        {
-            death();
-            return;
-        }
-
-        updateHealthbar();
-
-        damageCooldown = true;
-        timeSinceLastDamage = Time.time;
-        timeSinceLastColorChange = Time.time - changeColorHitRate;
-
     }
 
     public void hitObstacle(float damageTaken)
@@ -136,9 +138,9 @@ public class PlayerEntity : MonoBehaviour
         if (!damageCooldown)
         {
 
-        rb.AddForce(transform.up * 15, ForceMode2D.Impulse);
-        takeDamage(damageTaken);
-        StartCoroutine("WaitForHit");
+            rb.AddForce(transform.up * 15, ForceMode2D.Impulse);
+            takeDamage(damageTaken);
+            StartCoroutine("WaitForHit");
         }
 
     }

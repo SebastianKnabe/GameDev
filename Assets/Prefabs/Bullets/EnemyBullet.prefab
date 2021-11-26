@@ -120,7 +120,7 @@ MonoBehaviour:
   damage: 10
   bulletSpeed: 60
   weaponCooldown: 5
-  shooter: Player
+  shooter: Enemy
   isDestructable: 0
 --- !u!58 &3284422528222512156
 CircleCollider2D:

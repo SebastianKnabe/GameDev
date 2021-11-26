@@ -38,12 +38,13 @@ public class SpaceShip : MonoBehaviour
                     Debug.Log("Fly to Space");
                     StartFlyingAnimation();
                 }
-            } else
+            }
+            else
             {
                 Debug.Log("Fly to Space");
                 StartFlyingAnimation();
             }
-           
+
             saveFileHandler.GetComponent<SaveFileHandler>().Save();
         }
     }
@@ -79,18 +80,20 @@ public class SpaceShip : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         updateFuel();
-        if (other.tag == "Player" && currentScene == CurrentScene.Earth && fuel != 4f)
+        if (other.tag == "Player")
         {
-            textObject.GetComponent<TextMesh>().text = "You cant fly away now. You can only \nstart your ship if it is completely filled up.\n Progress: [" + fuel + "/4]";
-            instanceOfTextObject = Instantiate(textObject, textPosition.transform.position, Quaternion.identity, textPosition.transform);
-            playerInRange = true;
-        }
-
-        if (fuel == 4f)
-        {
-            textObject.GetComponent<TextMesh>().text = "Press [" + KeyCode.E + "] to \n" + interactionText;
-            instanceOfTextObject = Instantiate(textObject, textPosition.transform.position, Quaternion.identity, textPosition.transform);
-            playerInRange = true;
+            if (currentScene == CurrentScene.Earth && fuel < 4f)
+            {
+                textObject.GetComponent<TextMesh>().text = "You cant fly away now. You can only \nstart your ship if it is completely filled up.\n Progress: [" + fuel + "/4]";
+                instanceOfTextObject = Instantiate(textObject, textPosition.transform.position, Quaternion.identity, textPosition.transform);
+                playerInRange = true;
+            }
+            else if (fuel >= 4f)
+            {
+                textObject.GetComponent<TextMesh>().text = "Press [" + KeyCode.E + "] to \n" + interactionText;
+                instanceOfTextObject = Instantiate(textObject, textPosition.transform.position, Quaternion.identity, textPosition.transform);
+                playerInRange = true;
+            }
         }
     }
 
@@ -103,13 +106,9 @@ public class SpaceShip : MonoBehaviour
         }
     }
 
-
-
-
     public void updateFuel()
     {
         fuel = inventory.ItemContainer.GetTotalQuantity(questItem);
-        Debug.Log("something happened");
     }
 }
 
