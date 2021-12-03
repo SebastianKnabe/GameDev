@@ -144,6 +144,8 @@ public class EnemyEntity : MonoBehaviour
             GameObject bar = Instantiate(enemyHealthbarPrefab);
             bar.transform.parent = gameObject.transform;
             enemyHealthbarPrefab = bar;
+
+            enemyHealthbarPrefab.GetComponent<EnemyHealtbarRescaleScript>().rescaleHealthbar();
         }
     }
 

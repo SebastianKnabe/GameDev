@@ -33,7 +33,7 @@ public class SpaceShip : MonoBehaviour
         {
             if (currentScene == CurrentScene.Earth)
             {
-                if (fuel == 4)
+                if (fuel >= 4)
                 {
                     Debug.Log("Fly to Space");
                     StartFlyingAnimation();
