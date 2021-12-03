@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TriggerSpikeSound : MonoBehaviour
 {
-
-    public AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip spikeSound;
 
     public void PlaySpikeSound()

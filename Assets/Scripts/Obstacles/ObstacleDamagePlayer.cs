@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class ObstacleDamagePlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public float damageTaken;
-
 
     void OnCollisionEnter2D(Collision2D col)
     {

@@ -42,6 +42,7 @@ public class EnemyEntity : MonoBehaviour
      */
     public void takeDamage(float incomingDamage)
     {
+        Debug.Log("takeDamage EnemyEntity: " + incomingDamage);
         if (stateModel != null)
         {
             stateModel.fireDamageEvent();
@@ -72,18 +73,11 @@ public class EnemyEntity : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.gameObject.GetComponent<PlayerEntity>().takeDamage(collideDamage);
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.gameObject.GetComponent<PlayerEntity>().takeDamage(collideDamage);
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CapsuleCollider2D>(), circleCollider2D);
         }
     }
@@ -150,6 +144,8 @@ public class EnemyEntity : MonoBehaviour
             GameObject bar = Instantiate(enemyHealthbarPrefab);
             bar.transform.parent = gameObject.transform;
             enemyHealthbarPrefab = bar;
+
+            enemyHealthbarPrefab.GetComponent<EnemyHealtbarRescaleScript>().rescaleHealthbar();
         }
     }
 

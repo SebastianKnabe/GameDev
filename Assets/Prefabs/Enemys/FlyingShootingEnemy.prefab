@@ -30,32 +30,6 @@ Transform:
   m_Father: {fileID: 3269490267965111962}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4839726396730163380
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269490267965111965}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1.875}
-    newSize: {x: 2, y: 1.875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 1.875}
-  m_EdgeRadius: 0
 --- !u!114 &1296949907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,10 +90,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7253519608193103841, guid: 6707b7155dd0e174baf002a00f41ca7e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8499016235386653753, guid: 6707b7155dd0e174baf002a00f41ca7e,
         type: 3}
       propertyPath: m_Name
-      value: FlyingShootingEnemy
+      value: FlyingShootingEnemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8499016235386653753, guid: 6707b7155dd0e174baf002a00f41ca7e,
         type: 3}
@@ -128,13 +107,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8499016235386653757, guid: 6707b7155dd0e174baf002a00f41ca7e,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.6025817
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8499016235386653757, guid: 6707b7155dd0e174baf002a00f41ca7e,
         type: 3}
-      propertyPath: m_Offset.x
-      value: -0.12586339
+      propertyPath: m_UsedByEffector
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8499016235386653758, guid: 6707b7155dd0e174baf002a00f41ca7e,
         type: 3}
@@ -190,6 +169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499016235386653759, guid: 6707b7155dd0e174baf002a00f41ca7e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2634755652204530119, guid: 6707b7155dd0e174baf002a00f41ca7e, type: 3}
