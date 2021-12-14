@@ -26,9 +26,27 @@ public abstract class WeaponEntity : MonoBehaviour
     [HideInInspector] public bool switched = false;
     
     public abstract void Start();
-    public abstract void Update();
+    public abstract void Run();
 
     public abstract void onSwitch();
+
+    public virtual void updateCooldown()
+    {
+            if (weaponCooldownTimer <= weaponCooldown)
+            {
+                weaponCooldownTimer += Time.fixedDeltaTime;
+                updateImageFillAmount();
+            }
+    }
+
+    public virtual void updateImageFillAmount()
+    {
+        cooldownImage.fillAmount =weaponCooldownTimer / weaponCooldown;
+        if (weaponCooldownTimer >= weaponCooldown)
+        {
+            cooldownImage.fillAmount = 0.0f;
+        }
+    }
 
     public void flipSprite(Vector3 crosshairPlayerDifference)
     {

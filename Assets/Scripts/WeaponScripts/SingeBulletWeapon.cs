@@ -22,13 +22,12 @@ public class SingeBulletWeapon : WeaponEntity
     }
 
     // Update is called once per frame
-    public override void Update()
+    public override void Run()
     {
         Vector3 crosshairPlayerDifference = crosshairScript.getCrosshairPlayerPosition();
         float rotationZ = Mathf.Atan2(crosshairPlayerDifference.y, crosshairPlayerDifference.x) * Mathf.Rad2Deg;
         flipSprite(crosshairPlayerDifference);
-        Debug.Log("C " + weaponCooldown);
-        Debug.Log("Timer : " + weaponCooldownTimer);
+
 
         if (Input.GetMouseButton(0) && !DialogueManager.dialogueMode && weaponCooldownTimer > weaponCooldown)
         {
@@ -55,5 +54,4 @@ public class SingeBulletWeapon : WeaponEntity
         b.GetComponent<Rigidbody2D>().velocity = direction * bullet.bulletSpeed;
     }
 
-    
 }

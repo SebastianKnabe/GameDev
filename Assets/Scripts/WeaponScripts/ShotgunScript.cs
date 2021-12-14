@@ -25,7 +25,7 @@ public class ShotgunScript : WeaponEntity
     }
 
     // Update is called once per frame
-    public override void Update()
+    public override void Run()
     {
         Vector3 crosshairPlayerDifference = crosshairScript.getCrosshairPlayerPosition();
         float rotationZ = Mathf.Atan2(crosshairPlayerDifference.y, crosshairPlayerDifference.x) * Mathf.Rad2Deg;
@@ -68,7 +68,6 @@ public class ShotgunScript : WeaponEntity
         b.GetComponent<Rigidbody2D>().velocity = direction * bullet.bulletSpeed;
     }
 
-    
 }
 
 

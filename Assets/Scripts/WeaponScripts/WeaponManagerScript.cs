@@ -42,8 +42,7 @@ public class WeaponManagerScript : MonoBehaviour
             weaponEntry.slot.transform.Find("Image").gameObject.GetComponent<Image>().sprite = weaponEntry.weapon.bulletPrefab.GetComponent<SpriteRenderer>().sprite;
             weaponEntry.weapon.weaponImage = weaponEntry.slot.transform.Find("Image").gameObject.GetComponent<Image>();
             weaponEntry.weapon.cooldownImage =  weaponEntry.slot.transform.Find("Cooldown").gameObject.GetComponent<Image>();
-
-            weaponEntry.weapon.cooldownImage.fillAmount = 0.0f;
+            
 
 
 
@@ -79,30 +78,18 @@ public class WeaponManagerScript : MonoBehaviour
         if(!currentWeapon.weapon.switched){
             currentWeapon.weapon.Start();
         }
-        currentWeapon.weapon.Update();
+        currentWeapon.weapon.Run();
 
     }
 
     public void updateCooldown(){
 
         foreach (var weaponEntity in weapons){
-            if (weaponEntity.weapon.weaponCooldownTimer <= weaponEntity.weapon.weaponCooldown)
-            {
-                weaponEntity.weapon.weaponCooldownTimer += Time.fixedDeltaTime;
-                updateImageFillAmount(weaponEntity);
-            }
+            weaponEntity.weapon.updateCooldown();
         }
 
     }
 
-    public void updateImageFillAmount(Weapon weaponEntity){
-
-        weaponEntity.weapon.cooldownImage.fillAmount = weaponEntity.weapon.weaponCooldownTimer/weaponEntity.weapon.bullet.weaponCooldown;
-        if(weaponEntity.weapon.weaponCooldownTimer >= weaponEntity.weapon.bullet.weaponCooldown){
-            weaponEntity.weapon.cooldownImage.fillAmount = 0.0f;
-        }
-
-    }
 
     public void resetScaling(){
         currentWeapon.weapon.weaponImage.transform.localScale = new Vector3(1f,1f,1f);

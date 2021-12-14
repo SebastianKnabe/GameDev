@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9210551154570024359}
   m_Layer: 0
   m_Name: LaserWeapon
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,19 +54,22 @@ MonoBehaviour:
   spriteFlipTreshold: 5
   audioSource: {fileID: 0}
   spriteManager: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: -5122297615798638232, guid: 9750b7b230dba2546875b6a5ea4f6e9a, type: 3}
   animator: {fileID: 0}
   bulletSound: {fileID: 8300000, guid: 7506d45c02d7a514d921b18c18d6dc9f, type: 3}
-  weaponCooldownTimer: 0
+  weaponCooldownTimer: 4.019997
   weaponCooldown: 4
   rb: {fileID: 0}
   crosshairScript: {fileID: 0}
-  switched: 0
-  lineRender: {fileID: 0}
+  switched: 1
+  lineRender: {fileID: 9210551154570024359}
   damage: 2
   range: 20
+  reflectionTime: 3
   statusEffectOfTarget:
   - {fileID: -3546329046083087133, guid: 161ea0285747bdd48880798d429d69e6, type: 3}
+  maxReflectionCount: 5
+  maxStepDistance: 200
 --- !u!120 &9210551154570024359
 LineRenderer:
   m_ObjectHideFlags: 0

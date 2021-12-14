@@ -7,6 +7,7 @@ public class BlockState : State
 
     public Transform archer;
     public IdleState idleState;
+    public OnHitState onHitState;
     public string animatorStringForBlock;
 
     private StateModel archerEntity;
@@ -18,7 +19,10 @@ public class BlockState : State
 
     public override State RunCurrentState()
     {
-        archerEntity.BlockProjectile();
+        if (!archerEntity.BlockProjectile())
+        {
+            return onHitState;
+        }
         archerEntity.Animator.Play(animatorStringForBlock);
 
         if (archerEntity.Animator.GetCurrentAnimatorStateInfo(0).IsName(animatorStringForBlock) &&
