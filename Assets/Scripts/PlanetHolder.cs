@@ -16,40 +16,35 @@ public class PlanetHolder : MonoBehaviour
     private float sumPlanetDistance;
     private float planetMoveFactor = 50f;
     private float scaleTimeFactor = 2.5f;
+    private float planetDistanceThreshold = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
-        int lastScene = PlayerPrefs.GetInt("LastScene");
-        if (lastScene == 0)
-        {
-            //Todo Start Animation
-            PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
-            SceneManager.LoadScene(gameSettings.lastPlayerScene);
-        }
-        else
-        {
-            currentSelectedPlanet = lastScene - 2;
-            numberOfPlanets = gameObject.transform.childCount;
-            maxPlanetArrayDistance = numberOfPlanets / 2;
-            planetSelectionPosition = new int[numberOfPlanets];
+        //Earth: 1 Ice: 2
+        int lastScene = gameSettings.lastPlayerScene;
 
-            float oldMoveFactor = planetMoveFactor;
-            float oldScaleFactor = scaleTimeFactor;
+        currentSelectedPlanet = lastScene - 2;
+        numberOfPlanets = gameObject.transform.childCount;
+        maxPlanetArrayDistance = numberOfPlanets / 2;
+        planetSelectionPosition = new int[numberOfPlanets];
 
-            planetMoveFactor = 1f;
-            scaleTimeFactor = 100f;
-            DeterminPlanetArrayPosition();
-            SetPlanetPositions();
-            scaleTimeFactor = oldScaleFactor;
-            planetMoveFactor = oldMoveFactor;
-        }
+        float oldMoveFactor = planetMoveFactor;
+        float oldScaleFactor = scaleTimeFactor;
+
+        planetMoveFactor = 1f;
+        scaleTimeFactor = 1000f;
+        DeterminPlanetArrayPosition();
+        SetPlanetPositions();
+        scaleTimeFactor = oldScaleFactor;
+        planetMoveFactor = oldMoveFactor;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && (sumPlanetDistance < planetDistanceThreshold))
         {
             currentSelectedPlanet -= 1;
             if (currentSelectedPlanet < 0)
@@ -58,7 +53,7 @@ public class PlanetHolder : MonoBehaviour
             }
             DeterminPlanetArrayPosition();
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) && (sumPlanetDistance < planetDistanceThreshold))
         {
             currentSelectedPlanet += 1;
             if (currentSelectedPlanet >= numberOfPlanets)
@@ -69,7 +64,7 @@ public class PlanetHolder : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))
         {
-            if (sumPlanetDistance < 100f)
+            if (sumPlanetDistance < planetDistanceThreshold)
             {
                 GameObject planet = gameObject.transform.GetChild(currentSelectedPlanet).gameObject;
                 planet.GetComponent<PlanetSelection>().selectPlanet();

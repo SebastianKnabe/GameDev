@@ -6,6 +6,8 @@ public class SaveFileHandler : MonoBehaviour
     [SerializeField] private GameSettings gameSettings;
     [SerializeField] private Inventory playerInventory;
 
+    private string saveFilePath = "/save.txt";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +23,16 @@ public class SaveFileHandler : MonoBehaviour
         saveFile.SetPlayerInventory(playerInventory);
 
         string saveFileJson = JsonUtility.ToJson(saveFile);
-        File.WriteAllText(Application.dataPath + "/save.txt", saveFileJson);
+        File.WriteAllText(Application.dataPath + saveFilePath, saveFileJson);
 
     }
 
     public void Load()
     {
         Debug.Log("Load Files");
-        if (File.Exists(Application.dataPath + "/save.txt"))
+        if (File.Exists(Application.dataPath + saveFilePath))
         {
-            string saveFileJson = File.ReadAllText(Application.dataPath + "/save.txt");
+            string saveFileJson = File.ReadAllText(Application.dataPath + saveFilePath);
             SaveFile loadedSaveFile = JsonUtility.FromJson<SaveFile>(saveFileJson);
 
             gameSettings.LoadSaveFile(loadedSaveFile);
@@ -44,7 +46,7 @@ public class SaveFileHandler : MonoBehaviour
         SaveFile saveFile = new SaveFile();
 
         string saveFileJson = JsonUtility.ToJson(saveFile);
-        File.WriteAllText(Application.dataPath + "/save.txt", saveFileJson);
+        File.WriteAllText(Application.dataPath + saveFilePath, saveFileJson);
 
         Load();
     }

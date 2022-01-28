@@ -6,10 +6,10 @@ using UnityEngine;
 public class GameSettings : ScriptableObject
 {
     //Player
-    [SerializeField] public int lastPlayerScene = 2;
+    [SerializeField] public int lastPlayerScene = 0;
 
     //Audio
-    [SerializeField] [Range(0, 1)] public float TotalVolume = 1f;
+    [SerializeField] [Range(0, 1)] public float TotalVolume = 0.2f;
     [SerializeField] [Range(0, 1)] public float BGMVolume = 0.2f;
     [SerializeField] [Range(0, 1)] public float SFXVolume = 0.2f;
 

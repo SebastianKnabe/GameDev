@@ -12,8 +12,7 @@ public class SpaceShip : MonoBehaviour
     [SerializeField] private CurrentScene currentScene;
     [SerializeField] private Inventory inventory;
     [SerializeField] private InventoryItem questItem;
-
-
+    [SerializeField] private GameSettings settings;
 
     private bool playerInRange = false;
     private GameObject instanceOfTextObject;
@@ -24,7 +23,6 @@ public class SpaceShip : MonoBehaviour
     {
         playerInRange = false;
         animator = GetComponent<Animator>();
-        PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
     }
 
     void Update()
@@ -51,6 +49,7 @@ public class SpaceShip : MonoBehaviour
 
     private void StartFlyingAnimation()
     {
+        settings.lastPlayerScene = SceneManager.GetActiveScene().buildIndex;
         if (camera != null)
         {
             camera.GetComponent<CameraFollow>().SetCameraTarget(this.gameObject);
